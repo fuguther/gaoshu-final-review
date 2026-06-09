@@ -1,45 +1,398 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>9.3 曲面积分 · 讲解</title>
-<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'},options:{enableMenu:false}};</script><script id="MathJax-script" async src="https://cdn.jsdmirror.com/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<link rel="preconnect" href="https://fonts.loli.net"><link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9.3 曲面积分 · 讲解</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  svg: { fontCache: 'global' },
+  options: { enableMenu: false }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdmirror.com/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="preconnect" href="https://fonts.loli.net">
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
 <link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/design-system.css">
-</head><body><div class="reading-progress"></div>
-<nav class="topnav"><div class="topnav-inner">
-<a href="../index.html" class="logo">高数期末复习站</a><span class="sep">|</span>
-<div class="dropdown"><button class="dropdown-toggle">第9章 ▾</button><div class="dropdown-menu"><a href="9.0-overview.html">章节导学</a><a href="9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a><a href="9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a><a href="9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a><a href="9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a><a href="9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a><a href="9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a></div></div>
-<div class="dropdown"><button class="dropdown-toggle">第10章 ▾</button><div class="dropdown-menu"><a href="../ch10/10.0-overview.html">章节导学</a><a href="../ch10/10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a><a href="../ch10/10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a><a href="../ch10/10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a><a href="../ch10/10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a><a href="../ch10/10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a><a href="../ch10/10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a></div></div>
-<div class="dropdown"><button class="dropdown-toggle">第11章 ▾</button><div class="dropdown-menu"><a href="../ch11/11.0-overview.html">章节导学</a><a href="../ch11/11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a><a href="../ch11/11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a><a href="../ch11/11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a><a href="../ch11/11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a></div></div>
-<a href="../exams/index.html" class="item">往年题</a><a href="../tips/index.html" class="item">技巧锦囊</a><button class="theme-toggle" aria-label="切换主题">🌙</button>
-</div></nav>
+</head>
+<body>
+
+<div class="reading-progress"></div>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="logo">高数期末复习站</a>
+    <span class="sep">|</span>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第9章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="9.0-overview.html">章节导学</a>
+        <a href="9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a>
+        <a href="9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a>
+        <a href="9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a>
+        <a href="9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a>
+        <a href="9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a>
+        <a href="9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第10章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch10/10.0-overview.html">章节导学</a>
+        <a href="../ch10/10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第11章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch11/11.0-overview.html">章节导学</a>
+        <a href="../ch11/11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a>
+        <a href="../ch11/11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <a href="../exams/index.html" class="item">往年题</a>
+    <a href="../tips/index.html" class="item">技巧锦囊</a>
+    <button class="theme-toggle" aria-label="切换主题">🌙</button>
+  </div>
+</nav>
+
 <main class="main">
-<div class="hero"><span class="tag">9.3 · 讲解</span><h1>曲面积分 <span class="em">第一型 vs 第二型</span></h1><p class="subtitle">一句话：第一型曲面积分是对面积的积分（无方向），第二型是对坐标的积分（有方向）。</p></div>
-<div class="inpage-toc"><h4>本页导航</h4><ul><li><a href="#sec-type1">第一型曲面积分</a></li><li><a href="#sec-type2">第二型曲面积分</a></li><li><a href="#sec-convert">两类转换</a></li></ul></div>
 
-<h2 id="sec-type1">📐 第一型曲面积分</h2>
-<p>积分形式：\(\displaystyle\iint_S f(x,y,z)\,dS\)</p>
-<p><strong>无方向</strong>，直接投影到坐标面计算。</p>
-<div class="steps">
-<div class="step"><div class="step-num">1</div><div class="step-body"><h4>把曲面写成显式方程（如 \(z=z(x,y)\)）</h4></div></div>
-<div class="step"><div class="step-num">2</div><div class="step-body"><h4>算面积元素</h4><p>\(dS = \sqrt{1+z_x^2+z_y^2}\,dxdy\)</p></div></div>
-<div class="step"><div class="step-num">3</div><div class="step-body"><h4>投影到坐标面，化为二重积分</h4></div></div>
-</div>
+  <div class="hero">
+    <span class="tag">9.3 · 讲解</span>
+    <h1>曲面积分 <span class="em">第一型 vs 第二型</span></h1>
+    <p class="subtitle">一句话：曲面积分是"把函数累加在曲面上"，第一型只管面积不管方向，第二型必须盯着曲面的侧。<br>这一节是格林公式在三维空间的自然延伸，也是高斯公式的直接铺垫。</p>
+  </div>
 
-<h2 id="sec-type2">📐 第二型曲面积分</h2>
-<p>积分形式：\(\displaystyle\iint_S P\,dydz + Q\,dzdx + R\,dxdy\)</p>
-<p><strong>有方向</strong>，必须注意曲面的侧（上/下、前/后、左/右）。</p>
-<div class="box key"><span class="label">方向规则</span>
-<ul><li>上侧：\(dxdy\) 取正；下侧：取负</li><li>前侧：\(dydz\) 取正；后侧：取负</li><li>右侧：\(dzdx\) 取正；左侧：取负</li></ul>
-</div>
+  <div class="inpage-toc">
+    <h4>本页导航</h4>
+    <ul>
+      <li><a href="#sec-essence">一句话本质</a></li>
+      <li><a href="#sec-intro">为什么需要曲面积分</a></li>
+      <li><a href="#sec-type1">第一型曲面积分（对面积）</a></li>
+      <li><a href="#sec-type2">第二型曲面积分（对坐标）</a></li>
+      <li><a href="#sec-unified">合一投影法</a></li>
+      <li><a href="#sec-convert">两类曲面积分的联系</a></li>
+      <li><a href="#sec-compare">一型 vs 二型 对照表</a></li>
+      <li><a href="#sec-link">与前后知识的联系</a></li>
+    </ul>
+  </div>
 
-<h2 id="sec-convert">📐 两类曲面积分的联系</h2>
-<div class="formula-block">
-\[\iint_S (P\cos\alpha + Q\cos\beta + R\cos\gamma)\,dS = \iint_S P\,dydz + Q\,dzdx + R\,dxdy\]
-<div class="caption">其中 \((\cos\alpha, \cos\beta, \cos\gamma)\) 是曲面的单位法向量</div>
-</div>
+  <h2 id="sec-essence">💡 一句话本质</h2>
+  <div class="formula-block">
+    <p style="font-size:18px; margin:0;"><strong>第一型</strong>：在曲面上"称质量"（只有大小没有方向）<br>
+    <strong>第二型</strong>：穿过曲面的"流量"（有进有出，方向决定正负）</p>
+  </div>
 
-<div class="page-jump"><a href="9.2-greens-problems.html">← 回格林公式题型</a><a href="9.3-surface-problems.html" class="primary">去练曲面积分题型 →</a></div>
-</main><button class="back-to-top" aria-label="回到顶部">↑</button>
-<footer class="site-footer">高数期末复习站 · 精心打磨每一类题的标准步骤<a href="../index.html">🏠 回首页</a></footer>
+  <h2 id="sec-intro">📖 为什么需要曲面积分</h2>
+  <p>格林公式把平面上的曲线积分转化成了二重积分。自然的问题是：<strong>三维空间中的曲面积分，能不能也有类似的转化？</strong></p>
+  <p>答案是<strong>高斯公式</strong>（下一节），但它需要你先学会计算曲面积分本身。所以本节是"工具"——先学会把曲面积分化成二重积分算出来，下一节再用高斯公式巧算。</p>
+
+  <div class="box idea">
+    <span class="label">类比理解</span>
+    <p>曲线积分是"沿着一条线"累加；曲面积分是"铺在一片面上"累加。第一型相当于给曲面"称总重"，第二型相当于看流体"穿过了多少"。</p>
+  </div>
+
+  <h2 id="sec-type1">📐 第一型曲面积分（对面积的积分）</h2>
+
+  <h3>定义与记号</h3>
+  <div class="formula-block">
+    \[\iint_\Sigma f(x,y,z)\,dS\]
+  </div>
+  <p>其中 \(\Sigma\) 是一张光滑曲面，\(dS\) 是<strong>面积元素</strong>。第一型曲面积分<strong>与曲面的方向无关</strong>——无论你把曲面翻到哪一面，积分值都一样。</p>
+
+  <div class="box idea">
+    <span class="label">物理意义</span>
+    <p>如果 \(f(x,y,z)\) 是曲面薄片的<strong>面密度</strong>，那么 \(f\,dS\) 就是一小块面积的质量，整个积分就是这张曲面的<strong>总质量</strong>。</p>
+  </div>
+
+  <h3>核心计算公式</h3>
+  <p>第一型的计算思想永远是一样的：<strong>投影到坐标面，把面积元素用偏导数表示出来</strong>。</p>
+
+  <table>
+    <tr><th>曲面方程</th><th>投影区域</th><th>面积元素 \(dS\)</th><th>积分转化</th></tr>
+    <tr>
+      <td>\(z = z(x,y)\)</td>
+      <td>\(D_{xy}\)</td>
+      <td>\(\sqrt{1+z_x^2+z_y^2}\,dxdy\)</td>
+      <td>\(\displaystyle\iint_{D_{xy}} f(x,y,z(x,y))\sqrt{1+z_x^2+z_y^2}\,dxdy\)</td>
+    </tr>
+    <tr>
+      <td>\(y = y(x,z)\)</td>
+      <td>\(D_{xz}\)</td>
+      <td>\(\sqrt{1+y_x^2+y_z^2}\,dxdz\)</td>
+      <td>\(\displaystyle\iint_{D_{xz}} f(x,y(x,z),z)\sqrt{1+y_x^2+y_z^2}\,dxdz\)</td>
+    </tr>
+    <tr>
+      <td>\(x = x(y,z)\)</td>
+      <td>\(D_{yz}\)</td>
+      <td>\(\sqrt{1+x_y^2+x_z^2}\,dydz\)</td>
+      <td>\(\displaystyle\iint_{D_{yz}} f(x(y,z),y,z)\sqrt{1+x_y^2+x_z^2}\,dydz\)</td>
+    </tr>
+  </table>
+
+  <div class="box key">
+    <span class="label">考场上最常考的情况</span>
+    <p>90% 的题曲面方程都写成 <strong>\(z = z(x,y)\)</strong>，投影到 \(xOy\) 面计算。所以你最需要背熟的是：</p>
+    <div class="formula-block">
+      \[dS = \sqrt{1+\left(\frac{\partial z}{\partial x}\right)^2+\left(\frac{\partial z}{\partial y}\right)^2}\,dxdy\]
+    </div>
+  </div>
+
+  <h3>标准计算步骤（投影到 \(xOy\) 面）</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>把曲面写成 \(z = z(x,y)\) 的显式方程</h4>
+        <p>如果是隐式方程（如球面 \(x^2+y^2+z^2=R^2\)），通常取上半球 \(z=\sqrt{R^2-x^2-y^2}\) 或下半球。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>确定投影区域 \(D_{xy}\)</h4>
+        <p>把曲面方程中的 \(z\) 消去，得到在 \(xOy\) 面上的投影范围。球面投影就是圆，锥面投影也是圆。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>计算偏导数和面积元素</h4>
+        <p>求 \(z_x, z_y\)，代入 \(dS = \sqrt{1+z_x^2+z_y^2}\,dxdy\)。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>代入被积函数，化为二重积分</h4>
+        <p>把 \(z\) 换成 \(z(x,y)\)，所有量都变成 \(x,y\) 的函数，然后在 \(D_{xy}\) 上算二重积分。</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>对称性（第一型可以放心用）</h3>
+  <p>第一型曲面积分的对称性和三重积分完全类似，因为 <strong>\(dS > 0\) 恒成立</strong>，没有方向带来的符号问题。</p>
+
+  <div class="box ok">
+    <span class="label">对称性口诀</span>
+    <p>若曲面 \(\Sigma\) 关于 \(xOy\) 面对称（上下对称）：</p>
+    <ul>
+      <li>被积函数 \(f(x,y,z)\) 关于 \(z\) 是<strong>奇函数</strong> → 积分 = <strong>0</strong></li>
+      <li>被积函数 \(f(x,y,z)\) 关于 \(z\) 是<strong>偶函数</strong> → 积分 = <strong>2倍上半部分</strong></li>
+    </ul>
+    <p>关于 \(yOz\) 面、\(xOz\) 面的对称性同理。</p>
+  </div>
+
+  <div class="box warn">
+    <span class="label">重要提醒</span>
+    <p>第一型的对称性<strong>和第二型完全不同</strong>！第二型因为有方向，奇函数反而可能是2倍、偶函数反而可能是0。下一节细讲。</p>
+  </div>
+
+  <h2 id="sec-type2">📐 第二型曲面积分（对坐标的积分）</h2>
+
+  <h3>定义与记号</h3>
+  <div class="formula-block">
+    \[\iint_\Sigma P\,dydz + Q\,dzdx + R\,dxdy\]
+  </div>
+  <p>也可以写成向量形式：\(\displaystyle\iint_\Sigma \vec{F}\cdot d\vec{S}\)，其中 \(\vec{F}=(P,Q,R)\)，\(d\vec{S}\) 是有向面积元素。</p>
+
+  <div class="box idea">
+    <span class="label">物理意义：流量</span>
+    <p>想象 \(\vec{F}\) 是一个流速场，\(\Sigma\) 是一张有方向的膜。第二型曲面积分就是<strong>单位时间内从指定方向穿过这张膜的流体净体积</strong>。如果流体从反方向穿，积分值为负。</p>
+  </div>
+
+  <h3>曲面的"侧"——方向从哪里来？</h3>
+  <p>第二型曲面积分<strong>必须指定曲面的侧</strong>。一张曲面有两个面，你必须告诉积分"从哪一侧穿过去算正"。</p>
+
+  <table>
+    <tr><th>投影分量</th><th>方向名称</th><th>法向量分量特征</th><th>符号</th></tr>
+    <tr>
+      <td>\(dxdy\)</td>
+      <td>上侧 / 下侧</td>
+      <td>法向量的 \(z\) 分量：\(\cos\gamma > 0\) 为上侧</td>
+      <td><strong>上正下负</strong></td>
+    </tr>
+    <tr>
+      <td>\(dydz\)</td>
+      <td>前侧 / 后侧</td>
+      <td>法向量的 \(x\) 分量：\(\cos\alpha > 0\) 为前侧</td>
+      <td><strong>前正后负</strong></td>
+    </tr>
+    <tr>
+      <td>\(dzdx\)</td>
+      <td>右侧 / 左侧</td>
+      <td>法向量的 \(y\) 分量：\(\cos\beta > 0\) 为右侧</td>
+      <td><strong>右正左负</strong></td>
+    </tr>
+  </table>
+
+  <div class="box key">
+    <span class="label">死记这个口诀</span>
+    <p style="font-size:18px; text-align:center;"><strong>上正下负，前正后负，右正左负</strong></p>
+    <p>这里的"上"是 \(z\) 轴正向，"前"是 \(x\) 轴正向，"右"是 \(y\) 轴正向。考试紧张时默念三遍。</p>
+  </div>
+
+  <h3>投影法计算第二型</h3>
+  <p>第二型的计算可以拆成三个独立积分：</p>
+  <div class="formula-block">
+    \[\iint_\Sigma P\,dydz + Q\,dzdx + R\,dxdy = \iint_\Sigma P\,dydz + \iint_\Sigma Q\,dzdx + \iint_\Sigma R\,dxdy\]
+  </div>
+  <p>每一项分别投影到对应的坐标面：</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>计算 \(\displaystyle\iint_\Sigma R\,dxdy\)</h4>
+        <p>把曲面写成 \(z = z(x,y)\)，投影到 \(D_{xy}\)。<br>
+        <strong>上侧</strong>：\(\displaystyle+\iint_{D_{xy}} R(x,y,z(x,y))\,dxdy\)<br>
+        <strong>下侧</strong>：\(\displaystyle-\iint_{D_{xy}} R(x,y,z(x,y))\,dxdy\)</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>计算 \(\displaystyle\iint_\Sigma P\,dydz\)</h4>
+        <p>把曲面写成 \(x = x(y,z)\)，投影到 \(D_{yz}\)。<br>
+        <strong>前侧</strong>（\(x\) 大的一侧）：\(\displaystyle+\iint_{D_{yz}} P(x(y,z),y,z)\,dydz\)<br>
+        <strong>后侧</strong>：\(\displaystyle-\iint_{D_{yz}} P(x(y,z),y,z)\,dydz\)</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>计算 \(\displaystyle\iint_\Sigma Q\,dzdx\)</h4>
+        <p>把曲面写成 \(y = y(x,z)\)，投影到 \(D_{xz}\)。<br>
+        <strong>右侧</strong>（\(y\) 大的一侧）：\(\displaystyle+\iint_{D_{xz}} Q(x,y(x,z),z)\,dzdx\)<br>
+        <strong>左侧</strong>：\(\displaystyle-\iint_{D_{xz}} Q(x,y(x,z),z)\,dzdx\)</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="box warn">
+    <span class="label">经典错误</span>
+    <p>投影法中，<strong>投影区域必须是被积函数曲面对应坐标面的投影</strong>。例如计算 \(R\,dxdy\) 时，曲面方程必须解出 \(z\) 作为 \(x,y\) 的函数，投影到 \(xOy\) 面。不能张冠李戴。</p>
+  </div>
+
+  <h3>第二型的对称性——陷阱警告</h3>
+  <p>第二型曲面积分的对称性和第一型<strong>完全相反</strong>，原因是 \(dydz, dzdx, dxdy\) 本身带有方向（可正可负）。</p>
+
+  <div class="box warn">
+    <span class="label">核心陷阱</span>
+    <p>若 \(\Sigma\) 关于 \(xOy\) 面对称（上下对称），考虑 \(R\,dxdy\) 项：</p>
+    <ul>
+      <li>\(R(x,y,z)\) 关于 \(z\) 是<strong>奇函数</strong> → \(R\,dxdy\) 项 = <strong>2倍上半部分</strong>（不是0！）</li>
+      <li>\(R(x,y,z)\) 关于 \(z\) 是<strong>偶函数</strong> → \(R\,dxdy\) 项 = <strong>0</strong>（不是2倍！）</li>
+    </ul>
+    <p><strong>为什么？</strong> 上下两侧的法向量 \(z\) 分量相反，所以 \(dxdy\) 的符号相反；奇函数本身也反号，负负得正，两个对称点贡献同向叠加。</p>
+  </div>
+
+  <div class="box idea">
+    <span class="label">安全策略</span>
+    <p>如果你对称性不熟，<strong>第二型曲面积分一律不用对称性</strong>，直接投影计算。考场上算慢一点也比猜错对称性丢分强。</p>
+  </div>
+
+  <h2 id="sec-unified">📐 合一投影法</h2>
+
+  <p>投影法的痛点是：三个分量要分别投到三个不同的坐标面，计算量大。如果曲面方程是 \(z = z(x,y)\)，我们可以把三项都投影到 <strong>同一个 \(xOy\) 面</strong> 上，这就是<strong>合一投影法</strong>。</p>
+
+  <h3>推导思路</h3>
+  <p>对于曲面 \(z = z(x,y)\)，面积元素之间的关系由法向量决定。上侧的单位法向量：</p>
+  <div class="formula-block">
+    \[(\cos\alpha, \cos\beta, \cos\gamma) = \frac{1}{\sqrt{1+z_x^2+z_y^2}}(-z_x, -z_y, 1)\]
+  </div>
+  <p>由两类曲面积分的关系 \(dydz = \cos\alpha\,dS\)，\(dzdx = \cos\beta\,dS\)，\(dxdy = \cos\gamma\,dS\)，以及 \(dS = \sqrt{1+z_x^2+z_y^2}\,dxdy\)，可得：</p>
+  <div class="formula-block">
+    \[dydz = -z_x\,dxdy, \quad dzdx = -z_y\,dxdy\]
+  </div>
+
+  <h3>合一投影公式</h3>
+  <div class="box key">
+    <span class="label">合一投影法（投影到 xOy 面）</span>
+    <p>若 \(\Sigma: z = z(x,y)\)，\((x,y)\in D_{xy}\)，则</p>
+    <div class="formula-block">
+      \[\iint_\Sigma P\,dydz + Q\,dzdx + R\,dxdy = \pm\iint_{D_{xy}}\Big[-P\cdot z_x - Q\cdot z_y + R\Big]\,dxdy\]
+    </div>
+    <p><strong>上侧取正号，下侧取负号。</strong>（式中 \(P,Q,R\) 的 \(z\) 都要代成 \(z(x,y)\)。）</p>
+  </div>
+
+  <div class="box idea">
+    <span class="label">记忆技巧</span>
+    <p>把 \(dydz, dzdx, dxdy\) 都换成 \(dxdy\) 的"价格"：<br>
+    \(dydz = -z_x\,dxdy\)（对 \(x\) 求偏导，带负号）<br>
+    \(dzdx = -z_y\,dxdy\)（对 \(y\) 求偏导，带负号）<br>
+    \(dxdy = 1\cdot dxdy\)（不变）</p>
+  </div>
+
+  <div class="box ok">
+    <span class="label">什么时候用合一投影法？</span>
+    <ul>
+      <li>曲面方程明确写成 <strong>\(z = z(x,y)\)</strong>（或可以方便地解出来）</li>
+      <li>被积函数同时有 \(P, Q, R\) 三个分量</li>
+      <li>投影到 \(xOy\) 面的区域比较简单（圆、矩形等）</li>
+    </ul>
+    <p>如果曲面是垂直于 \(xOy\) 面的柱面（如 \(x^2+y^2=a^2\)），则投影到 \(xOy\) 是一条线，面积为零，此时 <strong>\(R\,dxdy = 0\)</strong>，但 \(P, Q\) 项仍需另算。</p>
+  </div>
+
+  <h2 id="sec-convert">🔗 两类曲面积分的联系</h2>
+
+  <p>两类曲面积分之间的桥梁是<strong>单位法向量</strong>。</p>
+
+  <div class="formula-block">
+    \[\iint_\Sigma P\,dydz + Q\,dzdx + R\,dxdy = \iint_\Sigma (P\cos\alpha + Q\cos\beta + R\cos\gamma)\,dS\]
+  </div>
+  <p>其中 \((\cos\alpha, \cos\beta, \cos\gamma) = \vec{n}^0\) 是曲面 <strong>指定侧</strong> 的单位法向量。</p>
+
+  <div class="box idea">
+    <span class="label">什么时候用这个联系？</span>
+    <p>当你想把第二型转化成第一型算（利用第一型的对称性），或者反过来把第一型写成第二型再用高斯公式。</p>
+  </div>
+
+  <h2 id="sec-compare">📋 第一型 vs 第二型 对照表</h2>
+
+  <table>
+    <tr><th>对比项</th><th>第一型 \(\displaystyle\iint_\Sigma f\,dS\)</th><th>第二型 \(\displaystyle\iint_\Sigma P\,dydz+Q\,dzdx+R\,dxdy\)</th></tr>
+    <tr><td>有无方向</td><td><strong>无</strong>，与侧无关</td><td><strong>有</strong>，必须指定侧</td></tr>
+    <tr><td>面积元素</td><td>\(dS > 0\)</td><td>\(dydz, dzdx, dxdy\) 可正可负</td></tr>
+    <tr><td>物理意义</td><td>曲面质量</td><td>穿过曲面的流量</td></tr>
+    <tr><td>对称性</td><td>和三重积分一样（奇零偶倍）</td><td><strong>相反</strong>（奇倍偶零）</td></tr>
+    <tr><td>计算方法</td><td>投影 + 算 \(dS\)</td><td>投影 + 注意正负号 / 合一投影法</td></tr>
+    <tr><td>能否用高斯</td><td>需先转成第二型</td><td>可以直接用</td></tr>
+  </table>
+
+  <h2 id="sec-link">🔗 与前后知识的联系</h2>
+
+  <div class="box note">
+    <span class="label">知识网络</span>
+    <ul>
+      <li><strong>向前</strong>：格林公式处理平面曲线积分；曲面积分是三维空间的自然延伸，数学结构非常相似（都是"在几何对象上累加函数"）。</li>
+      <li><strong>向后</strong>：高斯公式（\(\text{div}\vec{F}\) 的三重积分 = 封闭曲面外侧的第二型曲面积分）直接把第二型曲面积分的计算难度降了一个维度——本节学投影法，下节学高斯巧算。</li>
+      <li><strong>横向</strong>：两类曲面积分的关系 \(\vec{F}\cdot d\vec{S}\) 和两类曲线积分的关系 \(\vec{F}\cdot d\vec{r}\) 是完全对应的向量思想。</li>
+    </ul>
+  </div>
+
+  <div class="page-jump">
+    <a href="9.2-greens-problems.html">← 回格林公式题型</a>
+    <a href="9.3-surface-problems.html" class="primary">去练曲面积分题型 →</a>
+  </div>
+
+</main>
+
+<button class="back-to-top" aria-label="回到顶部">↑</button>
+<footer class="site-footer">
+  高数期末复习站 · 精心打磨每一类题的标准步骤<a href="../index.html">🏠 回首页</a>
+</footer>
+
 <script src="../js/site.js"></script>
-</body></html>
+</body>
+</html>

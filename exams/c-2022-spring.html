@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2022春高数C期末 · 22春</title>
+<title>2022春高数C期末 · 逐题详解</title>
 <script>
 window.MathJax = {
   tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
@@ -68,14 +68,332 @@ window.MathJax = {
 <main class="main">
 
   <div class="hero">
-    <span class="tag">22春</span>
+    <span class="tag">22春 · 高数C</span>
     <h1>2022春高数C期末 <span class="em">逐题详解</span></h1>
-    <p class="subtitle">逐题详解</p>
+    <p class="subtitle">共 7 道大题，满分 100 分。考查范围：第9章（曲面积分、斯托克斯）、第10章（级数）、第11章（微分方程）。</p>
   </div>
 
-  <div class="box note">
-    <span class="label">正在完善</span>
-    <p>本页面内容正在精心打磨中，请先浏览其他已完成的章节。推荐前往 <a href="../index.html">首页</a> 查看完整导航。</p>
+  <div class="inpage-toc">
+    <h4>本页导航</h4>
+    <ul>
+      <li><a href="#q1">第1题 · 高斯公式（10分）</a></li>
+      <li><a href="#q2">第2题 · 斯托克斯公式（10分）</a></li>
+      <li><a href="#q3">第3题 · 级数敛散性（20分）</a></li>
+      <li><a href="#q4">第4题 · 幂级数展开（10分）</a></li>
+      <li><a href="#q5">第5题 · 幂级数求和（10分）</a></li>
+      <li><a href="#q6">第6题 · 傅里叶级数（10分）</a></li>
+      <li><a href="#q7">第7题 · 微分方程（30分）</a></li>
+    </ul>
+  </div>
+
+  <!-- ====== 第1题 ====== -->
+  <div class="example" id="q1">
+    <div class="example-header">
+      <span class="badge">第1题</span>
+      <span class="title">高斯公式 · 球面外侧</span>
+      <span class="badge">10分</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        计算 \(\displaystyle\iint_{S^+} x^4\,dydz + y^4\,dzdx + (z^4+z)\,dxdy\)，其中 \(S^+\) 是球面 \(x^2+y^2+z^2=1\) 的<strong>外侧</strong>。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>考点定位：</strong>封闭曲面上的第二型曲面积分 + 高斯公式。</p>
+      <p><strong>Step 1　识别类型，确定方法</strong></p>
+      <p>积分曲面是<strong>封闭球面</strong>，取外侧，被积函数在球内处处光滑。直接上<strong>高斯公式</strong>。</p>
+      <p><strong>Step 2　设向量场，求散度</strong></p>
+      <p>令 \(P=x^4,\;Q=y^4,\;R=z^4+z\)，则</p>
+      <div class="formula-block">
+        \[\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}=4x^3+4y^3+4z^3+1\]
+      </div>
+      <p><strong>Step 3　应用高斯公式</strong></p>
+      <div class="formula-block">
+        \[I=\iiint_\Omega(4x^3+4y^3+4z^3+1)\,dV\]
+      </div>
+      <p>其中 \(\Omega\) 为单位球体 \(x^2+y^2+z^2\leq 1\)。</p>
+      <p><strong>Step 4　利用对称性化简</strong></p>
+      <p>球体 \(\Omega\) 关于三个坐标面都对称：</p>
+      <ul>
+        <li>\(x^3\) 关于 \(x\) 是奇函数 → \(\displaystyle\iiint_\Omega x^3\,dV=0\)</li>
+        <li>\(y^3\) 关于 \(y\) 是奇函数 → \(\displaystyle\iiint_\Omega y^3\,dV=0\)</li>
+        <li>\(z^3\) 关于 \(z\) 是奇函数 → \(\displaystyle\iiint_\Omega z^3\,dV=0\)</li>
+      </ul>
+      <p><strong>Step 5　计算剩余积分</strong></p>
+      <div class="formula-block">
+        \[I=\iiint_\Omega 1\,dV=\text{单位球体积}=\frac{4\pi}{3}\]
+      </div>
+      <p><strong>答案：</strong>\(\boxed{\dfrac{4\pi}{3}}\)</p>
+    </div>
+  </div>
+
+  <!-- ====== 第2题 ====== -->
+  <div class="example" id="q2">
+    <div class="example-header">
+      <span class="badge">第2题</span>
+      <span class="title">斯托克斯公式 · 三角形边界</span>
+      <span class="badge">10分</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        计算 \(\displaystyle\oint_L z\,dx+x\,dy+y\,dz\)，其中 \(L\) 是平面 \(x+y+z=1\) 被三个坐标面所截得的三角形 \(S\) 的边界，其正向与此三角形的<strong>上侧</strong>相应。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>考点定位：</strong>空间闭曲线积分 + 斯托克斯公式。</p>
+      <p><strong>Step 1　应用斯托克斯公式</strong></p>
+      <div class="formula-block">
+        \[\oint_L P\,dx+Q\,dy+R\,dz=\iint_S\left[\left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\right)dydz+\left(\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}\right)dzdx+\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)dxdy\right]\]
+      </div>
+      <p>其中 \(P=z,\;Q=x,\;R=y\)。计算各偏导：</p>
+      <div class="formula-block">
+        \[\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}=1-0=1,\quad\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}=1-0=1,\quad\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}=1-0=1\]
+      </div>
+      <p>于是</p>
+      <div class="formula-block">
+        \[\oint_L z\,dx+x\,dy+y\,dz=\iint_S dydz+dzdx+dxdy\]
+      </div>
+      <p><strong>Step 2　用合一投影法计算曲面积分</strong></p>
+      <p>曲面 \(S\) 即平面 \(z=1-x-y\) 在第一卦限的部分，取<strong>上侧</strong>。投影区域</p>
+      <div class="formula-block">
+        \[D_{xy}:\;x\geq 0,\;y\geq 0,\;x+y\leq 1\]
+      </div>
+      <p>求偏导：\(z_x=-1,\;z_y=-1\)。上侧取正号，套合一投影公式：</p>
+      <div class="formula-block">
+        \[\begin{aligned}\iint_S dydz+dzdx+dxdy&=\iint_{D_{xy}}\big[-1\cdot(-1)-1\cdot(-1)+1\big]\,dxdy\\&=\iint_{D_{xy}}3\,dxdy\end{aligned}\]
+      </div>
+      <p><strong>Step 3　求投影区域面积</strong></p>
+      <p>\(D_{xy}\) 是直角边为 1 的等腰直角三角形，面积为 \(\dfrac{1}{2}\)。</p>
+      <div class="formula-block">
+        \[I=3\times\frac{1}{2}=\frac{3}{2}\]
+      </div>
+      <p><strong>答案：</strong>\(\boxed{\dfrac{3}{2}}\)</p>
+    </div>
+  </div>
+
+  <!-- ====== 第3题 ====== -->
+  <div class="example" id="q3">
+    <div class="example-header">
+      <span class="badge">第3题</span>
+      <span class="title">级数敛散性判别</span>
+      <span class="badge">20分</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        判断下列级数的敛散性（说明理由）：
+        \[(1)\;\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{2n+\cos n}\qquad(2)\;\sum_{n=1}^{\infty}\frac{3^n n!}{n^n}\qquad(3)\;\sum_{n=1}^{\infty}2^n(\sin 3^n)\sin\frac{1}{3^n}\qquad(4)\;\sum_{n=1}^{\infty}\left(1-\cos\frac{1}{n}\right)\]
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+
+      <h4>(1) \(\displaystyle\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{2n+\cos n}\)</h4>
+      <p><strong>分析：</strong>这是交错级数。先看是否绝对收敛。</p>
+      <div class="formula-block">
+        \[\left|\frac{(-1)^{n-1}}{2n+\cos n}\right|=\frac{1}{2n+\cos n}\sim\frac{1}{2n}\quad(n\to\infty)\]
+      </div>
+      <p>而 \(\sum\dfrac{1}{2n}\) 发散，故<strong>非绝对收敛</strong>。</p>
+      <p>再判原级数：虽然分母 \(2n+\cos n\) 不是严格单调，但 \(2n+\cos n\geq 2n-1\to+\infty\)，且通项绝对值趋于 0。注意到</p>
+      <div class="formula-block">
+        \[\frac{(-1)^{n-1}}{2n+\cos n}=\frac{(-1)^{n-1}}{2n}\cdot\frac{1}{1+\frac{\cos n}{2n}}=\frac{(-1)^{n-1}}{2n}-\frac{(-1)^{n-1}\cos n}{4n^2}+O\!\left(\frac{1}{n^3}\right)\]
+      </div>
+      <p>其中 \(\sum\dfrac{(-1)^{n-1}}{2n}\) 条件收敛，\(\sum\dfrac{(-1)^{n-1}\cos n}{4n^2}\) 绝对收敛（因 \(\left|\dfrac{\cos n}{4n^2}\right|\leq\dfrac{1}{4n^2}\)），余项也绝对收敛。故原级数<strong>条件收敛</strong>。</p>
+
+      <h4>(2) \(\displaystyle\sum_{n=1}^{\infty}\frac{3^n n!}{n^n}\)</h4>
+      <p><strong>分析：</strong>含阶乘和幂次，首选<strong>比值法</strong>。</p>
+      <div class="formula-block">
+        \[\frac{u_{n+1}}{u_n}=\frac{3^{n+1}(n+1)!}{(n+1)^{n+1}}\cdot\frac{n^n}{3^n n!}=\frac{3(n+1)n^n}{(n+1)^{n+1}}=\frac{3n^n}{(n+1)^n}=\frac{3}{\left(1+\frac{1}{n}\right)^n}\]
+      </div>
+      <p>取极限：</p>
+      <div class="formula-block">
+        \[\lim_{n\to\infty}\frac{u_{n+1}}{u_n}=\frac{3}{e}\gt 1\]
+      </div>
+      <p>由比值判别法，级数<strong>发散</strong>。</p>
+      <p class="note">（另证：因 \(\left(1+\frac{1}{n}\right)^n&lt;e\)，故 \(u_{n+1}/u_n&gt;1\)，即 \(u_n\) 单调递增且不趋于 0。）</p>
+
+      <h4>(3) \(\displaystyle\sum_{n=1}^{\infty}2^n(\sin 3^n)\sin\frac{1}{3^n}\)</h4>
+      <p><strong>分析：</strong>当 \(n\to\infty\) 时，\(\dfrac{1}{3^n}\to 0\)，利用等价无穷小 \(\sin t\sim t\)。</p>
+      <div class="formula-block">
+        \[2^n(\sin 3^n)\sin\frac{1}{3^n}\sim 2^n(\sin 3^n)\cdot\frac{1}{3^n}=\left(\frac{2}{3}\right)^n\sin 3^n\]
+      </div>
+      <p>而 \(\left|\left(\dfrac{2}{3}\right)^n\sin 3^n\right|\leq\left(\dfrac{2}{3}\right)^n\)，\(\sum\left(\dfrac{2}{3}\right)^n\) 是公比 \(\dfrac{2}{3}&lt;1\) 的等比级数，收敛。由比较判别法，原级数<strong>绝对收敛</strong>。</p>
+
+      <h4>(4) \(\displaystyle\sum_{n=1}^{\infty}\left(1-\cos\frac{1}{n}\right)\)</h4>
+      <p><strong>分析：</strong>利用等价无穷小 \(1-\cos t\sim\dfrac{t^2}{2}\)。</p>
+      <div class="formula-block">
+        \[1-\cos\frac{1}{n}\sim\frac{1}{2}\cdot\frac{1}{n^2}\quad(n\to\infty)\]
+      </div>
+      <p>\(\sum\dfrac{1}{n^2}\) 是 \(p=2&gt;1\) 的 \(p\)-级数，收敛。由极限比较法，原级数<strong>收敛（绝对收敛）</strong>。</p>
+    </div>
+  </div>
+
+  <!-- ====== 第4题 ====== -->
+  <div class="example" id="q4">
+    <div class="example-header">
+      <span class="badge">第4题</span>
+      <span class="title">幂级数展开 · 求导转化</span>
+      <span class="badge">10分</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        求函数 \(f(x)=\dfrac{1}{2}\arctan x+\dfrac{1}{4}\ln\dfrac{1+x}{1-x}\) 在 \(x_0=0\) 处的幂级数展开式及其收敛区间。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>考点定位：</strong>间接展开法——先求导化简为已知级数，再积分还原。</p>
+      <p><strong>Step 1　先求导，化简被积函数</strong></p>
+      <div class="formula-block">
+        \[\begin{aligned}f'(x)&=\frac{1}{2}\cdot\frac{1}{1+x^2}+\frac{1}{4}\cdot\frac{1-x}{1+x}\cdot\frac{(1-x)+(1+x)}{(1-x)^2}\\&=\frac{1}{2(1+x^2)}+\frac{1}{2(1-x^2)}\\&=\frac{(1-x^2)+(1+x^2)}{2(1-x^4)}=\frac{1}{1-x^4}\end{aligned}\]
+      </div>
+      <p><strong>Step 2　将导数展开为等比级数</strong></p>
+      <p>当 \(|x|&lt;1\) 时，\(\dfrac{1}{1-x^4}=\sum_{n=0}^{\infty}x^{4n}\)。</p>
+      <p><strong>Step 3　逐项积分还原 \(f(x)\)</strong></p>
+      <p>注意 \(f(0)=0\)，所以</p>
+      <div class="formula-block">
+        \[f(x)=\int_0^x f'(t)\,dt=\sum_{n=0}^{\infty}\int_0^x t^{4n}\,dt=\sum_{n=0}^{\infty}\frac{x^{4n+1}}{4n+1}\]
+      </div>
+      <p><strong>Step 4　判断收敛区间</strong></p>
+      <p>展开式在 \(|x|&lt;1\) 内成立。单独检验端点：</p>
+      <ul>
+        <li>\(x=1\)：\(\sum\dfrac{1}{4n+1}\sim\sum\dfrac{1}{4n}\)，与调和级数比较，<strong>发散</strong>。</li>
+        <li>\(x=-1\)：\(\sum\dfrac{(-1)^{4n+1}}{4n+1}=\sum\dfrac{-1}{4n+1}\)，同样<strong>发散</strong>。</li>
+      </ul>
+      <p><strong>答案：</strong></p>
+      <div class="formula-block">
+        \[f(x)=\sum_{n=0}^{\infty}\frac{x^{4n+1}}{4n+1},\qquad\text{收敛区间为 }(-1,1)\]
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== 第5题 ====== -->
+  <div class="example" id="q5">
+    <div class="example-header">
+      <span class="badge">第5题</span>
+      <span class="title">幂级数求和 · 逐次消去 \(n^2\)</span>
+      <span class="badge">10分</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        求级数 \(\displaystyle\sum_{n=1}^{\infty}n^2x^{n-1}\) 的收敛区间以及和函数 \(S(x)\)。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1　求收敛区间</strong></p>
+      <p>系数 \(a_n=n^2\)，收敛半径</p>
+      <div class="formula-block">
+        \[R=\lim_{n\to\infty}\left|\frac{a_n}{a_{n+1}}\right|=\lim_{n\to\infty}\frac{n^2}{(n+1)^2}=1\]
+      </div>
+      <p>端点 \(x=\pm 1\) 处通项 \(n^2(\pm 1)^{n-1}\) 不趋于 0，故收敛区间为 <strong>\((-1,1)\)</strong>。</p>
+      <p><strong>Step 2　设和函数，逐项积分</strong></p>
+      <p>令 \(S(x)=\displaystyle\sum_{n=1}^{\infty}n^2x^{n-1}\)。先积分一次：</p>
+      <div class="formula-block">
+        \[\int_0^x S(t)\,dt=\sum_{n=1}^{\infty}n^2\cdot\frac{x^n}{n}=\sum_{n=1}^{\infty}nx^n\]
+      </div>
+      <p><strong>Step 3　再处理 \(\sum nx^n\)</strong></p>
+      <p>提取 \(x\) 后再积分：</p>
+      <div class="formula-block">
+        \[\sum_{n=1}^{\infty}nx^n=x\sum_{n=1}^{\infty}nx^{n-1}=x\cdot\frac{d}{dx}\left(\sum_{n=1}^{\infty}x^n\right)=x\cdot\frac{d}{dx}\left(\frac{1}{1-x}\right)=\frac{x}{(1-x)^2}\]
+      </div>
+      <p><strong>Step 4　求导还原 \(S(x)\)</strong></p>
+      <div class="formula-block">
+        \[S(x)=\frac{d}{dx}\left[\frac{x}{(1-x)^2}\right]=\frac{(1-x)^2+2x(1-x)}{(1-x)^4}=\frac{1+x}{(1-x)^3}\]
+      </div>
+      <p><strong>答案：</strong>收敛区间 \(\boxed{(-1,1)}\)，和函数 \(\boxed{S(x)=\dfrac{1+x}{(1-x)^3}}\)</p>
+    </div>
+  </div>
+
+  <!-- ====== 第6题 ====== -->
+  <div class="example" id="q6">
+    <div class="example-header">
+      <span class="badge">第6题</span>
+      <span class="title">傅里叶级数 · 正弦展开</span>
+      <span class="badge">10分</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        将定义在区间 \([0,2]\) 上的函数 \(f(x)=\dfrac{x}{2}\) 展开成<strong>正弦级数</strong>，并求该级数在区间 \([0,2]\) 上的和函数 \(S(x)\)。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>考点定位：</strong>奇延拓 + 傅里叶正弦级数 + Dirichlet 定理。</p>
+      <p><strong>Step 1　确定参数</strong></p>
+      <p>展开成正弦级数相当于对 \(f(x)\) 作<strong>奇延拓</strong>，周期 \(2l=4\)，即 \(l=2\)。</p>
+      <p>奇延拓后 \(a_0=0,\;a_n=0\)，只需计算</p>
+      <div class="formula-block">
+        \[b_n=\frac{2}{l}\int_0^l f(x)\sin\frac{n\pi x}{l}\,dx=\int_0^2\frac{x}{2}\sin\frac{n\pi x}{2}\,dx\]
+      </div>
+      <p><strong>Step 2　分部积分求 \(b_n\)</strong></p>
+      <div class="formula-block">
+        \[\begin{aligned}b_n&=\frac{1}{2}\left[-\frac{2x}{n\pi}\cos\frac{n\pi x}{2}+\frac{4}{n^2\pi^2}\sin\frac{n\pi x}{2}\right]_0^2\\&=\frac{1}{2}\left[-\frac{4}{n\pi}\cos(n\pi)+0\right]=\frac{2(-1)^{n+1}}{n\pi}\end{aligned}\]
+      </div>
+      <p><strong>Step 3　写出正弦级数</strong></p>
+      <div class="formula-block">
+        \[f(x)\sim\sum_{n=1}^{\infty}\frac{2(-1)^{n+1}}{n\pi}\sin\frac{n\pi x}{2}\]
+      </div>
+      <p><strong>Step 4　由 Dirichlet 定理求 \(S(x)\)</strong></p>
+      <ul>
+        <li>在 \((0,2)\) 内，\(f(x)=\dfrac{x}{2}\) 连续，故 \(S(x)=\dfrac{x}{2}\)。</li>
+        <li>在端点 \(x=0\) 和 \(x=2\)：奇延拓后均为间断点，和函数取左右极限平均。\(S(0)=S(2)=0\)。</li>
+      </ul>
+      <p><strong>答案：</strong></p>
+      <div class="formula-block">
+        \[S(x)=\begin{cases}\displaystyle\frac{x}{2},\u00260\lt x\lt 2\\[6pt]0,\u0026x=0\text{ 或 }x=2\end{cases}\]
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== 第7题 ====== -->
+  <div class="example" id="q7">
+    <div class="example-header">
+      <span class="badge">第7题</span>
+      <span class="title">微分方程 · 三类方程综合</span>
+      <span class="badge">30分</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        求下面微分方程的通解：
+        \[(1)\;\sqrt{1+x^2}\,dy=\sqrt{1-y^2}\,dx\qquad(2)\;y''+2y'+2y=7\cos x+\sin x\qquad(3)\;y''+y=\frac{1}{\cos x}\]
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+
+      <h4>(1) \(\sqrt{1+x^2}\,dy=\sqrt{1-y^2}\,dx\)</h4>
+      <p><strong>识别：</strong>可分离变量方程。</p>
+      <p>分离变量：</p>
+      <div class="formula-block">
+        \[\frac{dy}{\sqrt{1-y^2}}=\frac{dx}{\sqrt{1+x^2}}\]
+      </div>
+      <p>两边积分：</p>
+      <div class="formula-block">
+        \[\arcsin y=\ln\bigl(x+\sqrt{1+x^2}\bigr)+C\]
+      </div>
+      <p>即 \(\boxed{y=\sin\left[\ln\bigl(x+\sqrt{1+x^2}\bigr)+C\right]}\)</p>
+
+      <h4>(2) \(y''+2y'+2y=7\cos x+\sin x\)</h4>
+      <p><strong>Step 1　求齐次通解</strong></p>
+      <p>特征方程：\(r^2+2r+2=0\)，根 \(r=-1\pm i\)。</p>
+      <div class="formula-block">
+        \[Y=e^{-x}(C_1\cos x+C_2\sin x)\]
+      </div>
+      <p><strong>Step 2　设特解</strong></p>
+      <p>右端为 \(7\cos x+\sin x\)，\(\lambda=0,\;\omega=1\)。由于 \(0\pm i\) <strong>不是</strong>特征根，设</p>
+      <div class="formula-block">
+        \[y^*=A\cos x+B\sin x\]
+      </div>
+      <p>求导代入：</p>
+      <div class="formula-block">
+        \[\begin{cases}A+2B=7\\B-2A=1\end{cases}\quad\Rightarrow\quad A=1,\;B=3\]
+      </div>
+      <p>故 \(y^*=\cos x+3\sin x\)。</p>
+      <p><strong>答案：</strong>\(\boxed{y=e^{-x}(C_1\cos x+C_2\sin x)+\cos x+3\sin x}\)</p>
+
+      <h4>(3) \(y''+y=\dfrac{1}{\cos x}\)</h4>
+      <p><strong>Step 1　求齐次通解</strong></p>
+      <p>特征方程：\(r^2+1=0\)，根 \(r=\pm i\)。</p>
+      <div class="formula-block">
+        \[Y=C_1\cos x+C_2\sin x\]
+      </div>
+      <p><strong>Step 2　常数变易法求特解</strong></p>
+      <p>设 \(y^*=C_1(x)\cos x+C_2(x)\sin x\)，其中 \(C_1'(x),C_2'(x)\) 满足</p>
+      <div class="formula-block">
+        \[\begin{cases}C_1'\cos x+C_2'\sin x=0\\-C_1'\sin x+C_2'\cos x=\sec x\end{cases}\]
+      </div>
+      <p>解得 \(C_1'=-\tan x,\;C_2'=1\)。积分得 \(C_1=\ln|\cos x|,\;C_2=x\)。</p>
+      <p>于是 \(y^*=\cos x\ln|\cos x|+x\sin x\)。</p>
+      <p><strong>答案：</strong>\(\boxed{y=C_1\cos x+C_2\sin x+\cos x\ln|\cos x|+x\sin x}\)</p>
+    </div>
   </div>
 
   <div class="page-jump">

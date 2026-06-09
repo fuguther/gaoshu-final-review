@@ -1,26 +1,381 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>9.3 曲面积分 · 题型</title>
-<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'},options:{enableMenu:false}};</script>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9.3 曲面积分 · 题型</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  svg: { fontCache: 'global' },
+  options: { enableMenu: false }
+};
+</script>
 <script id="MathJax-script" async src="https://cdn.jsdmirror.com/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<link rel="preconnect" href="https://fonts.loli.net"><link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+<link rel="preconnect" href="https://fonts.loli.net">
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
 <link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/design-system.css">
-</head><body><div class="reading-progress"></div>
-<nav class="topnav"><div class="topnav-inner">
-    <a href="../index.html" class="logo">高数期末复习站</a><span class="sep">|</span>
-    <div class="dropdown"><button class="dropdown-toggle">第9章 ▾</button><div class="dropdown-menu"><a href="9.0-overview.html">章节导学</a><a href="9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a><a href="9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a><a href="9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a><a href="9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a><a href="9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a><a href="9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a></div></div>
-    <div class="dropdown"><button class="dropdown-toggle">第10章 ▾</button><div class="dropdown-menu"><a href="../ch10/10.0-overview.html">章节导学</a><a href="../ch10/10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a><a href="../ch10/10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a><a href="../ch10/10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a><a href="../ch10/10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a><a href="../ch10/10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a><a href="../ch10/10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a></div></div>
-    <div class="dropdown"><button class="dropdown-toggle">第11章 ▾</button><div class="dropdown-menu"><a href="../ch11/11.0-overview.html">章节导学</a><a href="../ch11/11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a><a href="../ch11/11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a><a href="../ch11/11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a><a href="../ch11/11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a></div></div>
-    <a href="../exams/index.html" class="item">往年题</a><a href="../tips/index.html" class="item">技巧锦囊</a><button class="theme-toggle" aria-label="切换主题">🌙</button>
-</div></nav>
+</head>
+<body>
+
+<div class="reading-progress"></div>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="logo">高数期末复习站</a>
+    <span class="sep">|</span>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第9章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="9.0-overview.html">章节导学</a>
+        <a href="9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a>
+        <a href="9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a>
+        <a href="9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a>
+        <a href="9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a>
+        <a href="9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a>
+        <a href="9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第10章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch10/10.0-overview.html">章节导学</a>
+        <a href="../ch10/10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第11章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch11/11.0-overview.html">章节导学</a>
+        <a href="../ch11/11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a>
+        <a href="../ch11/11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <a href="../exams/index.html" class="item">往年题</a>
+    <a href="../tips/index.html" class="item">技巧锦囊</a>
+    <button class="theme-toggle" aria-label="切换主题">🌙</button>
+  </div>
+</nav>
+
 <main class="main">
-<div class="hero"><span class="tag">9.3 · 题型</span><h1>曲面积分 <span class="em">标准步骤与例题</span></span></h1><p class="subtitle">第一型直接投影，第二型注意方向。</p></div>
-<h2>题型一：第一型曲面积分</h2>
-<div class="steps"><div class="step"><div class="step-num">1</div><div class="step-body"><h4>确定曲面方程和投影区域</h4></div></div><div class="step"><div class="step-num">2</div><div class="step-body"><h4>计算面积元素 \(dS\)</h4></div></div><div class="step"><div class="step-num">3</div><div class="step-body"><h4>代入化为二重积分计算</h4></div></div></div>
-<h2>题型二：第二型曲面积分</h2>
-<div class="steps"><div class="step"><div class="step-num">1</div><div class="step-body"><h4>确定曲面的侧（方向）</h4></div></div><div class="step"><div class="step-num">2</div><div class="step-body"><h4>投影到坐标面，注意正负号</h4></div></div><div class="step"><div class="step-num">3</div><div class="step-body"><h4>化为二重积分计算</h4></div></div></div>
-<div class="box warn"><span class="label">常见错误</span><p>第二型曲面积分的方向最容易搞反。记住：上侧/前侧/右侧为正，下侧/后侧/左侧为负。</p></div>
-<div class="page-jump"><a href="9.3-surface-integrals.html">← 回讲解</a><a href="9.4-big-three.html" class="primary">9.4 三大公式讲解 →</a></div>
-</main><button class="back-to-top" aria-label="回到顶部">↑</button>
-<footer class="site-footer">高数期末复习站 · 精心打磨每一类题的标准步骤<a href="../index.html">🏠 回首页</a></footer>
-<script src="../js/site.js"></script></body></html>
+
+  <div class="breadcrumb">
+    <a href="../index.html">首页</a>
+    <span class="sep">›</span>
+    <a href="9.0-overview.html">第9章</a>
+    <span class="sep">›</span>
+    <span>9.3 曲面积分 · 题型</span>
+  </div>
+
+  <div class="hero">
+    <span class="tag">9.3 · 题型</span>
+    <h1>曲面积分 <span class="em">标准步骤与例题</span></h1>
+    <p class="subtitle">拿到曲面积分题，先判类型（一型还是二型），再选方法（投影 or 合一 or 高斯）。</p>
+  </div>
+
+  <div class="inpage-toc">
+    <h4>本页导航</h4>
+    <ul>
+      <li><a href="#sec-decision">决策树</a></li>
+      <li><a href="#sec-type1">题型一：第一型曲面积分</a></li>
+      <li><a href="#sec-type2">题型二：第二型——投影法</a></li>
+      <li><a href="#sec-unified">题型三：第二型——合一投影法</a></li>
+      <li><a href="#sec-gauss">与高斯公式的衔接</a></li>
+      <li><a href="#sec-traps">常见错误</a></li>
+    </ul>
+  </div>
+
+  <h2 id="sec-decision">🌲 三步决策树</h2>
+
+  <div class="decision-tree">
+    <div class="node question">Step 1：看积分号后面的微分</div>
+    <div class="arrow">├─ \(dS\) → <strong>第一型</strong>（无方向，直接投影算面积元素）</div>
+    <div class="arrow">└─ \(dxdy, dydz, dzdx\) → <strong>第二型</strong>（有方向，注意正负号）</div>
+    <div class="node question">Step 2：第二型？看曲面是否封闭</div>
+    <div class="arrow">├─ 封闭曲面 → 优先用 <strong>高斯公式</strong>（见 9.4）</div>
+    <div class="arrow">└─ 不封闭曲面 → 投影法 或 合一投影法</div>
+    <div class="node question">Step 3：不封闭，选哪种投影？</div>
+    <div class="arrow">├─ 只有 \(dxdy\) 一项 → 直接投到 \(xOy\) 面</div>
+    <div class="arrow">├─ 三项都有，且曲面写成 \(z=z(x,y)\) → <strong>合一投影法</strong></div>
+    <div class="arrow">└─ 曲面是柱面（垂直于坐标面）→ 垂直方向的投影为 0</div>
+  </div>
+
+  <div class="box key">
+    <span class="label">考场口诀</span>
+    <p><strong>"见 dS 是第一型，见坐标是第二型；封闭想高斯，不封看投影。"</strong></p>
+  </div>
+
+  <h2 id="sec-type1">题型一：第一型曲面积分</h2>
+
+  <h3>标准步骤</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>把曲面写成显式方程 \(z = z(x,y)\)</h4>
+        <p>确定投影区域 \(D_{xy}\)（消去 \(z\) 得到）。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>求偏导，算面积元素</h4>
+        <p>\(dS = \sqrt{1+z_x^2+z_y^2}\,dxdy\)。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>代入被积函数，化为二重积分</h4>
+        <p>把 \(z\) 换成 \(z(x,y)\)，在 \(D_{xy}\) 上算二重积分。注意利用对称性简化。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 1</span>
+      <span class="title">第一型 · 上半球面</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        计算 \(I = \displaystyle\iint_\Sigma z\,dS\)，其中 \(\Sigma\) 是上半球面 \(z = \sqrt{R^2-x^2-y^2}\)。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　曲面方程 \(z = \sqrt{R^2-x^2-y^2}\)，投影区域 \(D_{xy}: x^2+y^2 \leq R^2\)。</p>
+      <p><strong>Step 2</strong>　求偏导数：</p>
+      <div class="formula-block">
+        \[z_x = \frac{-x}{\sqrt{R^2-x^2-y^2}} = -\frac{x}{z}, \quad z_y = -\frac{y}{z}\]
+      </div>
+      <p>于是</p>
+      <div class="formula-block">
+        \[1+z_x^2+z_y^2 = 1+\frac{x^2+y^2}{z^2} = \frac{z^2+x^2+y^2}{z^2} = \frac{R^2}{z^2}\]
+      </div>
+      <p>所以面积元素 \(dS = \sqrt{1+z_x^2+z_y^2}\,dxdy = \dfrac{R}{z}\,dxdy\)。</p>
+      <p><strong>Step 3</strong>　代入积分：</p>
+      <div class="formula-block">
+        \[I = \iint_\Sigma z\,dS = \iint_{D_{xy}} z \cdot \frac{R}{z}\,dxdy = \iint_{D_{xy}} R\,dxdy\]
+      </div>
+      <p>注意 \(z\) 与 \(dS\) 中的 \(z\) 恰好抵消！这是半球面的经典巧算。</p>
+      <div class="formula-block">
+        \[I = R \cdot (D_{xy}\text{ 的面积}) = R \cdot \pi R^2 = \pi R^3\]
+      </div>
+      <p><strong>答案：</strong>\(\boxed{\pi R^3}\)</p>
+    </div>
+  </div>
+
+  <div class="box idea">
+    <span class="label">技巧提炼</span>
+    <p>第一型曲面积分中，如果被积函数恰好能和 \(dS\) 中的分母抵消（如上例的 \(z\)），可以大幅简化计算。考试中遇到 \(f(z)\,dS\) 且曲面是球面/锥面时，先算 \(dS\) 看看有没有这种抵消。</p>
+  </div>
+
+  <h2 id="sec-type2">题型二：第二型曲面积分——投影法</h2>
+
+  <h3>标准步骤</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>确认曲面的侧</h4>
+        <p>上/下、前/后、左/右，决定投影时的正负号。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>把曲面写成对应显式方程</h4>
+        <p>算 \(dxdy\) → 解出 \(z=z(x,y)\)；算 \(dydz\) → 解出 \(x=x(y,z)\)；算 \(dzdx\) → 解出 \(y=y(x,z)\)。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>投影到对应坐标面，带符号化为二重积分</h4>
+        <p>上正下负、前正后负、右正左负。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 2</span>
+      <span class="title">第二型 · 投影法（单分量）</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        计算 \(I = \displaystyle\iint_\Sigma z\,dxdy\)，其中 \(\Sigma\) 是锥面 \(z = \sqrt{x^2+y^2}\) 在 \(0 \leq z \leq 1\) 之间的部分，取下侧。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　题目指定 <strong>下侧</strong>，所以 \(dxdy\) 投影取 <strong>负号</strong>。</p>
+      <p><strong>Step 2</strong>　曲面方程就是 \(z = \sqrt{x^2+y^2}\)，投影到 \(xOy\) 面得 \(D_{xy}: x^2+y^2 \leq 1\)。</p>
+      <p><strong>Step 3</strong>　下侧投影：</p>
+      <div class="formula-block">
+        \[I = -\iint_{D_{xy}} \sqrt{x^2+y^2}\,dxdy\]
+      </div>
+      <p>用极坐标：\(x = r\cos\theta, y = r\sin\theta, dxdy = r\,drd\theta\)</p>
+      <div class="formula-block">
+        \[I = -\int_0^{2\pi} d\theta \int_0^1 r \cdot r\,dr = -2\pi \cdot \frac{1}{3} = -\frac{2\pi}{3}\]
+      </div>
+      <p><strong>答案：</strong>\(\boxed{-\dfrac{2\pi}{3}}\)</p>
+    </div>
+  </div>
+
+  <h2 id="sec-unified">题型三：第二型曲面积分——合一投影法</h2>
+
+  <h3>标准步骤</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>确认曲面可写成 \(z = z(x,y)\)，确定侧</h4>
+        <p>上侧取正、下侧取负。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>求 \(z_x, z_y\)，写出投影区域 \(D_{xy}\)</h4>
+        <p></p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>套合一投影公式</h4>
+        <div class="formula-block">
+          \[\iint_\Sigma P\,dydz + Q\,dzdx + R\,dxdy = \pm\iint_{D_{xy}}\big[-P\cdot z_x - Q\cdot z_y + R\big]\,dxdy\]
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 3</span>
+      <span class="title">合一投影法 · 三项齐飞</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        计算 \(I = \displaystyle\iint_\Sigma x\,dydz + y\,dzdx + z\,dxdy\)，其中 \(\Sigma\) 是平面 \(x+y+z=1\) 在第一卦限的部分，取上侧。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　\(\Sigma\) 的显式方程：\(z = 1-x-y\)，取 <strong>上侧</strong>（法向量 \(z\) 分量为正），所以公式取 <strong>正号</strong>。</p>
+      <p>投影区域 \(D_{xy}\)：由 \(x \geq 0, y \geq 0, z \geq 0\) 得 \(x+y \leq 1\)。</p>
+      <p><strong>Step 2</strong>　求偏导：\(z_x = -1, z_y = -1\)。</p>
+      <p><strong>Step 3</strong>　套合一投影公式。注意 \(P=x, Q=y, R=z=1-x-y\)：</p>
+      <div class="formula-block">
+        \[\begin{aligned} I &= \iint_{D_{xy}}\big[-x\cdot(-1) - y\cdot(-1) + (1-x-y)\big]\,dxdy \\ &= \iint_{D_{xy}}\big[x + y + 1 - x - y\big]\,dxdy \\ &= \iint_{D_{xy}} 1\,dxdy \end{aligned}\]
+      </div>
+      <p>被积函数奇迹般地化简为 1！投影区域 \(D_{xy}\) 是直角边为 1 的等腰直角三角形，面积 = \(\dfrac{1}{2}\)。</p>
+      <div class="formula-block">
+        \[I = \frac{1}{2}\]
+      </div>
+      <p><strong>答案：</strong>\(\boxed{\dfrac{1}{2}}\)</p>
+    </div>
+  </div>
+
+  <div class="box idea">
+    <span class="label">合一投影的威力</span>
+    <p>例题 3 如果用传统投影法，需要分别算 \(dydz\)（投到 \(yOz\) 面）、\(dzdx\)（投到 \(xOz\) 面）、\(dxdy\)（投到 \(xOy\) 面），要画三个投影区域、算三个二重积分。用合一投影法，三个分量一次性投影到同一个坐标面，而且被积函数还互相抵消——这就是技巧的含金量。</p>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 4</span>
+      <span class="title">合一投影法 · 带对称简化</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        计算 \(I = \displaystyle\iint_\Sigma x^2\,dydz + y^2\,dzdx + z^2\,dxdy\)，其中 \(\Sigma\) 是抛物面 \(z = x^2+y^2\) 被 \(z=4\) 截得的部分，取下侧。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　\(\Sigma: z = x^2+y^2\)，取 <strong>下侧</strong>，公式取 <strong>负号</strong>。投影区域 \(D_{xy}: x^2+y^2 \leq 4\)。</p>
+      <p><strong>Step 2</strong>　\(z_x = 2x, z_y = 2y\)。</p>
+      <p><strong>Step 3</strong>　套公式（下侧取负）：</p>
+      <div class="formula-block">
+        \[\begin{aligned} I &= -\iint_{D_{xy}}\big[-x^2\cdot(2x) - y^2\cdot(2y) + z^2\big]\,dxdy \\ &= -\iint_{D_{xy}}\big[-2x^3 - 2y^3 + (x^2+y^2)^2\big]\,dxdy \end{aligned}\]
+      </div>
+      <p><strong>Step 4</strong>　利用对称性：\(D_{xy}\) 关于 \(x\) 轴和 \(y\) 轴都对称，\(-2x^3\) 关于 \(x\) 是奇函数，\(-2y^3\) 关于 \(y\) 是奇函数，所以这两项积分均为 0。</p>
+      <div class="formula-block">
+        \[I = -\iint_{D_{xy}}(x^2+y^2)^2\,dxdy\]
+      </div>
+      <p>极坐标：\(x^2+y^2 = r^2\)，\(dxdy = r\,drd\theta\)</p>
+      <div class="formula-block">
+        \[I = -\int_0^{2\pi}d\theta\int_0^2 r^4 \cdot r\,dr = -2\pi \cdot \frac{r^6}{6}\bigg|_0^2 = -2\pi \cdot \frac{64}{6} = -\frac{64\pi}{3}\]
+      </div>
+      <p><strong>答案：</strong>\(\boxed{-\dfrac{64\pi}{3}}\)</p>
+    </div>
+  </div>
+
+  <h2 id="sec-gauss">与高斯公式的衔接</h2>
+
+  <p>曲面积分题在考试中往往不是"硬算"，而是<strong>用高斯公式巧算</strong>。什么时候该用高斯？</p>
+
+  <div class="box key">
+    <span class="label">高斯公式的使用条件（9.4 详讲）</span>
+    <ul>
+      <li>曲面 <strong>封闭</strong>（或可以通过补面变封闭）</li>
+      <li>取曲面的 <strong>外侧</strong>（如果不是外侧，整体加负号）</li>
+      <li>\(P,Q,R\) 在封闭区域内有一阶连续偏导</li>
+    </ul>
+    <p>满足以上条件，则：</p>
+    <div class="formula-block">
+      \[\oiint_\Sigma P\,dydz + Q\,dzdx + R\,dxdy = \iiint_\Omega \left(\frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}\right)dV\]
+    </div>
+  </div>
+
+  <div class="box idea">
+    <span class="label">策略建议</span>
+    <p>拿到第二型曲面积分大题，按这个顺序判断：<br>
+    ① 曲面封闭吗？→ 封闭直接用高斯。<br>
+    ② 不封闭，但补一个面后就封闭？→ 补面用高斯（补的面通常平行于坐标面，积分很好算）。<br>
+    ③ 真的没法用高斯 → 合一投影法硬算。</p>
+  </div>
+
+  <h2 id="sec-traps">⚠️ 常见错误</h2>
+
+  <div class="box warn">
+    <span class="label">错误 1：第二型投影时正负号搞反</span>
+    <p>上正下负、前正后负、右正左负——这个口诀必须刻进DNA。下侧的法向量 \(z\) 分量是负的，所以 \(dxdy\) 前面要加负号。</p>
+  </div>
+
+  <div class="box warn">
+    <span class="label">错误 2：合一投影法忘了代 \(z=z(x,y)\)</span>
+    <p>公式中的 \(P,Q,R\) 都是 \(x,y,z\) 的函数，而 \(z\) 必须代成曲面方程 \(z(x,y)\)。很多同学在套公式时忘了这一步，导致被积函数还是三元函数。</p>
+  </div>
+
+  <div class="box warn">
+    <span class="label">错误 3：第一型和第二型的对称性混用</span>
+    <p>第一型：奇零偶倍（和三重积分一样）。<br>
+    第二型：奇倍偶零（完全相反）。<br>
+    如果你对第二型的对称性没有十足把握，<strong>不要用</strong>，直接硬算。</p>
+  </div>
+
+  <div class="box warn">
+    <span class="label">错误 4：柱面投影面积为零</span>
+    <p>如果曲面是垂直于 \(xOy\) 面的柱面（如圆柱侧面 \(x^2+y^2=a^2\)），那么它投影到 \(xOy\) 面是一条线，面积为 0。所以 <strong>\(R\,dxdy = 0\)</strong>。但 \(P\,dydz\) 和 \(Q\,dzdx\) 仍需正常算。</p>
+  </div>
+
+  <div class="page-jump">
+    <a href="9.3-surface-integrals.html">← 回讲解</a>
+    <a href="9.4-big-three.html" class="primary">9.4 三大公式讲解 →</a>
+  </div>
+
+</main>
+
+<button class="back-to-top" aria-label="回到顶部">↑</button>
+<footer class="site-footer">
+  高数期末复习站 · 精心打磨每一类题的标准步骤<a href="../index.html">🏠 回首页</a>
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>

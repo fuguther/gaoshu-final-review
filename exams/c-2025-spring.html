@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2025春高数C期末 · 25春</title>
+<title>2025春高数C期末 · 逐题详解</title>
 <script>
 window.MathJax = {
   tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
@@ -68,14 +68,336 @@ window.MathJax = {
 <main class="main">
 
   <div class="hero">
-    <span class="tag">25春</span>
+    <span class="tag">25春 · 高数C</span>
     <h1>2025春高数C期末 <span class="em">逐题详解</span></h1>
-    <p class="subtitle">逐题详解</p>
+    <p class="subtitle">共 6 道大题，满分 100 分。考查范围：第9章（曲面积分、斯托克斯）、第10章（级数）、第11章（微分方程）。</p>
   </div>
 
-  <div class="box note">
-    <span class="label">正在完善</span>
-    <p>本页面内容正在精心打磨中，请先浏览其他已完成的章节。推荐前往 <a href="../index.html">首页</a> 查看完整导航。</p>
+  <div class="inpage-toc">
+    <h4>本页导航</h4>
+    <ul>
+      <li><a href="#q1">第1题 · 高斯公式（10分）</a></li>
+      <li><a href="#q2">第2题 · 斯托克斯公式（15分）</a></li>
+      <li><a href="#q3">第3题 · 微分方程（30分）</a></li>
+      <li><a href="#q4">第4题 · 级数敛散性（20分）</a></li>
+      <li><a href="#q5">第5题 · 傅里叶级数（15分）</a></li>
+      <li><a href="#q6">第6题 · 幂级数求和（10分）</a></li>
+    </ul>
+  </div>
+
+  <!-- ====== 第1题 ====== -->
+  <div class="example" id="q1">
+    <div class="example-header">
+      <span class="badge">第1题</span>
+      <span class="title">高斯公式 · 球面外侧</span>
+      <span class="badge">10分</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        计算 \(\displaystyle\iint_{S^+} x^4\,dydz + y^4\,dzdx + z^4\,dxdy\)，其中 \(S^+\) 是球面 \(x^2+y^2+z^2=R^2\) 的<strong>外侧</strong>。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>考点定位：</strong>封闭曲面第二型曲面积分 + 高斯公式。</p>
+      <p><strong>Step 1　应用高斯公式</strong></p>
+      <p>令 \(P=x^4,\;Q=y^4,\;R=z^4\)，散度为</p>
+      <div class="formula-block">
+        \[\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}=4x^3+4y^3+4z^3\]
+      </div>
+      <p><strong>Step 2　转化为三重积分</strong></p>
+      <div class="formula-block">
+        \[I=\iiint_\Omega(4x^3+4y^3+4z^3)\,dV\]
+      </div>
+      <p>其中 \(\Omega: x^2+y^2+z^2\leq R^2\)。</p>
+      <p><strong>Step 3　利用对称性</strong></p>
+      <p>球体 \(\Omega\) 关于三个坐标面对称，而 \(x^3,y^3,z^3\) 分别是关于 \(x,y,z\) 的奇函数，故</p>
+      <div class="formula-block">
+        \[\iiint_\Omega x^3\,dV=\iiint_\Omega y^3\,dV=\iiint_\Omega z^3\,dV=0\]
+      </div>
+      <p><strong>答案：</strong>\(\boxed{I=0}\)</p>
+      <div class="box idea">
+        <span class="label">对比22春</span>
+        <p>22春第1题的被积函数多了 \(z\,dxdy\) 一项，导致散度中多了常数 1，积分结果为球体积 \(\frac{4\pi}{3}\)。本题没有常数项，对称性直接把所有项消为 0。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== 第2题 ====== -->
+  <div class="example" id="q2">
+    <div class="example-header">
+      <span class="badge">第2题</span>
+      <span class="title">斯托克斯公式 · 球面与圆柱面交线</span>
+      <span class="badge">15分</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        计算 \(\displaystyle\oint_{L^+}(y^2+z^2)\,dx+(x^2+z^2)\,dy+(x^2+y^2)\,dz\)，其中 \(L^+\) 是曲面 \(z=\sqrt{2Rx-x^2-y^2}\) 与 \(x^2+y^2=2rx\) 的交线（\(0<r<R\)），正向与上侧相应。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>考点定位：</strong>空间闭曲线积分 + 斯托克斯公式 + 巧妙选取曲面。</p>
+      <p><strong>Step 1　分析几何形状</strong></p>
+      <ul>
+        <li>\(z=\sqrt{2Rx-x^2-y^2}\) 即 \((x-R)^2+y^2+z^2=R^2\)，是以 \((R,0,0)\) 为球心、半径 \(R\) 的<strong>上半球面</strong>。</li>
+        <li>\(x^2+y^2=2rx\) 即 \((x-r)^2+y^2=r^2\)，是以 \((r,0)\) 为圆心、半径 \(r\) 的<strong>圆柱面</strong>。</li>
+      </ul>
+      <p><strong>Step 2　应用斯托克斯公式</strong></p>
+      <p>令 \(P=y^2+z^2,\;Q=x^2+z^2,\;R=x^2+y^2\)，则旋度</p>
+      <div class="formula-block">
+        \[\operatorname{rot}\vec{F}=(2y-2z,\;2z-2x,\;2x-2y)=2(y-z,\;z-x,\;x-y)\]
+      </div>
+      <p>斯托克斯公式：\(\displaystyle\oint_{L^+}\vec{F}\cdot d\vec{r}=\iint_\Sigma\operatorname{rot}\vec{F}\cdot d\vec{S}\)，其中 \(\Sigma\) 是以 \(L\) 为边界的任意曲面。</p>
+      <p><strong>Step 3　巧选曲面——取球面被截下的部分</strong></p>
+      <p>取 \(\Sigma\) 为上半球面 \((x-R)^2+y^2+z^2=R^2\) 被圆柱面截出的那一块（以 \(L\) 为边界），取<strong>上侧</strong>。</p>
+      <p>球面的外法向量方向为 \((x-R,\;y,\;z)\)，单位法向量 \(\vec{n}^0=\dfrac{1}{R}(x-R,\;y,\;z)\)。</p>
+      <p>计算点积：</p>
+      <div class="formula-block">
+        \[\operatorname{rot}\vec{F}\cdot\vec{n}^0=\frac{2}{R}\big[(y-z)(x-R)+(z-x)y+(x-y)z\big]\]
+      </div>
+      <p>展开化简：</p>
+      <div class="formula-block">
+        \[\begin{aligned}&(y-z)(x-R)+(z-x)y+(x-y)z\\
+        &=y(x-R)-z(x-R)+zy-xy+xz-yz\\
+        &=xy-Ry-xz+Rz+zy-xy+xz-yz\\
+        &=-Ry+Rz=R(z-y)\end{aligned}\]
+      </div>
+      <p>所以</p>
+      <div class="formula-block">
+        \[\operatorname{rot}\vec{F}\cdot\vec{n}^0=\frac{2}{R}\cdot R(z-y)=2(z-y)\]
+      </div>
+      <p><strong>Step 4　化简曲面积分</strong></p>
+      <div class="formula-block">
+        \[\oint_{L^+}\vec{F}\cdot d\vec{r}=\iint_\Sigma 2(z-y)\,dS=2\iint_\Sigma z\,dS-2\iint_\Sigma y\,dS\]
+      </div>
+      <p>由于 \(\Sigma\) 关于 \(xOz\) 平面对称（即 \(y\leftrightarrow -y\) 不变），而 \(y\) 是奇函数，故 \(\displaystyle\iint_\Sigma y\,dS=0\)。</p>
+      <p>于是积分化为</p>
+      <div class="formula-block">
+        \[I=2\iint_\Sigma z\,dS\]
+      </div>
+      <p><strong>Step 5　计算 \(\iint_\Sigma z\,dS\)</strong></p>
+      <p>对球面 \((x-R)^2+y^2+z^2=R^2\)（\(z\geq 0\)），面积元素</p>
+      <div class="formula-block">
+        \[dS=\frac{R}{z}\,dxdy\]
+      </div>
+      <p>（推导：由 \(z=\sqrt{R^2-(x-R)^2-y^2}\)，求得 \(1+z_x^2+z_y^2=R^2/z^2\)。）</p>
+      <p>因此</p>
+      <div class="formula-block">
+        \[\iint_\Sigma z\,dS=\iint_{D_{xy}}z\cdot\frac{R}{z}\,dxdy=R\cdot\iint_{D_{xy}}dxdy\]
+      </div>
+      <p>其中 \(D_{xy}\) 是 \(\Sigma\) 在 \(xOy\) 面的投影，即圆盘 \(x^2+y^2\leq 2rx\)，其面积为 \(\pi r^2\)。</p>
+      <p><strong>答案：</strong></p>
+      <div class="formula-block">
+        \[\boxed{I=2R\cdot\pi r^2=2\pi R r^2}\]
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== 第3题 ====== -->
+  <div class="example" id="q3">
+    <div class="example-header">
+      <span class="badge">第3题</span>
+      <span class="title">微分方程 · 三类方程综合</span>
+      <span class="badge">30分</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        求下列微分方程的通解：
+        \[(1)\;x\frac{dy}{dx}=y+xe^{\frac{y}{x}}\qquad(2)\;y''+y'+y=4+3x+e^x\qquad(3)\;y''+3y'+2y=3xe^{-x}\]
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+
+      <h4>(1) \(\displaystyle x\frac{dy}{dx}=y+xe^{\frac{y}{x}}\)</h4>
+      <p><strong>识别：</strong>方程右边可写成 \(\dfrac{y}{x}+e^{\frac{y}{x}}\) 的形式，是<strong>齐次方程</strong>。</p>
+      <p>变形：\(\dfrac{dy}{dx}=\dfrac{y}{x}+e^{\frac{y}{x}}\)。令 \(u=\dfrac{y}{x}\)，则 \(y=ux,\;\dfrac{dy}{dx}=u+x\dfrac{du}{dx}\)。</p>
+      <div class="formula-block">
+        \[u+x\frac{du}{dx}=u+e^u\quad\Rightarrow\quad x\frac{du}{dx}=e^u\]
+      </div>
+      <p>分离变量：</p>
+      <div class="formula-block">
+        \[e^{-u}\,du=\frac{dx}{x}\quad\Rightarrow\quad -e^{-u}=\ln|x|+C\]
+      </div>
+      <p>代回 \(u=y/x\)：</p>
+      <div class="formula-block">
+        \[\boxed{e^{-\frac{y}{x}}+\ln|x|=C}\]
+      </div>
+
+      <h4>(2) \(y''+y'+y=4+3x+e^x\)</h4>
+      <p><strong>Step 1　求齐次通解</strong></p>
+      <p>特征方程：\(r^2+r+1=0\)，根 \(r=\dfrac{-1\pm i\sqrt{3}}{2}\)。</p>
+      <div class="formula-block">
+        \[Y=e^{-\frac{x}{2}}\left(C_1\cos\frac{\sqrt{3}x}{2}+C_2\sin\frac{\sqrt{3}x}{2}\right)\]
+      </div>
+      <p><strong>Step 2　用叠加原理求特解</strong></p>
+      <p>右端拆成 \(f_1(x)=4+3x\) 和 \(f_2(x)=e^x\) 两部分。</p>
+      <p>对 \(f_1(x)=4+3x\)（多项式）：设 \(y_1^*=Ax+B\)，代入得 \(A=3,\;B=1\)，即 \(y_1^*=3x+1\)。</p>
+      <p>对 \(f_2(x)=e^x\)：\(\lambda=1\) 不是特征根，设 \(y_2^*=Ce^x\)，代入得 \(3C=1\)，即 \(C=\dfrac{1}{3}\)，故 \(y_2^*=\dfrac{e^x}{3}\)。</p>
+      <p><strong>答案：</strong></p>
+      <div class="formula-block">
+        \[\boxed{y=e^{-\frac{x}{2}}\left(C_1\cos\frac{\sqrt{3}x}{2}+C_2\sin\frac{\sqrt{3}x}{2}\right)+3x+1+\frac{e^x}{3}}\]
+      </div>
+
+      <h4>(3) \(y''+3y'+2y=3xe^{-x}\)</h4>
+      <p><strong>Step 1　求齐次通解</strong></p>
+      <p>特征方程：\(r^2+3r+2=0\)，\((r+1)(r+2)=0\)，根 \(r_1=-1,\;r_2=-2\)。</p>
+      <div class="formula-block">
+        \[Y=C_1e^{-x}+C_2e^{-2x}\]
+      </div>
+      <p><strong>Step 2　设特解（注意共振）</strong></p>
+      <p>右端为 \(3xe^{-x}\)，\(\lambda=-1\) 是特征方程的<strong>单根</strong>，所以特解要乘以 \(x\)：</p>
+      <div class="formula-block">
+        \[y^*=x(Ax+B)e^{-x}=(Ax^2+Bx)e^{-x}\]
+      </div>
+      <p>求导代入原方程，比较系数得 \(A=\dfrac{3}{2},\;B=-3\)。</p>
+      <p><strong>答案：</strong></p>
+      <div class="formula-block">
+        \[\boxed{y=C_1e^{-x}+C_2e^{-2x}+\left(\frac{3}{2}x^2-3x\right)e^{-x}}\]
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== 第4题 ====== -->
+  <div class="example" id="q4">
+    <div class="example-header">
+      <span class="badge">第4题</span>
+      <span class="title">级数敛散性判别</span>
+      <span class="badge">20分</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        判断下列级数是否收敛：
+        \[(1)\;\sum_{n=1}^{\infty}\frac{(-1)^n}{n-\ln n}\qquad(2)\;\sum_{n=1}^{\infty}\frac{e^n n!}{n^n}\qquad(3)\;\sum_{n=1}^{\infty}2^n\tan\frac{1}{3^n}\qquad(4)\;\sum_{n=1}^{\infty}\int_0^1\frac{\ln\left(1+\sin\frac{x}{n}\right)}{n}\,dx\]
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+
+      <h4>(1) \(\displaystyle\sum_{n=1}^{\infty}\frac{(-1)^n}{n-\ln n}\)</h4>
+      <p>先看绝对收敛：\(\left|\dfrac{(-1)^n}{n-\ln n}\right|=\dfrac{1}{n-\ln n}\sim\dfrac{1}{n}\)，而 \(\sum\dfrac{1}{n}\) 发散，故<strong>非绝对收敛</strong>。</p>
+      <p>再看原级数：令 \(a_n=\dfrac{1}{n-\ln n}\)。当 \(n\geq 2\) 时，\(n-\ln n\) 单调递增（导数 \(1-\dfrac{1}{n}>0\)），故 \(a_n\) 单调递减趋于 0。由<strong>莱布尼茨判别法</strong>，原级数收敛。</p>
+      <p><strong>结论：</strong>\(\boxed{\text{条件收敛}}\)</p>
+
+      <h4>(2) \(\displaystyle\sum_{n=1}^{\infty}\frac{e^n n!}{n^n}\)</h4>
+      <p>用<strong>比值法</strong>：</p>
+      <div class="formula-block">
+        \[\frac{u_{n+1}}{u_n}=\frac{e^{n+1}(n+1)!}{(n+1)^{n+1}}\cdot\frac{n^n}{e^n n!}=\frac{e(n+1)n^n}{(n+1)^{n+1}}=\frac{e}{\left(1+\frac{1}{n}\right)^n}\]
+      </div>
+      <p>由于 \(\left(1+\dfrac{1}{n}\right)^n< e\) 对所有 \(n\) 成立，故 \(\dfrac{u_{n+1}}{u_n}> 1\)，即 \(u_n\) <strong>单调递增</strong>。又 \(u_1=e>0\)，所以 \(u_n\) 不趋于 0。</p>
+      <p><strong>结论：</strong>\(\boxed{\text{发散}}\)（通项不趋于 0）</p>
+
+      <h4>(3) \(\displaystyle\sum_{n=1}^{\infty}2^n\tan\frac{1}{3^n}\)</h4>
+      <p>当 \(n\to\infty\) 时，\(\tan\dfrac{1}{3^n}\sim\dfrac{1}{3^n}\)，故</p>
+      <div class="formula-block">
+        \[2^n\tan\frac{1}{3^n}\sim 2^n\cdot\frac{1}{3^n}=\left(\frac{2}{3}\right)^n\]
+      </div>
+      <p>而 \(\sum\left(\dfrac{2}{3}\right)^n\) 是公比 \(\dfrac{2}{3}<1\) 的等比级数，收敛。由比较判别法，原级数<strong>绝对收敛</strong>。</p>
+      <p><strong>结论：</strong>\(\boxed{\text{收敛（绝对收敛）}}\)</p>
+
+      <h4>(4) \(\displaystyle\sum_{n=1}^{\infty}\int_0^1\frac{\ln\left(1+\sin\frac{x}{n}\right)}{n}\,dx\)</h4>
+      <p>先估计积分。对 \(t>0\)，有 \(\ln(1+t)< t\)。令 \(t=\sin\dfrac{x}{n}\)，则</p>
+      <div class="formula-block">
+        \[\ln\left(1+\sin\frac{x}{n}\right)\u003c\sin\frac{x}{n}\u003c\frac{x}{n}\]
+      </div>
+      <p>于是被积函数</p>
+      <div class="formula-block">
+        \[0\u003c\frac{\ln\left(1+\sin\frac{x}{n}\right)}{n}\u003c\frac{x}{n^2}\]
+      </div>
+      <p>积分得</p>
+      <div class="formula-block">
+        \[0\u003c\int_0^1\frac{\ln\left(1+\sin\frac{x}{n}\right)}{n}\,dx\u003c\int_0^1\frac{x}{n^2}\,dx=\frac{1}{2n^2}\]
+      </div>
+      <p>\(\sum\dfrac{1}{2n^2}\) 收敛（\(p=2>1\)），由比较判别法，原级数<strong>绝对收敛</strong>。</p>
+      <p><strong>结论：</strong>\(\boxed{\text{收敛（绝对收敛）}}\)</p>
+    </div>
+  </div>
+
+  <!-- ====== 第5题 ====== -->
+  <div class="example" id="q5">
+    <div class="example-header">
+      <span class="badge">第5题</span>
+      <span class="title">傅里叶级数 · e^x 的完整展开</span>
+      <span class="badge">15分</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        将 \(f(x)=e^x\)（\(x\in[-2,2]\)）展开为傅里叶级数，并求其和函数 \(S(x)\)。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>考点定位：</strong>周期 4 的傅里叶级数展开 + Dirichlet 定理。</p>
+      <p><strong>Step 1　确定参数</strong></p>
+      <p>周期 \(2l=4\)，即 \(l=2\)。</p>
+      <p><strong>Step 2　计算 \(a_0\)</strong></p>
+      <div class="formula-block">
+        \[a_0=\frac{1}{l}\int_{-l}^l f(x)\,dx=\frac{1}{2}\int_{-2}^2 e^x\,dx=\frac{e^2-e^{-2}}{2}=\sinh 2\]
+      </div>
+      <p><strong>Step 3　计算 \(a_n\)</strong></p>
+      <p>利用公式 \(\displaystyle\int e^{ax}\cos(bx)\,dx=\frac{e^{ax}(a\cos bx+b\sin bx)}{a^2+b^2}\)（此处 \(a=1,\;b=\frac{n\pi}{2}\)）：</p>
+      <div class="formula-block">
+        \[\begin{aligned}a_n&=\frac{1}{2}\int_{-2}^2 e^x\cos\frac{n\pi x}{2}\,dx\\
+        &=\frac{1}{2}\cdot\frac{e^x\left(\cos\frac{n\pi x}{2}+\frac{n\pi}{2}\sin\frac{n\pi x}{2}\right)}{1+\frac{n^2\pi^2}{4}}\bigg|_{-2}^2\\
+        &=\frac{(-1)^n(e^2-e^{-2})}{2\left(1+\frac{n^2\pi^2}{4}\right)}=\frac{4(-1)^n\sinh 2}{4+n^2\pi^2}\end{aligned}\]
+      </div>
+      <p><strong>Step 4　计算 \(b_n\)</strong></p>
+      <p>同理，利用 \(\displaystyle\int e^{ax}\sin(bx)\,dx=\frac{e^{ax}(a\sin bx-b\cos bx)}{a^2+b^2}\)：</p>
+      <div class="formula-block">
+        \[b_n=\frac{1}{2}\int_{-2}^2 e^x\sin\frac{n\pi x}{2}\,dx=\frac{(-1)^{n+1}2n\pi\sinh 2}{4+n^2\pi^2}\]
+      </div>
+      <p><strong>Step 5　写出傅里叶级数</strong></p>
+      <div class="formula-block">
+        \[e^x\sim\frac{\sinh 2}{2}+\sum_{n=1}^{\infty}\left[\frac{4(-1)^n\sinh 2}{4+n^2\pi^2}\cos\frac{n\pi x}{2}+\frac{(-1)^{n+1}2n\pi\sinh 2}{4+n^2\pi^2}\sin\frac{n\pi x}{2}\right]\]
+      </div>
+      <p><strong>Step 6　求和函数 \(S(x)\)</strong></p>
+      <p>由 Dirichlet 定理：</p>
+      <ul>
+        <li>在 \((-2,2)\) 内，\(e^x\) 连续，故 \(S(x)=e^x\)。</li>
+        <li>在端点 \(x=\pm 2\)：周期延拓后，\(S(2)=S(-2)=\dfrac{f(2^-)+f(-2^+)}{2}=\dfrac{e^2+e^{-2}}{2}=\cosh 2\)。</li>
+      </ul>
+      <p><strong>答案：</strong></p>
+      <div class="formula-block">
+        \[S(x)=\begin{cases}e^x,\u0026-2\lt x\lt 2\\\cosh 2,\u0026x=\pm 2\end{cases}\]
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== 第6题 ====== -->
+  <div class="example" id="q6">
+    <div class="example-header">
+      <span class="badge">第6题</span>
+      <span class="title">幂级数求和 · Dilogarithm</span>
+      <span class="badge">10分</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        求 \(S(x)=\displaystyle\sum_{n=1}^{\infty}\frac{x^n}{n^2}\)（\(|x|<1\)），并指出其收敛域。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1　求收敛域</strong></p>
+      <p>系数 \(a_n=\dfrac{1}{n^2}\)，收敛半径</p>
+      <div class="formula-block">
+        \[R=\lim_{n\to\infty}\left|\frac{a_n}{a_{n+1}}\right|=\lim_{n\to\infty}\frac{(n+1)^2}{n^2}=1\]
+      </div>
+      <p>端点检验：</p>
+      <ul>
+        <li>\(x=1\)：\(\sum\dfrac{1}{n^2}\) 收敛（\(p=2>1\)）。</li>
+        <li>\(x=-1\)：\(\sum\dfrac{(-1)^n}{n^2}\) 绝对收敛。</li>
+      </ul>
+      <p>故收敛域为 <strong>\([-1,1]\)</strong>。</p>
+      <p><strong>Step 2　逐项求导找关系</strong></p>
+      <p>在 \(|x|<1\) 内逐项求导：</p>
+      <div class="formula-block">
+        \[S'(x)=\sum_{n=1}^{\infty}\frac{x^{n-1}}{n}=\frac{1}{x}\sum_{n=1}^{\infty}\frac{x^n}{n}=-\frac{\ln(1-x)}{x}\]
+      </div>
+      <p>（其中利用了 \(\sum\dfrac{x^n}{n}=-\ln(1-x)\)。）</p>
+      <p><strong>Step 3　积分还原</strong></p>
+      <p>由 \(S(0)=0\)，得</p>
+      <div class="formula-block">
+        \[S(x)=\int_0^x-\frac{\ln(1-t)}{t}\,dt\]
+      </div>
+      <p>这个积分没有初等闭式，但由 Abel 定理，在收敛域端点处：</p>
+      <div class="formula-block">
+        \[S(1)=\sum_{n=1}^{\infty}\frac{1}{n^2}=\frac{\pi^2}{6},\qquad S(-1)=\sum_{n=1}^{\infty}\frac{(-1)^n}{n^2}=-\frac{\pi^2}{12}\]
+      </div>
+      <p><strong>答案：</strong>收敛域 \(\boxed{[-1,1]}\)，和函数在 \(|x|<1\) 内满足 \(\boxed{S'(x)=-\dfrac{\ln(1-x)}{x}}\)（且 \(S(0)=0\)）。</p>
+      <div class="box idea">
+        <span class="label">备注</span>
+        <p>\(S(x)\) 称为二对数函数（Dilogarithm，记作 \(\operatorname{Li}_2(x)\)），是数学物理中常见特殊函数。在考试中，如果题目要求"求 \(S(x)\)"，写出导数关系和积分表达式即可得分；如果要求具体值，通常会限定在收敛域端点（如 \(x=1\)），此时值为 \(\dfrac{\pi^2}{6}\)。</p>
+      </div>
+    </div>
   </div>
 
   <div class="page-jump">
