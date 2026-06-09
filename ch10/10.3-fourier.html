@@ -1,95 +1,59 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>傅里叶级数 · 10.3 · 讲解</title>
-<script>
-window.MathJax = {
-  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
-  svg: { fontCache: 'global' },
-  options: { enableMenu: false }
-};
-</script>
-<script id="MathJax-script" async src="https://cdn.jsdmirror.com/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<link rel="preconnect" href="https://fonts.loli.net">
-<link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>10.3 傅里叶级数 · 讲解</title>
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'},options:{enableMenu:false}};</script><script id="MathJax-script" async src="https://cdn.jsdmirror.com/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="preconnect" href="https://fonts.loli.net"><link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
 <link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/design-system.css">
-</head>
-<body>
-
-<div class="reading-progress"></div>
-
-<nav class="topnav">
-  <div class="topnav-inner">
-    <a href="../index.html" class="logo">高数期末复习站</a>
-    <span class="sep">|</span>
-    <div class="dropdown">
-      <button class="dropdown-toggle">第9章 ▾</button>
-      <div class="dropdown-menu">
-        <a href="../ch9/9.0-overview.html">章节导学</a>
-        <a href="../ch9/9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a>
-        <a href="../ch9/9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a>
-        <a href="../ch9/9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a>
-        <a href="../ch9/9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a>
-        <a href="../ch9/9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a>
-        <a href="../ch9/9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a>
-      </div>
-    </div>
-    <div class="dropdown">
-      <button class="dropdown-toggle">第10章 ▾</button>
-      <div class="dropdown-menu">
-        <a href="../ch10/10.0-overview.html">章节导学</a>
-        <a href="../ch10/10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a>
-        <a href="../ch10/10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a>
-        <a href="../ch10/10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a>
-        <a href="../ch10/10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a>
-        <a href="../ch10/10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a>
-        <a href="../ch10/10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a>
-      </div>
-    </div>
-    <div class="dropdown">
-      <button class="dropdown-toggle">第11章 ▾</button>
-      <div class="dropdown-menu">
-        <a href="../ch11/11.0-overview.html">章节导学</a>
-        <a href="../ch11/11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a>
-        <a href="../ch11/11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a>
-        <a href="../ch11/11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a>
-        <a href="../ch11/11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a>
-      </div>
-    </div>
-    <a href="../exams/index.html" class="item">往年题</a>
-    <a href="../tips/index.html" class="item">技巧锦囊</a>
-    <button class="theme-toggle" aria-label="切换主题">🌙</button>
-  </div>
-</nav>
-
+</head><body><div class="reading-progress"></div>
+<nav class="topnav"><div class="topnav-inner">
+<a href="../index.html" class="logo">高数期末复习站</a><span class="sep">|</span>
+<div class="dropdown"><button class="dropdown-toggle">第9章 ▾</button><div class="dropdown-menu"><a href="../ch9/9.0-overview.html">章节导学</a><a href="../ch9/9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a><a href="../ch9/9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a><a href="../ch9/9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a><a href="../ch9/9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a><a href="../ch9/9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a><a href="../ch9/9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a></div></div>
+<div class="dropdown"><button class="dropdown-toggle">第10章 ▾</button><div class="dropdown-menu"><a href="10.0-overview.html">章节导学</a><a href="10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a><a href="10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a><a href="10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a><a href="10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a><a href="10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a><a href="10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a></div></div>
+<div class="dropdown"><button class="dropdown-toggle">第11章 ▾</button><div class="dropdown-menu"><a href="../ch11/11.0-overview.html">章节导学</a><a href="../ch11/11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a><a href="../ch11/11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a><a href="../ch11/11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a><a href="../ch11/11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a></div></div>
+<a href="../exams/index.html" class="item">往年题</a><a href="../tips/index.html" class="item">技巧锦囊</a><button class="theme-toggle" aria-label="切换主题">🌙</button>
+</div></nav>
 <main class="main">
+<div class="hero"><span class="tag">10.3 · 讲解</span><h1>傅里叶级数 <span class="em">把函数拆成波的叠加</span></h1><p class="subtitle">一句话：傅里叶级数用无穷多个正弦/余弦波的叠加来表示一个周期函数。考试考两件事：求 S(x) 和做展开。</p></div>
+<div class="inpage-toc"><h4>本页导航</h4><ul><li><a href="#sec-formula">系数公式</a></li><li><a href="#sec-dirichlet">Dirichlet 定理（求 S(x)）</a></li><li><a href="#sec-odd-even">奇偶延拓</a></li><li><a href="#sec-summary">考场速记</a></li></ul></div>
 
-  <div class="hero">
-    <span class="tag">10.3 · 讲解</span>
-    <h1>傅里叶级数 <span class="em">S(x) 计算与形式展开</span></h1>
-    <p class="subtitle">S(x) 计算与形式展开</p>
-  </div>
+<h2 id="sec-formula">📐 傅里叶系数公式</h2>
+<p>设 \(f(x)\) 周期为 \(2l\)，则</p>
+<div class="formula-block">
+\[a_0 = \frac{1}{l}\int_{-l}^{l} f(x)\,dx, \quad a_n = \frac{1}{l}\int_{-l}^{l} f(x)\cos\frac{n\pi x}{l}\,dx, \quad b_n = \frac{1}{l}\int_{-l}^{l} f(x)\sin\frac{n\pi x}{l}\,dx\]
+</div>
+<p>傅里叶级数：\(\displaystyle\frac{a_0}{2} + \sum_{n=1}^{\infty}\left(a_n\cos\frac{n\pi x}{l} + b_n\sin\frac{n\pi x}{l}\right)\)</p>
 
-  <div class="box note">
-    <span class="label">正在完善</span>
-    <p>本页面内容正在精心打磨中，请先浏览其他已完成的章节。推荐前往 <a href="../index.html">首页</a> 查看完整导航。</p>
-  </div>
+<h2 id="sec-dirichlet">🔔 Dirichlet 定理：求 S(x)</h2>
+<div class="box key"><span class="label">核心结论（必背）</span>
+<p>设 \(f(x)\) 在一个周期内只有有限个第一类间断点和有限个极值点，则其傅里叶级数收敛，和函数 \(S(x)\) 为：</p>
+<div class="formula-block">
+\[S(x) = \begin{cases} f(x), & \text{若 } x \text{ 是连续点} \\ \displaystyle\frac{f(x^+)+f(x^-)}{2}, & \text{若 } x \text{ 是间断点} \end{cases}\]
+</div>
+</box>
 
-  <div class="page-jump">
-    <a href="10.2-power-problems.html">← 回幂级数题型</a>
-    <a href="10.3-fourier-problems.html" class="primary">去练题型 →</a>
-  </div>
+<div class="box idea"><span class="label">端点注意</span>
+<p>在区间端点 \(x=\pm l\) 处，\(S(\pm l) = \displaystyle\frac{f(l^-)+f(-l^+)}{2}\)。也就是说，要看<strong>周期延拓后</strong>的左右极限，不是原函数在端点的值。</p>
+</div>
 
-</main>
+<h2 id="sec-odd-even">📐 奇偶延拓</h2>
+<table>
+<tr><th>类型</th><th>条件</th><th>结果</th></tr>
+<tr><td>偶延拓</td><td>把 \([0,l]\) 上的 \(f(x)\) 偶延拓到 \([-l,l]\)</td><td>\(b_n=0\)，只含余弦项（\(a_n\) 不全为0）</td></tr>
+<tr><td>奇延拓</td><td>把 \([0,l]\) 上的 \(f(x)\) 奇延拓到 \([-l,l]\)</td><td>\(a_n=0\)（包括 \(a_0\)），只含正弦项（\(b_n\) 不全为0）</td></tr>
+</table>
 
-<button class="back-to-top" aria-label="回到顶部">↑</button>
-<footer class="site-footer">
-  高数期末复习站 · 精心打磨每一类题的标准步骤<a href="../index.html">🏠 回首页</a>
-</footer>
+<h2 id="sec-summary">📋 考场速记</h2>
+<div class="steps">
+<div class="step"><div class="step-num">1</div><div class="step-body"><h4>求 S(x)</h4><p>连续点 \(S=f\)；间断点 \(S=\) 左右极限平均；端点看周期延拓后的极限。</p></div></div>
+<div class="step"><div class="step-num">2</div><div class="step-body"><h4>做展开</h4><p>算 \(a_0, a_n, b_n\) 三个积分，代公式。注意奇偶性可简化计算。</p></div></div>
+</div>
 
+<div class="box warn"><span class="label">常见错误</span>
+<p>\(a_0\) 的公式里有系数 \(\frac{1}{l}\)，但傅里叶级数里写的是 \(\frac{a_0}{2}\)，不是 \(a_0\)。</p>
+</div>
+
+<div class="page-jump"><a href="10.2-power-problems.html">← 回幂级数题型</a><a href="10.3-fourier-problems.html" class="primary">去练傅里叶题型 →</a></div>
+</main><button class="back-to-top" aria-label="回到顶部">↑</button>
+<footer class="site-footer">高数期末复习站 · 精心打磨每一类题的标准步骤<a href="../index.html">🏠 回首页</a></footer>
 <script src="../js/site.js"></script>
-</body>
-</html>
+</body></html>

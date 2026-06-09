@@ -1,95 +1,43 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>三大公式 · 9.4 · 讲解</title>
-<script>
-window.MathJax = {
-  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
-  svg: { fontCache: 'global' },
-  options: { enableMenu: false }
-};
-</script>
-<script id="MathJax-script" async src="https://cdn.jsdmirror.com/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<link rel="preconnect" href="https://fonts.loli.net">
-<link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>9.4 三大公式 · 讲解</title>
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'},options:{enableMenu:false}};</script><script id="MathJax-script" async src="https://cdn.jsdmirror.com/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="preconnect" href="https://fonts.loli.net"><link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
 <link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/design-system.css">
-</head>
-<body>
-
-<div class="reading-progress"></div>
-
-<nav class="topnav">
-  <div class="topnav-inner">
-    <a href="../index.html" class="logo">高数期末复习站</a>
-    <span class="sep">|</span>
-    <div class="dropdown">
-      <button class="dropdown-toggle">第9章 ▾</button>
-      <div class="dropdown-menu">
-        <a href="../ch9/9.0-overview.html">章节导学</a>
-        <a href="../ch9/9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a>
-        <a href="../ch9/9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a>
-        <a href="../ch9/9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a>
-        <a href="../ch9/9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a>
-        <a href="../ch9/9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a>
-        <a href="../ch9/9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a>
-      </div>
-    </div>
-    <div class="dropdown">
-      <button class="dropdown-toggle">第10章 ▾</button>
-      <div class="dropdown-menu">
-        <a href="../ch10/10.0-overview.html">章节导学</a>
-        <a href="../ch10/10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a>
-        <a href="../ch10/10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a>
-        <a href="../ch10/10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a>
-        <a href="../ch10/10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a>
-        <a href="../ch10/10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a>
-        <a href="../ch10/10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a>
-      </div>
-    </div>
-    <div class="dropdown">
-      <button class="dropdown-toggle">第11章 ▾</button>
-      <div class="dropdown-menu">
-        <a href="../ch11/11.0-overview.html">章节导学</a>
-        <a href="../ch11/11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a>
-        <a href="../ch11/11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a>
-        <a href="../ch11/11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a>
-        <a href="../ch11/11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a>
-      </div>
-    </div>
-    <a href="../exams/index.html" class="item">往年题</a>
-    <a href="../tips/index.html" class="item">技巧锦囊</a>
-    <button class="theme-toggle" aria-label="切换主题">🌙</button>
-  </div>
-</nav>
-
+</head><body><div class="reading-progress"></div>
+<nav class="topnav"><div class="topnav-inner">
+<a href="../index.html" class="logo">高数期末复习站</a><span class="sep">|</span>
+<div class="dropdown"><button class="dropdown-toggle">第9章 ▾</button><div class="dropdown-menu"><a href="9.0-overview.html">章节导学</a><a href="9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a><a href="9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a><a href="9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a><a href="9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a><a href="9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a><a href="9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a></div></div>
+<div class="dropdown"><button class="dropdown-toggle">第10章 ▾</button><div class="dropdown-menu"><a href="../ch10/10.0-overview.html">章节导学</a><a href="../ch10/10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a><a href="../ch10/10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a><a href="../ch10/10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a><a href="../ch10/10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a><a href="../ch10/10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a><a href="../ch10/10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a></div></div>
+<div class="dropdown"><button class="dropdown-toggle">第11章 ▾</button><div class="dropdown-menu"><a href="../ch11/11.0-overview.html">章节导学</a><a href="../ch11/11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a><a href="../ch11/11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a><a href="../ch11/11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a><a href="../ch11/11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a></div></div>
+<a href="../exams/index.html" class="item">往年题</a><a href="../tips/index.html" class="item">技巧锦囊</a><button class="theme-toggle" aria-label="切换主题">🌙</button>
+</div></nav>
 <main class="main">
+<div class="hero"><span class="tag">9.4 · 讲解</span><h1>三大公式 <span class="em">高斯 · 司托克斯</span></h1><p class="subtitle">一句话：高斯公式把封闭曲面上的第二型曲面积分变成三重积分；司托克斯公式把空间封闭曲线上的曲线积分变成曲面积分。</p></div>
+<div class="inpage-toc"><h4>本页导航</h4><ul><li><a href="#sec-gauss">高斯公式</a></li><li><a href="#sec-stokes">司托克斯公式</a></li><li><a href="#sec-summary">对比总结</a></li></ul></div>
 
-  <div class="hero">
-    <span class="tag">9.4 · 讲解</span>
-    <h1>三大公式 <span class="em">高斯公式与司托克斯公式</span></h1>
-    <p class="subtitle">高斯公式与司托克斯公式</p>
-  </div>
+<h2 id="sec-gauss">📐 高斯公式</h2>
+<div class="formula-block">\[\oiint_{S^+} P\,dydz + Q\,dzdx + R\,dxdy = \iiint_{\Omega} \left(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}\right)dV\]
+<div class="caption">\(S^+\) 为封闭曲面的外侧，\(\Omega\) 为 \(S\) 所围区域</div>
+</div>
+<div class="box idea"><span class="label">使用条件</span><p>和格林公式类似：封闭、外侧、\(P,Q,R\) 及偏导在 \(\Omega\) 上连续。不封闭就补面。</p></div>
 
-  <div class="box note">
-    <span class="label">正在完善</span>
-    <p>本页面内容正在精心打磨中，请先浏览其他已完成的章节。推荐前往 <a href="../index.html">首页</a> 查看完整导航。</p>
-  </div>
+<h2 id="sec-stokes">📐 司托克斯公式</h2>
+<div class="formula-block">\[\oint_L P\,dx+Q\,dy+R\,dz = \iint_S \begin{vmatrix} dydz & dzdx & dxdy \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ P & Q & R \end{vmatrix}\]
+<div class="caption">\(L\) 是空间封闭曲线，\(S\) 是以 \(L\) 为边界的曲面，方向满足右手法则</div>
+</div>
+<div class="box key"><span class="label">考试技巧</span><p>以 \(L\) 为边界的曲面有无穷多个，<strong>选平面最简单</strong>（因为平面的法向量是常数，计算最省事）。</p></div>
 
-  <div class="page-jump">
-    <a href="9.3-surface-problems.html">← 回曲面积分题型</a>
-    <a href="9.4-big-three-problems.html" class="primary">去练题型 →</a>
-  </div>
+<h2 id="sec-summary">📋 对比总结</h2>
+<table>
+<tr><th>公式</th><th>左边</th><th>右边</th><th>维度</th></tr>
+<tr><td>格林</td><td>平面闭曲线积分</td><td>二重积分</td><td>2D</td></tr>
+<tr><td>高斯</td><td>封闭曲面积分</td><td>三重积分</td><td>3D</td></tr>
+<tr><td>司托克斯</td><td>空间闭曲线积分</td><td>曲面积分</td><td>3D</td></tr>
+</table>
 
-</main>
-
-<button class="back-to-top" aria-label="回到顶部">↑</button>
-<footer class="site-footer">
-  高数期末复习站 · 精心打磨每一类题的标准步骤<a href="../index.html">🏠 回首页</a>
-</footer>
-
+<div class="page-jump"><a href="9.3-surface-problems.html">← 回曲面积分题型</a><a href="9.4-big-three-problems.html" class="primary">去练三大公式题型 →</a></div>
+</main><button class="back-to-top" aria-label="回到顶部">↑</button>
+<footer class="site-footer">高数期末复习站 · 精心打磨每一类题的标准步骤<a href="../index.html">🏠 回首页</a></footer>
 <script src="../js/site.js"></script>
-</body>
-</html>
+</body></html>
