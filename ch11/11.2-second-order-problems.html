@@ -1,26 +1,637 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>11.2 二阶线性 · 题型</title>
-<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'},options:{enableMenu:false}};</script>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>11.2 二阶线性 · 题型</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  svg: { fontCache: 'global' },
+  options: { enableMenu: false }
+};
+</script>
 <script id="MathJax-script" async src="https://cdn.jsdmirror.com/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<link rel="preconnect" href="https://fonts.loli.net"><link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+<link rel="preconnect" href="https://fonts.loli.net">
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
 <link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/design-system.css">
-</head><body><div class="reading-progress"></div>
-<nav class="topnav"><div class="topnav-inner">
-    <a href="../index.html" class="logo">高数期末复习站</a><span class="sep">|</span>
-    <div class="dropdown"><button class="dropdown-toggle">第9章 ▾</button><div class="dropdown-menu"><a href="../ch9/9.0-overview.html">章节导学</a><a href="../ch9/9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a><a href="../ch9/9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a><a href="../ch9/9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a><a href="../ch9/9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a><a href="../ch9/9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a><a href="../ch9/9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a></div></div>
-    <div class="dropdown"><button class="dropdown-toggle">第10章 ▾</button><div class="dropdown-menu"><a href="../ch10/10.0-overview.html">章节导学</a><a href="../ch10/10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a><a href="../ch10/10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a><a href="../ch10/10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a><a href="../ch10/10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a><a href="../ch10/10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a><a href="../ch10/10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a></div></div>
-    <div class="dropdown"><button class="dropdown-toggle">第11章 ▾</button><div class="dropdown-menu"><a href="11.0-overview.html">章节导学</a><a href="11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a><a href="11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a><a href="11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a><a href="11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a></div></div>
-    <a href="../exams/index.html" class="item">往年题</a><a href="../tips/index.html" class="item">技巧锦囊</a><button class="theme-toggle" aria-label="切换主题">🌙</button>
-</div></nav>
+</head>
+<body>
+
+<div class="reading-progress"></div>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="logo">高数期末复习站</a>
+    <span class="sep">|</span>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第9章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch9/9.0-overview.html">章节导学</a>
+        <a href="../ch9/9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a>
+        <a href="../ch9/9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a>
+        <a href="../ch9/9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第10章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch10/10.0-overview.html">章节导学</a>
+        <a href="../ch10/10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第11章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="11.0-overview.html">章节导学</a>
+        <a href="11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a>
+        <a href="11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a>
+        <a href="11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a>
+        <a href="11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <a href="../exams/index.html" class="item">往年题</a>
+    <a href="../tips/index.html" class="item">技巧锦囊</a>
+    <button class="theme-toggle" aria-label="切换主题">🌙</button>
+  </div>
+</nav>
+
 <main class="main">
-<div class="hero"><span class="tag">11.2 · 题型</span><h1>二阶线性 <span class="em">标准步骤与例题</span></span></h1><p class="subtitle">特征方程 + 待定系数法。</p></div>
-<h2>题型一：齐次方程</h2>
-<div class="example"><div class="example-header"><span class="badge">例题</span><span class="title">齐次</span></div><div class="example-body"><div class="question">求 \(y'' - 3y' + 2y = 0\) 的通解。</div><div class="solution-label">✓ 标准解答</div><p>特征方程：\(r^2 - 3r + 2 = 0\)，根 \(r_1=1, r_2=2\)</p><div class="formula-block">\(y = C_1e^x + C_2e^{2x}\)</div></div></div>
-<h2>题型二：非齐次方程（共振）</h2>
-<div class="example"><div class="example-header"><span class="badge">例题</span><span class="title">共振</span></div><div class="example-body"><div class="question">求 \(y'' - 3y' + 2y = e^x\) 的通解。</div><div class="solution-label">✓ 标准解答</div><p>齐次通解：\(Y = C_1e^x + C_2e^{2x}\)</p><p>\(\lambda=1\) 是特征根（单根），设 \(y^* = Axe^x\)</p><p>代入求得 \(A = -1\)</p><div class="formula-block">\(y = C_1e^x + C_2e^{2x} - xe^x\)</div></div></div>
-<div class="box warn"><span class="label">常见错误</span><p>共振时忘记乘 \(x\) 是最大丢分点。如果强迫项的指数和特征根撞型，特解必须乘 \(x\)。</p></div>
-<div class="page-jump"><a href="11.2-second-order.html">← 回讲解</a><a href="../exams/index.html" class="primary">往年题 →</a></div>
-</main><button class="back-to-top" aria-label="回到顶部">↑</button>
-<footer class="site-footer">高数期末复习站 · 精心打磨每一类题的标准步骤<a href="../index.html">🏠 回首页</a></footer>
-<script src="../js/site.js"></script></body></html>
+
+  <div class="breadcrumb">
+    <a href="../index.html">首页</a>
+    <span class="sep">›</span>
+    <a href="11.0-overview.html">第11章</a>
+    <span class="sep">›</span>
+    <span>11.2 二阶线性 · 题型</span>
+  </div>
+
+  <div class="hero">
+    <span class="tag">11.2 · 题型</span>
+    <h1>二阶线性 <span class="em">标准步骤与例题</span></h1>
+    <p class="subtitle">先判齐次/非齐次，齐次写特征方程看根，非齐次先求齐次通解再用待定系数法。<br>共振必须乘 \(x^k\)，三角型注意 \(\lambda\pm i\omega\) 是否为特征根。</p>
+  </div>
+
+  <div class="inpage-toc">
+    <h4>本页导航</h4>
+    <ul>
+      <li><a href="#sec-decision">决策树</a></li>
+      <li><a href="#sec-type1">题型一：二阶常系数齐次方程</a></li>
+      <li><a href="#sec-type2">题型二：非齐次——待定系数法</a></li>
+      <li><a href="#sec-type3">题型三：叠加原理</a></li>
+      <li><a href="#sec-traps">常见错误</a></li>
+    </ul>
+  </div>
+
+  <h2 id="sec-decision">🌲 三步决策树</h2>
+
+  <div class="decision-tree">
+    <div class="node question">Step 1：看方程右端</div>
+    <div class="arrow">├─ \(f(x)=0\) → <strong>齐次方程</strong>，写特征方程求通解</div>
+    <div class="arrow">└─ \(f(x)\neq 0\) → <strong>非齐次方程</strong>，先求齐次通解，再求特解</div>
+    <div class="node question">Step 2：齐次方程？看特征根</div>
+    <div class="arrow">├─ 两相异实根 \(r_1\neq r_2\) → \(y=C_1e^{r_1x}+C_2e^{r_2x}\)</div>
+    <div class="arrow">├─ 重根 \(r_1=r_2=r\) → \(y=(C_1+C_2x)e^{rx}\)</div>
+    <div class="arrow">└─ 共轭复根 \(\alpha\pm i\beta\) → \(y=e^{\alpha x}(C_1\cos\beta x+C_2\sin\beta x)\)</div>
+    <div class="node question">Step 3：非齐次方程？判 \(f(x)\) 类型设特解</div>
+    <div class="arrow">├─ \(P_m(x)e^{\lambda x}\) 型 → 设 \(y^*=x^kQ_m(x)e^{\lambda x}\)</div>
+    <div class="arrow">└─ \(e^{\lambda x}[P\cos\omega x+Q\sin\omega x]\) 型 → 设 \(y^*=x^ke^{\lambda x}[A\cos\omega x+B\sin\omega x]\)</div>
+  </div>
+
+  <div class="box key">
+    <span class="label">考场口诀</span>
+    <p><strong>"齐次写特征，根有三种型；非齐先齐通，待定系数凑；共振乘 \(x^k\)，三角看复根。"</strong></p>
+  </div>
+
+  <h2 id="sec-type1">题型一：二阶常系数齐次方程</h2>
+
+  <h3>标准步骤</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>写出特征方程</h4>
+        <p>把 \(y''\to r^2\)，\(y'\to r\)，\(y\to 1\)，得到 \(r^2+pr+q=0\)。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>求特征根，判断类型</h4>
+        <p>计算判别式 \(\Delta=p^2-4q\)：\(\Delta>0\) 两相异实根；\(\Delta=0\) 重根；\(\Delta&lt;0\) 共轭复根。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>按根的类型写出通解</h4>
+        <p>对照下表直接写出，无需再积分。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="box key">
+    <span class="label">三种根与通解对照表</span>
+    <table style="width:100%;border-collapse:collapse;margin-top:0.5rem;">
+      <thead>
+        <tr style="border-bottom:1px solid var(--border);">
+          <th style="text-align:left;padding:0.5rem;">根的情况</th>
+          <th style="text-align:left;padding:0.5rem;">通解形式</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:0.5rem;">两相异实根 \(r_1\neq r_2\)</td>
+          <td style="padding:0.5rem;">\(y=C_1e^{r_1x}+C_2e^{r_2x}\)</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border-light);">
+          <td style="padding:0.5rem;">重根 \(r_1=r_2=r\)</td>
+          <td style="padding:0.5rem;">\(y=(C_1+C_2x)e^{rx}\)</td>
+        </tr>
+        <tr>
+          <td style="padding:0.5rem;">共轭复根 \(\alpha\pm i\beta\)</td>
+          <td style="padding:0.5rem;">\(y=e^{\alpha x}(C_1\cos\beta x+C_2\sin\beta x)\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 1</span>
+      <span class="title">齐次 · 两相异实根</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        求微分方程 \(y''-5y'+6y=0\) 的通解。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　写出特征方程：</p>
+      <div class="formula-block">
+        \[r^2-5r+6=0\]
+      </div>
+      <p><strong>Step 2</strong>　因式分解求根：</p>
+      <div class="formula-block">
+        \[(r-2)(r-3)=0\quad\Rightarrow\quad r_1=2,\; r_2=3\]
+      </div>
+      <p>判别式 \(\Delta=25-24=1>0\)，属于<strong>两相异实根</strong>情形。</p>
+      <p><strong>Step 3</strong>　写出通解：</p>
+      <div class="formula-block">
+        \[y=C_1e^{2x}+C_2e^{3x}\]
+      </div>
+      <p><strong>答案：</strong>\(\boxed{y=C_1e^{2x}+C_2e^{3x}}\)</p>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 2</span>
+      <span class="title">齐次 · 重根</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        求微分方程 \(y''-4y'+4y=0\) 的通解。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　特征方程：</p>
+      <div class="formula-block">
+        \[r^2-4r+4=0\]
+      </div>
+      <p><strong>Step 2</strong>　求根：</p>
+      <div class="formula-block">
+        \[(r-2)^2=0\quad\Rightarrow\quad r_1=r_2=2\]
+      </div>
+      <p>判别式 \(\Delta=16-16=0\)，属于<strong>重根</strong>情形。</p>
+      <p><strong>Step 3</strong>　写出通解（必须乘 \(x\)）：</p>
+      <div class="formula-block">
+        \[y=(C_1+C_2x)e^{2x}\]
+      </div>
+      <p><strong>答案：</strong>\(\boxed{y=(C_1+C_2x)e^{2x}}\)</p>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 3</span>
+      <span class="title">齐次 · 共轭复根</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        求微分方程 \(y''+4y'+13y=0\) 的通解。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　特征方程：</p>
+      <div class="formula-block">
+        \[r^2+4r+13=0\]
+      </div>
+      <p><strong>Step 2</strong>　用求根公式：</p>
+      <div class="formula-block">
+        \[r=\frac{-4\pm\sqrt{16-52}}{2}=\frac{-4\pm\sqrt{-36}}{2}=\frac{-4\pm6i}{2}=-2\pm3i\]
+      </div>
+      <p>判别式 \(\Delta=16-52=-36&lt;0\)，属于<strong>共轭复根</strong>情形，\(\alpha=-2,\;\beta=3\)。</p>
+      <p><strong>Step 3</strong>　写出通解：</p>
+      <div class="formula-block">
+        \[y=e^{-2x}(C_1\cos3x+C_2\sin3x)\]
+      </div>
+      <p><strong>答案：</strong>\(\boxed{y=e^{-2x}(C_1\cos3x+C_2\sin3x)}\)</p>
+    </div>
+  </div>
+
+  <div class="box idea">
+    <span class="label">技巧提炼</span>
+    <p>复根情形务必把 \(r=\alpha\pm i\beta\) 中的 \(\alpha\)（实部）和 \(\beta\)（虚部）拆清楚，不要和系数 \(p,q\) 混淆。通解公式里指数部分是 \(e^{\alpha x}\)，三角部分是 \(\cos\beta x\) 和 \(\sin\beta x\)。</p>
+  </div>
+
+  <h2 id="sec-type2">题型二：二阶常系数非齐次方程——待定系数法</h2>
+
+  <p>非齐次方程的通解结构：<strong>齐次通解 \(Y\) + 特解 \(y^*\)</strong>。先求 \(Y\)（同题型一），再针对不同 \(f(x)\) 设 \(y^*\)。</p>
+
+  <h3>子类型 A：\(f(x)=P_m(x)e^{\lambda x}\)</h3>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>求齐次通解 \(Y\)</h4>
+        <p>同题型一，写出特征方程并求根。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>判断 \(\lambda\) 是否为特征根，确定 \(k\)</h4>
+        <p>\(\lambda\) 不是特征根 → \(k=0\)；\(\lambda\) 是单根 → \(k=1\)；\(\lambda\) 是重根 → \(k=2\)。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>设特解形式</h4>
+        <p>\(y^*=x^kQ_m(x)e^{\lambda x}\)，其中 \(Q_m(x)\) 是与 \(P_m(x)\) 同次的待定多项式。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>代入原方程，比较系数求出待定常数</h4>
+        <p>把 \(y^*\) 及其一二阶导数代入原方程，整理后比较同类项系数。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <h4>写出通解 \(y=Y+y^*\)</h4>
+        <p></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 4</span>
+      <span class="title">多项式×指数 · 非共振（\(k=0\)）</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        求微分方程 \(y''-3y'+2y=4x\) 的通解。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　先求齐次通解。特征方程 \(r^2-3r+2=0\)，\((r-1)(r-2)=0\)，\(r_1=1,\;r_2=2\)。</p>
+      <div class="formula-block">
+        \[Y=C_1e^x+C_2e^{2x}\]
+      </div>
+      <p><strong>Step 2</strong>　右端 \(f(x)=4x=4x\cdot e^{0x}\)，所以 \(\lambda=0\)。\(0\) 不是特征根，\(k=0\)。</p>
+      <p><strong>Step 3</strong>　\(P_m(x)=4x\) 是一次多项式，设 \(Q_1(x)=Ax+B\)。因 \(k=0\)，特解形式为：</p>
+      <div class="formula-block">
+        \[y^*=Ax+B\]
+      </div>
+      <p><strong>Step 4</strong>　求导：\(y^{*'}=A\)，\(y^{*''}=0\)。代入原方程：</p>
+      <div class="formula-block">
+        \[0-3A+2(Ax+B)=4x\]
+      </div>
+      <p>整理：</p>
+      <div class="formula-block">
+        \[2Ax+(2B-3A)=4x\]
+      </div>
+      <p>比较系数：</p>
+      <div class="formula-block">
+        \[\begin{cases} 2A=4 \\ 2B-3A=0 \end{cases}\quad\Rightarrow\quad A=2,\; B=3\]
+      </div>
+      <p>所以 \(y^*=2x+3\)。</p>
+      <p><strong>Step 5</strong>　通解：</p>
+      <div class="formula-block">
+        \[y=C_1e^x+C_2e^{2x}+2x+3\]
+      </div>
+      <p><strong>答案：</strong>\(\boxed{y=C_1e^x+C_2e^{2x}+2x+3}\)</p>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 5</span>
+      <span class="title">指数型 · 共振单根（\(k=1\)）</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        求微分方程 \(y''-3y'+2y=e^x\) 的通解。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　齐次通解同例题 4：\(Y=C_1e^x+C_2e^{2x}\)。</p>
+      <p><strong>Step 2</strong>　右端 \(f(x)=e^x\)，\(\lambda=1\)。\(1\) 是特征方程的<strong>单根</strong>，\(k=1\)。</p>
+      <p><strong>Step 3</strong>　设特解（必须乘 \(x\)）：</p>
+      <div class="formula-block">
+        \[y^*=Axe^x\]
+      </div>
+      <p><strong>Step 4</strong>　求导：</p>
+      <div class="formula-block">
+        \[y^{*'}=Ae^x+Axe^x=A(1+x)e^x,\quad y^{*''}=Ae^x+A(1+x)e^x=A(2+x)e^x\]
+      </div>
+      <p>代入原方程并约去 \(e^x\)：</p>
+      <div class="formula-block">
+        \[A(2+x)-3A(1+x)+2Ax=1\]
+      </div>
+      <p>展开整理：</p>
+      <div class="formula-block">
+        \[(A-3A+2A)x+(2A-3A)=1\quad\Rightarrow\quad -A=1\quad\Rightarrow\quad A=-1\]
+      </div>
+      <p>所以 \(y^*=-xe^x\)。</p>
+      <p><strong>Step 5</strong>　通解：</p>
+      <div class="formula-block">
+        \[y=C_1e^x+C_2e^{2x}-xe^x\]
+      </div>
+      <p><strong>答案：</strong>\(\boxed{y=C_1e^x+C_2e^{2x}-xe^x}\)</p>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 6</span>
+      <span class="title">指数型 · 共振重根（\(k=2\)）</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        求微分方程 \(y''-2y'+y=e^x\) 的通解。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　特征方程 \(r^2-2r+1=0\)，\((r-1)^2=0\)，\(r=1\)（重根）。齐次通解：</p>
+      <div class="formula-block">
+        \[Y=(C_1+C_2x)e^x\]
+      </div>
+      <p><strong>Step 2</strong>　右端 \(f(x)=e^x\)，\(\lambda=1\)。\(1\) 是特征方程的<strong>二重根</strong>，\(k=2\)。</p>
+      <p><strong>Step 3</strong>　设特解（必须乘 \(x^2\)）：</p>
+      <div class="formula-block">
+        \[y^*=Ax^2e^x\]
+      </div>
+      <p><strong>Step 4</strong>　求导：</p>
+      <div class="formula-block">
+        \[y^{*'}=2Axe^x+Ax^2e^x=Ax(2+x)e^x\]
+      </div>
+      <div class="formula-block">
+        \[y^{*''}=A(2+x)e^x+Axe^x+Ax(2+x)e^x=A(x^2+4x+2)e^x\]
+      </div>
+      <p>代入原方程并约去 \(e^x\)：</p>
+      <div class="formula-block">
+        \[A(x^2+4x+2)-2A(x^2+2x)+Ax^2=1\]
+      </div>
+      <p>展开整理：</p>
+      <div class="formula-block">
+        \[(A-2A+A)x^2+(4A-4A)x+2A=1\quad\Rightarrow\quad 2A=1\quad\Rightarrow\quad A=\frac12\]
+      </div>
+      <p>所以 \(y^*=\dfrac12x^2e^x\)。</p>
+      <p><strong>Step 5</strong>　通解：</p>
+      <div class="formula-block">
+        \[y=(C_1+C_2x)e^x+\frac12x^2e^x\]
+      </div>
+      <p><strong>答案：</strong>\(\boxed{y=(C_1+C_2x)e^x+\dfrac12x^2e^x}\)</p>
+    </div>
+  </div>
+
+  <h3>子类型 B：\(f(x)=e^{\lambda x}[P\cos\omega x+Q\sin\omega x]\)</h3>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>求齐次通解 \(Y\)</h4>
+        <p></p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>判断 \(\lambda\pm i\omega\) 是否为特征根，确定 \(k\)</h4>
+        <p>不是特征根 → \(k=0\)；是特征根 → \(k=1\)。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>设特解形式</h4>
+        <p>\(y^*=x^ke^{\lambda x}(A\cos\omega x+B\sin\omega x)\)。注意即使 \(f(x)\) 中只有 \(\cos\) 或只有 \(\sin\)，设特解时两者都要保留。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>代入求 \(A,B\)，写出通解</h4>
+        <p></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 7</span>
+      <span class="title">三角型 · 非共振（\(k=0\)）</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        求微分方程 \(y''+y=\cos2x\) 的通解。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　特征方程 \(r^2+1=0\)，\(r=\pm i\)。齐次通解：</p>
+      <div class="formula-block">
+        \[Y=C_1\cos x+C_2\sin x\]
+      </div>
+      <p><strong>Step 2</strong>　右端 \(f(x)=\cos2x=e^{0x}\cdot1\cdot\cos2x\)，所以 \(\lambda=0,\;\omega=2\)。</p>
+      <p>\(\lambda\pm i\omega=\pm2i\) <strong>不是</strong>特征根（特征根为 \(\pm i\)），\(k=0\)。</p>
+      <p><strong>Step 3</strong>　设特解：</p>
+      <div class="formula-block">
+        \[y^*=A\cos2x+B\sin2x\]
+      </div>
+      <p><strong>Step 4</strong>　求导：\(y^{*'}=-2A\sin2x+2B\cos2x\)，\(y^{*''}=-4A\cos2x-4B\sin2x\)。代入：</p>
+      <div class="formula-block">
+        \[(-4A\cos2x-4B\sin2x)+(A\cos2x+B\sin2x)=\cos2x\]
+      </div>
+      <p>整理：</p>
+      <div class="formula-block">
+        \[-3A\cos2x-3B\sin2x=\cos2x\]
+      </div>
+      <p>比较系数：\(-3A=1\Rightarrow A=-\dfrac13\)；\(-3B=0\Rightarrow B=0\)。</p>
+      <p>所以 \(y^*=-\dfrac13\cos2x\)。通解：</p>
+      <div class="formula-block">
+        \[y=C_1\cos x+C_2\sin x-\frac13\cos2x\]
+      </div>
+      <p><strong>答案：</strong>\(\boxed{y=C_1\cos x+C_2\sin x-\dfrac13\cos2x}\)</p>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 8</span>
+      <span class="title">三角型 · 共振（\(k=1\)）</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        求微分方程 \(y''+y=\cos x\) 的通解。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　特征方程 \(r^2+1=0\)，\(r=\pm i\)。齐次通解：</p>
+      <div class="formula-block">
+        \[Y=C_1\cos x+C_2\sin x\]
+      </div>
+      <p><strong>Step 2</strong>　右端 \(f(x)=\cos x\)，\(\lambda=0,\;\omega=1\)。</p>
+      <p>\(\lambda\pm i\omega=\pm i\) <strong>是</strong>特征根，\(k=1\)。</p>
+      <p><strong>Step 3</strong>　设特解（必须乘 \(x\)，且 \(\cos\) 和 \(\sin\) 都要保留）：</p>
+      <div class="formula-block">
+        \[y^*=x(A\cos x+B\sin x)\]
+      </div>
+      <p><strong>Step 4</strong>　求导：</p>
+      <div class="formula-block">
+        \[y^{*'}=(A+Bx)\cos x+(B-Ax)\sin x\]
+      </div>
+      <div class="formula-block">
+        \[y^{*''}=(2B-Ax)\cos x-(2A+Bx)\sin x\]
+      </div>
+      <p>代入 \(y''+y=\cos x\)：</p>
+      <div class="formula-block">
+        \[(2B-Ax)\cos x-(2A+Bx)\sin x+x(A\cos x+B\sin x)=\cos x\]
+      </div>
+      <p>\(x\cos x\) 和 \(x\sin x\) 项互相抵消，整理得：</p>
+      <div class="formula-block">
+        \[2B\cos x-2A\sin x=\cos x\]
+      </div>
+      <p>比较系数：\(2B=1\Rightarrow B=\dfrac12\)；\(-2A=0\Rightarrow A=0\)。</p>
+      <p>所以 \(y^*=\dfrac12x\sin x\)。通解：</p>
+      <div class="formula-block">
+        \[y=C_1\cos x+C_2\sin x+\frac12x\sin x\]
+      </div>
+      <p><strong>答案：</strong>\(\boxed{y=C_1\cos x+C_2\sin x+\dfrac12x\sin x}\)</p>
+    </div>
+  </div>
+
+  <div class="box idea">
+    <span class="label">待定系数法的核心策略</span>
+    <p>设特解时，<strong>只看 \(f(x)\) 的"型"，不管系数具体是多少</strong>。例如 \(f(x)=\cos x\) 和 \(f(x)=5\cos x\) 的特解形式完全一样。关键是判断 \(\lambda\pm i\omega\)（或 \(\lambda\)）是否为特征根——这决定了要不要乘 \(x^k\)。</p>
+  </div>
+
+  <h2 id="sec-type3">题型三：叠加原理</h2>
+
+  <h3>标准步骤</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>把右端拆成若干简单项之和</h4>
+        <p>\(f(x)=f_1(x)+f_2(x)+\cdots\)，每一项都属于待定系数法的标准型。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>对每个 \(f_i(x)\) 分别求特解 \(y_i^*\)</h4>
+        <p>用待定系数法，注意每个 \(f_i\) 对应的 \(k\) 要独立判断。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>叠加得到总特解，写出通解</h4>
+        <p>\(y^*=y_1^*+y_2^*+\cdots\)，通解 \(y=Y+y^*\)。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 9</span>
+      <span class="title">叠加原理 · 多项式 + 指数</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        求微分方程 \(y''-3y'+2y=4x+e^x\) 的通解。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　拆分右端：\(f_1(x)=4x\)（多项式型），\(f_2(x)=e^x\)（指数型）。</p>
+      <p>齐次通解：\(Y=C_1e^x+C_2e^{2x}\)（同前）。</p>
+      <p><strong>Step 2</strong>　分别求特解：</p>
+      <p>对 \(f_1=4x\)：\(\lambda=0\) 不是特征根，\(k=0\)，设 \(y_1^*=Ax+B\)。代入求得 \(A=2,\;B=3\)（同例题 4），即 \(y_1^*=2x+3\)。</p>
+      <p>对 \(f_2=e^x\)：\(\lambda=1\) 是单根，\(k=1\)，设 \(y_2^*=Axe^x\)。代入求得 \(A=-1\)（同例题 5），即 \(y_2^*=-xe^x\)。</p>
+      <p><strong>Step 3</strong>　叠加得总特解：</p>
+      <div class="formula-block">
+        \[y^*=y_1^*+y_2^*=2x+3-xe^x\]
+      </div>
+      <p>通解：</p>
+      <div class="formula-block">
+        \[y=C_1e^x+C_2e^{2x}+2x+3-xe^x\]
+      </div>
+      <p><strong>答案：</strong>\(\boxed{y=C_1e^x+C_2e^{2x}+2x+3-xe^x}\)</p>
+    </div>
+  </div>
+
+  <div class="box idea">
+    <span class="label">叠加原理的省力之处</span>
+    <p>例题 9 如果直接对整个 \(4x+e^x\) 设特解，形式会非常混乱。拆成两项后，每项都是标准型，分别计算、最后相加——这是线性方程的结构性优势，必须利用。</p>
+  </div>
+
+  <h2 id="sec-traps">⚠️ 常见错误</h2>
+
+  <div class="box warn">
+    <span class="label">错误 1：共振时忘记乘 \(x^k\)</span>
+    <p>这是期末考<strong>最大丢分点</strong>。当强迫项的指数底 \(e^{\lambda x}\) 中 \(\lambda\) 恰好是特征根时，特解必须乘 \(x\)（单根）或 \(x^2\)（重根）。忘了这一步，代入后会发现方程左边无法匹配右边，但很多同学此时不是回头检查 \(k\)，而是硬算下去导致全错。</p>
+  </div>
+
+  <div class="box warn">
+    <span class="label">错误 2：复根通解写错</span>
+    <p>特征根 \(r=-2\pm3i\) 时，通解是 \(y=e^{-2x}(C_1\cos3x+C_2\sin3x)\)。常见错误：把 \(\alpha\) 和 \(\beta\) 写反、漏掉指数因子 \(e^{\alpha x}\)、或者写成 \(e^{3ix}\) 等形式（虽然数学等价，但考试要求写成实函数形式）。</p>
+  </div>
+
+  <div class="box warn">
+    <span class="label">错误 3：三角型特解只设 \(\cos\) 或只设 \(\sin\)</span>
+    <p>即使右端只有 \(\cos\omega x\)，设特解时也必须同时保留 \(A\cos\omega x+B\sin\omega x\)。因为求导后 \(\cos\) 会变成 \(\sin\)，如果只设一项，代入后无法平衡方程。</p>
+  </div>
+
+  <div class="box warn">
+    <span class="label">错误 4：待定系数计算出错</span>
+    <p>设完 \(y^*\) 后，一阶导、二阶导的链式法则容易算错（尤其是 \(xe^x\)、\(x^2e^x\) 或 \(x\cos x\) 这类乘积形式）。建议把求导结果展开彻底后再代入原方程，不要在脑子里"跳步"。</p>
+  </div>
+
+  <div class="box warn">
+    <span class="label">错误 5：混淆通解结构</span>
+    <p>非齐次方程的通解必须是 <strong>齐次通解 + 特解</strong>。有些同学求出 \(y^*\) 就以为结束了，漏写 \(Y=C_1e^{r_1x}+C_2e^{r_2x}\) 部分；或者把特解和齐次通解混在一起合并常数，导致答案不完整。</p>
+  </div>
+
+  <div class="page-jump">
+    <a href="11.2-second-order.html">← 回讲解</a>
+    <a href="../exams/index.html" class="primary">往年题 →</a>
+  </div>
+
+</main>
+
+<button class="back-to-top" aria-label="回到顶部">↑</button>
+<footer class="site-footer">
+  高数期末复习站 · 精心打磨每一类题的标准步骤<a href="../index.html">🏠 回首页</a>
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>
