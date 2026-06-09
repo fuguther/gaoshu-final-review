@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10.1 数项级数 · 习题详解</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  svg: { fontCache: 'global' },
+  options: { enableMenu: false }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdmirror.com/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="preconnect" href="https://fonts.loli.net">
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+<link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/design-system.css">
+<style>
+  .ex-intro{color:var(--ink-soft);font-size:15px;line-height:1.8;border-left:3px solid var(--red);
+    padding:4px 0 4px 18px;margin:0 0 46px;background:var(--red-soft);border-radius:0 8px 8px 0;
+    padding-right:16px;}
+  .ex-group{margin:0 0 56px;}
+  .ex-req{font-family:var(--serif);font-size:21px;font-weight:700;color:var(--ink);
+    padding-bottom:14px;border-bottom:1px solid var(--divider);margin:0 0 30px;
+    display:flex;align-items:baseline;gap:14px;}
+  .ex-bignum{color:var(--red);font-weight:900;font-size:24px;}
+  .ex{padding:0 0 30px;margin:0 0 30px;border-bottom:1px dashed var(--divider-light);}
+  .ex-group .ex:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+  .ex-q{display:flex;gap:14px;align-items:baseline;margin-bottom:16px;}
+  .ex-no{color:var(--red);font-weight:700;font-family:var(--mono);font-size:15px;flex-shrink:0;
+    min-width:42px;padding-top:2px;}
+  .ex-qmath{color:var(--ink);font-size:18px;}
+  .ex-sol{padding-left:56px;}
+  .ex-step{color:var(--ink-soft);margin:7px 0;line-height:1.95;}
+  .ex-sol mjx-container[display="true"]{text-align:left!important;margin:.45em 0!important;}
+  .ex-ans{margin-top:18px;padding:11px 18px;background:var(--paper);border:1px solid var(--divider);
+    border-radius:var(--radius-sm);box-shadow:var(--shadow-sm);display:flex;gap:12px;align-items:baseline;}
+  .ex-ans-label{color:var(--red);font-weight:700;font-size:13px;flex-shrink:0;letter-spacing:.04em;}
+  .ex-flag{margin-top:10px;font-size:13.5px;color:var(--gold);background:var(--gold-soft);
+    padding:8px 14px;border-radius:8px;line-height:1.7;}
+  .ex-flag b{color:var(--gold);}
+  @media(max-width:600px){.ex-sol{padding-left:0;}.ex-qmath{font-size:16px;}}
+</style>
+</head>
+<body>
+
+<div class="reading-progress"></div>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="logo">高数期末复习站</a>
+    <span class="sep">|</span>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第9章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch9/9.0-overview.html">章节导学</a>
+        <a href="../ch9/9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a>
+        <a href="../ch9/9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a>
+        <a href="../ch9/9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第10章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="10.0-overview.html">章节导学</a>
+        <a href="10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a>
+        <a href="10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a>
+        <a href="10.1-exercises.html">10.1 数项级数 <span class="sub">习题</span></a>
+        <a href="10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a>
+        <a href="10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a>
+        <a href="10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a>
+        <a href="10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第11章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch11/11.0-overview.html">章节导学</a>
+        <a href="../ch11/11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a>
+        <a href="../ch11/11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <a href="../exams/index.html" class="item">往年题</a>
+    <a href="../tips/index.html" class="item">技巧锦囊</a>
+    <button class="theme-toggle" aria-label="切换主题">🌙</button>
+  </div>
+</nav>
+
+<main class="main">
+
+  <div class="breadcrumb">
+    <a href="../index.html">首页</a>
+    <span class="sep">›</span>
+    <a href="10.0-overview.html">第10章</a>
+    <span class="sep">›</span>
+    <span>10.1 数项级数 · 习题</span>
+  </div>
+
+  <div class="hero">
+    <span class="tag">10.1 · 教材习题全解</span>
+    <h1>数项级数 <span class="em">习题详解</span></h1>
+    <p class="subtitle">《高等数学（生化医农类）下册》习题 10.1 · 逐题考场标准步骤</p>
+  </div>
+
+  <p class="ex-intro">题目取自教材习题 10.1，按考场标准答案写法分步详解，最终结论已逐题对照书末官方答案核对。（本页为试点样张：问题 1–4，共 29 小题；问题 5–8 待定稿后补全。）</p>
+
+  <section class="ex-group">
+    <h2 class="ex-req"><span class="ex-bignum">1.</span>写出一般项</h2>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(1)</span><span class="ex-qmath">\(\displaystyle 1+\frac{1}{3}+\frac{1}{5}+\frac{1}{7}+\cdots\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">\[观察数列各项分母：1, 3, 5, 7, ...\]</div>
+        <div class="ex-step">分母为奇数序列，第 \(n\) 项分母为 \(2n-1\)，其中 \(n=1,2,3,\cdots\)</div>
+        <div class="ex-step">第 \(n\) 项分子均为 1</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[a_n=\frac{1}{2n-1},\quad n=1,2,3,\cdots\]</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(2)</span><span class="ex-qmath">\(\displaystyle 1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">观察级数 \(1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots\)</div>
+        <div class="ex-step">第 \(n\) 项的绝对值为 \(\frac{1}{n}\)</div>
+        <div class="ex-step">\[符号规律为：奇数项正，偶数项负\]</div>
+        <div class="ex-step">用 \((-1)^{n+1}\) 或 \((-1)^{n-1}\) 表示该符号规律</div>
+        <div class="ex-step">一般项为 \(u_n = (-1)^{n-1}\frac{1}{n}\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\((-1)^{n-1}\frac{1}{n}\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(3)</span><span class="ex-qmath">\(\displaystyle -\frac{1}{2}+0+\frac{1}{4}+\frac{2}{5}+\frac{3}{6}+\cdots\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">观察数列：\(-\frac{1}{2}, 0, \frac{1}{4}, \frac{2}{5}, \frac{3}{6}, \cdots\)</div>
+        <div class="ex-step">将各项改写为统一形式：第一项 \(a_1 = -\frac{1}{2} = \frac{-1}{2}\)，第二项 \(a_2 = 0 = \frac{0}{3}\)，第三项 \(a_3 = \frac{1}{4}\)，第四项 \(a_4 = \frac{2}{5}\)，第五项 \(a_5 = \frac{3}{6}\)</div>
+        <div class="ex-step">分析分子规律：\(-1, 0, 1, 2, 3, \cdots\)，即分子为 \(n-2\)</div>
+        <div class="ex-step">分析分母规律：\(2, 3, 4, 5, 6, \cdots\)，即分母为 \(n+1\)</div>
+        <div class="ex-step">验证：当 \(n=1\) 时，\(\frac{1-2}{1+1} = \frac{-1}{2} = -\frac{1}{2}\)；当 \(n=2\) 时，\(\frac{2-2}{2+1} = \frac{0}{3} = 0\)；当 \(n=3\) 时，\(\frac{3-2}{3+1} = \frac{1}{4}\)；当 \(n=4\) 时，\(\frac{4-2}{4+1} = \frac{2}{5}\)；当 \(n=5\) 时，\(\frac{5-2}{5+1} = \frac{3}{6}\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[a_n = \frac{n-2}{n+1}\]</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(4)</span><span class="ex-qmath">\(\displaystyle \frac{1}{2}+\frac{1\cdot 3}{2\cdot 4}+\frac{1\cdot 3\cdot 5}{2\cdot 4\cdot 6}+\cdots\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">设一般项为 \(a_n\)，观察各项规律：</div>
+        <div class="ex-step">第 \(n\) 项分子为前 \(n\) 个正奇数之积：\(1\cdot 3\cdot 5\cdots(2n-1)\)</div>
+        <div class="ex-step">第 \(n\) 项分母为前 \(n\) 个正偶数之积：\(2\cdot 4\cdot 6\cdots(2n)\)</div>
+        <div class="ex-step">\[用双阶乘表示：\]</div>
+        <div class="ex-step">\[或写成：\]</div>
+        <div class="ex-step">\[进一步化为：\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[a_n = \frac{(2n-1)!!}{(2n)!!} = \frac{(2n)!}{4^n(n!)^2} = \frac{1}{4^n}\binom{2n}{n},\quad n=1,2,3,\cdots\]</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(5)</span><span class="ex-qmath">\(\displaystyle \frac{\sqrt{x}}{2}+\frac{x}{2\cdot 4}+\frac{x\sqrt{x}}{2\cdot 4\cdot 6}+\frac{x^{2}}{2\cdot 4\cdot 6\cdot 8}+\cdots\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">\[观察各项分母：\]</div>
+        <div class="ex-step">观察各项分子中 \(x\) 的幂次：</div>
+        <div class="ex-step">\[统一表示分子：\]</div>
+        <div class="ex-step">写出第 \(n\) 项：</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(u_n = \dfrac{x^{\frac{n}{2}}}{2^n \cdot n!}\)（或 \(\dfrac{(\sqrt{x})^n}{2^n \cdot n!}\)），其中 \(n=1,2,3,\cdots\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(6)</span><span class="ex-qmath">\(\displaystyle \frac{a^{2}}{3}-\frac{a^{3}}{5}+\frac{a^{4}}{7}-\frac{a^{5}}{9}+\cdots\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">分子依次为 \(a^{2},a^{3},a^{4},\cdots\)，即 \(a^{n+1}\)；分母依次为 \(3,5,7,\cdots\)，即 \(2n+1\)</div>
+        <div class="ex-step">符号自首项起正、负相间，\(n=1\) 为正，故符号因子为 \((-1)^{n+1}\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(\displaystyle a_n=(-1)^{n+1}\frac{a^{n+1}}{2n+1}\)</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="ex-group">
+    <h2 class="ex-req"><span class="ex-bignum">2.</span>写出前四项</h2>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(1)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}\frac{2^{n-1}}{\sqrt{n}}\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">级数 \(\sum_{n=1}^{\infty}\frac{2^{n-1}}{\sqrt{n}}\) 的前四项对应 \(n=1,2,3,4\)</div>
+        <div class="ex-step">当 \(n=1\) 时，\(\frac{2^{1-1}}{\sqrt{1}} = \frac{2^0}{1} = 1\)</div>
+        <div class="ex-step">当 \(n=2\) 时，\(\frac{2^{2-1}}{\sqrt{2}} = \frac{2}{\sqrt{2}} = \sqrt{2}\)</div>
+        <div class="ex-step">当 \(n=3\) 时，\(\frac{2^{3-1}}{\sqrt{3}} = \frac{4}{\sqrt{3}} = \frac{4\sqrt{3}}{3}\)</div>
+        <div class="ex-step">当 \(n=4\) 时，\(\frac{2^{4-1}}{\sqrt{4}} = \frac{8}{2} = 4\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>前四项为 \(1,\ \sqrt{2},\ \frac{4\sqrt{3}}{3},\ 4\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(2)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}\frac{n+2}{2n-1}\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">设 \(a_n = \frac{n+2}{2n-1}\)</div>
+        <div class="ex-step">当 \(n=1\) 时，\(a_1 = \frac{1+2}{2\cdot 1-1} = \frac{3}{1} = 3\)</div>
+        <div class="ex-step">当 \(n=2\) 时，\(a_2 = \frac{2+2}{2\cdot 2-1} = \frac{4}{3}\)</div>
+        <div class="ex-step">当 \(n=3\) 时，\(a_3 = \frac{3+2}{2\cdot 3-1} = \frac{5}{5} = 1\)</div>
+        <div class="ex-step">当 \(n=4\) 时，\(a_4 = \frac{4+2}{2\cdot 4-1} = \frac{6}{7}\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[\sum_{n=1}^{\infty}\frac{n+2}{2n-1} = 3 + \frac{4}{3} + 1 + \frac{6}{7} + \cdots\]</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(3)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}\frac{1}{(2n-1)2^{2n-1}}\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">设 \(S=\sum_{n=1}^{\infty}\frac{1}{(2n-1)2^{2n-1}}\)</div>
+        <div class="ex-step">考虑 \(f(x)=\sum_{n=1}^{\infty}\frac{x^{2n-1}}{2n-1}\)，则 \(S=f\left(\frac{1}{2}\right)\)</div>
+        <div class="ex-step">求导得 \(f'(x)=\sum_{n=1}^{\infty}x^{2n-2}=\sum_{n=0}^{\infty}x^{2n}=\frac{1}{1-x^2}\)，\(|x|<1\)</div>
+        <div class="ex-step">积分得 \(f(x)=\int_0^x\frac{1}{1-t^2}\,dt=\frac{1}{2}\ln\frac{1+x}{1-x}\)</div>
+        <div class="ex-step">故 \(S=f\left(\frac{1}{2}\right)=\frac{1}{2}\ln\frac{1+\frac{1}{2}}{1-\frac{1}{2}}=\frac{1}{2}\ln 3\)</div>
+        <div class="ex-step">展开验证：\(\frac{1}{1\cdot 2}+\frac{1}{3\cdot 8}+\frac{1}{5\cdot 32}+\frac{1}{7\cdot 128}+\cdots\)</div>
+        <div class="ex-step">前四项为 \(a_1=\frac{1}{2}\)，\(a_2=\frac{1}{24}\)，\(a_3=\frac{1}{160}\)，\(a_4=\frac{1}{896}\)</div>
+        <div class="ex-step">即 \(\frac{1}{2}+\frac{1}{24}+\frac{1}{160}+\frac{1}{896}+\cdots=\frac{1}{2}\ln 3\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>前四项为 \(\frac{1}{2}\)，\(\frac{1}{24}\)，\(\frac{1}{160}\)，\(\frac{1}{896}\)，级数和为 \(\frac{\ln 3}{2}\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(4)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}\frac{x^{n-1}}{\sqrt{n}}\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">令 \(a_n = \frac{x^{n-1}}{\sqrt{n}}\)</div>
+        <div class="ex-step">当 \(n=1\) 时，\(a_1 = \frac{x^{1-1}}{\sqrt{1}} = \frac{x^0}{1} = 1\)</div>
+        <div class="ex-step">当 \(n=2\) 时，\(a_2 = \frac{x^{2-1}}{\sqrt{2}} = \frac{x}{\sqrt{2}}\)</div>
+        <div class="ex-step">当 \(n=3\) 时，\(a_3 = \frac{x^{3-1}}{\sqrt{3}} = \frac{x^2}{\sqrt{3}}\)</div>
+        <div class="ex-step">当 \(n=4\) 时，\(a_4 = \frac{x^{4-1}}{\sqrt{4}} = \frac{x^3}{2}\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[1 + \frac{x}{\sqrt{2}} + \frac{x^2}{\sqrt{3}} + \frac{x^3}{2} + \cdots\]</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(5)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{\sqrt{n(n+1)}}\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">\[ \sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{\sqrt{n(n+1)}} \]</div>
+        <div class="ex-step">当 \(n=1\) 时，\(\frac{(-1)^{0}}{\sqrt{1\cdot 2}} = \frac{1}{\sqrt{2}}\)</div>
+        <div class="ex-step">当 \(n=2\) 时，\(\frac{(-1)^{1}}{\sqrt{2\cdot 3}} = -\frac{1}{\sqrt{6}}\)</div>
+        <div class="ex-step">当 \(n=3\) 时，\(\frac{(-1)^{2}}{\sqrt{3\cdot 4}} = \frac{1}{\sqrt{12}} = \frac{1}{2\sqrt{3}}\)</div>
+        <div class="ex-step">当 \(n=4\) 时，\(\frac{(-1)^{3}}{\sqrt{4\cdot 5}} = -\frac{1}{\sqrt{20}} = -\frac{1}{2\sqrt{5}}\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[ \frac{1}{\sqrt{2}} - \frac{1}{\sqrt{6}} + \frac{1}{2\sqrt{3}} - \frac{1}{2\sqrt{5}} + \cdots \]</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(6)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}\frac{(-1)^{n-1}x^{2n-1}}{(2n-1)!}\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">令 \( n=1 \), 得第1项：\(\frac{(-1)^{0}x^{1}}{1!} = x\)</div>
+        <div class="ex-step">令 \( n=2 \), 得第2项：\(\frac{(-1)^{1}x^{3}}{3!} = -\frac{x^{3}}{6}\)</div>
+        <div class="ex-step">令 \( n=3 \), 得第3项：\(\frac{(-1)^{2}x^{5}}{5!} = \frac{x^{5}}{120}\)</div>
+        <div class="ex-step">令 \( n=4 \), 得第4项：\(\frac{(-1)^{3}x^{7}}{7!} = -\frac{x^{7}}{5040}\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\( x - \frac{x^{3}}{3!} + \frac{x^{5}}{5!} - \frac{x^{7}}{7!} = x - \frac{x^{3}}{6} + \frac{x^{5}}{120} - \frac{x^{7}}{5040} \)</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="ex-group">
+    <h2 class="ex-req"><span class="ex-bignum">3.</span>根据定义判断是否收敛</h2>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(1)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}(\sqrt{n+1}-\sqrt{n})\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">部分和 \(S_n = \sum_{k=1}^{n}(\sqrt{k+1}-\sqrt{k})\)</div>
+        <div class="ex-step">展开得 \(S_n = (\sqrt{2}-\sqrt{1})+(\sqrt{3}-\sqrt{2})+\cdots+(\sqrt{n+1}-\sqrt{n})\)</div>
+        <div class="ex-step">裂项相消，得 \(S_n = \sqrt{n+1}-\sqrt{1} = \sqrt{n+1}-1\)</div>
+        <div class="ex-step">求极限 \(\lim_{n\to\infty}S_n = \lim_{n\to\infty}(\sqrt{n+1}-1)\)</div>
+        <div class="ex-step">由于 \(\lim_{n\to\infty}\sqrt{n+1} = +\infty\)，故 \(\lim_{n\to\infty}S_n = +\infty\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数发散。\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(2)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}(\sqrt{n+2}-2\sqrt{n+1}+\sqrt{n})\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">\(a_n = \sqrt{n+2}-2\sqrt{n+1}+\sqrt{n}\)</div>
+        <div class="ex-step">\[a_n = (\sqrt{n+2}-\sqrt{n+1})-(\sqrt{n+1}-\sqrt{n})\]</div>
+        <div class="ex-step">\[a_n = \frac{1}{\sqrt{n+2}+\sqrt{n+1}} - \frac{1}{\sqrt{n+1}+\sqrt{n}}\]</div>
+        <div class="ex-step">\[部分和\]</div>
+        <div class="ex-step">\[展开得\]</div>
+        <div class="ex-step">\[telescoping 后\]</div>
+        <div class="ex-step">\[\lim_{n\to\infty}S_n = \lim_{n\to\infty}\frac{1}{\sqrt{n+2}+\sqrt{n+1}}-\frac{1}{\sqrt{2}+1} = 0 - (\sqrt{2}-1) = 1-\sqrt{2}\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>级数收敛，且\(\sum_{n=1}^{\infty}(\sqrt{n+2}-2\sqrt{n+1}+\sqrt{n}) = 1-\sqrt{2}\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(3)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}\frac{1}{(5n-4)(5n+1)}\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">\[a_n = \frac{1}{(5n-4)(5n+1)} = \frac{1}{5}\left(\frac{1}{5n-4} - \frac{1}{5n+1}\right)\]</div>
+        <div class="ex-step">\[S_n = \sum_{k=1}^{n} a_k = \frac{1}{5}\sum_{k=1}^{n}\left(\frac{1}{5k-4} - \frac{1}{5k+1}\right)\]</div>
+        <div class="ex-step">\[S_n = \frac{1}{5}\left[\left(1 - \frac{1}{6}\right) + \left(\frac{1}{6} - \frac{1}{11}\right) + \left(\frac{1}{11} - \frac{1}{16}\right) + \cdots + \left(\frac{1}{5n-4} - \frac{1}{5n+1}\right)\right]\]</div>
+        <div class="ex-step">\[S_n = \frac{1}{5}\left(1 - \frac{1}{5n+1}\right)\]</div>
+        <div class="ex-step">\[\lim_{n\to\infty} S_n = \lim_{n\to\infty} \frac{1}{5}\left(1 - \frac{1}{5n+1}\right) = \frac{1}{5}\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>级数收敛，且\(\sum_{n=1}^{\infty}\frac{1}{(5n-4)(5n+1)} = \frac{1}{5}\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(4)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}\frac{1}{(2n-1)(2n+1)}\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">部分分式分解：\(\frac{1}{(2n-1)(2n+1)} = \frac{1}{2}\left(\frac{1}{2n-1} - \frac{1}{2n+1}\right)\)</div>
+        <div class="ex-step">部分和 \(S_n = \sum_{k=1}^{n}\frac{1}{(2k-1)(2k+1)} = \frac{1}{2}\sum_{k=1}^{n}\left(\frac{1}{2k-1} - \frac{1}{2k+1}\right)\)</div>
+        <div class="ex-step">\[展开得 telescoping 级数：\]</div>
+        <div class="ex-step">\[中间项相消：\]</div>
+        <div class="ex-step">\[求极限：\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>级数收敛，且 \(\sum_{n=1}^{\infty}\frac{1}{(2n-1)(2n+1)} = \frac{1}{2}\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(5)</span><span class="ex-qmath">\(\displaystyle \frac{1}{2}+\frac{1}{3}+\frac{1}{2^2}+\frac{1}{3^2}+\cdots+\frac{1}{2^n}+\frac{1}{3^n}+\cdots\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">记级数部分和为 \( S_n \)</div>
+        <div class="ex-step">当 \( n = 2k \) 时，\[ S_{2k} = \sum_{i=1}^{k}\frac{1}{2^i} + \sum_{i=1}^{k}\frac{1}{3^i} \]</div>
+        <div class="ex-step">\[ \sum_{i=1}^{k}\frac{1}{2^i} = \frac{\frac{1}{2}\left(1-\frac{1}{2^k}\right)}{1-\frac{1}{2}} = 1-\frac{1}{2^k} \]</div>
+        <div class="ex-step">\[ \sum_{i=1}^{k}\frac{1}{3^i} = \frac{\frac{1}{3}\left(1-\frac{1}{3^k}\right)}{1-\frac{1}{3}} = \frac{1}{2}\left(1-\frac{1}{3^k}\right) \]</div>
+        <div class="ex-step">\[ S_{2k} = 1-\frac{1}{2^k} + \frac{1}{2}-\frac{1}{2\cdot 3^k} = \frac{3}{2}-\frac{1}{2^k}-\frac{1}{2\cdot 3^k} \]</div>
+        <div class="ex-step">\[ \lim_{k\to\infty}S_{2k} = \frac{3}{2} \]</div>
+        <div class="ex-step">当 \( n = 2k+1 \) 时，\[ S_{2k+1} = S_{2k} + \frac{1}{2^{k+1}} \]</div>
+        <div class="ex-step">\[ \lim_{k\to\infty}S_{2k+1} = \lim_{k\to\infty}\left(\frac{3}{2}-\frac{1}{2^k}-\frac{1}{2\cdot 3^k}+\frac{1}{2^{k+1}}\right) = \frac{3}{2} \]</div>
+        <div class="ex-step">由 \( \lim_{k\to\infty}S_{2k} = \lim_{k\to\infty}S_{2k+1} = \frac{3}{2} \)，得 \[ \lim_{n\to\infty}S_n = \frac{3}{2} \]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>该级数收敛，且其和为 \(\displaystyle\frac{3}{2}\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(6)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}\ln\left(1+\frac{1}{n}\right)\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">设部分和 \(S_n = \sum_{k=1}^{n}\ln\left(1+\frac{1}{k}\right)\)</div>
+        <div class="ex-step">化简通项：\(\ln\left(1+\frac{1}{k}\right) = \ln\left(\frac{k+1}{k}\right) = \ln(k+1) - \ln k\)</div>
+        <div class="ex-step">\[求部分和：\]</div>
+        <div class="ex-step">\[裂项相消得：\]</div>
+        <div class="ex-step">\[求极限：\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数发散。\)</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="ex-group">
+    <h2 class="ex-req"><span class="ex-bignum">4.</span>判断下列级数是否收敛</h2>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(1)</span><span class="ex-qmath">\(\displaystyle -\frac{8}{9}+\frac{8^{2}}{9^{2}}-\frac{8^{3}}{9^{3}}+\cdots\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">该级数为 \[ \sum_{n=1}^{\infty} \left(-\frac{8}{9}\right)^n = -\frac{8}{9} + \frac{8^2}{9^2} - \frac{8^3}{9^3} + \cdots \]</div>
+        <div class="ex-step">此为等比级数，首项 \[ a = -\frac{8}{9} \]，公比 \[ r = -\frac{8}{9} \]</div>
+        <div class="ex-step">由 \[ |r| = \left|-\frac{8}{9}\right| = \frac{8}{9} < 1 \]</div>
+        <div class="ex-step">根据等比级数收敛判别法，当 \[ |r| < 1 \] 时级数收敛</div>
+        <div class="ex-step">级数收敛，其和为 \[ S = \frac{a}{1-r} = \frac{-\frac{8}{9}}{1-\left(-\frac{8}{9}\right)} = \frac{-\frac{8}{9}}{\frac{17}{9}} = -\frac{8}{17} \]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>级数收敛，且收敛于 \(-\frac{8}{17}\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(2)</span><span class="ex-qmath">\(\displaystyle \frac{1}{3}+\frac{1}{6}+\frac{1}{9}+\frac{1}{12}+\cdots\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">级数一般项为 \(a_n = \frac{1}{3n}\)，其中 \(n = 1, 2, 3, \ldots\)</div>
+        <div class="ex-step">原级数可写为 \[\sum_{n=1}^{\infty} \frac{1}{3n} = \frac{1}{3}\sum_{n=1}^{\infty} \frac{1}{n}\]</div>
+        <div class="ex-step">已知调和级数 \(\sum_{n=1}^{\infty} \frac{1}{n}\) 发散</div>
+        <div class="ex-step">由级数性质，非零常数乘以发散级数仍发散，故 \(\frac{1}{3}\sum_{n=1}^{\infty} \frac{1}{n}\) 发散</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数发散\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(3)</span><span class="ex-qmath">\(\displaystyle \frac{1}{3}+\frac{1}{\sqrt{3}}+\frac{1}{\sqrt[3]{3}}+\frac{1}{\sqrt[4]{3}}+\cdots\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">级数一般项为 \(a_n = \frac{1}{\sqrt[n]{3}} = \frac{1}{3^{1/n}} = 3^{-1/n}\)</div>
+        <div class="ex-step">考察 \(\lim_{n\to\infty} a_n = \lim_{n\to\infty} 3^{-1/n}\)</div>
+        <div class="ex-step">由于 \(\lim_{n\to\infty} \frac{1}{n} = 0\)，故 \(\lim_{n\to\infty} \left(-\frac{1}{n}\right) = 0\)</div>
+        <div class="ex-step">因此 \(\lim_{n\to\infty} 3^{-1/n} = 3^0 = 1\)</div>
+        <div class="ex-step">由级数收敛的必要条件：若 \(\sum_{n=1}^{\infty} a_n\) 收敛，则 \(\lim_{n\to\infty} a_n = 0\)</div>
+        <div class="ex-step">现 \(\lim_{n\to\infty} a_n = 1 \neq 0\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(该级数发散\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(4)</span><span class="ex-qmath">\(\displaystyle 1!+2!+3!+4!+\cdots\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">设级数通项为 \( u_n = n! \)</div>
+        <div class="ex-step">\[使用比值判别法，计算\]</div>
+        <div class="ex-step">\[化简得\]</div>
+        <div class="ex-step">\[由比值判别法，因\]</div>
+        <div class="ex-step">\[故级数发散\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>级数 \( \sum_{n=1}^{\infty} n! \) 发散</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(5)</span><span class="ex-qmath">\(\displaystyle \frac{2}{3}+\frac{3}{4}+\frac{4}{5}+\frac{5}{6}+\cdots\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">级数通项为 \( a_n = \frac{n+1}{n+2} \)，\( n = 1, 2, 3, \ldots \)</div>
+        <div class="ex-step">由级数收敛的必要条件，若 \( \sum_{n=1}^{\infty} a_n \) 收敛，则 \( \lim_{n \to \infty} a_n = 0 \)</div>
+        <div class="ex-step">\[计算极限：\]</div>
+        <div class="ex-step">因 \( \lim_{n \to \infty} a_n = 1 \neq 0 \)</div>
+        <div class="ex-step">\[由级数收敛的必要条件不满足，故级数发散\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数发散\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(6)</span><span class="ex-qmath">\(\displaystyle \frac{\ln 2}{2}+\frac{\ln^{2} 2}{2^{2}}+\frac{\ln^{3} 2}{2^{3}}+\cdots\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">该级数为 \[ \sum_{n=1}^{\infty} \frac{\ln^{n} 2}{2^{n}} = \sum_{n=1}^{\infty} \left(\frac{\ln 2}{2}\right)^{n} \]</div>
+        <div class="ex-step">此为等比级数，公比 \[ r = \frac{\ln 2}{2} \]</div>
+        <div class="ex-step">由于 \[ \ln 2 \approx 0.693 \]，故 \[ |r| = \frac{\ln 2}{2} \approx 0.347 < 1 \]</div>
+        <div class="ex-step">等比级数收敛的充要条件为 \[ |r| < 1 \]，满足条件</div>
+        <div class="ex-step">级数收敛，其和为 \[ S = \frac{r}{1-r} = \frac{\frac{\ln 2}{2}}{1-\frac{\ln 2}{2}} = \frac{\ln 2}{2-\ln 2} \]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>收敛，和为 \(\displaystyle \frac{\ln 2}{2-\ln 2}\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(7)</span><span class="ex-qmath">\(\displaystyle 1+\frac{2}{3}+\frac{3}{5}+\frac{4}{7}+\frac{5}{9}+\cdots\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">级数通项为 \(a_n = \frac{n}{2n-1}\)</div>
+        <div class="ex-step">考察 \(\lim_{n\to\infty} a_n = \lim_{n\to\infty} \frac{n}{2n-1} = \lim_{n\to\infty} \frac{1}{2-\frac{1}{n}} = \frac{1}{2}\)</div>
+        <div class="ex-step">由级数收敛的必要条件：若 \(\sum_{n=1}^{\infty} a_n\) 收敛，则 \(\lim_{n\to\infty} a_n = 0\)</div>
+        <div class="ex-step">因 \(\lim_{n\to\infty} a_n = \frac{1}{2} \neq 0\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数发散\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(8)</span><span class="ex-qmath">\(\displaystyle \frac{1}{4}+\frac{1}{5}+\frac{1}{6}+\frac{1}{7}+\cdots\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">级数为 \(\sum_{n=4}^{\infty} \frac{1}{n}\)</div>
+        <div class="ex-step">这是调和级数 \(\sum_{n=1}^{\infty} \frac{1}{n}\) 去掉前 3 项</div>
+        <div class="ex-step">调和级数 \(\sum_{n=1}^{\infty} \frac{1}{n}\) 发散</div>
+        <div class="ex-step">\[级数去掉有限项不改变敛散性\]</div>
+        <div class="ex-step">故 \(\sum_{n=4}^{\infty} \frac{1}{n}\) 发散</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数发散\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(9)</span><span class="ex-qmath">\(\displaystyle \left(\frac{1}{6}+\frac{8}{9}\right)+\left(\frac{1}{6^{2}}+\frac{8^{2}}{9^{2}}\right)+\left(\frac{1}{6^{3}}+\frac{8^{3}}{9^{3}}\right)+\cdots\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">原级数可写为 \(\sum_{n=1}^{\infty}\left(\frac{1}{6^{n}}+\frac{8^{n}}{9^{n}}\right)\)</div>
+        <div class="ex-step">拆分为两个级数：\(\sum_{n=1}^{\infty}\frac{1}{6^{n}}+\sum_{n=1}^{\infty}\left(\frac{8}{9}\right)^{n}\)</div>
+        <div class="ex-step">第一个级数：\(\sum_{n=1}^{\infty}\frac{1}{6^{n}}\)，公比 \(q_1=\frac{1}{6}\)，\(|q_1|=\frac{1}{6}<1\)，收敛</div>
+        <div class="ex-step">第二个级数：\(\sum_{n=1}^{\infty}\left(\frac{8}{9}\right)^{n}\)，公比 \(q_2=\frac{8}{9}\)，\(|q_2|=\frac{8}{9}<1\)，收敛</div>
+        <div class="ex-step">\[两个收敛级数之和收敛，故原级数收敛\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(收敛\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(10)</span><span class="ex-qmath">\(\displaystyle \frac{1}{2}+\frac{1}{10}+\frac{1}{4}+\frac{1}{20}+\cdots+\frac{1}{2^{n}}+\frac{1}{10\cdot n}+\cdots\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">原级数为 \[ \sum_{n=1}^{\infty} \left( \frac{1}{2^n} + \frac{1}{10n} \right) \]</div>
+        <div class="ex-step">拆分为两个级数：\[ \sum_{n=1}^{\infty} \frac{1}{2^n} + \sum_{n=1}^{\infty} \frac{1}{10n} \]</div>
+        <div class="ex-step">第一个级数 \[ \sum_{n=1}^{\infty} \frac{1}{2^n} \] 是公比 \( q = \frac{1}{2} \) 的等比级数，由于 \( |q| = \frac{1}{2} < 1 \)，故收敛</div>
+        <div class="ex-step">第二个级数 \[ \sum_{n=1}^{\infty} \frac{1}{10n} = \frac{1}{10} \sum_{n=1}^{\infty} \frac{1}{n} \]</div>
+        <div class="ex-step">\( \sum_{n=1}^{\infty} \frac{1}{n} \) 为调和级数，发散</div>
+        <div class="ex-step">故 \( \frac{1}{10} \sum_{n=1}^{\infty} \frac{1}{n} \) 发散</div>
+        <div class="ex-step">\[收敛级数与发散级数之和发散\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(原级数发散\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(11)</span><span class="ex-qmath">\(\displaystyle 0.001+\sqrt{0.001}+\sqrt[3]{0.001}+\cdots+\sqrt[n]{0.001}+\cdots\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">级数通项为 \(a_n = \sqrt[n]{0.001} = (0.001)^{\frac{1}{n}} = (10^{-3})^{\frac{1}{n}} = 10^{-\frac{3}{n}}\)</div>
+        <div class="ex-step">\[考察通项极限\]</div>
+        <div class="ex-step">由于 \(\lim_{n\to\infty} a_n = 1 \neq 0\)</div>
+        <div class="ex-step">\[由级数收敛的必要条件，通项不趋于零则级数发散\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数发散\)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-jump">
+    <a href="10.1-series-problems.html">← 10.1 题型</a>
+    <a href="10.2-power-series.html" class="primary">10.2 幂级数讲解 →</a>
+  </div>
+
+</main>
+
+<button class="back-to-top" aria-label="回到顶部">↑</button>
+<footer class="site-footer">
+  高数期末复习站 · 教材习题考场标准步骤详解<a href="../index.html">🏠 回首页</a>
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>
