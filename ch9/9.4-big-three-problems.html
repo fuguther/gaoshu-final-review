@@ -1,26 +1,459 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>9.4 三大公式 · 题型</title>
-<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'},options:{enableMenu:false}};</script>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9.4 三大公式 · 题型</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  svg: { fontCache: 'global' },
+  options: { enableMenu: false }
+};
+</script>
 <script id="MathJax-script" async src="https://cdn.jsdmirror.com/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<link rel="preconnect" href="https://fonts.loli.net"><link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+<link rel="preconnect" href="https://fonts.loli.net">
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
 <link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/design-system.css">
-</head><body><div class="reading-progress"></div>
-<nav class="topnav"><div class="topnav-inner">
-    <a href="../index.html" class="logo">高数期末复习站</a><span class="sep">|</span>
-    <div class="dropdown"><button class="dropdown-toggle">第9章 ▾</button><div class="dropdown-menu"><a href="9.0-overview.html">章节导学</a><a href="9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a><a href="9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a><a href="9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a><a href="9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a><a href="9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a><a href="9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a></div></div>
-    <div class="dropdown"><button class="dropdown-toggle">第10章 ▾</button><div class="dropdown-menu"><a href="../ch10/10.0-overview.html">章节导学</a><a href="../ch10/10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a><a href="../ch10/10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a><a href="../ch10/10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a><a href="../ch10/10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a><a href="../ch10/10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a><a href="../ch10/10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a></div></div>
-    <div class="dropdown"><button class="dropdown-toggle">第11章 ▾</button><div class="dropdown-menu"><a href="../ch11/11.0-overview.html">章节导学</a><a href="../ch11/11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a><a href="../ch11/11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a><a href="../ch11/11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a><a href="../ch11/11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a></div></div>
-    <a href="../exams/index.html" class="item">往年题</a><a href="../tips/index.html" class="item">技巧锦囊</a><button class="theme-toggle" aria-label="切换主题">🌙</button>
-</div></nav>
+</head>
+<body>
+
+<div class="reading-progress"></div>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="logo">高数期末复习站</a>
+    <span class="sep">|</span>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第9章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="9.0-overview.html">章节导学</a>
+        <a href="9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a>
+        <a href="9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a>
+        <a href="9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a>
+        <a href="9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a>
+        <a href="9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a>
+        <a href="9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第10章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch10/10.0-overview.html">章节导学</a>
+        <a href="../ch10/10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第11章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch11/11.0-overview.html">章节导学</a>
+        <a href="../ch11/11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a>
+        <a href="../ch11/11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <a href="../exams/index.html" class="item">往年题</a>
+    <a href="../tips/index.html" class="item">技巧锦囊</a>
+    <button class="theme-toggle" aria-label="切换主题">🌙</button>
+  </div>
+</nav>
+
 <main class="main">
-<div class="hero"><span class="tag">9.4 · 题型</span><h1>三大公式 <span class="em">标准步骤与例题</span></span></h1><p class="subtitle">高斯公式补面，司托克斯选平面。</p></div>
-<h2>题型一：高斯公式（补面法）</h2>
-<div class="steps"><div class="step"><div class="step-num">1</div><div class="step-body"><h4>判断曲面是否封闭</h4></div></div><div class="step"><div class="step-num">2</div><div class="step-body"><h4>不封闭则补面（通常补坐标面）</h4></div></div><div class="step"><div class="step-num">3</div><div class="step-body"><h4>用高斯公式化为三重积分</h4></div></div><div class="step"><div class="step-num">4</div><div class="step-body"><h4>减去补面上的积分</h4></div></div></div>
-<h2>题型二：司托克斯公式</h2>
-<div class="steps"><div class="step"><div class="step-num">1</div><div class="step-body"><h4>确定边界曲线 \(L\)</h4></div></div><div class="step"><div class="step-num">2</div><div class="step-body"><h4>选简单曲面（通常选平面）</h4></div></div><div class="step"><div class="step-num">3</div><div class="step-body"><h4>用行列式公式计算曲面积分</h4></div></div></div>
-<div class="box key"><span class="label">选曲面技巧</span><p>司托克斯公式中，以 \(L\) 为边界的曲面有无穷多个。<strong>选平面</strong>计算最方便，因为平面的法向量是常向量。</p></div>
-<div class="page-jump"><a href="9.4-big-three.html">← 回讲解</a><a href="../ch10/10.0-overview.html" class="primary">第10章导学 →</a></div>
-</main><button class="back-to-top" aria-label="回到顶部">↑</button>
-<footer class="site-footer">高数期末复习站 · 精心打磨每一类题的标准步骤<a href="../index.html">🏠 回首页</a></footer>
-<script src="../js/site.js"></script></body></html>
+
+  <div class="breadcrumb">
+    <a href="../index.html">首页</a>
+    <span class="sep">›</span>
+    <a href="9.0-overview.html">第9章</a>
+    <span class="sep">›</span>
+    <span>9.4 三大公式 · 题型</span>
+  </div>
+
+  <div class="hero">
+    <span class="tag">9.4 · 题型</span>
+    <h1>三大公式 <span class="em">标准步骤与例题</span></h1>
+    <p class="subtitle">拿到题先判类型：第二型曲面积分想高斯，空间曲线积分想斯托克斯。<br>封闭直接用，不封闭补面，补完记得减。</p>
+  </div>
+
+  <div class="inpage-toc">
+    <h4>本页导航</h4>
+    <ul>
+      <li><a href="#sec-decision">决策树</a></li>
+      <li><a href="#sec-type1">题型一：高斯公式（封闭直接用）</a></li>
+      <li><a href="#sec-type2">题型二：高斯公式补面法</a></li>
+      <li><a href="#sec-type3">题型三：斯托克斯公式</a></li>
+      <li><a href="#sec-traps">常见错误</a></li>
+    </ul>
+  </div>
+
+  <h2 id="sec-decision">🌲 三步决策树</h2>
+
+  <div class="decision-tree">
+    <div class="node question">Step 1：看积分类型</div>
+    <div class="arrow">├─ 第二型曲面积分 \(\iint_\Sigma P\,dydz+Q\,dzdx+R\,dxdy\) → <strong>高斯公式</strong></div>
+    <div class="arrow">└─ 空间曲线积分 \(\oint_L P\,dx+Q\,dy+R\,dz\) → <strong>斯托克斯公式</strong></div>
+    <div class="node question">Step 2：高斯公式？看曲面是否封闭</div>
+    <div class="arrow">├─ 封闭曲面 → 直接用高斯（确认外侧）</div>
+    <div class="arrow">└─ 不封闭曲面 → <strong>补面</strong>后用高斯，再减去补面上的积分</div>
+    <div class="node question">Step 3：斯托克斯公式？选曲面</div>
+    <div class="arrow">├─ 以 \(L\) 为边界的曲面有无穷多个</div>
+    <div class="arrow">└─ <strong>选平面</strong>最简单（法向量是常向量）</div>
+  </div>
+
+  <div class="box key">
+    <span class="label">考场口诀</span>
+    <p><strong>"曲面积分想高斯，空间曲线想斯托克斯；封闭直接上，不封补个面；斯托克斯选平面。"</strong></p>
+  </div>
+
+  <h2 id="sec-type1">题型一：高斯公式（封闭曲面直接用）</h2>
+
+  <h3>标准步骤</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>检验使用条件</h4>
+        <p>曲面<strong>封闭</strong>、取<strong>外侧</strong>、\(P,Q,R\) 及偏导在区域内<strong>连续</strong>。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>计算散度</h4>
+        <p>\(\displaystyle\text{div}\vec{F} = \frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}\)。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>化为三重积分并计算</h4>
+        <p>\(\displaystyle\iiint_\Omega \text{div}\vec{F}\,dV\)，根据区域形状选直角/柱/球坐标计算。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 1</span>
+      <span class="title">高斯公式 · 球面经典题</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        计算 \(I = \displaystyle\oiint_\Sigma x^3\,dydz + y^3\,dzdx + z^3\,dxdy\)，其中 \(\Sigma\) 为球面 \(x^2+y^2+z^2=a^2\) 的<strong>外侧</strong>。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　球面封闭，取外侧，\(P=x^3, Q=y^3, R=z^3\) 处处偏导连续，满足高斯公式条件。</p>
+      <p><strong>Step 2</strong>　计算散度：</p>
+      <div class="formula-block">
+        \[\text{div}\vec{F} = \frac{\partial(x^3)}{\partial x}+\frac{\partial(y^3)}{\partial y}+\frac{\partial(z^3)}{\partial z} = 3x^2+3y^2+3z^2 = 3(x^2+y^2+z^2)\]
+      </div>
+      <p><strong>Step 3</strong>　设 \(\Omega: x^2+y^2+z^2\leq a^2\)，则</p>
+      <div class="formula-block">
+        \[I = \iiint_{\Omega} 3(x^2+y^2+z^2)\,dV\]
+      </div>
+      <p>用球坐标：\(x^2+y^2+z^2=r^2\)，\(dV=r^2\sin\varphi\,drd\varphi d\theta\)</p>
+      <div class="formula-block">
+        \[I = 3\int_0^{2\pi}d\theta\int_0^{\pi}d\varphi\int_0^a r^2\cdot r^2\sin\varphi\,dr = 3\cdot 2\pi\cdot\left[-\cos\varphi\right]_0^{\pi}\cdot\frac{a^5}{5}\]
+      </div>
+      <div class="formula-block">
+        \[= 6\pi\cdot 2\cdot\frac{a^5}{5} = \frac{12\pi a^5}{5}\]
+      </div>
+      <p><strong>答案：</strong>\(\boxed{\dfrac{12\pi a^5}{5}}\)</p>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 2</span>
+      <span class="title">高斯公式 · 锥面围成区域</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        计算 \(I = \displaystyle\oiint_\Sigma x\,dydz + y\,dzdx + (z^2-2z)\,dxdy\)，其中 \(\Sigma\) 为锥面 \(z=\sqrt{x^2+y^2}\) 与平面 \(z=1\) 所围成封闭曲面的<strong>外侧</strong>。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　曲面由锥面侧面和下底平面围成，封闭且取外侧，偏导连续，满足条件。</p>
+      <p><strong>Step 2</strong>　计算散度：</p>
+      <div class="formula-block">
+        \[\text{div}\vec{F} = \frac{\partial x}{\partial x}+\frac{\partial y}{\partial y}+\frac{\partial(z^2-2z)}{\partial z} = 1+1+(2z-2) = 2z\]
+      </div>
+      <p><strong>Step 3</strong>　设 \(\Omega\) 为锥体 \(\sqrt{x^2+y^2}\leq z\leq 1\)，则</p>
+      <div class="formula-block">
+        \[I = \iiint_{\Omega} 2z\,dV\]
+      </div>
+      <p>用柱坐标：\(0\leq\theta\leq 2\pi\)，\(0\leq r\leq 1\)（因为 \(z=1\) 时 \(r=1\)），\(r\leq z\leq 1\)</p>
+      <div class="formula-block">
+        \[I = \int_0^{2\pi}d\theta\int_0^1 r\,dr\int_r^1 2z\,dz = 2\pi\int_0^1 r\left[z^2\right]_r^1\,dr\]
+      </div>
+      <div class="formula-block">
+        \[= 2\pi\int_0^1 r(1-r^2)\,dr = 2\pi\left(\frac{1}{2}-\frac{1}{4}\right) = \frac{\pi}{2}\]
+      </div>
+      <p><strong>答案：</strong>\(\boxed{\dfrac{\pi}{2}}\)</p>
+    </div>
+  </div>
+
+  <div class="box idea">
+    <span class="label">技巧提炼</span>
+    <p>用高斯公式后得到的三重积分，如果区域关于某坐标面对称，优先检查被积函数的奇偶性。例如球体上 \(x,y,z\) 的奇函数积分直接为 0，可大幅简化计算。</p>
+  </div>
+
+  <h2 id="sec-type2">题型二：高斯公式补面法（不封闭曲面）</h2>
+
+  <h3>标准步骤</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>判断曲面是否封闭，确定补哪个面</h4>
+        <p>通常补平行于坐标面的平面（如 \(z=0, z=h\)），这样补面上的积分只有一个分量非零，计算极简。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>补面并确认方向</h4>
+        <p>补的面必须与原有曲面<strong>共同构成外侧</strong>（或内侧，保持一致）。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>高斯公式算封闭积分</h4>
+        <p>把原曲面 + 补的面当作整体，用高斯公式算三重积分。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>减去补面上的积分</h4>
+        <p>\(\displaystyle I = I_{\text{高斯封闭}} - I_{\text{补面}}\)。注意补面的侧要与第 2 步一致。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 3</span>
+      <span class="title">补面法 · 上半球面（补面积分为零）</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        计算 \(I = \displaystyle\iint_\Sigma xz\,dydz + yz\,dzdx + z^2\,dxdy\)，其中 \(\Sigma\) 为上半球面 \(z=\sqrt{R^2-x^2-y^2}\) 的<strong>上侧</strong>。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　上半球面不封闭，补底面 \(\Sigma_1: z=0\)（\(x^2+y^2\leq R^2\)），取<strong>下侧</strong>，使 \(\Sigma+\Sigma_1\) 构成封闭外侧。</p>
+      <p><strong>Step 2</strong>　计算散度：</p>
+      <div class="formula-block">
+        \[\text{div}\vec{F} = \frac{\partial(xz)}{\partial x}+\frac{\partial(yz)}{\partial y}+\frac{\partial(z^2)}{\partial z} = z+z+2z = 4z\]
+      </div>
+      <p><strong>Step 3</strong>　高斯公式：</p>
+      <div class="formula-block">
+        \[\oiint_{\Sigma+\Sigma_1} = \iiint_{\Omega} 4z\,dV\]
+      </div>
+      <p>其中 \(\Omega\) 为上半球体。用球坐标：\(0\leq\theta\leq 2\pi\)，\(0\leq\varphi\leq\frac{\pi}{2}\)，\(0\leq r\leq R\)</p>
+      <div class="formula-block">
+        \[\iiint_{\Omega} 4z\,dV = 4\int_0^{2\pi}d\theta\int_0^{\pi/2}d\varphi\int_0^R r\cos\varphi\cdot r^2\sin\varphi\,dr\]
+      </div>
+      <div class="formula-block">
+        \[= 4\cdot 2\pi\cdot\frac{1}{2}\cdot\frac{R^4}{4} = \pi R^4\]
+      </div>
+      <p><strong>Step 4</strong>　补面 \(\Sigma_1\) 上 \(z=0\)，所以被积函数中 \(P=xz=0, Q=yz=0, R=z^2=0\)，故</p>
+      <div class="formula-block">
+        \[\iint_{\Sigma_1} xz\,dydz + yz\,dzdx + z^2\,dxdy = 0\]
+      </div>
+      <p>因此 \(I = \pi R^4 - 0 = \pi R^4\)。</p>
+      <p><strong>答案：</strong>\(\boxed{\pi R^4}\)</p>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 4</span>
+      <span class="title">补面法 · 抛物面（补面积分非零）</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        计算 \(I = \displaystyle\iint_\Sigma (x^3+z)\,dydz + (y^3+x)\,dzdx + dxdy\)，其中 \(\Sigma\) 为抛物面 \(z=x^2+y^2\) 被平面 \(z=1\) 截得部分，取<strong>下侧</strong>。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　抛物面 \(z=x^2+y^2\)（\(z\leq 1\)）不封闭，补顶面 \(\Sigma_1: z=1\)（\(x^2+y^2\leq 1\)），取<strong>上侧</strong>。此时 \(\Sigma\)（下侧）+ \(\Sigma_1\)（上侧）构成封闭外侧。</p>
+      <p><strong>Step 2</strong>　计算散度：</p>
+      <div class="formula-block">
+        \[\text{div}\vec{F} = 3x^2+3y^2+0 = 3(x^2+y^2)\]
+      </div>
+      <p><strong>Step 3</strong>　高斯公式。区域 \(\Omega: x^2+y^2\leq z\leq 1\)，用柱坐标：</p>
+      <div class="formula-block">
+        \[\oiint_{\Sigma+\Sigma_1} = \iiint_{\Omega} 3(x^2+y^2)\,dV = \int_0^{2\pi}d\theta\int_0^1 r\,dr\int_{r^2}^1 3r^2\,dz\]
+      </div>
+      <div class="formula-block">
+        \[= 2\pi\int_0^1 3r^3(1-r^2)\,dr = 6\pi\left(\frac{1}{4}-\frac{1}{6}\right) = \frac{\pi}{2}\]
+      </div>
+      <p><strong>Step 4</strong>　计算补面 \(\Sigma_1\) 上的积分。在平面 \(z=1\) 上，法向量只有 \(z\) 分量，故 \(dydz=dzdx=0\)，仅剩 \(dxdy\) 项：</p>
+      <div class="formula-block">
+        \[\iint_{\Sigma_1} (x^3+z)\,dydz + (y^3+x)\,dzdx + dxdy = \iint_{\Sigma_1} dxdy\]
+      </div>
+      <p>上侧投影取正，投影区域 \(D: x^2+y^2\leq 1\)，面积为 \(\pi\)：</p>
+      <div class="formula-block">
+        \[\iint_{\Sigma_1} dxdy = +\iint_D dxdy = \pi\]
+      </div>
+      <p>因此原积分</p>
+      <div class="formula-block">
+        \[I = \frac{\pi}{2} - \pi = -\frac{\pi}{2}\]
+      </div>
+      <p><strong>答案：</strong>\(\boxed{-\dfrac{\pi}{2}}\)</p>
+    </div>
+  </div>
+
+  <div class="box idea">
+    <span class="label">补面法的核心策略</span>
+    <p>补面时优先补<strong>坐标面或平行于坐标面的平面</strong>。因为平面的法向量是常向量，很多微分项直接为 0，只剩下一个分量需要算。例题 3 和例题 4 是两种典型：补面积分可能为 0（运气好的情况），也可能需要额外计算。</p>
+  </div>
+
+  <h2 id="sec-type3">题型三：斯托克斯公式</h2>
+
+  <h3>标准步骤</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>确认曲线封闭，确定正向</h4>
+        <p>题目会说明"从某轴正向看去为逆时针/顺时针"，据此确定右手法则下的法向量方向。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>选简单曲面</h4>
+        <p>以 \(L\) 为边界的曲面有无穷多个，<strong>选平面</strong>（如果 \(L\) 在某一平面上）计算最方便。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>计算旋度，化为曲面积分</h4>
+        <p>套斯托克斯公式，把曲线积分化为曲面积分。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>计算曲面积分</h4>
+        <p>平面情形通常用合一投影法或直接用 \(dS\) 公式。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 5</span>
+      <span class="title">斯托克斯公式 · 球面截平面</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        计算 \(I = \displaystyle\oint_L y\,dx + z\,dy + x\,dz\)，其中 \(L\) 为球面 \(x^2+y^2+z^2=a^2\) 与平面 \(x+y+z=0\) 的交线，从 \(z\) 轴正向看去为<strong>逆时针</strong>方向。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　\(L\) 是空间闭曲线。从 \(z\) 轴正向看逆时针，由右手法则，曲面应取<strong>上侧</strong>（法向量 \(z\) 分量为正）。</p>
+      <p><strong>Step 2</strong>　选 \(S\) 为平面 \(x+y+z=0\) 被球面截得的圆盘。平面法向量 \((1,1,1)\)，单位法向量 \(\vec{n}^0=\dfrac{(1,1,1)}{\sqrt{3}}\)，\(z\) 分量 \(\dfrac{1}{\sqrt{3}}>0\)，符合上侧要求。</p>
+      <p><strong>Step 3</strong>　计算旋度。\(P=y, Q=z, R=x\)：</p>
+      <div class="formula-block">
+        \[\nabla\times\vec{F} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ \partial_x & \partial_y & \partial_z \\ y & z & x \end{vmatrix} = \vec{i}(0-1)-\vec{j}(1-0)+\vec{k}(0-1)=(-1,-1,-1)\]
+      </div>
+      <p>斯托克斯公式：</p>
+      <div class="formula-block">
+        \[I = \iint_S (-1,-1,-1)\cdot d\vec{S} = \iint_S (-1,-1,-1)\cdot\vec{n}^0\,dS\]
+      </div>
+      <div class="formula-block">
+        \[= \iint_S \frac{-1-1-1}{\sqrt{3}}\,dS = -\sqrt{3}\iint_S dS\]
+      </div>
+      <p><strong>Step 4</strong>　平面过球心，截得圆盘半径为 \(a\)，面积 = \(\pi a^2\)。因此</p>
+      <div class="formula-block">
+        \[I = -\sqrt{3}\cdot\pi a^2 = -\sqrt{3}\pi a^2\]
+      </div>
+      <p><strong>答案：</strong>\(\boxed{-\sqrt{3}\pi a^2}\)</p>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 6</span>
+      <span class="title">斯托克斯公式 · 柱面截斜平面（投影法）</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        计算 \(I = \displaystyle\oint_L (y-z)\,dx + (z-x)\,dy + (x-y)\,dz\)，其中 \(L\) 为柱面 \(x^2+y^2=a^2\)（\(a>0\) 为柱面半径）与平面 \(\dfrac{x}{a}+\dfrac{z}{h}=1\)（\(h>0\)）的交线，从 \(x\) 轴正向看去为<strong>逆时针</strong>方向。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　从 \(x\) 轴正向看逆时针，右手法则要求法向量 \(x\) 分量为正。</p>
+      <p><strong>Step 2</strong>　选 \(S\) 为平面 \(\dfrac{x}{a}+\dfrac{z}{h}=1\) 被柱面截得的椭圆盘。平面写成 \(hx+az=ah\)，法向量 \((h,0,a)\)，\(x\) 分量 \(h>0\)，符合要求。</p>
+      <p><strong>Step 3</strong>　计算旋度。\(P=y-z, Q=z-x, R=x-y\)：</p>
+      <div class="formula-block">
+        \[\nabla\times\vec{F} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ \partial_x & \partial_y & \partial_z \\ y-z & z-x & x-y \end{vmatrix} = \vec{i}(-1-1)-\vec{j}(1+1)+\vec{k}(-1-1)=(-2,-2,-2)\]
+      </div>
+      <p>于是</p>
+      <div class="formula-block">
+        \[I = \iint_S (-2,-2,-2)\cdot d\vec{S}\]
+      </div>
+      <p><strong>Step 4</strong>　用投影法。由 \(z=h\left(1-\dfrac{x}{a}\right)\)，得 \(z_x=-\dfrac{h}{a}\)，\(z_y=0\)。投影到 \(xOy\) 面为圆 \(D: x^2+y^2\leq a^2\)。合一投影公式（上侧取正）：</p>
+      <div class="formula-block">
+        \[dydz = -z_x\,dxdy = \frac{h}{a}\,dxdy, \quad dzdx = -z_y\,dxdy = 0\]
+      </div>
+      <p>所以</p>
+      <div class="formula-block">
+        \[I = \iint_D \left[(-2)\cdot\frac{h}{a}+(-2)\cdot 0+(-2)\right]dxdy = \iint_D \left(-\frac{2h}{a}-2\right)dxdy\]
+      </div>
+      <div class="formula-block">
+        \[= -\frac{2(h+a)}{a}\cdot\pi a^2 = -2\pi a(a+h)\]
+      </div>
+      <p><strong>答案：</strong>\(\boxed{-2\pi a(a+h)}\)</p>
+    </div>
+  </div>
+
+  <div class="box idea">
+    <span class="label">斯托克斯的选曲面技巧</span>
+    <p>以 \(L\) 为边界的曲面有无穷多个，斯托克斯公式对<strong>任意</strong>这样的曲面都成立。选平面的好处是：法向量恒定，\(\cos\alpha,\cos\beta,\cos\gamma\) 都是常数，可以直接提到积分号外，只需算曲面面积。例题 5 就是典型——直接用 \(dS\) 算面积，例题 6 则用合一投影法投到 \(xOy\) 面。</p>
+  </div>
+
+  <h2 id="sec-traps">⚠️ 常见错误</h2>
+
+  <div class="box warn">
+    <span class="label">错误 1：内侧外侧符号搞反</span>
+    <p>高斯公式要求<strong>外侧</strong>。如果题目给的是内侧（如"指向原点"），整个结果要加<strong>负号</strong>。常见错误是忘了翻号，直接套公式。</p>
+  </div>
+
+  <div class="box warn">
+    <span class="label">错误 2：补面后忘记减去补面上的积分</span>
+    <p>补面法的完整等式是：\(I_{\text{原}} = I_{\text{高斯封闭}} - I_{\text{补面}}\)。很多同学算完三重积分就以为结束了，忘了补面也"贡献"了一部分，必须减掉。</p>
+  </div>
+
+  <div class="box warn">
+    <span class="label">错误 3：斯托克斯方向违反右手法则</span>
+    <p>右手法则：四指沿曲线正向，大拇指指向法向量方向。如果题目说"从 \(z\) 轴正向看逆时针"，则法向量应取<strong>上侧</strong>（\(z\) 分量为正）。方向搞反，答案差一个负号。</p>
+  </div>
+
+  <div class="box warn">
+    <span class="label">错误 4：散度算错</span>
+    <p>散度是 \(P_x+Q_y+R_z\)，不是梯度，也不是旋度。斯托克斯公式里是旋度（有交叉偏导），高斯公式里是散度（无交叉偏导），两者不要混淆。</p>
+  </div>
+
+  <div class="page-jump">
+    <a href="9.4-big-three.html">&larr; 回讲解</a>
+    <a href="../ch10/10.0-overview.html" class="primary">第10章导学 &rarr;</a>
+  </div>
+
+</main>
+
+<button class="back-to-top" aria-label="回到顶部">↑</button>
+<footer class="site-footer">
+  高数期末复习站 · 精心打磨每一类题的标准步骤<a href="../index.html">🏠 回首页</a>
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>

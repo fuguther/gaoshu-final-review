@@ -1,43 +1,238 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>9.4 三大公式 · 讲解</title>
-<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'},options:{enableMenu:false}};</script><script id="MathJax-script" async src="https://cdn.jsdmirror.com/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<link rel="preconnect" href="https://fonts.loli.net"><link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9.4 三大公式 · 讲解</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  svg: { fontCache: 'global' },
+  options: { enableMenu: false }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdmirror.com/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="preconnect" href="https://fonts.loli.net">
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
 <link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/design-system.css">
-</head><body><div class="reading-progress"></div>
-<nav class="topnav"><div class="topnav-inner">
-<a href="../index.html" class="logo">高数期末复习站</a><span class="sep">|</span>
-<div class="dropdown"><button class="dropdown-toggle">第9章 ▾</button><div class="dropdown-menu"><a href="9.0-overview.html">章节导学</a><a href="9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a><a href="9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a><a href="9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a><a href="9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a><a href="9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a><a href="9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a></div></div>
-<div class="dropdown"><button class="dropdown-toggle">第10章 ▾</button><div class="dropdown-menu"><a href="../ch10/10.0-overview.html">章节导学</a><a href="../ch10/10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a><a href="../ch10/10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a><a href="../ch10/10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a><a href="../ch10/10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a><a href="../ch10/10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a><a href="../ch10/10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a></div></div>
-<div class="dropdown"><button class="dropdown-toggle">第11章 ▾</button><div class="dropdown-menu"><a href="../ch11/11.0-overview.html">章节导学</a><a href="../ch11/11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a><a href="../ch11/11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a><a href="../ch11/11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a><a href="../ch11/11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a></div></div>
-<a href="../exams/index.html" class="item">往年题</a><a href="../tips/index.html" class="item">技巧锦囊</a><button class="theme-toggle" aria-label="切换主题">🌙</button>
-</div></nav>
+</head>
+<body>
+
+<div class="reading-progress"></div>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="logo">高数期末复习站</a>
+    <span class="sep">|</span>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第9章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="9.0-overview.html">章节导学</a>
+        <a href="9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a>
+        <a href="9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a>
+        <a href="9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a>
+        <a href="9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a>
+        <a href="9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a>
+        <a href="9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第10章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch10/10.0-overview.html">章节导学</a>
+        <a href="../ch10/10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第11章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch11/11.0-overview.html">章节导学</a>
+        <a href="../ch11/11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a>
+        <a href="../ch11/11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <a href="../exams/index.html" class="item">往年题</a>
+    <a href="../tips/index.html" class="item">技巧锦囊</a>
+    <button class="theme-toggle" aria-label="切换主题">🌙</button>
+  </div>
+</nav>
+
 <main class="main">
-<div class="hero"><span class="tag">9.4 · 讲解</span><h1>三大公式 <span class="em">高斯 · 司托克斯</span></h1><p class="subtitle">一句话：高斯公式把封闭曲面上的第二型曲面积分变成三重积分；司托克斯公式把空间封闭曲线上的曲线积分变成曲面积分。</p></div>
-<div class="inpage-toc"><h4>本页导航</h4><ul><li><a href="#sec-gauss">高斯公式</a></li><li><a href="#sec-stokes">司托克斯公式</a></li><li><a href="#sec-summary">对比总结</a></li></ul></div>
 
-<h2 id="sec-gauss">📐 高斯公式</h2>
-<div class="formula-block">\[\oiint_{S^+} P\,dydz + Q\,dzdx + R\,dxdy = \iiint_{\Omega} \left(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}\right)dV\]
-<div class="caption">\(S^+\) 为封闭曲面的外侧，\(\Omega\) 为 \(S\) 所围区域</div>
-</div>
-<div class="box idea"><span class="label">使用条件</span><p>和格林公式类似：封闭、外侧、\(P,Q,R\) 及偏导在 \(\Omega\) 上连续。不封闭就补面。</p></div>
+  <div class="hero">
+    <span class="tag">9.4 · 讲解</span>
+    <h1>三大公式 <span class="em">高斯 · 斯托克斯</span></h1>
+    <p class="subtitle">一句话：高斯公式把<strong>封闭曲面</strong>上的第二型曲面积分"降维"成三重积分；斯托克斯公式把<strong>空间闭曲线</strong>上的曲线积分"降维"成曲面积分。二者都是格林公式从平面到空间的自然推广。</p>
+  </div>
 
-<h2 id="sec-stokes">📐 司托克斯公式</h2>
-<div class="formula-block">\[\oint_L P\,dx+Q\,dy+R\,dz = \iint_S \begin{vmatrix} dydz & dzdx & dxdy \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ P & Q & R \end{vmatrix}\]
-<div class="caption">\(L\) 是空间封闭曲线，\(S\) 是以 \(L\) 为边界的曲面，方向满足右手法则</div>
-</div>
-<div class="box key"><span class="label">考试技巧</span><p>以 \(L\) 为边界的曲面有无穷多个，<strong>选平面最简单</strong>（因为平面的法向量是常数，计算最省事）。</p></div>
+  <div class="inpage-toc">
+    <h4>本页导航</h4>
+    <ul>
+      <li><a href="#sec-essence">一句话本质</a></li>
+      <li><a href="#sec-why">为什么需要这两个公式</a></li>
+      <li><a href="#sec-gauss">高斯公式</a></li>
+      <li><a href="#sec-stokes">斯托克斯公式</a></li>
+      <li><a href="#sec-intuition">直观理解</a></li>
+      <li><a href="#sec-link">与前后知识的联系</a></li>
+    </ul>
+  </div>
 
-<h2 id="sec-summary">📋 对比总结</h2>
-<table>
-<tr><th>公式</th><th>左边</th><th>右边</th><th>维度</th></tr>
-<tr><td>格林</td><td>平面闭曲线积分</td><td>二重积分</td><td>2D</td></tr>
-<tr><td>高斯</td><td>封闭曲面积分</td><td>三重积分</td><td>3D</td></tr>
-<tr><td>司托克斯</td><td>空间闭曲线积分</td><td>曲面积分</td><td>3D</td></tr>
-</table>
+  <h2 id="sec-essence">💡 一句话本质</h2>
+  <div class="formula-block">
+    <p style="font-size:18px; margin:0;"><strong>高斯公式</strong>：曲面"流出总量" = 内部"每一点的散度"之和<br>
+    <strong>斯托克斯公式</strong>：边界"环流" = 曲面"每一点的旋度"之和</p>
+  </div>
 
-<div class="page-jump"><a href="9.3-surface-problems.html">← 回曲面积分题型</a><a href="9.4-big-three-problems.html" class="primary">去练三大公式题型 →</a></div>
-</main><button class="back-to-top" aria-label="回到顶部">↑</button>
-<footer class="site-footer">高数期末复习站 · 精心打磨每一类题的标准步骤<a href="../index.html">🏠 回首页</a></footer>
+  <h2 id="sec-why">📖 为什么需要高斯和斯托克斯公式</h2>
+  <p>格林公式告诉我们：平面闭曲线上的积分，可以转化为曲线所围区域上的二重积分。这是一个巨大的简化——从"沿着一条线累加"变成了"在一片面上累加"。</p>
+  <p>自然的问题是：<strong>三维空间里有没有类似的降维打击？</strong></p>
+
+  <div class="box idea">
+    <span class="label">类比理解</span>
+    <p>格林公式是 2D 版本：边界曲线 → 平面区域。<br>
+    高斯公式是 3D 版本：封闭曲面 → 立体区域。<br>
+    斯托克斯公式是"混合"版本：空间曲线 → 以它为边界的曲面。</p>
+  </div>
+
+  <p>直接计算第二型曲面积分往往需要投影、算偏导、处理符号，步骤繁琐。如果曲面<strong>封闭</strong>，高斯公式直接把曲面积分变成通常更简单的三重积分。同理，空间闭曲线积分直接算参数方程往往很困难，斯托克斯公式把它变成曲面积分——而且通常选<strong>平面</strong>作为曲面，计算量最小。</p>
+
+  <h2 id="sec-gauss">📐 高斯公式（Gauss / 散度定理）</h2>
+
+  <h3>定理内容</h3>
+  <div class="formula-block">
+    \[\oiint_{\Sigma^+} P\,dydz + Q\,dzdx + R\,dxdy = \iiint_{\Omega} \left(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}\right)dV\]
+    <div class="caption">\(\Sigma^+\) 为封闭曲面的<strong>外侧</strong>，\(\Omega\) 为 \(\Sigma\) 所围成的空间区域</div>
+  </div>
+
+  <div class="box key">
+    <span class="label">使用条件（三条必须同时满足）</span>
+    <ul>
+      <li><strong>封闭</strong>：\(\Sigma\) 是封闭曲面（不封闭可通过补面实现）</li>
+      <li><strong>外侧</strong>：\(\Sigma\) 取外侧（若为内侧，整体加负号）</li>
+      <li><strong>偏导连续</strong>：\(P,Q,R\) 在 \(\Omega\) 上具有一阶连续偏导数</li>
+    </ul>
+  </div>
+
+  <div class="box warn">
+    <span class="label">外侧 vs 内侧</span>
+    <p>如果题目给的是<strong>内侧</strong>，先整体加负号转成外侧，再套高斯公式；或者套完公式后整体加负号。不少同学漏了这步，导致正负号全反。</p>
+  </div>
+
+  <h3>散度（Divergence）的记号</h3>
+  <p>右边被积函数有一个专门的名字——<strong>散度</strong>，记作 \(\text{div}\vec{F}\) 或 \(\nabla\cdot\vec{F}\)：</p>
+  <div class="formula-block">
+    \[\text{div}\vec{F} = \frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}\]
+  </div>
+  <p>高斯公式因此也写成向量形式：\(\displaystyle\oiint_{\Sigma}\vec{F}\cdot d\vec{S} = \iiint_{\Omega}\text{div}\vec{F}\,dV\)。</p>
+
+  <h2 id="sec-stokes">📐 斯托克斯公式（Stokes）</h2>
+
+  <h3>定理内容</h3>
+  <p>设 \(L\) 是分段光滑的空间闭曲线，\(S\) 是以 \(L\) 为边界的分片光滑曲面，\(L\) 的方向与 \(S\) 的侧符合<strong>右手法则</strong>，则</p>
+
+  <div class="formula-block">
+    \[\oint_L P\,dx+Q\,dy+R\,dz = \iint_S \begin{vmatrix} dydz & dzdx & dxdy \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ P & Q & R \end{vmatrix}\]
+    <div class="caption">右手法则：四指沿 \(L\) 方向弯曲，大拇指指向即为 \(S\) 的侧</div>
+  </div>
+
+  <p>把行列式展开，就是：</p>
+  <div class="formula-block">
+    \[= \iint_S \left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\right)dydz + \left(\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}\right)dzdx + \left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)dxdy\]
+  </div>
+
+  <div class="box key">
+    <span class="label">旋度（Curl）的记号</span>
+    <p>行列式里的三个分量合称 <strong>旋度</strong> \(\text{rot}\vec{F}\)（或 \(\nabla\times\vec{F}\)）：</p>
+    <div class="formula-block">
+      \[\text{rot}\vec{F} = \left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z},\; \frac{\partial P}{\partial z}-\frac{\partial R}{\partial x},\; \frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\]
+    </div>
+    <p>斯托克斯公式的向量形式：\(\displaystyle\oint_L \vec{F}\cdot d\vec{r} = \iint_S \text{rot}\vec{F}\cdot d\vec{S}\)</p>
+  </div>
+
+  <div class="box idea">
+    <span class="label">选曲面技巧</span>
+    <p>以 \(L\) 为边界的曲面有<strong>无穷多个</strong>。斯托克斯公式对其中<strong>任意一个</strong>都成立。考试时的黄金法则：<strong>选平面</strong>——因为平面的法向量是常向量，行列式展开后计算最简单。</p>
+  </div>
+
+  <h2 id="sec-intuition">🧠 直观理解</h2>
+
+  <h3>高斯公式的物理图景：流体通量</h3>
+  <p>想象 \(\vec{F}\) 是一个流速场。\(\vec{F}\cdot d\vec{S}\) 是单位时间内穿过一小块曲面 \(dS\) 的流体体积。把封闭曲面上所有小块的通量加起来，就是<strong>从区域内部净流出的总量</strong>。</p>
+  <p>如果这个区域内每一点都在"产生"流体（散度为正），那么净流出量就等于把这些"产生量"在整个体积内累加——这就是高斯公式的右边。</p>
+
+  <div class="box idea">
+    <span class="label">经典比喻</span>
+    <p>把区域 \(\Omega\) 想象成一个房间，散度就是房间里每个点的小风扇（正表示吹风、负表示吸风）。高斯公式说：<strong>从房间门窗净流出的风量 = 所有风扇出风量的总和</strong>。房间内部怎么转不重要，只看边界上的净流量。</p>
+  </div>
+
+  <h3>斯托克斯公式的物理图景：漩涡环流</h3>
+  <p>想象 \(\vec{F}\) 是水流速度。沿着一条闭合泳道 \(L\) 游泳，水流会推你前进（或阻碍你）。这个"推动总量"就是环流 \(\oint_L \vec{F}\cdot d\vec{r}\)。</p>
+  <p>斯托克斯公式说：环流等于以 \(L\) 为边界的任意一张膜 \(S\) 上，每一点的"局部旋转强度"（旋度）之和。如果水里有一个漩涡，那么绕漩涡边界的环流就等于漩涡强度在膜上的积分。</p>
+
+  <div class="box idea">
+    <span class="label">经典比喻</span>
+    <p>把 \(L\) 想象成游泳池里的浮标线，\(\vec{F}\) 是水流。你沿着浮标线游一圈，水流帮你（或阻碍你）做的总功，等于浮标线围成的任意一张"网"上每个小格子的漩涡强度之和。<strong>选平面的网最方便算</strong>。</p>
+  </div>
+
+  <h2 id="sec-link">🔗 与前后知识的联系</h2>
+
+  <h3>格林 → 高斯 → 斯托克斯 的统一视角</h3>
+  <p>如果把格林公式看成"平面版本的高斯/斯托克斯"，三者可以统一理解：</p>
+
+  <table>
+    <tr><th>公式</th><th>左边（边界）</th><th>右边（内部）</th><th>核心算子</th><th>维度</th></tr>
+    <tr>
+      <td><strong>格林</strong></td>
+      <td>平面闭曲线 \(L\)</td>
+      <td>\(L\) 所围平面区域 \(D\)</td>
+      <td>\(\displaystyle\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\)</td>
+      <td>2D</td>
+    </tr>
+    <tr>
+      <td><strong>高斯</strong></td>
+      <td>封闭曲面 \(\Sigma\)</td>
+      <td>\(\Sigma\) 所围立体 \(\Omega\)</td>
+      <td>\(\displaystyle\text{div}\vec{F}=\nabla\cdot\vec{F}\)</td>
+      <td>3D</td>
+    </tr>
+    <tr>
+      <td><strong>斯托克斯</strong></td>
+      <td>空间闭曲线 \(L\)</td>
+      <td>以 \(L\) 为边界的曲面 \(S\)</td>
+      <td>\(\displaystyle\text{rot}\vec{F}=\nabla\times\vec{F}\)</td>
+      <td>3D</td>
+    </tr>
+  </table>
+
+  <div class="box note">
+    <span class="label">知识网络</span>
+    <ul>
+      <li><strong>向前</strong>：格林公式是斯托克斯公式在平面（\(z=0\)）上的特例；高斯公式是格林公式从"面积分 → 体积分"的自然三维推广。</li>
+      <li><strong>向后</strong>：场论中，散度和旋度是描述向量场的两个基本微分算子；高斯和斯托克斯则是它们对应的积分形式（广义微积分基本定理）。</li>
+      <li><strong>横向</strong>：两类曲面积分的联系 \(\vec{F}\cdot d\vec{S}\) 和两类曲线积分的联系 \(\vec{F}\cdot d\vec{r}\) 都体现了"投影"的向量思想；三大公式则进一步把"边界积分"和"内部积分"联系起来。</li>
+    </ul>
+  </div>
+
+  <div class="page-jump">
+    <a href="9.3-surface-problems.html">← 回曲面积分题型</a>
+    <a href="9.4-big-three-problems.html" class="primary">去练三大公式题型 →</a>
+  </div>
+
+</main>
+
+<button class="back-to-top" aria-label="回到顶部">↑</button>
+<footer class="site-footer">
+  高数期末复习站 · 精心打磨每一类题的标准步骤<a href="../index.html">🏠 回首页</a>
+</footer>
+
 <script src="../js/site.js"></script>
-</body></html>
+</body>
+</html>
