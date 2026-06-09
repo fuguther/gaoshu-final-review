@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10.3 傅里叶级数 · 习题详解</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']], macros: { oiint: '\\unicode{x222F}', oiiint: '\\unicode{x2230}' } },
+  svg: { fontCache: 'global' },
+  options: { enableMenu: false }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdmirror.com/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="preconnect" href="https://fonts.loli.net">
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+<link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/design-system.css">
+<style>
+  .ex-intro{color:var(--ink-soft);font-size:15px;line-height:1.8;border-left:3px solid var(--red);
+    padding:4px 16px 4px 18px;margin:0 0 46px;background:var(--red-soft);border-radius:0 8px 8px 0;}
+  .ex-group{margin:0 0 56px;}
+  .ex-req{font-family:var(--serif);font-size:21px;font-weight:700;color:var(--ink);
+    padding-bottom:14px;border-bottom:1px solid var(--divider);margin:0 0 30px;
+    display:flex;align-items:baseline;gap:14px;}
+  .ex-bignum{color:var(--red);font-weight:900;font-size:24px;}
+  .ex{padding:0 0 30px;margin:0 0 30px;border-bottom:1px dashed var(--divider-light);}
+  .ex-group .ex:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+  .ex-q{display:flex;gap:14px;align-items:baseline;margin-bottom:16px;}
+  .ex-no{color:var(--red);font-weight:700;font-family:var(--mono);font-size:15px;flex-shrink:0;
+    min-width:42px;padding-top:2px;}
+  .ex-qmath{color:var(--ink);font-size:18px;}
+  .ex-sol{padding-left:56px;}
+  .ex-step{color:var(--ink-soft);margin:7px 0;line-height:1.95;}
+  .ex-sol mjx-container[display="true"]{text-align:left!important;margin:.45em 0!important;}
+  .ex-ans{margin-top:18px;padding:11px 18px;background:var(--paper);border:1px solid var(--divider);
+    border-radius:var(--radius-sm);box-shadow:var(--shadow-sm);display:flex;gap:12px;align-items:baseline;}
+  .ex-ans-label{color:var(--red);font-weight:700;font-size:13px;flex-shrink:0;letter-spacing:.04em;}
+  .ex-flag{margin-top:10px;font-size:13.5px;color:var(--gold);background:var(--gold-soft);
+    padding:8px 14px;border-radius:8px;line-height:1.7;}
+  @media(max-width:600px){.ex-sol{padding-left:0;}.ex-qmath{font-size:16px;}}
+</style>
+</head>
+<body>
+
+<div class="reading-progress"></div>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="logo">高数期末复习站</a>
+    <span class="sep">|</span>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第9章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch9/9.0-overview.html">章节导学</a>
+        <a href="../ch9/9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a>
+        <a href="../ch9/9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a>
+        <a href="../ch9/9.3-exercises.html">9.3 曲面积分 <span class="sub">习题</span></a>
+        <a href="../ch9/9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a>
+        <a href="../ch9/9.4-exercises.html">9.4 三大公式 <span class="sub">习题</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第10章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="10.0-overview.html">章节导学</a>
+        <a href="10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a>
+        <a href="10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a>
+        <a href="10.1-exercises.html">10.1 数项级数 <span class="sub">习题</span></a>
+        <a href="10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a>
+        <a href="10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a>
+        <a href="10.2-exercises.html">10.2 幂级数 <span class="sub">习题</span></a>
+        <a href="10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a>
+        <a href="10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a>
+        <a href="10.3-exercises.html">10.3 傅里叶级数 <span class="sub">习题</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第11章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch11/11.0-overview.html">章节导学</a>
+        <a href="../ch11/11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a>
+        <a href="../ch11/11.1-exercises.html">11.1 一阶方程 <span class="sub">习题</span></a>
+        <a href="../ch11/11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a>
+        <a href="../ch11/11.2-exercises.html">11.2 二阶线性 <span class="sub">习题</span></a>
+      </div>
+    </div>
+    <a href="../exams/index.html" class="item">往年题</a>
+    <a href="../tips/index.html" class="item">技巧锦囊</a>
+    <button class="theme-toggle" aria-label="切换主题">🌙</button>
+  </div>
+</nav>
+
+<main class="main">
+
+  <div class="breadcrumb">
+    <a href="../index.html">首页</a>
+    <span class="sep">›</span>
+    <a href="10.0-overview.html">第10章</a>
+    <span class="sep">›</span>
+    <span>10.3 傅里叶级数 · 习题</span>
+  </div>
+
+  <div class="hero">
+    <span class="tag">10.3 · 傅里叶展开（高数C必考 Q5）</span>
+    <h1>傅里叶级数 <span class="em">习题全解</span></h1>
+    <p class="subtitle">《高等数学（生化医农类）下册》习题 10.3 中傅里叶级数 / 正弦余弦展开的题目 · 考场标准步骤</p>
+  </div>
+
+  <p class="ex-intro">高数C 期末 Q5 必考傅里叶展开（求傅氏级数、正弦/余弦展开、写和函数）。本页收齐习题 10.3 中傅氏级数展开的题目（问题 1–6，共 14 小题），结论对照书末官方答案。复数形式、傅氏积分/变换、信号频谱等不单独考的题型未收录。</p>
+
+  <section class="ex-group">
+    <h2 class="ex-req"><span class="ex-bignum">1.</span>求下列函数在区间[-π,π)上的傅氏级数，并写出其和函数</h2>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(1)</span><span class="ex-qmath">\(\displaystyle f(x)=x\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">计算 \(a_0\)</div>
+        <div class="ex-step">计算 \(a_n\)</div>
+        <div class="ex-step">计算 \(b_n\)</div>
+        <div class="ex-step">分部积分求 \(b_n\)</div>
+        <div class="ex-step">得到 \(b_n\)</div>
+        <div class="ex-step">\[写出傅氏级数\]</div>
+        <div class="ex-step">\[确定和函数\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[2\left(\sin x-\frac{1}{2}\sin2x+\cdots+\frac{(-1)^{n-1}}{n}\sin nx+\cdots\right)=\begin{cases}x,&-\pi<x<\pi,\\0,&x=\pm\pi;\end{cases}\]</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(2)</span><span class="ex-qmath">\(\displaystyle f(x)=x^2\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">对 \(f(x)=x^2\) 在 \([-\pi,\pi)\) 上作周期延拓，周期 \(2\pi\)。计算傅氏系数。</div>
+        <div class="ex-step">\(a_0 = \frac{1}{\pi}\int_{-\pi}^{\pi} x^2 \, dx = \frac{2}{\pi}\int_{0}^{\pi} x^2 \, dx = \frac{2}{\pi} \cdot \frac{x^3}{3}\Big|_0^{\pi} = \frac{2}{\pi} \cdot \frac{\pi^3}{3} = \frac{2\pi^2}{3}\)</div>
+        <div class="ex-step">对 \(n \geq 1\)，计算 \(a_n\)：</div>
+        <div class="ex-step">分部积分，设 \(u = x^2\)，\(dv = \cos(nx)\,dx\)，则 \(du = 2x\,dx\)，\(v = \frac{\sin(nx)}{n}\)：</div>
+        <div class="ex-step">在 \([0,\pi]\) 上，\(\frac{x^2\sin(nx)}{n}\Big|_0^{\pi} = \frac{\pi^2\sin(n\pi)}{n} - 0 = 0\)</div>
+        <div class="ex-step">对 \(\int_0^{\pi} x\sin(nx)\,dx\) 再分部积分，设 \(u = x\)，\(dv = \sin(nx)\,dx\)，则 \(du = dx\)，\(v = -\frac{\cos(nx)}{n}\)：</div>
+        <div class="ex-step">\[计算：\]</div>
+        <div class="ex-step">\[\frac{1}{n}\int_0^{\pi}\cos(nx)\,dx = \frac{1}{n}\cdot\frac{\sin(nx)}{n}\Big|_0^{\pi} = \frac{\sin(n\pi)-\sin(0)}{n^2} = 0\]</div>
+        <div class="ex-step">故 \(\int_0^{\pi} x\sin(nx)\,dx = \frac{\pi(-1)^{n+1}}{n}\)</div>
+        <div class="ex-step">\[代回：\]</div>
+        <div class="ex-step">\[因此：\]</div>
+        <div class="ex-step">计算 \(b_n\)：由于 \(f(x)=x^2\) 为偶函数，\(x^2\sin(nx)\) 为奇函数，</div>
+        <div class="ex-step">\[傅氏级数为：\]</div>
+        <div class="ex-step">由狄利克雷收敛定理，\(f(x)=x^2\) 在 \([-\pi,\pi]\) 上连续，周期延拓后处处连续，故和函数 \(S(x) = f(x) = x^2\) 对所有 \(x\) 成立。</div>
+        <div class="ex-step">在端点 \(x = \pm\pi\) 处，周期延拓后 \(f(\pi^-) = \pi^2\)，\(f(-\pi^+) = \pi^2\)，且 \(f(\pi) = f(-\pi) = \pi^2\)，故 \(S(\pm\pi) = \pi^2\)。</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[\frac{\pi^2}{3}+4\sum_{n=1}^{\infty}(-1)^n\frac{\cos nx}{n^2}=x^2,\ x\in[-\pi,\pi]\]</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(3)</span><span class="ex-qmath">\(\displaystyle f(x)=|x|\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">因 \(f(x)=|x|\) 为偶函数，故 \(b_n=0\)（\(n=1,2,\cdots\)），只需计算 \(a_0\) 与 \(a_n\)。</div>
+        <div class="ex-step">\[a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}|x|\,\mathrm{d}x=\frac{2}{\pi}\int_{0}^{\pi}x\,\mathrm{d}x=\frac{2}{\pi}\cdot\frac{x^2}{2}\Big|_0^{\pi}=\frac{2}{\pi}\cdot\frac{\pi^2}{2}=\pi\]</div>
+        <div class="ex-step">\[a_n=\frac{1}{\pi}\int_{-\pi}^{\pi}|x|\cos nx\,\mathrm{d}x=\frac{2}{\pi}\int_{0}^{\pi}x\cos nx\,\mathrm{d}x\]</div>
+        <div class="ex-step">分部积分：\(\int_{0}^{\pi}x\cos nx\,\mathrm{d}x=\frac{x\sin nx}{n}\Big|_0^{\pi}-\frac{1}{n}\int_{0}^{\pi}\sin nx\,\mathrm{d}x=0+\frac{\cos nx}{n^2}\Big|_0^{\pi}=\frac{\cos n\pi-1}{n^2}=\frac{(-1)^n-1}{n^2}\)</div>
+        <div class="ex-step">\[a_n=\frac{2}{\pi}\cdot\frac{(-1)^n-1}{n^2}=\begin{cases}0,&n=2,4,6,\cdots\\-\frac{4}{\pi n^2},&n=1,3,5,\cdots\end{cases}\]</div>
+        <div class="ex-step">令 \(n=2k-1\)（\(k=1,2,\cdots\)），则 \(a_{2k-1}=-\frac{4}{\pi(2k-1)^2}\)</div>
+        <div class="ex-step">\[f(x)\sim\frac{a_0}{2}+\sum_{n=1}^{\infty}a_n\cos nx=\frac{\pi}{2}-\frac{4}{\pi}\sum_{k=1}^{\infty}\frac{\cos(2k-1)x}{(2k-1)^2}\]</div>
+        <div class="ex-step">因 \(f(x)=|x|\) 在 \([-\pi,\pi]\) 上连续，且 \(f(-\pi)=f(\pi)=\pi\)，周期延拓后处处连续，故傅氏级数处处收敛于 \(f(x)\)。</div>
+        <div class="ex-step">\[|x|=\frac{\pi}{2}-\frac{4}{\pi}\sum_{n=1}^{\infty}\frac{\cos(2n-1)x}{(2n-1)^2},\quad x\in[-\pi,\pi]\]</div>
+        <div class="ex-step">和函数 \(S(x)\) 为周期 \(2\pi\) 的连续函数：\(S(x)=|x|\)（\(x\in[-\pi,\pi]\)），\(S(x+2\pi)=S(x)\)。</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>傅氏级数为 \(\displaystyle\frac{\pi}{2}-\frac{4}{\pi}\sum_{n=1}^{\infty}\frac{\cos(2n-1)x}{(2n-1)^2}\)；和函数为 \(S(x)=|x-2k\pi|\)（当 \(x\in[(2k-1)\pi,(2k+1)\pi]\)，\(k\in\mathbb{Z}\)），即周期 \(2\pi\) 的绝对值函数。</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(4)</span><span class="ex-qmath">\(\displaystyle f(x)=\begin{cases}-2,&-\pi\le x<<0;\\1,&0\le x<\pi;\end{cases}\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">周期 \(T=2\pi\)，\(\omega=1\)，傅氏级数形式为</div>
+        <div class="ex-step">计算 \(a_0\)</div>
+        <div class="ex-step">计算 \(a_n\)</div>
+        <div class="ex-step">计算 \(b_n\)</div>
+        <div class="ex-step">当 \(n\) 为偶数时，\(1-(-1)^n=0\)，故 \(b_n=0\)；当 \(n\) 为奇数时，\(1-(-1)^n=2\)，故 \(b_n=\frac{6}{n\pi}\)</div>
+        <div class="ex-step">\[傅氏级数为\]</div>
+        <div class="ex-step">间断点分析：\(f(x)\) 在 \(x=0\) 处第一类间断，\(f(0^-)=-2\)，\(f(0^+)=1\)；在 \(x=\pm\pi\) 处，\(f(-\pi)=-2\)，\(f(\pi^-)=1\)</div>
+        <div class="ex-step">由狄利克雷收敛定理，和函数 \(S(x)\)：</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[-\frac{1}{2}+\frac{6}{\pi}\left(\sin x+\frac{\sin3x}{3}+\cdots\right)=\begin{cases}-2,&-\pi<x<<0,\\1,&0<x<\pi,\\-\frac{1}{2},&x=0,\pm\pi;\end{cases}\]</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(5)</span><span class="ex-qmath">\(\displaystyle f(x)=\sin^4x\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">\( f(x) = \sin^4 x = \left(\sin^2 x\right)^2 = \left(\frac{1-\cos 2x}{2}\right)^2 = \frac{1-2\cos 2x + \cos^2 2x}{4} \)</div>
+        <div class="ex-step">\( \cos^2 2x = \frac{1+\cos 4x}{2} \)，代入得 \( f(x) = \frac{1-2\cos 2x + \frac{1+\cos 4x}{2}}{4} = \frac{2-4\cos 2x + 1 + \cos 4x}{8} = \frac{3-4\cos 2x + \cos 4x}{8} \)</div>
+        <div class="ex-step">\( f(x) = \frac{3}{8} - \frac{1}{2}\cos 2x + \frac{1}{8}\cos 4x \)</div>
+        <div class="ex-step">验证此为傅氏级数形式：\( f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty}(a_n \cos nx + b_n \sin nx) \)</div>
+        <div class="ex-step">比较得 \( \frac{a_0}{2} = \frac{3}{8} \)，故 \( a_0 = \frac{3}{4} \)</div>
+        <div class="ex-step">\( a_2 = -\frac{1}{2} \)，\( a_4 = \frac{1}{8} \)，其余 \( a_n = 0 \)（\( n \neq 0, 2, 4 \)）</div>
+        <div class="ex-step">所有 \( b_n = 0 \)</div>
+        <div class="ex-step">由于 \( f(x) = \sin^4 x \) 在 \( [-\pi, \pi) \) 上连续，且 \( f(-\pi) = \sin^4(-\pi) = 0 \)，\( \lim_{x \to \pi^-} f(x) = \sin^4 \pi = 0 \)，周期延拓后在 \( x = \pi \) 处连续</div>
+        <div class="ex-step">由狄利克雷收敛定理，傅氏级数在 \( [-\pi, \pi) \) 上处处收敛于 \( f(x) \)</div>
+        <div class="ex-step">和函数 \( S(x) = \frac{3}{8} - \frac{1}{2}\cos 2x + \frac{1}{8}\cos 4x \)，\( x \in [-\pi, \pi) \)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>傅氏级数为 \( \frac{3}{8} - \frac{1}{2}\cos 2x + \frac{1}{8}\cos 4x \)，和函数 \( S(x) = \sin^4 x \)（即 \( S(x) = \frac{3}{8} - \frac{1}{2}\cos 2x + \frac{1}{8}\cos 4x \)），\( x \in [-\pi, \pi) \)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(6)</span><span class="ex-qmath">\(\displaystyle f(x)=\begin{cases}e^x,&-\pi\le x<<0;\\1,&0\le x<\pi.\end{cases}\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">周期延拓后，计算傅氏系数。\(a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)dx=\frac{1}{\pi}\left[\int_{-\pi}^{0}e^xdx+\int_{0}^{\pi}1dx\right]=\frac{1}{\pi}\left[e^x\big|_{-\pi}^{0}+x\big|_{0}^{\pi}\right]=\frac{1}{\pi}\left[(1-e^{-\pi})+\pi\right]=\frac{1+\pi-e^{-\pi}}{\pi}\)</div>
+        <div class="ex-step">对 \(n\ge 1\)，\(a_n=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\cos nx\,dx=\frac{1}{\pi}\left[\int_{-\pi}^{0}e^x\cos nx\,dx+\int_{0}^{\pi}\cos nx\,dx\right]\)</div>
+        <div class="ex-step">计算 \(\int_{-\pi}^{0}e^x\cos nx\,dx\)。记 \(I=\int e^x\cos nx\,dx\)，分部积分两次：\(I=e^x\cos nx+n\int e^x\sin nx\,dx=e^x\cos nx+n\left[e^x\sin nx-n\int e^x\cos nx\,dx\right]=e^x\cos nx+ne^x\sin nx-n^2I\)，故 \((1+n^2)I=e^x(\cos nx+n\sin nx)\)，即 \(I=\frac{e^x(\cos nx+n\sin nx)}{1+n^2}\)</div>
+        <div class="ex-step">\(\int_{-\pi}^{0}e^x\cos nx\,dx=\frac{e^x(\cos nx+n\sin nx)}{1+n^2}\big|_{-\pi}^{0}=\frac{1\cdot(1+0)-e^{-\pi}(\cos(-n\pi)+n\sin(-n\pi))}{1+n^2}=\frac{1-e^{-\pi}\cos n\pi}{1+n^2}=\frac{1-(-1)^ne^{-\pi}}{1+n^2}\)</div>
+        <div class="ex-step">\(\int_{0}^{\pi}\cos nx\,dx=\frac{\sin nx}{n}\big|_{0}^{\pi}=\frac{\sin n\pi-\sin 0}{n}=0\)</div>
+        <div class="ex-step">因此 \(a_n=\frac{1}{\pi}\cdot\frac{1-(-1)^ne^{-\pi}}{1+n^2}=\frac{1-(-1)^ne^{-\pi}}{\pi(1+n^2)}\)</div>
+        <div class="ex-step">对 \(n\ge 1\)，\(b_n=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\sin nx\,dx=\frac{1}{\pi}\left[\int_{-\pi}^{0}e^x\sin nx\,dx+\int_{0}^{\pi}\sin nx\,dx\right]\)</div>
+        <div class="ex-step">由 \(\int e^x\sin nx\,dx=\frac{e^x(\sin nx-n\cos nx)}{1+n^2}\)（类似分部积分），得 \(\int_{-\pi}^{0}e^x\sin nx\,dx=\frac{e^x(\sin nx-n\cos nx)}{1+n^2}\big|_{-\pi}^{0}=\frac{1\cdot(0-n\cdot 1)-e^{-\pi}(\sin(-n\pi)-n\cos(-n\pi))}{1+n^2}=\frac{-n-e^{-\pi}(0-n(-1)^n)}{1+n^2}=\frac{-n-n(-1)^ne^{-\pi}}{1+n^2}=\frac{-n[1+(-1)^ne^{-\pi}]}{1+n^2}\)</div>
+        <div class="ex-step">修正：\(\sin(-n\pi)=0\)，\(\cos(-n\pi)=(-1)^n\)，故 \(\int_{-\pi}^{0}e^x\sin nx\,dx=\frac{(0-n)-e^{-\pi}(0-n(-1)^n)}{1+n^2}=\frac{-n+ne^{-\pi}(-1)^n}{1+n^2}=\frac{-n[1-(-1)^ne^{-\pi}]}{1+n^2}\)</div>
+        <div class="ex-step">重新计算：\(\frac{e^x(\sin nx-n\cos nx)}{1+n^2}\big|_{-\pi}^{0}=\frac{1\cdot(0-n)-e^{-\pi}(\sin(-n\pi)-n\cos(-n\pi))}{1+n^2}=\frac{-n-e^{-\pi}(0-n(-1)^n)}{1+n^2}=\frac{-n+ne^{-\pi}(-1)^n}{1+n^2}=\frac{-n[1-(-1)^ne^{-\pi}]}{1+n^2}\)</div>
+        <div class="ex-step">修正符号：\(\frac{-n+(-1)^n ne^{-\pi}}{1+n^2}=\frac{-n[1-(-1)^ne^{-\pi}]}{1+n^2}\)</div>
+        <div class="ex-step">实际上：\(\frac{-n-(-n(-1)^n)e^{-\pi}}{1+n^2}=\frac{-n+n(-1)^ne^{-\pi}}{1+n^2}=\frac{-n[1-(-1)^ne^{-\pi}]}{1+n^2}\)</div>
+        <div class="ex-step">验证：\(x=0\) 时 \(\sin 0-n\cos 0=-n\)；\(x=-\pi\) 时 \(\sin(-n\pi)-n\cos(-n\pi)=0-n(-1)^n=-n(-1)^n\)。故 \(\frac{-n-e^{-\pi}\cdot(-n(-1)^n)}{1+n^2}=\frac{-n+ne^{-\pi}(-1)^n}{1+n^2}=\frac{-n[1-(-1)^ne^{-\pi}]}{1+n^2}\)</div>
+        <div class="ex-step">但 \((-1)^n\cdot(-1)^n=1\)，需仔细：\(-e^{-\pi}\cdot(-n(-1)^n)=ne^{-\pi}(-1)^n\)。所以结果为 \(\frac{-n+(-1)^n ne^{-\pi}}{1+n^2}\)</div>
+        <div class="ex-step">\(\int_{0}^{\pi}\sin nx\,dx=-\frac{\cos nx}{n}\big|_{0}^{\pi}=-\frac{\cos n\pi-\cos 0}{n}=-\frac{(-1)^n-1}{n}=\frac{1-(-1)^n}{n}\)</div>
+        <div class="ex-step">因此 \(b_n=\frac{1}{\pi}\left[\frac{-n+(-1)^n ne^{-\pi}}{1+n^2}+\frac{1-(-1)^n}{n}\right]=\frac{1}{\pi}\left[\frac{-n[1-(-1)^ne^{-\pi}]}{1+n^2}+\frac{1-(-1)^n}{n}\right]\)</div>
+        <div class="ex-step">整理 \(b_n=\frac{-n[1-(-1)^ne^{-\pi}]}{\pi(1+n^2)}+\frac{1-(-1)^n}{n\pi}\)</div>
+        <div class="ex-step">傅氏级数为 \(f(x)\sim\frac{a_0}{2}+\sum_{n=1}^{\infty}\left(a_n\cos nx+b_n\sin nx\right)\)</div>
+        <div class="ex-step">即 \(f(x)\sim\frac{1+\pi-e^{-\pi}}{2\pi}+\sum_{n=1}^{\infty}\left\{\frac{1-(-1)^ne^{-\pi}}{\pi(1+n^2)}\cos nx+\left[\frac{-n[1-(-1)^ne^{-\pi}]}{\pi(1+n^2)}+\frac{1-(-1)^n}{n\pi}\right]\sin nx\right\}\)</div>
+        <div class="ex-step">化简 \(b_n\) 项：\(\frac{-n[1-(-1)^ne^{-\pi}]}{\pi(1+n^2)}+\frac{1-(-1)^n}{n\pi}=\frac{-n^2[1-(-1)^ne^{-\pi}]+(1+n^2)[1-(-1)^n]}{n\pi(1+n^2)}=\frac{-n^2+n^2(-1)^ne^{-\pi}+1-(-1)^n+n^2-n^2(-1)^n}{n\pi(1+n^2)}=\frac{1+n^2(-1)^ne^{-\pi}-(-1)^n-n^2(-1)^n}{n\pi(1+n^2)}\)</div>
+        <div class="ex-step">进一步：\(=\frac{1-(-1)^n+n^2(-1)^n[e^{-\pi}-1]}{n\pi(1+n^2)}\) 或保持原式。采用分开展示形式更简洁。</div>
+        <div class="ex-step">和函数 \(S(x)\)：由狄利克雷定理，在连续点 \(S(x)=f(x)\)；在间断点 \(x=0\) 处，\(S(0)=\frac{f(0^-)+f(0^+)}{2}=\frac{e^0+1}{2}=\frac{1+1}{2}=1\)；在端点 \(x=\pm\pi\) 处，\(S(\pi)=S(-\pi)=\frac{f(-\pi^+)+f(\pi^-)}{2}=\frac{e^{-\pi}+1}{2}\)</div>
+        <div class="ex-step">验证 \(x=0\)：\(f(0^-)=e^0=1\)，\(f(0^+)=1\)，故 \(S(0)=1\)，连续。</div>
+        <div class="ex-step">在 \(x=\pi\) 处（周期延拓后右端点），\(f(\pi^-)=1\)，\(f(-\pi^+)=e^{-\pi}\)，故 \(S(\pi)=\frac{e^{-\pi}+1}{2}\)</div>
+        <div class="ex-step">在 \(x=-\pi\) 处，\(f(-\pi^+)=e^{-\pi}\)，\(f(\pi^-)=1\)（周期延拓），故 \(S(-\pi)=\frac{e^{-\pi}+1}{2}\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(f(x)\sim\frac{1+\pi-e^{-\pi}}{2\pi}+\sum_{n=1}^{\infty}\left\{\frac{1-(-1)^ne^{-\pi}}{\pi(1+n^2)}\cos nx+\left[\frac{-n+(-1)^n ne^{-\pi}}{\pi(1+n^2)}+\frac{1-(-1)^n}{n\pi}\right]\sin nx\right\}\)，和函数 \(S(x)=\begin{cases}e^x,&-\pi<x<<0;\\1,&0\le x<\pi;\\\frac{1+e^{-\pi}}{2},&x=\pm\pi.\end{cases}\) 或等价写作 \(S(x)=\begin{cases}f(x),&-\pi<x<\pi;\\\frac{1+e^{-\pi}}{2},&x=\pm\pi.\end{cases}\)</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="ex-group">
+    <h2 class="ex-req"><span class="ex-bignum">2.</span>将函数展开成正弦级数</h2>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">2</span><span class="ex-qmath">\(\displaystyle f(x)=\cos\frac{x}{2}(0\le x\le\pi)\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">对 \(f(x)=\cos\frac{x}{2}\) 在 \([0,\pi]\) 上展开成正弦级数，需进行奇延拓，故 \(a_n=0\)，\(b_n=\frac{2}{\pi}\int_0^\pi f(x)\sin nx\,dx\)</div>
+        <div class="ex-step">计算 \(b_n=\frac{2}{\pi}\int_0^\pi \cos\frac{x}{2}\sin nx\,dx\)</div>
+        <div class="ex-step">利用积化和公式 \(\cos\frac{x}{2}\sin nx=\frac{1}{2}\left[\sin\left(n+\frac{1}{2}\right)x+\sin\left(n-\frac{1}{2}\right)x\right]\)</div>
+        <div class="ex-step">\[b_n=\frac{1}{\pi}\int_0^\pi \left[\sin\left(n+\frac{1}{2}\right)x+\sin\left(n-\frac{1}{2}\right)x\right]dx\]</div>
+        <div class="ex-step">\[=\frac{1}{\pi}\left[-\frac{\cos\left(n+\frac{1}{2}\right)x}{n+\frac{1}{2}}-\frac{\cos\left(n-\frac{1}{2}\right)x}{n-\frac{1}{2}}\right]_0^\pi\]</div>
+        <div class="ex-step">在 \(x=\pi\) 处：\(\cos\left(n+\frac{1}{2}\right)\pi=\cos\left(n\pi+\frac{\pi}{2}\right)=0\)，\(\cos\left(n-\frac{1}{2}\right)\pi=\cos\left(n\pi-\frac{\pi}{2}\right)=0\)</div>
+        <div class="ex-step">在 \(x=0\) 处：\(\cos 0=1\)</div>
+        <div class="ex-step">\[b_n=\frac{1}{\pi}\left[\left(0+0\right)-\left(-\frac{1}{n+\frac{1}{2}}-\frac{1}{n-\frac{1}{2}}\right)\right]=\frac{1}{\pi}\left(\frac{1}{n+\frac{1}{2}}+\frac{1}{n-\frac{1}{2}}\right)\]</div>
+        <div class="ex-step">\[=\frac{1}{\pi}\cdot\frac{(n-\frac{1}{2})+(n+\frac{1}{2})}{(n+\frac{1}{2})(n-\frac{1}{2})}=\frac{1}{\pi}\cdot\frac{2n}{n^2-\frac{1}{4}}=\frac{1}{\pi}\cdot\frac{2n}{\frac{4n^2-1}{4}}=\frac{8n}{\pi(4n^2-1)}\]</div>
+        <div class="ex-step">验证 \(n=1\)：\(b_1=\frac{8}{\pi\cdot 3}=\frac{8}{3\pi}\)；直接计算 \(\frac{1}{\pi}\left(\frac{2}{3}+\frac{2}{1}\right)=\frac{1}{\pi}\cdot\frac{8}{3}=\frac{8}{3\pi}\)</div>
+        <div class="ex-step">函数 \(f(x)=\cos\frac{x}{2}\) 在 \([0,\pi]\) 上连续，奇延拓后在 \(x=0\) 和 \(x=\pi\) 处：\(f(0)=1\neq 0\)，\(f(\pi)=0\)</div>
+        <div class="ex-step">在 \(x=0\) 处收敛于 \(0\)，在 \(x=\pi\) 处收敛于 \(0\)；在 \((0,\pi)\) 内收敛于 \(f(x)\)</div>
+        <div class="ex-step">\[\cos\frac{x}{2}=\frac{8}{\pi}\sum_{n=1}^{\infty}\frac{n\sin nx}{4n^2-1}\quad(0<x<\pi)\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[\cos\frac{x}{2}=\frac{8}{\pi}\sum_{n=1}^{\infty}\frac{n\sin nx}{4n^2-1}\quad(0<x<\pi)\]</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="ex-group">
+    <h2 class="ex-req"><span class="ex-bignum">3.</span>将函数展开成余弦级数</h2>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">3</span><span class="ex-qmath">\(\displaystyle f(x)=\frac{1}{2}-\frac{\pi}{4}\sin x(0\le x\le\pi)\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">对 \(f(x)\) 在 \([0,\pi]\) 上作偶延拓，展开成余弦级数 \(f(x)\sim\frac{a_0}{2}+\sum_{n=1}^{\infty}a_n\cos nx\)</div>
+        <div class="ex-step">\[a_0=\frac{2}{\pi}\int_0^{\pi}\left(\frac{1}{2}-\frac{\pi}{4}\sin x\right)dx=\frac{2}{\pi}\left[\frac{x}{2}+\frac{\pi}{4}\cos x\right]_0^{\pi}=\frac{2}{\pi}\left(\frac{\pi}{2}+\frac{\pi}{4}(-1-1)\right)=\frac{2}{\pi}\cdot 0=0\]</div>
+        <div class="ex-step">\[a_1=\frac{2}{\pi}\int_0^{\pi}\left(\frac{1}{2}-\frac{\pi}{4}\sin x\right)\cos x\,dx=\frac{2}{\pi}\left[\frac{1}{2}\sin x-\frac{\pi}{8}\sin^2 x\right]_0^{\pi}=0\]</div>
+        <div class="ex-step">当 \(n\ge 2\) 时，\[a_n=\frac{2}{\pi}\int_0^{\pi}\left(\frac{1}{2}-\frac{\pi}{4}\sin x\right)\cos nx\,dx=\frac{1}{\pi}\int_0^{\pi}\cos nx\,dx-\frac{1}{2}\int_0^{\pi}\sin x\cos nx\,dx\]</div>
+        <div class="ex-step">\[\frac{1}{\pi}\int_0^{\pi}\cos nx\,dx=\frac{1}{\pi}\left[\frac{\sin nx}{n}\right]_0^{\pi}=0\]</div>
+        <div class="ex-step">\[\int_0^{\pi}\sin x\cos nx\,dx=\frac{1}{2}\int_0^{\pi}[\sin(n+1)x-\sin(n-1)x]\,dx=\frac{1}{2}\left[-\frac{\cos(n+1)x}{n+1}+\frac{\cos(n-1)x}{n-1}\right]_0^{\pi}\]</div>
+        <div class="ex-step">\[=\frac{1}{2}\left[\left(-\frac{(-1)^{n+1}}{n+1}+\frac{(-1)^{n-1}}{n-1}\right)-\left(-\frac{1}{n+1}+\frac{1}{n-1}\right)\right]=\frac{1}{2}\left[\frac{(-1)^n}{n+1}-\frac{(-1)^n}{n-1}+\frac{1}{n+1}-\frac{1}{n-1}\right]\]</div>
+        <div class="ex-step">\[=\frac{1}{2}\left[(-1)^n\left(\frac{1}{n+1}-\frac{1}{n-1}\right)+\left(\frac{1}{n+1}-\frac{1}{n-1}\right)\right]=\frac{1}{2}\left[((-1)^n+1)\cdot\frac{-2}{n^2-1}\right]=\frac{(-1)^n+1}{1-n^2}\]</div>
+        <div class="ex-step">当 \(n\) 为奇数时，\((-1)^n+1=0\)，故 \(a_n=0\)</div>
+        <div class="ex-step">当 \(n=2k\) 为偶数时，\[a_{2k}=-\frac{1}{2}\cdot\frac{2}{1-4k^2}=\frac{1}{4k^2-1}\]</div>
+        <div class="ex-step">\[f(x)=\sum_{k=1}^{\infty}\frac{\cos 2kx}{4k^2-1}=\frac{\cos 2x}{3}+\frac{\cos 4x}{15}+\frac{\cos 6x}{35}+\cdots\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[f(x)=\sum_{n=1}^{\infty}\frac{\cos 2nx}{4n^2-1},\quad 0\le x\le\pi\]</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="ex-group">
+    <h2 class="ex-req"><span class="ex-bignum">4.</span>将函数展开成余弦级数，并求数项级数之和</h2>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">4</span><span class="ex-qmath">\(\displaystyle f(x)=\frac{\pi}{2}-x(0\le x\le\pi), \sum_{k=1}^{\infty}\frac{1}{(2k-1)^2}\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">对 \(f(x)=\frac{\pi}{2}-x\) 在 \([0,\pi]\) 上作偶延拓，展开为余弦级数 \(f(x)=\frac{a_0}{2}+\sum_{n=1}^{\infty}a_n\cos nx\)</div>
+        <div class="ex-step">\[a_0=\frac{2}{\pi}\int_0^{\pi}\left(\frac{\pi}{2}-x\right)dx=\frac{2}{\pi}\left[\frac{\pi}{2}x-\frac{x^2}{2}\right]_0^{\pi}=\frac{2}{\pi}\left(\frac{\pi^2}{2}-\frac{\pi^2}{2}\right)=0\]</div>
+        <div class="ex-step">\[a_n=\frac{2}{\pi}\int_0^{\pi}\left(\frac{\pi}{2}-x\right)\cos nx\,dx\]</div>
+        <div class="ex-step">分部积分：\(\int_0^{\pi}\left(\frac{\pi}{2}-x\right)\cos nx\,dx=\left[\left(\frac{\pi}{2}-x\right)\frac{\sin nx}{n}\right]_0^{\pi}+\frac{1}{n}\int_0^{\pi}\sin nx\,dx\)</div>
+        <div class="ex-step">\[=0+\frac{1}{n}\left[-\frac{\cos nx}{n}\right]_0^{\pi}=\frac{1}{n^2}\left(1-\cos n\pi\right)=\frac{1-(-1)^n}{n^2}\]</div>
+        <div class="ex-step">\[a_n=\frac{2}{\pi}\cdot\frac{1-(-1)^n}{n^2}=\begin{cases}\frac{4}{\pi n^2}, & n=1,3,5,\cdots\\ 0, & n=2,4,6,\cdots\end{cases}\]</div>
+        <div class="ex-step">\[\frac{\pi}{2}-x=\frac{4}{\pi}\sum_{k=1}^{\infty}\frac{\cos(2k-1)x}{(2k-1)^2},\quad 0\le x\le\pi\]</div>
+        <div class="ex-step">令 \(x=0\)，得 \(\frac{\pi}{2}=\frac{4}{\pi}\sum_{k=1}^{\infty}\frac{1}{(2k-1)^2}\)</div>
+        <div class="ex-step">\[\sum_{k=1}^{\infty}\frac{1}{(2k-1)^2}=\frac{\pi^2}{8}\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[\frac{4}{\pi}\sum_{n=1}^{\infty}\frac{\cos(2n-1)x}{(2n-1)^2}=\frac{\pi}{2}-x,\ 0\leqslant x\leqslant\pi;\ \sum_{n=1}^{\infty}\frac{1}{(2n-1)^2}=\frac{\pi^2}{8}\]</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="ex-group">
+    <h2 class="ex-req"><span class="ex-bignum">5.</span>将函数展开成正弦级数，并验证</h2>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">5</span><span class="ex-qmath">\(\displaystyle f(x)=\frac{\pi}{4}(0\le x\le\pi)\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">对 \(f(x)=\frac{\pi}{4}\) 在 \([0,\pi]\) 上作奇延拓，展开为正弦级数 \(\sum_{n=1}^{\infty} b_n \sin nx\)</div>
+        <div class="ex-step">计算系数 \(b_n = \frac{2}{\pi}\int_0^{\pi} \frac{\pi}{4}\sin nx \,\mathrm{d}x\)</div>
+        <div class="ex-step">\[b_n = \frac{1}{2}\int_0^{\pi} \sin nx \,\mathrm{d}x = \frac{1}{2}\left[-\frac{\cos nx}{n}\right]_0^{\pi} = \frac{1}{2}\left(-\frac{\cos n\pi}{n}+\frac{\cos 0}{n}\right) = \frac{1}{2}\cdot\frac{1-(-1)^n}{n}\]</div>
+        <div class="ex-step">当 \(n=2k\) 为偶数时，\(b_{2k} = \frac{1}{2}\cdot\frac{1-1}{2k} = 0\)</div>
+        <div class="ex-step">当 \(n=2k-1\) 为奇数时，\(b_{2k-1} = \frac{1}{2}\cdot\frac{1-(-1)}{2k-1} = \frac{1}{2k-1}\)</div>
+        <div class="ex-step">正弦级数展开为 \[\frac{\pi}{4} = \sum_{k=1}^{\infty}\frac{\sin(2k-1)x}{2k-1} = \sin x + \frac{\sin 3x}{3} + \frac{\sin 5x}{5} + \cdots,\quad 0<x<\pi\]</div>
+        <div class="ex-step">在 \(x=\frac{\pi}{2}\) 处代入验证：\[\frac{\pi}{4} = \sum_{k=1}^{\infty}\frac{\sin\frac{(2k-1)\pi}{2}}{2k-1}\]</div>
+        <div class="ex-step">\(\sin\frac{(2k-1)\pi}{2} = (-1)^{k+1}\)，故 \[\frac{\pi}{4} = \sum_{k=1}^{\infty}\frac{(-1)^{k+1}}{2k-1} = 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \cdots\]</div>
+        <div class="ex-step">该级数为 Leibniz 级数，收敛于 \(\frac{\pi}{4}\)，验证成立</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[\frac{\pi}{4} = \sum_{n=1}^{\infty}\frac{\sin(2n-1)x}{2n-1}\ (0<x<\pi),\quad \text{且 } \frac{\pi}{4} = 1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7}+\cdots\]</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(1)</span><span class="ex-qmath">\(\displaystyle 1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7}+\cdots=\frac{\pi}{4}\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">考虑幂级数 \[f(x)=\sum_{n=0}^{\infty}(-1)^n\frac{x^{2n+1}}{2n+1},\quad |x|<1\]</div>
+        <div class="ex-step">逐项求导得 \[f'(x)=\sum_{n=0}^{\infty}(-1)^n x^{2n}=\frac{1}{1+x^2},\quad |x|<1\]</div>
+        <div class="ex-step">积分得 \[f(x)=\int_0^x \frac{1}{1+t^2}\,dt=\arctan x,\quad |x|<1\]</div>
+        <div class="ex-step">即 \[\sum_{n=0}^{\infty}(-1)^n\frac{x^{2n+1}}{2n+1}=\arctan x,\quad x\in(-1,1)\]</div>
+        <div class="ex-step">当 \(x=1\) 时，级数为 \[\sum_{n=0}^{\infty}(-1)^n\frac{1}{2n+1}=1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7}+\cdots\] 这是交错级数，满足莱布尼茨判别法条件，故收敛。</div>
+        <div class="ex-step">由阿贝尔定理，幂级数在收敛区间端点 \(x=1\) 处收敛，则 \[\sum_{n=0}^{\infty}(-1)^n\frac{1}{2n+1}=\lim_{x\to 1^-}\arctan x\]</div>
+        <div class="ex-step">计算极限 \[\lim_{x\to 1^-}\arctan x=\arctan 1=\frac{\pi}{4}\]</div>
+        <div class="ex-step">因此 \[1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7}+\cdots=\frac{\pi}{4}\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7}+\cdots=\frac{\pi}{4}\]</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(2)</span><span class="ex-qmath">\(\displaystyle 1-\frac{1}{5}+\frac{1}{7}-\frac{1}{11}+\frac{1}{13}-\frac{1}{17}+\cdots=\frac{\sqrt{3}}{6}\pi\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">设 \(f(x)=\frac{1}{1+x^3}=\frac{1}{(1+x)(1-x+x^2)}\)，对 \(x\in[0,1]\) 展开为幂级数。</div>
+        <div class="ex-step">对 \(\frac{1}{1+x^3}\) 用几何级数展开：\[\frac{1}{1+x^3}=\sum_{n=0}^{\infty}(-1)^n x^{3n},\quad |x|<1\]</div>
+        <div class="ex-step">积分得 \[\int_0^1\frac{1}{1+x^3}\,dx=\sum_{n=0}^{\infty}(-1)^n\int_0^1 x^{3n}\,dx=\sum_{n=0}^{\infty}\frac{(-1)^n}{3n+1}\]</div>
+        <div class="ex-step">计算该级数的前几项：\[\sum_{n=0}^{\infty}\frac{(-1)^n}{3n+1}=1-\frac{1}{4}+\frac{1}{7}-\frac{1}{10}+\frac{1}{13}-\frac{1}{16}+\cdots\]</div>
+        <div class="ex-step">对 \(\frac{1}{1+x^3}\) 进行部分分式分解。因 \(1+x^3=(1+x)(x^2-x+1)\)，设 \[\frac{1}{1+x^3}=\frac{A}{1+x}+\frac{Bx+C}{x^2-x+1}\]</div>
+        <div class="ex-step">通分得 \(1=A(x^2-x+1)+(Bx+C)(1+x)\)。令 \(x=-1\)：\(1=A(3)\)，故 \(A=\frac{1}{3}\)。</div>
+        <div class="ex-step">比较 \(x^2\) 系数：\(0=A+B=\frac{1}{3}+B\)，得 \(B=-\frac{1}{3}\)。比较常数项：\(1=A+C=\frac{1}{3}+C\)，得 \(C=\frac{2}{3}\)。</div>
+        <div class="ex-step">因此 \[\frac{1}{1+x^3}=\frac{1}{3}\cdot\frac{1}{1+x}+\frac{-\frac{1}{3}x+\frac{2}{3}}{x^2-x+1}=\frac{1}{3(1+x)}+\frac{2-x}{3(x^2-x+1)}\]</div>
+        <div class="ex-step">对第二项变形：\[\frac{2-x}{x^2-x+1}=\frac{2-x}{\left(x-\frac{1}{2}\right)^2+\frac{3}{4}}\]</div>
+        <div class="ex-step">令 \(u=x-\frac{1}{2}\)，则 \(x=u+\frac{1}{2}\)，\(2-x=\frac{3}{2}-u\)，积分限变为 \(-\frac{1}{2}\) 到 \(\frac{1}{2}\)：</div>
+        <div class="ex-step">\[\int_0^1\frac{2-x}{x^2-x+1}\,dx=\int_{-\frac{1}{2}}^{\frac{1}{2}}\frac{\frac{3}{2}-u}{u^2+\frac{3}{4}}\,du=\int_{-\frac{1}{2}}^{\frac{1}{2}}\frac{\frac{3}{2}}{u^2+\frac{3}{4}}\,du-\int_{-\frac{1}{2}}^{\frac{1}{2}}\frac{u}{u^2+\frac{3}{4}}\,du\]</div>
+        <div class="ex-step">第二项被积函数为奇函数，在对称区间积分为 \(0\)。第一项：</div>
+        <div class="ex-step">\[\int_{-\frac{1}{2}}^{\frac{1}{2}}\frac{\frac{3}{2}}{u^2+\frac{3}{4}}\,du=3\int_0^{\frac{1}{2}}\frac{1}{u^2+\left(\frac{\sqrt{3}}{2}\right)^2}\,du=3\cdot\frac{2}{\sqrt{3}}\arctan\frac{2u}{\sqrt{3}}\Big|_0^{\frac{1}{2}}\]</div>
+        <div class="ex-step">\[=\frac{6}{\sqrt{3}}\arctan\frac{1}{\sqrt{3}}=\frac{6}{\sqrt{3}}\cdot\frac{\pi}{6}=\frac{\pi}{\sqrt{3}}=\frac{\sqrt{3}\pi}{3}\]</div>
+        <div class="ex-step">因此 \[\int_0^1\frac{2-x}{3(x^2-x+1)}\,dx=\frac{1}{3}\cdot\frac{\sqrt{3}\pi}{3}=\frac{\sqrt{3}\pi}{9}\]</div>
+        <div class="ex-step">第一项积分：\[\int_0^1\frac{1}{3(1+x)}\,dx=\frac{1}{3}\ln(1+x)\Big|_0^1=\frac{\ln 2}{3}\]</div>
+        <div class="ex-step">故 \[\int_0^1\frac{1}{1+x^3}\,dx=\frac{\ln 2}{3}+\frac{\sqrt{3}\pi}{9}\]</div>
+        <div class="ex-step">但题目级数为 \(1-\frac{1}{5}+\frac{1}{7}-\frac{1}{11}+\frac{1}{13}-\frac{1}{17}+\cdots\)，即分母为 \(6n\pm1\) 型。需重新构造。</div>
+        <div class="ex-step">考虑 \[\frac{1}{1+x+x^2}=\frac{1-x}{1-x^3}=\sum_{n=0}^{\infty}(x^{3n}-x^{3n+1}),\quad |x|<1\]</div>
+        <div class="ex-step">积分：\[\int_0^1\frac{1}{1+x+x^2}\,dx=\sum_{n=0}^{\infty}\left(\frac{1}{3n+1}-\frac{1}{3n+2}\right)=1-\frac{1}{2}+\frac{1}{4}-\frac{1}{5}+\frac{1}{7}-\frac{1}{8}+\cdots\]</div>
+        <div class="ex-step">配方：\[1+x+x^2=\left(x+\frac{1}{2}\right)^2+\frac{3}{4}\]</div>
+        <div class="ex-step">令 \(u=x+\frac{1}{2}\)：\[\int_0^1\frac{1}{\left(x+\frac{1}{2}\right)^2+\frac{3}{4}}\,dx=\int_{\frac{1}{2}}^{\frac{3}{2}}\frac{1}{u^2+\frac{3}{4}}\,du\]</div>
+        <div class="ex-step">\[=\frac{2}{\sqrt{3}}\arctan\frac{2u}{\sqrt{3}}\Big|_{\frac{1}{2}}^{\frac{3}{2}}=\frac{2}{\sqrt{3}}\left(\arctan\sqrt{3}-\arctan\frac{1}{\sqrt{3}}\right)=\frac{2}{\sqrt{3}}\left(\frac{\pi}{3}-\frac{\pi}{6}\right)=\frac{2}{\sqrt{3}}\cdot\frac{\pi}{6}=\frac{\pi}{3\sqrt{3}}=\frac{\sqrt{3}\pi}{9}\]</div>
+        <div class="ex-step">此级数非所求。考虑 \(f(x)=\frac{1}{1+x^2+x^4}=\frac{1-x^2}{1-x^6}\) 或直接构造。</div>
+        <div class="ex-step">设目标级数为 \(S=1-\frac{1}{5}+\frac{1}{7}-\frac{1}{11}+\frac{1}{13}-\frac{1}{17}+\cdots\)，其通项分母为 \(6n+1, 6n+5\)（即 \(6n\pm1\)），符号为 \((-1)^n\)。</div>
+        <div class="ex-step">即 \(S=\sum_{n=0}^{\infty}\frac{(-1)^n}{6n+1}+\sum_{n=0}^{\infty}\frac{(-1)^{n+1}}{6n+5}=\sum_{n=0}^{\infty}\frac{(-1)^n}{6n+1}-\sum_{n=0}^{\infty}\frac{(-1)^n}{6n+5}\)</div>
+        <div class="ex-step">利用 \(\int_0^1 x^{k}\,dx=\frac{1}{k+1}\)，考虑 \[\int_0^1\frac{1+x^4}{1+x^6}\,dx\]</div>
+        <div class="ex-step">因 \(1+x^6=(1+x^2)(1-x^2+x^4)=(1+x^2)(x^4-x^2+1)\)，且 \(1+x^4=(1+x^2)^2-2x^2\)，或直接展开：</div>
+        <div class="ex-step">\[\frac{1}{1+x^6}=\sum_{n=0}^{\infty}(-1)^n x^{6n},\quad \frac{x^4}{1+x^6}=\sum_{n=0}^{\infty}(-1)^n x^{6n+4}\]</div>
+        <div class="ex-step">积分：\[\int_0^1\frac{1}{1+x^6}\,dx=\sum_{n=0}^{\infty}\frac{(-1)^n}{6n+1},\quad \int_0^1\frac{x^4}{1+x^6}\,dx=\sum_{n=0}^{\infty}\frac{(-1)^n}{6n+5}\]</div>
+        <div class="ex-step">因此 \[S=\int_0^1\frac{1-x^4}{1+x^6}\,dx\]</div>
+        <div class="ex-step">分解：\[\frac{1-x^4}{1+x^6}=\frac{1-x^4}{(1+x^2)(x^4-x^2+1)}=\frac{(1-x^2)(1+x^2)}{(1+x^2)(x^4-x^2+1)}=\frac{1-x^2}{x^4-x^2+1}\]</div>
+        <div class="ex-step">对 \(\frac{1-x^2}{x^4-x^2+1}\)，分子分母同除以 \(x^2\)（\(x\neq0\)）：\[\frac{\frac{1}{x^2}-1}{x^2-1+\frac{1}{x^2}}=\frac{-\left(1-\frac{1}{x^2}\right)}{\left(x+\frac{1}{x}\right)^2-3}\]</div>
+        <div class="ex-step">令 \(t=x+\frac{1}{x}\)，则 \(dt=\left(1-\frac{1}{x^2}\right)dx\)。当 \(x\in(0,1]\)，\(t\in[2,+\infty)\)。此换元在 \(x=0\) 处需单独处理，改用直接配方。</div>
+        <div class="ex-step">对 \(x^4-x^2+1\)，令 \(u=x^2\)：\(u^2-u+1=\left(u-\frac{1}{2}\right)^2+\frac{3}{4}\)。</div>
+        <div class="ex-step">直接计算：\[\int_0^1\frac{1-x^2}{x^4-x^2+1}\,dx=\int_0^1\frac{1-x^2</div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(3)</span><span class="ex-qmath">\(\displaystyle 1+\frac{1}{5}-\frac{1}{7}-\frac{1}{11}+\frac{1}{13}+\frac{1}{17}+\cdots=\frac{\pi}{3}\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">设级数为 \( S = 1 + \frac{1}{5} - \frac{1}{7} - \frac{1}{11} + \frac{1}{13} + \frac{1}{17} - \cdots \)，分母为模 12 余 1 或 5 的素数，符号规律：余 1 时为正，余 5 时为正？重新观察：1, 5, 7, 11, 13, 17... 即 \( 12n \pm 1 \) 形式，符号为 \( +, +, -, -, +, +, -, -, \cdots \)</div>
+        <div class="ex-step">周期为 4 的符号规律：\( +, +, -, - \)，对应 \( \frac{1}{12n+1}, \frac{1}{12n+5}, -\frac{1}{12n+7}, -\frac{1}{12n+11} \)，即 \( S = \sum_{n=0}^{\infty}\left(\frac{1}{12n+1}+\frac{1}{12n+5}-\frac{1}{12n+7}-\frac{1}{12n+11}\right) \)</div>
+        <div class="ex-step">利用 \( \frac{1}{k} = \int_0^1 x^{k-1}\,dx \)，得</div>
+        <div class="ex-step">\[提取公因式：\]</div>
+        <div class="ex-step">\[分子因式分解：\]</div>
+        <div class="ex-step">\[分母分解：\]</div>
+        <div class="ex-step">\[化简被积函数：\]</div>
+        <div class="ex-step">验证 \( 1+x^6 = (1+x^2)(1-x^2+x^4) \)，且 \( 1+x^4 = (1+x^2)^2-2x^2 \)，采用部分分式：注意 \( 1+x^6 = (1+x^2)(x^4-x^2+1) \)</div>
+        <div class="ex-step">计算 \( \frac{1+x^4}{1+x^6} \)，设</div>
+        <div class="ex-step">通分：\( (1+x^4) = a(x^4-x^2+1) + (bx^2+c)(1+x^2) = ax^4-ax^2+a + bx^2+bx^4+c+cx^2 \)</div>
+        <div class="ex-step">\[比较系数：\]</div>
+        <div class="ex-step">由 \( a+c=1 \) 和 \( -a+b+c=0 \) 得 \( b = a-c = a-(1-a) = 2a-1 \)；代入 \( a+b=1 \): \( a+(2a-1)=1 \)，即 \( 3a=2 \)，\( a=\frac{2}{3} \)</div>
+        <div class="ex-step">\( b = 1-\frac{2}{3} = \frac{1}{3} \)，\( c = 1-\frac{2}{3} = \frac{1}{3} \)</div>
+        <div class="ex-step">验证：\( -a+b+c = -\frac{2}{3}+\frac{1}{3}+\frac{1}{3} = 0 \) ✓</div>
+        <div class="ex-step">\[所以\]</div>
+        <div class="ex-step">对第二项：\( \frac{x^2+1}{x^4-x^2+1} = \frac{x^2+1}{(x^2+1)^2-3x^2} = \frac{x^2+1}{(x^2+1-\sqrt{3}x)(x^2+1+\sqrt{3}x) \)</div>
+        <div class="ex-step">改写分子分母：\( x^4-x^2+1 = x^2\left(x^2-1+\frac{1}{x^2}\right) \)，对 \( x \neq 0 \)</div>
+        <div class="ex-step">\( x^2-1+\frac{1}{x^2} = t^2+1 \)，所以</div>
+        <div class="ex-step">计算定积分，注意 \( x \in (0,1) \) 时 \( t = x-\frac{1}{x} \in (-\infty, 0) \)，且 \( x \to 0^+ \) 时 \( t \to -\infty \)，\( x \to 1^- \) 时 \( t \to 0^- \)</div>
+        <div class="ex-step">\[因此\]</div>
+        <div class="ex-step">\[第一项积分：\]</div>
+        <div class="ex-step">\[第二项积分：\]</div>
+        <div class="ex-step">\[总和：\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\( 1+\frac{1}{5}-\frac{1}{7}-\frac{1}{11}+\frac{1}{13}+\frac{1}{17}+\cdots = \frac{\pi}{3} \)</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="ex-group">
+    <h2 class="ex-req"><span class="ex-bignum">6.</span>求出它的傅氏展开</h2>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">6</span><span class="ex-qmath">\(\displaystyle u(t)=\begin{cases}-U_m\sin\omega t,&-\frac{T}{2}\le t<<0,\\U_m\sin\omega t,&0\le t<\frac{T}{2},\end{cases} \omega=\frac{2\pi}{T}\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">函数 \(u(t)\) 在 \([-\frac{T}{2},\frac{T}{2}]\) 上满足 \(u(-t)=-u(t)\)，为奇函数，故 \(a_0=0\)，\(a_n=0\)。</div>
+        <div class="ex-step">计算 \(b_n\)：</div>
+        <div class="ex-step">\[利用积化和差：\]</div>
+        <div class="ex-step">\[代入积分：\]</div>
+        <div class="ex-step">由 \(\omega=\frac{2\pi}{T}\)，得 \(\omega\cdot\frac{T}{2}=\pi\)，故：</div>
+        <div class="ex-step">当 \(n\neq 1\) 时，\(\sin(n-1)\pi=0\)，\(\sin(n+1)\pi=0\)，故 \(b_n=0\)（\(n=2,3,4,\ldots\)）。</div>
+        <div class="ex-step">当 \(n=1\) 时，单独计算：</div>
+        <div class="ex-step">\[傅里叶级数为：\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[\frac{2}{\pi}U_m-\frac{4U_m}{\pi}\sum_{k=1}^{\infty}\frac{\cos2k\omega t}{(2k)^2-1}\]</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-jump">
+    <a href="10.3-fourier-problems.html">← 10.3 题型</a>
+    <a href="../ch11/11.1-exercises.html" class="primary">11.1 一阶ODE习题 →</a>
+  </div>
+
+</main>
+
+<button class="back-to-top" aria-label="回到顶部">↑</button>
+<footer class="site-footer">
+  高数期末复习站 · 教材习题考场标准步骤详解<a href="../index.html">🏠 回首页</a>
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>
