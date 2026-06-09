@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10.1 数项级数 · 讲解</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  svg: { fontCache: 'global' },
+  options: { enableMenu: false }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/design-system.css">
+</head>
+<body>
+
+<div class="reading-progress"></div>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="logo">高数期末复习站</a>
+    <span class="sep">|</span>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第9章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch9/9.0-overview.html">章节导学</a>
+        <a href="../ch9/9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a>
+        <a href="../ch9/9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a>
+        <a href="../ch9/9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第10章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="10.0-overview.html">章节导学</a>
+        <a href="10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a>
+        <a href="10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a>
+        <a href="10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a>
+        <a href="10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a>
+        <a href="10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a>
+        <a href="10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第11章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch11/11.0-overview.html">章节导学</a>
+        <a href="../ch11/11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a>
+        <a href="../ch11/11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <a href="../exams/index.html" class="item">往年题</a>
+    <a href="../tips/index.html" class="item">技巧锦囊</a>
+    <button class="theme-toggle" aria-label="切换主题">🌙</button>
+  </div>
+</nav>
+
+<main class="main">
+
+  <div class="hero">
+    <span class="tag">10.1 · 讲解</span>
+    <h1>数项级数 <span class="em">无限个数的和</span></h1>
+    <p class="subtitle">一句话：数项级数研究的是"无限个数加起来，到底有没有一个确定的值"。
+    <br>这一节是后面幂级数、傅里叶级数的工具基础。</p>
+  </div>
+
+  <div class="inpage-toc">
+    <h4>本页导航</h4>
+    <ul>
+      <li><a href="#sec-essence">一句话本质</a></li>
+      <li><a href="#sec-intro">为什么需要研究级数</a></li>
+      <li><a href="#sec-concepts">核心概念</a></li>
+      <li><a href="#sec-tests">敛散性判别法总览</a></li>
+      <li><a href="#sec-standard">必背标准级数</a></li>
+      <li><a href="#sec-link">与前后知识的联系</a></li>
+    </ul>
+  </div>
+
+  <h2 id="sec-essence">💡 一句话本质</h2>
+  <div class="formula-block">
+    <p style="font-size:18px; margin:0;">数项级数 = <strong>无限个数的累加</strong>。我们关心的不是"加起来是多少"，而是"加起来<strong>有没有一个确定的值</strong>"。</p>
+  </div>
+
+  <h2 id="sec-intro">📖 为什么需要研究级数</h2>
+  <p>微积分研究的是"无限"，级数是"无限"在加法上的体现。没有级数，我们无法：</p>
+  <ul>
+    <li>把 \(e^x\) 写成 \(1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\cdots\)（幂级数展开）</li>
+    <li>把周期函数分解成正弦/余弦波的叠加（傅里叶级数）</li>
+    <li>计算无限小数的精确值</li>
+  </ul>
+
+  <div class="box idea">
+    <span class="label">直观理解</span>
+    <p>想象你在往一个桶里不停地倒水：如果每次倒的量越来越小，总水量可能趋近于一个有限值（收敛）；如果每次倒的量不减小，桶最终会溢出（发散）。级数就是在用数学语言描述这个过程。</p>
+  </div>
+
+  <h2 id="sec-concepts">📐 核心概念</h2>
+
+  <h3>级数的定义</h3>
+  <div class="formula-block">
+    \[\sum_{n=1}^{\infty} u_n = u_1 + u_2 + u_3 + \cdots\]
+  </div>
+
+  <h3>部分和</h3>
+  <p>级数的前 \(n\) 项和称为<strong>部分和</strong>：</p>
+  <div class="formula-block">
+    \(S_n = u_1 + u_2 + \cdots + u_n\)
+  </div>
+  <p>如果 \(\lim_{n\to\infty} S_n = S\)（有限数），则称级数<strong>收敛</strong>，和为 \(S\)；否则称<strong>发散</strong>。</p>
+
+  <h3>必要条件（不是充分条件！）</h3>
+  <div class="box key">
+    <span class="label">级数收敛的必要条件</span>
+    <p>若 \(\sum u_n\) 收敛，则必有 \(\lim_{n\to\infty} u_n = 0\)。</p>
+    <p><strong>逆否命题（更常用）：</strong>若 \(\lim_{n\to\infty} u_n \neq 0\)，则级数<strong>必定发散</strong>。</p>
+  </div>
+
+  <div class="box warn">
+    <span class="label">经典错误</span>
+    <p>\(\lim_{n\to\infty} u_n = 0\) <strong>不能保证</strong>级数收敛！调和级数 \(\sum\frac{1}{n}\) 就是反例——通项趋于0，但级数发散。</p>
+  </div>
+
+  <h2 id="sec-tests">🔍 敛散性判别法总览</h2>
+
+  <p>拿到一道判敛题，按下面的顺序思考：</p>
+
+  <div class="decision-tree">
+    <div class="node question">Step 1：先看通项极限</div>
+    <div class="arrow">├─ \(\lim u_n \neq 0\) → <strong>发散</strong>（秒杀）</div>
+    <div class="arrow">└─ \(\lim u_n = 0\) → 继续 Step 2</div>
+    <div class="node question">Step 2：判断级数类型</div>
+    <div class="arrow">├─ 正项级数（\(u_n \geq 0\)）→ 比较/比值/根值</div>
+    <div class="arrow">├─ 交错级数（\((-1)^n u_n, u_n>0\)）→ 莱布尼茨判别法</div>
+    <div class="arrow">└─ 任意项级数 → 先判绝对收敛</div>
+  </div>
+
+  <h3>正项级数判别法</h3>
+  <table>
+    <tr><th>方法</th><th>适用场景</th><th>核心公式/思想</th></tr>
+    <tr><td>比较判别法</td><td>能和已知级数比大小</td><td>大收则小收，小发则大发</td></tr>
+    <tr><td>极限比较法</td><td>找等价无穷小</td><td>\(\lim\frac{u_n}{v_n}=c\in(0,+\infty)\)，同敛散</td></tr>
+    <tr><td>比值法</td><td>含阶乘、指数、连乘</td><td>\(\lim\frac{u_{n+1}}{u_n}=\rho\)，\(\rho<1\)收，\(\rho>1\)发</td></tr>
+    <tr><td>根值法</td><td>含 \(n\) 次方</td><td>\(\lim\sqrt[n]{u_n}=\rho\)，同上</td></tr>
+    <tr><td>积分判别法</td><td>\(u_n=f(n)\) 且 \(f\) 递减正连续</td><td>\(\sum u_n\) 与 \(\int_1^{\infty}f(x)dx\) 同敛散</td></tr>
+  </table>
+
+  <h3>交错级数判别法（莱布尼茨）</h3>
+  <div class="box ok">
+    <span class="label">莱布尼茨判别法</span>
+    <p>若 \(u_n > 0\)，且满足：</p>
+    <ol>
+      <li>\(u_n\) <strong>单调递减</strong>（\(u_{n+1} \leq u_n\)）</li>
+      <li>\(\lim_{n\to\infty} u_n = 0\)</li>
+    </ol>
+    <p>则交错级数 \(\sum(-1)^{n-1}u_n\) 收敛。</p>
+  </div>
+
+  <h3>任意项级数：绝对收敛与条件收敛</h3>
+  <p>对任意项级数 \(\sum u_n\)，先判 \(\sum|u_n|\)：</p>
+  <ul>
+    <li>若 \(\sum|u_n|\) 收敛 → \(\sum u_n\) <strong>绝对收敛</strong>（必定收敛）</li>
+    <li>若 \(\sum|u_n|\) 发散，但 \(\sum u_n\) 本身收敛 → <strong>条件收敛</strong></li>
+  </ul>
+
+  <h2 id="sec-standard">📋 必背标准级数</h2>
+
+  <table>
+    <tr><th>级数</th><th>形式</th><th>敛散性</th><th>备注</th></tr>
+    <tr><td>等比级数</td><td>\(\sum_{n=0}^{\infty} q^n\)</td><td>\(|q|<1\) 收敛，和 \(\frac{1}{1-q}\)</td><td>最重要的母级数</td></tr>
+    <tr><td>p-级数</td><td>\(\sum_{n=1}^{\infty} \frac{1}{n^p}\)</td><td>\(p>1\) 收敛，\(p\leq 1\) 发散</td><td>比较法的标尺</td></tr>
+    <tr><td>调和级数</td><td>\(\sum_{n=1}^{\infty} \frac{1}{n}\)</td><td>发散</td><td>\(p=1\) 的特例</td></tr>
+  </table>
+
+  <div class="box idea">
+    <span class="label">记忆口诀</span>
+    <p><strong>"p 大于 1 才收敛，等比绝对值小于 1"</strong>。这两个是绝大多数比较法的终点。</p>
+  </div>
+
+  <h2 id="sec-link">🔗 与前后知识的联系</h2>
+
+  <div class="box note">
+    <span class="label">知识网络</span>
+    <ul>
+      <li><strong>向前</strong>：数项级数是幂级数的基础——幂级数在某点 \(x=x_0\) 处就是一个数项级数。</li>
+      <li><strong>向后</strong>：幂级数展开需要反复用到数项级数的判敛思想（端点判断）。</li>
+      <li><strong>横向</strong>：反常积分 \(\int_1^{\infty} f(x)dx\) 和级数 \(\sum f(n)\) 通过积分判别法紧密联系。</li>
+    </ul>
+  </div>
+
+  <div class="page-jump">
+    <a href="10.0-overview.html">← 回导学</a>
+    <a href="10.1-series-problems.html" class="primary">去练数项级数题型 →</a>
+  </div>
+
+</main>
+
+<button class="back-to-top" aria-label="回到顶部">↑</button>
+<footer class="site-footer">
+  高数期末复习站 · 精心打磨每一类题的标准步骤
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>

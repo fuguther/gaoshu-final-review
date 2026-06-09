@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9.2 格林公式 · 讲解</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  svg: { fontCache: 'global' },
+  options: { enableMenu: false }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/design-system.css">
+</head>
+<body>
+
+<div class="reading-progress"></div>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="logo">高数期末复习站</a>
+    <span class="sep">|</span>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第9章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="9.0-overview.html">章节导学</a>
+        <a href="9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a>
+        <a href="9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a>
+        <a href="9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a>
+        <a href="9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a>
+        <a href="9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a>
+        <a href="9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第10章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch10/10.0-overview.html">章节导学</a>
+        <a href="../ch10/10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第11章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch11/11.0-overview.html">章节导学</a>
+        <a href="../ch11/11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a>
+        <a href="../ch11/11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <a href="../exams/index.html" class="item">往年题</a>
+    <a href="../tips/index.html" class="item">技巧锦囊</a>
+    <button class="theme-toggle" aria-label="切换主题">🌙</button>
+  </div>
+</nav>
+
+<main class="main">
+
+  <div class="hero">
+    <span class="tag">9.2 · 讲解</span>
+    <h1>格林公式 <span class="em">平面曲线积分的换路器</span></h1>
+    <p class="subtitle">一句话：格林公式把<strong>沿边界的曲线积分</strong>转换成<strong>区域内部的二重积分</strong>——边界不好算，就算里面。</p>
+  </div>
+
+  <div class="inpage-toc">
+    <h4>本页导航</h4>
+    <ul>
+      <li><a href="#sec-essence">一句话本质</a></li>
+      <li><a href="#sec-intro">为什么需要格林公式</a></li>
+      <li><a href="#sec-theorem">定理内容与条件</a></li>
+      <li><a href="#sec-intuition">直观理解</a></li>
+      <li><a href="#sec-path">曲线积分与路径无关</a></li>
+      <li><a href="#sec-link">与前后知识的联系</a></li>
+    </ul>
+  </div>
+
+  <h2 id="sec-essence">💡 一句话本质</h2>
+  <div class="formula-block">
+    <p style="font-size:18px; margin:0;">格林公式 = <strong>平面闭曲线上的曲线积分</strong> ↔ <strong>所围区域上的二重积分</strong></p>
+  </div>
+  <p>它和牛顿-莱布尼茨公式是同一家族的：\(\int_a^b F'(x)dx = F(b)-F(a)\) 是一维的"内部导数积分 = 边界值之差"，格林公式是二维版本。</p>
+
+  <h2 id="sec-intro">📖 为什么需要格林公式</h2>
+  <p>直接计算第二型曲线积分，需要把曲线参数化，然后代入计算。如果曲线很复杂（比如椭圆、不规则闭合曲线），参数化会很麻烦。</p>
+  <p>格林公式的价值在于：<strong>你不需要知道曲线的具体参数方程</strong>，只要知道它围成了一个区域，就可以把曲线积分转换成该区域上的二重积分。</p>
+
+  <div class="box idea">
+    <span class="label">经典场景</span>
+    <p>题目给你一个闭合曲线（比如椭圆 \(\frac{x^2}{a^2}+\frac{y^2}{b^2}=1\)），让你算 \(\oint_L Pdx+Qdy\)。直接参数化椭圆会很烦，但用格林公式，只需要算 \(\iint_D (Q_x-P_y)d\sigma\)，而椭圆区域上的二重积分通常好算得多。</p>
+  </div>
+
+  <h2 id="sec-theorem">📐 定理内容与条件</h2>
+
+  <h3>格林公式（标准形式）</h3>
+  <div class="formula-block">
+    \[\oint_L P(x,y)\,dx + Q(x,y)\,dy = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dx\,dy\]
+    <div class="caption">其中 \(L\) 是区域 \(D\) 的边界曲线，取正向</div>
+  </div>
+
+  <h3>使用条件（三者缺一不可）</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>封闭性</h4>
+        <p>\(L\) 必须是<strong>封闭曲线</strong>。如果不封闭，需要先<a href="9.2-greens-problems.html#type-buxian">补线</a>。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>正向性</h4>
+        <p>\(L\) 取<strong>正向</strong>：人沿边界行走时，区域 \(D\) 始终在左侧。简单说，单连通区域就是<strong>逆时针</strong>。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>连续性</h4>
+        <p>\(P, Q, \frac{\partial Q}{\partial x}, \frac{\partial P}{\partial y}\) 在 \(D\) 上<strong>连续</strong>。如果有不连续的点（奇点），需要用<a href="9.2-greens-problems.html#type-wadong">挖洞法</a>。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="box key">
+    <span class="label">考试要点</span>
+    <p>期末考试中，格林公式考法主要有三种：</p>
+    <ul>
+      <li><strong>直接套用</strong>：曲线封闭、无奇点，直接公式。</li>
+      <li><strong>补线法</strong>：曲线不封闭，补一条线变成封闭。</li>
+      <li><strong>挖洞法</strong>：曲线封闭但内部有奇点，挖掉奇点。</li>
+    </ul>
+  </div>
+
+  <h2 id="sec-intuition">🔍 直观理解</h2>
+
+  <h3>物理意义：环量与旋度</h3>
+  <p>把 \((P,Q)\) 看作平面流速场，那么 \(\oint_L Pdx+Qdy\) 就是流体沿边界 \(L\) 的<strong>环量</strong>（绕一圈的"旋转总量"）。</p>
+  <p>格林公式右边 \(Q_x-P_y\) 就是这个场的<strong>旋度</strong>（每一点局部的旋转强度）。</p>
+  <p>所以格林公式在说：<strong>边界上的总环量 = 内部每一点旋度的总和</strong>。如果场内处处无旋（\(Q_x=P_y\)），环量就是0。</p>
+
+  <div class="box idea">
+    <span class="label">小技巧</span>
+    <p>记住这个直觉：\(Q_x-P_y\) 是"旋度"，如果它等于0，说明场内"不转"，那沿着边界走一圈的环量自然为0——这就是<strong>路径无关</strong>的物理来源。</p>
+  </div>
+
+  <h2 id="sec-path">🛤️ 曲线积分与路径无关</h2>
+
+  <p>在单连通区域 \(D\) 内，以下四个命题等价：</p>
+
+  <table>
+    <tr><th>编号</th><th>命题</th></tr>
+    <tr><td>①</td><td>\(\int_L Pdx+Qdy\) 与路径无关，只与起点终点有关</td></tr>
+    <tr><td>②</td><td>沿 \(D\) 内任意闭曲线 \(C\)，\(\oint_C Pdx+Qdy = 0\)</td></tr>
+    <tr><td>③</td><td>\(Pdx+Qdy\) 是某个函数 \(u(x,y)\) 的全微分，即 \(du = Pdx+Qdy\)</td></tr>
+    <tr><td>④</td><td>在 \(D\) 内恒有 \(\frac{\partial Q}{\partial x} = \frac{\partial P}{\partial y}\)</td></tr>
+  </table>
+
+  <div class="box ok">
+    <span class="label">考场速记</span>
+    <p>判断路径无关，最常用的是<strong>条件④</strong>：算两个偏导数，看是否相等。如果相等，就可以换一条简单路径计算，或者求出原函数 \(u\) 用 \(u(B)-u(A)\) 算。</p>
+  </div>
+
+  <h3>求原函数 \(u(x,y)\)</h3>
+  <p>如果 \(Pdx+Qdy\) 是恰当微分，可以用"折线法"求原函数：</p>
+  <div class="formula-block">
+    \[u(x,y) = \int_{x_0}^x P(t,y_0)\,dt + \int_{y_0}^y Q(x,t)\,dt\]
+    <div class="caption">或先对 \(y\) 积分再对 \(x\) 积分，选计算简单的顺序</div>
+  </div>
+
+  <h2 id="sec-link">🔗 与前后知识的联系</h2>
+
+  <div class="box note">
+    <span class="label">知识网络</span>
+    <ul>
+      <li><strong>向前</strong>：格林公式建立在第二型曲线积分的基础上，需要先会参数化计算曲线积分。</li>
+      <li><strong>向后</strong>：格林公式是理解高斯公式（三维版）和司托克斯公式（空间曲线版）的钥匙。三者共享"边界积分 = 内部积分"的思想。</li>
+      <li><strong>横向</strong>：路径无关 ↔ 全微分方程（第十一章），如果 \(Pdx+Qdy=0\) 且满足路径无关条件，就是全微分方程，可以直接积分求解。</li>
+    </ul>
+  </div>
+
+  <div class="page-jump">
+    <a href="9.0-overview.html">← 回导学</a>
+    <a href="9.2-greens-problems.html" class="primary">去练格林公式题型 →</a>
+  </div>
+
+</main>
+
+<button class="back-to-top" aria-label="回到顶部">↑</button>
+<footer class="site-footer">
+  高数期末复习站 · 精心打磨每一类题的标准步骤
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>

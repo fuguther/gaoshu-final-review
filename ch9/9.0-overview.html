@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第九章导学 · 曲线积分与曲面积分</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  svg: { fontCache: 'global' },
+  options: { enableMenu: false }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/design-system.css">
+</head>
+<body>
+
+<div class="reading-progress"></div>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="logo">高数期末复习站</a>
+    <span class="sep">|</span>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第9章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="9.0-overview.html">章节导学</a>
+        <a href="9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a>
+        <a href="9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a>
+        <a href="9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a>
+        <a href="9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a>
+        <a href="9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a>
+        <a href="9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第10章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch10/10.0-overview.html">章节导学</a>
+        <a href="../ch10/10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第11章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch11/11.0-overview.html">章节导学</a>
+        <a href="../ch11/11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a>
+        <a href="../ch11/11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <a href="../exams/index.html" class="item">往年题</a>
+    <a href="../tips/index.html" class="item">技巧锦囊</a>
+    <button class="theme-toggle" aria-label="切换主题">🌙</button>
+  </div>
+</nav>
+
+<main class="main">
+
+  <div class="hero">
+    <span class="tag">第九章 · 导学</span>
+    <h1>曲线积分与曲面积分 <span class="em">考什么、怎么考</span></h1>
+    <p class="subtitle">格林公式把曲线积分变成二重积分，高斯公式把曲面积分变成三重积分——<br>核心思想永远是：不好算的就换一条路子算。</p>
+  </div>
+
+  <div class="inpage-toc">
+    <h4>本页导航</h4>
+    <ul>
+      <li><a href="#sec-score">分值分布</a></li>
+      <li><a href="#sec-structure">知识结构</a></li>
+      <li><a href="#sec-focus">考试重点</a></li>
+      <li><a href="#sec-route">复习路线</a></li>
+      <li><a href="#sec-traps">常见丢分点</a></li>
+    </ul>
+  </div>
+
+  <h2 id="sec-score">📊 分值分布</h2>
+  <p>从往年高数C试卷来看，第九章（后几节）的分值大约在 <strong>15–25分</strong> 之间，通常以 1–2 道大题的形式出现。</p>
+
+  <table>
+    <tr><th>内容</th><th>题型</th><th>分值</th><th>难度</th></tr>
+    <tr><td>格林公式（补线/挖洞）</td><td>大题</td><td>8–12分</td><td>中等</td></tr>
+    <tr><td>曲线积分与路径无关</td><td>大题/证明</td><td>6–10分</td><td>中等偏上</td></tr>
+    <tr><td>曲面积分（一型/二型）</td><td>大题</td><td>8–12分</td><td>中等</td></tr>
+    <tr><td>高斯公式</td><td>大题</td><td>8–10分</td><td>中等</td></tr>
+    <tr><td>司托克斯公式</td><td>小题/大题</td><td>4–8分</td><td>偏上</td></tr>
+  </table>
+
+  <h2 id="sec-structure">🧭 知识结构</h2>
+  <p>这一章的知识可以用一句话串起来：</p>
+  <div class="formula-block">
+    <strong>格林</strong>（平面曲线 ↔ 二重积分） → <strong>高斯</strong>（闭合曲面 ↔ 三重积分） → <strong>司托克斯</strong>（空间曲线 ↔ 曲面积分）
+  </div>
+
+  <p>三大公式的共同本质：<strong>把一种积分换成另一种（ hopefully 更好算的）积分</strong>。</p>
+
+  <div class="box idea">
+    <span class="label">核心洞察</span>
+    <p>格林公式、高斯公式、司托克斯公式，本质上都是<strong>牛顿-莱布尼茨公式在高维的推广</strong>——"边界上的积分 = 内部上的积分"。记住这个直觉，公式就不会记混。</p>
+  </div>
+
+  <h2 id="sec-focus">🎯 考试重点（只考这些）</h2>
+
+  <h3>9.2 格林公式</h3>
+  <ul>
+    <li><strong>补线法</strong>：曲线不封闭时，补一条线把它封起来，用格林公式，再减去补线上的积分。</li>
+    <li><strong>挖洞法</strong>：曲线封闭但内部有奇点（偏导不连续）时，在内部挖一个小洞，把奇点隔离出去。</li>
+    <li><strong>路径无关</strong>：判定条件 + 求原函数 + 选简单路径计算。</li>
+  </ul>
+
+  <h3>9.3 曲面积分</h3>
+  <ul>
+    <li><strong>第一型</strong>：直接投影到坐标面，带面积元素 \(dS\)。</li>
+    <li><strong>第二型</strong>：注意方向（上/下、前/后、左/右），投影可能带负号。</li>
+    <li><strong>转换投影</strong>：把三个坐标面的投影统一到一个面上，减少计算量。</li>
+  </ul>
+
+  <h3>9.4 三大公式</h3>
+  <ul>
+    <li><strong>高斯公式</strong>：封闭曲面上的第二型曲面积分 → 三重积分。不封闭就补面。</li>
+    <li><strong>司托克斯公式</strong>：空间封闭曲线上的曲线积分 → 曲面积分。关键是选对曲面（通常选平面最简单）。</li>
+  </ul>
+
+  <div class="box warn">
+    <span class="label">不考的内容（直接跳过）</span>
+    <p>第一型曲线积分的物理应用（质量、重心）、方向导数与梯度（这是第七章内容）、曲面积分的物理应用。课本上标"*"的内容一律不考。</p>
+  </div>
+
+  <h2 id="sec-route">🗺️ 复习路线</h2>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>背熟格林公式</h4>
+        <p>公式本身 + 三个条件（封闭、正向、偏导连续）。这是整章的地基。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>掌握补线法和挖洞法</h4>
+        <p>每种方法各练 2 道例题，做到看到题就知道该补还是该挖。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>区分曲面积分的一型和二型</h4>
+        <p>关键看积分号：\(\iint_S\) 后面跟 \(dS\) 是一型，跟 \(dxdy\)、\(dydz\)、\(dzdx\) 是二型。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>高斯公式直接套用</h4>
+        <p>封闭曲面 → 三重积分。不封闭就补面（类似格林的补线）。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <h4>司托克斯公式选简单曲面</h4>
+        <p>以边界曲线为边界的曲面有无穷多个，<strong>选平面</strong>计算最简单。</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="sec-traps">⚠️ 常见丢分点</h2>
+
+  <div class="box warn">
+    <span class="label">方向搞反</span>
+    <p>格林公式要求曲线<strong>正向</strong>（区域始终在左侧）。如果是顺时针，结果要加负号。补线时也要注意补线的方向。</p>
+  </div>
+
+  <div class="box warn">
+    <span class="label">奇点没发现</span>
+    <p>看到分母有 \(x^2+y^2\) 就要立刻警觉：原点是不是奇点？如果是且原点在封闭曲线内部，必须用<strong>挖洞法</strong>。</p>
+  </div>
+
+  <div class="box warn">
+    <span class="label">曲面积分方向标错</span>
+    <p>第二型曲面积分一定要看题目给的方向（外侧/内侧、上侧/下侧）。方向反了，整个答案就反了。</p>
+  </div>
+
+  <div class="page-jump">
+    <a href="../index.html">← 回首页</a>
+    <a href="9.2-greens-formula.html" class="primary">9.2 格林公式讲解 →</a>
+  </div>
+
+</main>
+
+<button class="back-to-top" aria-label="回到顶部">↑</button>
+<footer class="site-footer">
+  高数期末复习站 · 精心打磨每一类题的标准步骤
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高数期末复习站 · 第九章后几节 + 第十章 + 第十一章</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  svg: { fontCache: 'global' },
+  options: { enableMenu: false }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/design-system.css">
+</head>
+<body>
+
+<!-- 进度条 -->
+<div class="reading-progress"></div>
+
+<!-- 全局导航 -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="logo">高数期末复习站</a>
+    <span class="sep">|</span>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第9章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="ch9/9.0-overview.html">章节导学</a>
+        <a href="ch9/9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a>
+        <a href="ch9/9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a>
+        <a href="ch9/9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a>
+        <a href="ch9/9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a>
+        <a href="ch9/9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a>
+        <a href="ch9/9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第10章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="ch10/10.0-overview.html">章节导学</a>
+        <a href="ch10/10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a>
+        <a href="ch10/10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a>
+        <a href="ch10/10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a>
+        <a href="ch10/10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a>
+        <a href="ch10/10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a>
+        <a href="ch10/10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第11章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="ch11/11.0-overview.html">章节导学</a>
+        <a href="ch11/11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a>
+        <a href="ch11/11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a>
+        <a href="ch11/11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a>
+        <a href="ch11/11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <a href="exams/index.html" class="item">往年题</a>
+    <a href="tips/index.html" class="item">技巧锦囊</a>
+    <button class="theme-toggle" aria-label="切换主题">🌙</button>
+  </div>
+</nav>
+
+<!-- 主体 -->
+<main class="main">
+
+  <div class="hero">
+    <span class="tag">高等数学 · 期末复习</span>
+    <h1>期末复习站 <span class="em">第九章后几节 + 第十章 + 第十一章</span></h1>
+    <p class="subtitle">不是课本搬家，而是帮你建立"看到题就知道怎么做"的直觉。<br>每类题型都有标准步骤，每道例题都是考场标准答案。</p>
+    <div class="meta">
+      <span>📐 考试范围：格林公式 / 曲面积分 / 三大公式 / 级数 / 微分方程</span>
+      <span>📝 含往年真题详解</span>
+      <span>🎯 只保留会考的题型</span>
+    </div>
+  </div>
+
+  <h2>📚 章节速览</h2>
+  <p>点击卡片进入对应章节。每个章节先读<strong>讲解</strong>建立概念，再进<strong>题型</strong>练标准步骤。</p>
+
+  <div class="chapter-nav">
+
+    <!-- 第9章 -->
+    <div class="chapter-card">
+      <div class="ch-num">第九章 · 曲线积分与曲面积分</div>
+      <h3>格林公式 · 曲面积分 · 三大公式</h3>
+      <p>考试重点：格林公式（补线、挖洞、路径无关）、曲面积分（一型/二型转换）、高斯公式与司托克斯公式的直接套用。</p>
+      <div class="links">
+        <a href="ch9/9.0-overview.html">📋 章节导学</a>
+        <a href="ch9/9.2-greens-formula.html">📖 9.2 格林公式 <span class="type">讲解</span></a>
+        <a href="ch9/9.2-greens-problems.html">✏️ 9.2 格林公式 <span class="type">题型</span></a>
+        <a href="ch9/9.3-surface-integrals.html">📖 9.3 曲面积分 <span class="type">讲解</span></a>
+        <a href="ch9/9.3-surface-problems.html">✏️ 9.3 曲面积分 <span class="type">题型</span></a>
+        <a href="ch9/9.4-big-three.html">📖 9.4 三大公式 <span class="type">讲解</span></a>
+        <a href="ch9/9.4-big-three-problems.html">✏️ 9.4 三大公式 <span class="type">题型</span></a>
+      </div>
+    </div>
+
+    <!-- 第10章 -->
+    <div class="chapter-card">
+      <div class="ch-num">第十章 · 无穷级数</div>
+      <h3>数项级数 · 幂级数 · 傅里叶级数</h3>
+      <p>分值占比最高的章节。数项级数敛散性判别（决策树）、幂级数求和与展开（标准步骤）、傅里叶级数S(x)计算。</p>
+      <div class="links">
+        <a href="ch10/10.0-overview.html">📋 章节导学</a>
+        <a href="ch10/10.1-series-concepts.html">📖 10.1 数项级数 <span class="type">讲解</span></a>
+        <a href="ch10/10.1-series-problems.html">✏️ 10.1 数项级数 <span class="type">题型</span></a>
+        <a href="ch10/10.2-power-series.html">📖 10.2 幂级数 <span class="type">讲解</span></a>
+        <a href="ch10/10.2-power-problems.html">✏️ 10.2 幂级数 <span class="type">题型</span></a>
+        <a href="ch10/10.3-fourier.html">📖 10.3 傅里叶级数 <span class="type">讲解</span></a>
+        <a href="ch10/10.3-fourier-problems.html">✏️ 10.3 傅里叶级数 <span class="type">题型</span></a>
+      </div>
+    </div>
+
+    <!-- 第11章 -->
+    <div class="chapter-card">
+      <div class="ch-num">第十一章 · 常微分方程</div>
+      <h3>一阶方程 · 二阶线性</h3>
+      <p>题型最固定的章节。一阶方程四类型识别+解法、二阶常系数齐次/非齐次特解设定、叠加原理。</p>
+      <div class="links">
+        <a href="ch11/11.0-overview.html">📋 章节导学</a>
+        <a href="ch11/11.1-first-order.html">📖 11.1 一阶方程 <span class="type">讲解</span></a>
+        <a href="ch11/11.1-first-order-problems.html">✏️ 11.1 一阶方程 <span class="type">题型</span></a>
+        <a href="ch11/11.2-second-order.html">📖 11.2 二阶线性 <span class="type">讲解</span></a>
+        <a href="ch11/11.2-second-order-problems.html">✏️ 11.2 二阶线性 <span class="type">题型</span></a>
+      </div>
+    </div>
+
+    <!-- 往年题 -->
+    <div class="chapter-card">
+      <div class="ch-num">往年真题</div>
+      <h3>高数C 期末试卷详解</h3>
+      <p>逐题按"题型识别→标准步骤→完整计算→答案"格式写出考场标准答案。优先覆盖已有试卷。</p>
+      <div class="links">
+        <a href="exams/index.html">📋 试卷总览</a>
+        <a href="exams/c-2022-spring.html">📝 22春高数C 详解</a>
+        <a href="exams/c-2025-spring.html">📝 25春高数C 详解</a>
+      </div>
+    </div>
+
+    <!-- 技巧锦囊 -->
+    <div class="chapter-card">
+      <div class="ch-num">技巧锦囊</div>
+      <h3>跨章节小巧思</h3>
+      <p>从别人整理的资料和网络资源中提取的通用技巧：积分因子速找、幂级数求和常见模型、傅里叶巧算等。</p>
+      <div class="links">
+        <a href="tips/index.html">📋 技巧总览</a>
+        <a href="tips/integrating-factor.html">💡 积分因子速找</a>
+        <a href="tips/power-series-models.html">💡 幂级数求和模型</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="box key">
+    <span class="label">使用指南</span>
+    <p><strong>复习顺序建议：</strong>先读<strong>章节导学</strong>了解考什么 → 读<strong>讲解页</strong>建立概念 → 进<strong>题型页</strong>练标准步骤 → 做<strong>往年真题</strong>检验。技巧锦囊可以随时翻阅。</p>
+    <p>每道例题都是<strong>考场标准答案格式</strong>，步骤完整、不跳步、书写规范。建议对照模仿。</p>
+  </div>
+
+</main>
+
+<!-- 回到顶部 -->
+<button class="back-to-top" aria-label="回到顶部">↑</button>
+
+<!-- 页脚 -->
+<footer class="site-footer">
+  高数期末复习站 · 精心打磨每一类题的标准步骤
+</footer>
+
+<script src="js/site.js"></script>
+</body>
+</html>

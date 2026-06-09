@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第十章导学 · 无穷级数</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  svg: { fontCache: 'global' },
+  options: { enableMenu: false }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/design-system.css">
+</head>
+<body>
+
+<div class="reading-progress"></div>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="logo">高数期末复习站</a>
+    <span class="sep">|</span>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第9章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch9/9.0-overview.html">章节导学</a>
+        <a href="../ch9/9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a>
+        <a href="../ch9/9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a>
+        <a href="../ch9/9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第10章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="10.0-overview.html">章节导学</a>
+        <a href="10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a>
+        <a href="10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a>
+        <a href="10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a>
+        <a href="10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a>
+        <a href="10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a>
+        <a href="10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第11章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch11/11.0-overview.html">章节导学</a>
+        <a href="../ch11/11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a>
+        <a href="../ch11/11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <a href="../exams/index.html" class="item">往年题</a>
+    <a href="../tips/index.html" class="item">技巧锦囊</a>
+    <button class="theme-toggle" aria-label="切换主题">🌙</button>
+  </div>
+</nav>
+
+<main class="main">
+
+  <div class="hero">
+    <span class="tag">第十章 · 导学</span>
+    <h1>无穷级数 <span class="em">分值最高的一章</span></h1>
+    <p class="subtitle">这一章占期末考试的 <strong>45–50 分</strong>，接近半壁江山。<br>核心就三件事：判敛、求和、展开。</p>
+  </div>
+
+  <div class="inpage-toc">
+    <h4>本页导航</h4>
+    <ul>
+      <li><a href="#sec-score">分值分布</a></li>
+      <li><a href="#sec-structure">知识结构</a></li>
+      <li><a href="#sec-focus">考试重点</a></li>
+      <li><a href="#sec-route">复习路线</a></li>
+      <li><a href="#sec-traps">常见丢分点</a></li>
+    </ul>
+  </div>
+
+  <h2 id="sec-score">📊 分值分布</h2>
+  <p>根据 22 春和 25 春高数C试卷统计：</p>
+
+  <table>
+    <tr><th>内容</th><th>题型</th><th>分值</th><th>难度</th></tr>
+    <tr><td>数项级数敛散性判别</td><td>大题/小题</td><td>15–20 分</td><td>中等</td></tr>
+    <tr><td>幂级数（收敛域、和函数、展开）</td><td>大题</td><td>10–20 分</td><td>中等偏上</td></tr>
+    <tr><td>傅里叶级数 S(x) 与展开</td><td>大题</td><td>10–15 分</td><td>中等</td></tr>
+  </table>
+
+  <div class="box key">
+    <span class="label">战略定位</span>
+    <p>第十章是<strong>性价比最高</strong>的章节：题型固定、步骤明确、刷透往年题就能稳拿分。建议投入总复习时间的 <strong>40%</strong> 在这一章。</p>
+  </div>
+
+  <h2 id="sec-structure">🧭 知识结构</h2>
+  <p>第十章的三节不是孤立的，它们的关系是：</p>
+
+  <div class="formula-block">
+    <strong>§10.1 数项级数</strong>（敛散性判别）→ 这是<strong>工具</strong>，为后面两节服务<br><br>
+    <strong>§10.2 幂级数</strong>（求和 + 展开）← 核心考点，步骤最固定<br><br>
+    <strong>§10.3 傅里叶级数</strong>（S(x) 计算 + 形式展开）← 公式多但套路深
+  </div>
+
+  <div class="box idea">
+    <span class="label">核心洞察</span>
+    <p>数项级数是"静态"的（判断一个已给的级数收敛还是发散），幂级数和傅里叶级数是"动态"的（把一个函数表示成无穷级数）。考试重点在<strong>幂级数</strong>，因为求和与展开的步骤最标准、最可预测。</p>
+  </div>
+
+  <h2 id="sec-focus">🎯 考试重点（只考这些）</h2>
+
+  <h3>10.1 数项级数</h3>
+  <ul>
+    <li><strong>6 大类 15 小类</strong>敛散性判别法（见 <a href="10.1-series-problems.html">题型页</a> 决策树）</li>
+    <li>必背标准级数：等比级数、p-级数、调和级数</li>
+    <li>交错级数的绝对收敛与条件收敛判定</li>
+  </ul>
+
+  <h3>10.2 幂级数</h3>
+  <ul>
+    <li><strong>收敛域</strong>：先求收敛半径，再单独判断端点</li>
+    <li><strong>和函数</strong>：利用逐项求导/积分，把未知级数转化为已知形式（\(\sum x^n = \frac{1}{1-x}\)）</li>
+    <li><strong>展开</strong>：把给定函数展开成幂级数，记住 5 个基本展开式</li>
+  </ul>
+
+  <h3>10.3 傅里叶级数</h3>
+  <ul>
+    <li><strong>Dirichlet 定理</strong>：计算 S(x) 在分段点处的值（左右极限平均）</li>
+    <li><strong>形式展开</strong>：求 \(a_0, a_n, b_n\) 的积分公式</li>
+    <li>奇偶延拓：奇函数只含正弦，偶函数只含余弦</li>
+  </ul>
+
+  <div class="box warn">
+    <span class="label">不考的内容（直接跳过）</span>
+    <p>级数的乘法运算、一致收敛、魏尔斯特拉斯判别法、傅里叶级数的逐项积分/微分定理的证明。课本上标"*"的内容一律不考。</p>
+  </div>
+
+  <h2 id="sec-route">🗺️ 复习路线</h2>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>背熟 5 个必背展开式</h4>
+        <p>\(e^x, \sin x, \cos x, \ln(1+x), (1+x)^\alpha\)。这是幂级数求和与展开的地基。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>掌握敛散性判别决策树</h4>
+        <p>看到题先判类型（正项/交错/任意项），再选方法。见 <a href="10.1-series-problems.html">10.1 题型页</a>。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>幂级数求和：看 n 在哪里</h4>
+        <p>分母有 n → 逐项求导消掉 n；分子有 n → 逐项积分消掉 n。见 <a href="10.2-power-problems.html">10.2 题型页</a>。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>傅里叶：背熟 S(x) 公式</h4>
+        <p>连续点 \(S(x)=f(x)\)，间断点 \(S(x)=\frac{f(x^+)+f(x^-)}{2}\)。端点取周期延拓后的左右极限。</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="sec-traps">⚠️ 常见丢分点</h2>
+
+  <div class="box warn">
+    <span class="label">端点忘记单独判断</span>
+    <p>求收敛域时，算出收敛半径后，<strong>两个端点必须单独代入验证</strong>。很多同学的草稿到此为止，漏了端点导致扣分。</p>
+  </div>
+
+  <div class="box warn">
+    <span class="label">S(x) 在端点的值</span>
+    <p>用 Dirichlet 定理求 S(x) 时，<strong>端点要按周期延拓后的函数</strong>来判断左右极限，不是原函数的端点值。</p>
+  </div>
+
+  <div class="box warn">
+    <span class="label">展开后没写收敛域</span>
+    <p>幂级数展开题的最后，<strong>一定要写出收敛域</strong>。这是标准答案的必备部分。</p>
+  </div>
+
+  <div class="page-jump">
+    <a href="../index.html">← 回首页</a>
+    <a href="10.1-series-concepts.html" class="primary">10.1 数项级数讲解 →</a>
+  </div>
+
+</main>
+
+<button class="back-to-top" aria-label="回到顶部">↑</button>
+<footer class="site-footer">
+  高数期末复习站 · 精心打磨每一类题的标准步骤
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>

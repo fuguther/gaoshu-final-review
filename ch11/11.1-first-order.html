@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>11.1 一阶微分方程 · 讲解</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  svg: { fontCache: 'global' },
+  options: { enableMenu: false }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/design-system.css">
+</head>
+<body>
+
+<div class="reading-progress"></div>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="logo">高数期末复习站</a>
+    <span class="sep">|</span>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第9章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch9/9.0-overview.html">章节导学</a>
+        <a href="../ch9/9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a>
+        <a href="../ch9/9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a>
+        <a href="../ch9/9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第10章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch10/10.0-overview.html">章节导学</a>
+        <a href="../ch10/10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第11章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="11.0-overview.html">章节导学</a>
+        <a href="11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a>
+        <a href="11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a>
+        <a href="11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a>
+        <a href="11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <a href="../exams/index.html" class="item">往年题</a>
+    <a href="../tips/index.html" class="item">技巧锦囊</a>
+    <button class="theme-toggle" aria-label="切换主题">🌙</button>
+  </div>
+</nav>
+
+<main class="main">
+
+  <div class="hero">
+    <span class="tag">11.1 · 讲解</span>
+    <h1>一阶微分方程 <span class="em">识别 + 套公式</span></h1>
+    <p class="subtitle">一句话：一阶方程的核心是<strong>3秒内识别类型</strong>，然后套用对应解法。
+    <br>考试考四类：可分离、齐次、线性、伯努利。</p>
+  </div>
+
+  <div class="inpage-toc">
+    <h4>本页导航</h4>
+    <ul>
+      <li><a href="#sec-recognition">四类型识别表</a></li>
+      <li><a href="#sec-separable">可分离变量</a></li>
+      <li><a href="#sec-homogeneous">齐次方程</a></li>
+      <li><a href="#sec-linear">一阶线性</a></li>
+      <li><a href="#sec-bernoulli">伯努利方程</a></li>
+      <li><a href="#sec-summary">解法对照表</a></li>
+    </ul>
+  </div>
+
+  <h2 id="sec-recognition">🔍 四类型识别表（3秒定类型）</h2>
+
+  <table>
+    <tr><th>类型</th><th>标准形式</th><th>识别信号</th><th>解法</th></tr>
+    <tr>
+      <td><span class="tag-pill green">可分离</span></td>
+      <td>\(\frac{dy}{dx} = f(x)g(y)\)</td>
+      <td>右边能拆成 x 的函数 × y 的函数</td>
+      <td>分离变量，两边积分</td>
+    </tr>
+    <tr>
+      <td><span class="tag-pill blue">齐次</span></td>
+      <td>\(\frac{dy}{dx} = F\left(\frac{y}{x}\right)\)</td>
+      <td>右边是 \(\frac{y}{x}\) 的函数</td>
+      <td>令 \(u = \frac{y}{x}\)</td>
+    </tr>
+    <tr>
+      <td><span class="tag-pill red">线性</span></td>
+      <td>\(\frac{dy}{dx} + P(x)y = Q(x)\)</td>
+      <td>y 和 y' 都是一次（无 y²、√y 等）</td>
+      <td>套通解公式</td>
+    </tr>
+    <tr>
+      <td><span class="tag-pill gold">伯努利</span></td>
+      <td>\(\frac{dy}{dx} + P(x)y = Q(x)y^n\)</td>
+      <td>像线性但右边多了 \(y^n\)</td>
+      <td>令 \(z = y^{1-n}\)</td>
+    </tr>
+  </table>
+
+  <div class="box key">
+    <span class="label">优先级</span>
+    <p>如果方程同时满足多个类型，按这个顺序判断：<strong>可分离 → 齐次 → 线性 → 伯努利</strong>。可分离是最基础的"母型"，很多方程本质上都是可分离的变形。</p>
+  </div>
+
+  <h2 id="sec-separable">📐 类型一：可分离变量</h2>
+
+  <h3>标准形式</h3>
+  <div class="formula-block">
+    \[\frac{dy}{dx} = f(x) \cdot g(y)\]
+  </div>
+
+  <h3>解法</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>分离变量</h4>
+        <p>\(\frac{dy}{g(y)} = f(x)\,dx\)（假设 \(g(y) \neq 0\)）</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>两边积分</h4>
+        <p>\(\int \frac{dy}{g(y)} = \int f(x)\,dx\)</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>解出 y</h4>
+        <p>整理得到通解（含一个任意常数 \(C\)）。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题</span>
+      <span class="title">可分离变量</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        求 \( \frac{dy}{dx} = xy \) 的通解。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　分离：\(\frac{dy}{y} = x\,dx\)（\(y \neq 0\)）</p>
+      <p><strong>Step 2</strong>　积分：\(\ln|y| = \frac{x^2}{2} + C_1\)</p>
+      <p><strong>Step 3</strong>　整理：\(|y| = e^{C_1}e^{x^2/2}\)</p>
+      <div class="formula-block">
+        \[y = Ce^{x^2/2}\]
+        <div class="caption">其中 \(C = \pm e^{C_1}\) 为任意常数（包含 \(C=0\) 对应 \(y=0\)）</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="sec-homogeneous">📐 类型二：齐次方程</h2>
+
+  <h3>标准形式</h3>
+  <div class="formula-block">
+    \[\frac{dy}{dx} = F\left(\frac{y}{x}\right)\]
+  </div>
+
+  <h3>解法</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>换元</h4>
+        <p>令 \(u = \frac{y}{x}\)，即 \(y = ux\)。则 \(\frac{dy}{dx} = u + x\frac{du}{dx}\)。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>代入化简</h4>
+        <p>原方程变为 \(u + x\frac{du}{dx} = F(u)\)，整理得 \(x\frac{du}{dx} = F(u) - u\)。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>分离变量</h4>
+        <p>\(\frac{du}{F(u)-u} = \frac{dx}{x}\)，化为可分离变量方程。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>积分并回代</h4>
+        <p>两边积分后用 \(u = \frac{y}{x}\) 回代。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="box idea">
+    <span class="label">识别技巧</span>
+    <p>如果方程右边出现 \(x+y\)、\(x-y\)、\(x^2+y^2\)、\(\frac{y}{x}\) 等结构，大概率是齐次方程。特别地，若分子分母各项次数相同（如 \(\frac{x^2+xy}{y^2}\)），也是齐次。</p>
+  </div>
+
+  <h2 id="sec-linear">📐 类型三：一阶线性方程（最重要）</h2>
+
+  <h3>标准形式</h3>
+  <div class="formula-block">
+    \[\frac{dy}{dx} + P(x)y = Q(x)\]
+  </div>
+
+  <h3>通解公式（必须背熟）</h3>
+  <div class="formula-block">
+    \[y = e^{-\int P(x)\,dx}\left(\int Q(x)e^{\int P(x)\,dx}dx + C\right)\]
+  </div>
+
+  <div class="box key">
+    <span class="label">考场速记</span>
+    <p>记 \(I = \int P(x)\,dx\)，则公式简化为：</p>
+    <div class="formula-block">
+      \[y = e^{-I}\left(\int Q(x)e^{I}dx + C\right)\]
+    </div>
+    <p><strong>口诀</strong>：先算积分 \(I\)，再算 \(e^I\)，然后乘 \(Q\) 再积分，最后乘 \(e^{-I}\)。</p>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题</span>
+      <span class="title">一阶线性</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        求 \( \frac{dy}{dx} + 2xy = x \) 的通解。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　识别：\(P(x)=2x, Q(x)=x\)</p>
+      <p><strong>Step 2</strong>　\(I = \int 2x\,dx = x^2\)</p>
+      <p><strong>Step 3</strong>　\(e^I = e^{x^2}\)</p>
+      <p><strong>Step 4</strong>　\(\int Q e^I dx = \int x e^{x^2} dx = \frac{1}{2}e^{x^2}\)</p>
+      <p><strong>Step 5</strong>　代入公式：</p>
+      <div class="formula-block">
+        \[y = e^{-x^2}\left(\frac{1}{2}e^{x^2} + C\right) = \frac{1}{2} + Ce^{-x^2}\]
+      </div>
+    </div>
+  </div>
+
+  <h2 id="sec-bernoulli">📐 类型四：伯努利方程</h2>
+
+  <h3>标准形式</h3>
+  <div class="formula-block">
+    \[\frac{dy}{dx} + P(x)y = Q(x)y^n \quad (n \neq 0, 1)\]
+  </div>
+
+  <h3>解法</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>换元</h4>
+        <p>令 \(z = y^{1-n}\)，则 \(\frac{dz}{dx} = (1-n)y^{-n}\frac{dy}{dx}\)。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>化为一阶线性</h4>
+        <p>原方程两边乘 \((1-n)y^{-n}\)，得到关于 \(z\) 的一阶线性方程。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>套用线性公式</h4>
+        <p>解出 \(z\) 后，用 \(z = y^{1-n}\) 回代得 \(y\)。</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="sec-summary">📋 解法对照速查表</h2>
+
+  <table>
+    <tr><th>类型</th><th>第一步</th><th>核心操作</th><th>结果形式</th></tr>
+    <tr><td>可分离</td><td>拆成 f(x)g(y)</td><td>分离 → 积分</td><td>隐式或显式通解</td></tr>
+    <tr><td>齐次</td><td>令 u = y/x</td><td>换元 → 分离 → 回代</td><td>含 C 的通解</td></tr>
+    <tr><td>线性</td><td>确定 P(x), Q(x)</td><td>套公式</td><td>\(y = e^{-I}(\int Qe^I dx + C)\)</td></tr>
+    <tr><td>伯努利</td><td>令 z = y^(1-n)</td><td>化线性 → 套公式 → 回代</td><td>含 C 的通解</td></tr>
+  </table>
+
+  <div class="page-jump">
+    <a href="11.0-overview.html">← 回导学</a>
+    <a href="11.1-first-order-problems.html" class="primary">去练一阶方程题型 →</a>
+  </div>
+
+</main>
+
+<button class="back-to-top" aria-label="回到顶部">↑</button>
+<footer class="site-footer">
+  高数期末复习站 · 精心打磨每一类题的标准步骤
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>

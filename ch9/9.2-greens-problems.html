@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9.2 格林公式 · 题型</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  svg: { fontCache: 'global' },
+  options: { enableMenu: false }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/design-system.css">
+</head>
+<body>
+
+<div class="reading-progress"></div>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="logo">高数期末复习站</a>
+    <span class="sep">|</span>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第9章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="9.0-overview.html">章节导学</a>
+        <a href="9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a>
+        <a href="9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a>
+        <a href="9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a>
+        <a href="9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a>
+        <a href="9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a>
+        <a href="9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第10章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch10/10.0-overview.html">章节导学</a>
+        <a href="../ch10/10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第11章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch11/11.0-overview.html">章节导学</a>
+        <a href="../ch11/11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a>
+        <a href="../ch11/11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <a href="../exams/index.html" class="item">往年题</a>
+    <a href="../tips/index.html" class="item">技巧锦囊</a>
+    <button class="theme-toggle" aria-label="切换主题">🌙</button>
+  </div>
+</nav>
+
+<main class="main">
+
+  <div class="breadcrumb">
+    <a href="../index.html">首页</a>
+    <span class="sep">›</span>
+    <a href="9.0-overview.html">第9章</a>
+    <span class="sep">›</span>
+    <span>9.2 格林公式 · 题型</span>
+  </div>
+
+  <div class="hero">
+    <span class="tag">9.2 · 题型</span>
+    <h1>格林公式 <span class="em">三类题型标准步骤</span></h1>
+    <p class="subtitle">看到题先问三个问题：封闭吗？正向吗？有奇点吗？——答案决定方法。</p>
+  </div>
+
+  <div class="inpage-toc">
+    <h4>本页导航</h4>
+    <ul>
+      <li><a href="#sec-decision">决策树：看到题先用这个</a></li>
+      <li><a href="#sec-direct">题型一：直接套用</a></li>
+      <li><a href="#sec-buxian">题型二：补线法</a></li>
+      <li><a href="#sec-wadong">题型三：挖洞法</a></li>
+      <li><a href="#sec-path">题型四：路径无关</a></li>
+      <li><a href="#sec-traps">常见错误</a></li>
+    </ul>
+  </div>
+
+  <h2 id="sec-decision">🌲 决策树：三步定方法</h2>
+  <div class="decision-tree">
+    <div class="node question">曲线 L 封闭吗？</div>
+    <div class="arrow">├─ 否 → <strong>补线法</strong>：添辅助线使封闭</div>
+    <div class="arrow">└─ 是 → 继续问 ↓</div>
+    <div class="node question">L 内部有奇点吗？（P,Q 或偏导不连续）</div>
+    <div class="arrow">├─ 否 → <strong>直接用格林公式</strong></div>
+    <div class="arrow">└─ 是 → <strong>挖洞法</strong>：内部挖小曲线隔离奇点</div>
+  </div>
+
+  <h2 id="sec-direct">题型一：直接套用格林公式</h2>
+  <p>最直白的情况：曲线封闭、无奇点、取正向。直接代公式。</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>识别 P 和 Q</h4>
+        <p>把积分写成 \( \oint_L P\,dx + Q\,dy \) 的形式。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>算偏导数</h4>
+        <p>计算 \( \frac{\partial Q}{\partial x} \) 和 \( \frac{\partial P}{\partial y} \)。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>验证条件</h4>
+        <p>确认封闭、正向、偏导连续。如果方向是顺时针，在结果前加负号。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>计算二重积分</h4>
+        <p>\( \iint_D (Q_x - P_y)\,d\sigma \)。通常 \(Q_x-P_y\) 会化简得很简单，甚至是常数。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 1</span>
+      <span class="title">直接套用</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        计算 \( \oint_L (2xy - y)\,dx + (x^2 + 3y)\,dy \)，其中 \(L\) 是以原点为圆心、半径为 2 的圆周，取逆时针方向。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　\(P = 2xy - y\)，\(Q = x^2 + 3y\)</p>
+      <p><strong>Step 2</strong>　\( \frac{\partial Q}{\partial x} = 2x \)，\( \frac{\partial P}{\partial y} = 2x - 1 \)</p>
+      <p><strong>Step 3</strong>　\(L\) 封闭、逆时针（正向）、\(P,Q\) 及偏导在全平面连续，条件满足。</p>
+      <p><strong>Step 4</strong>　由格林公式：</p>
+      <div class="formula-block">
+        \[I = \iint_D [2x - (2x-1)]\,d\sigma = \iint_D 1\,d\sigma = S_D = \pi \cdot 2^2 = 4\pi\]
+      </div>
+      <div class="box ok">
+        <span class="label">关键技巧</span>
+        <p>\(Q_x-P_y=1\) 是常数，二重积分就等于区域面积。这是格林公式最理想的场景——算都不用算，看面积就行。</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="sec-buxian">题型二：补线法</h2>
+  <p>适用：曲线<strong>不封闭</strong>，但补成封闭后用格林公式能大幅简化。</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>补线</h4>
+        <p>添加辅助线 \(l\)，使 \(L+l\) 封闭。通常补坐标轴平行的直线段（计算简单）。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>定方向</h4>
+        <p>确保 \(L+l\) 构成正向封闭。补线方向要配合原曲线，构成"左手在内"。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>格林公式</h4>
+        <p>\( \oint_{L+l} = \iint_D (Q_x-P_y)\,d\sigma \)</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>减补线</h4>
+        <p>\( \int_L = \oint_{L+l} - \int_l \)。注意 \(l\) 的方向——如果 \(l\) 取的是反方向，积分要变号。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 2</span>
+      <span class="title">补线法</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        计算 \( I = \int_L (x^2+3y)\,dx + (y^2-x)\,dy \)，其中 \(L\) 为上半圆周 \(y=\sqrt{4x-x^2}\) 从 \(O(0,0)\) 到 \(A(4,0)\)。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>分析</strong>　上半圆不封闭，补直径 \(AO: y=0, x: 4\to 0\)。</p>
+      <p><strong>Step 1</strong>　\(P=x^2+3y, Q=y^2-x\)。\(Q_x=-1, P_y=3\)。</p>
+      <p><strong>Step 2</strong>　\(L\) 逆时针 + \(AO\)（从右到左）= 正向封闭。围成半圆区域 \(D\)。</p>
+      <p><strong>Step 3</strong>　格林公式：</p>
+      <div class="formula-block">
+        \[\oint_{L+AO} = \iint_D (-1-3)\,d\sigma = -4 \cdot \frac{\pi\cdot 2^2}{2} = -8\pi\]
+      </div>
+      <p><strong>Step 4</strong>　补线积分（在 \(AO\) 上 \(y=0, dy=0\)）：</p>
+      <div class="formula-block">
+        \[\int_{AO} = \int_4^0 x^2\,dx = -\frac{64}{3}\]
+      </div>
+      <p><strong>Step 5</strong>　注意 \(AO\) 方向是从 \(A\to O\)，而我们格林公式中用的是 \(AO\)（不是 \(OA\)），所以：</p>
+      <div class="formula-block">
+        \[I = \oint_{L+AO} - \int_{AO} = -8\pi - \left(-\frac{64}{3}\right) = \frac{64}{3} - 8\pi\]
+      </div>
+    </div>
+  </div>
+
+  <div class="box warn">
+    <span class="label">方向陷阱</span>
+    <p>补线法的经典错误是<strong>方向搞反</strong>。记住公式是 \(\int_L = \oint_{L+l} - \int_l\)，这里的 \(l\) 和你补的那条线方向<strong>一致</strong>。如果你补的是 \(OA\)，但公式里需要 \(AO\)，就要变号。</p>
+  </div>
+
+  <h2 id="sec-wadong">题型三：挖洞法</h2>
+  <p>适用：曲线<strong>已封闭</strong>，但内部有<strong>奇点</strong>（\(P,Q\) 或偏导不连续）。</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>找奇点</h4>
+        <p>确定 \(P,Q\) 或偏导不连续的点。常见：分母为0的点（如 \(\frac{1}{x^2+y^2}\) 在原点）。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>挖洞</h4>
+        <p>在 \(L\) 内部作小曲线 \(l\) 包围奇点。\(l\) 与 \(L\) <strong>同向</strong>。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>验证环形区域条件</h4>
+        <p>在 \(L\) 与 \(l\) 之间的环形区域，验证 \(Q_x = P_y\)。这是能用挖洞法的前提。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>转移积分</h4>
+        <p>\( \oint_L = \oint_l \)。把复杂曲线上的积分转移到简单曲线上。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <h4>计算小曲线积分</h4>
+        <p>选择便于计算的 \(l\)：通常是小圆 \(x^2+y^2=r^2\) 或小椭圆，用参数方程代入。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="box idea">
+    <span class="label">选洞技巧</span>
+    <table>
+      <tr><th>被积函数形式</th><th>建议挖洞曲线</th></tr>
+      <tr><td>\(\frac{x\,dy-y\,dx}{x^2+y^2}\)</td><td>圆 \(x^2+y^2=r^2\)</td></tr>
+      <tr><td>\(\frac{x\,dy-y\,dx}{4x^2+y^2}\)</td><td>椭圆 \(4x^2+y^2=r^2\)</td></tr>
+      <tr><td>一般 \(\frac{x\,dy-y\,dx}{ax^2+by^2}\)</td><td>椭圆 \(ax^2+by^2=r^2\)</td></tr>
+    </table>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 3</span>
+      <span class="title">挖洞法</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        计算 \( \oint_L \frac{x\,dy - y\,dx}{x^2+y^2} \)，其中 \(L\) 为不经过原点的简单闭曲线，取逆时针方向。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　\(P=\frac{-y}{x^2+y^2}, Q=\frac{x}{x^2+y^2}\)。奇点：原点 \((0,0)\)。</p>
+      <p><strong>Step 2</strong>　计算偏导数：</p>
+      <div class="formula-block">
+        \[\frac{\partial Q}{\partial x} = \frac{y^2-x^2}{(x^2+y^2)^2}, \quad \frac{\partial P}{\partial y} = \frac{y^2-x^2}{(x^2+y^2)^2}\]
+      </div>
+      <p><strong>情况一：原点在 \(L\) 外部</strong></p>
+      <p>\(D\) 内无奇点，直接用格林公式。由于 \(Q_x=P_y\)：</p>
+      <div class="formula-block">
+        \[I = \iint_D 0\,d\sigma = \mathbf{0}\]
+      </div>
+      <p><strong>情况二：原点在 \(L\) 内部</strong></p>
+      <p>作小圆 \(l: x^2+y^2=r^2\)（逆时针，充分小使 \(l\subset D\)）。</p>
+      <p>在环形区域 \(L\) 与 \(l\) 之间，\(Q_x=P_y\) 连续，满足挖洞条件。</p>
+      <p>由复连通区域格林公式：\(\oint_L = \oint_l\)</p>
+      <p>参数化 \(l\)：\(x=r\cos\theta, y=r\sin\theta, \theta: 0\to 2\pi\)</p>
+      <div class="formula-block">
+        \[\oint_l \frac{x\,dy-y\,dx}{x^2+y^2} = \int_0^{2\pi} \frac{r^2\cos^2\theta + r^2\sin^2\theta}{r^2}\,d\theta = \int_0^{2\pi} d\theta = \mathbf{2\pi}\]
+      </div>
+    </div>
+  </div>
+
+  <h2 id="sec-path">题型四：路径无关与求原函数</h2>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>判定路径无关</h4>
+        <p>验证 \( \frac{\partial Q}{\partial x} = \frac{\partial P}{\partial y} \)。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>选简单路径或求原函数</h4>
+        <p>方法一：换一条好算的路径（如折线段）。方法二：求原函数 \(u\)，则 \(I = u(B)-u(A)\)。</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="sec-traps">⚠️ 常见错误</h2>
+
+  <div class="box warn">
+    <span class="label">错误 1：方向搞反</span>
+    <p>格林公式要求<strong>正向</strong>（区域在左侧）。如果是顺时针，结果要加负号。挖洞时 \(l\) 也要和 \(L\) 同向。</p>
+  </div>
+
+  <div class="box warn">
+    <span class="label">错误 2：奇点没发现</span>
+    <p>看到分母有 \(x^2+y^2\)、\(4x^2+y^2\) 等，立刻检查分母为0的点是否在区域内。在的话必须用挖洞法，直接格林会得0（错的！）。</p>
+  </div>
+
+  <div class="box warn">
+    <span class="label">错误 3：忘记减补线</span>
+    <p>补线法最后一定要减去辅助线上的积分。常见错误是只算了封闭积分，忘了减。</p>
+  </div>
+
+  <div class="box warn">
+    <span class="label">错误 4：挖洞不验证 \(Q_x=P_y\)</span>
+    <p>挖洞法的前提是环形区域内 \(Q_x=P_y\)。如果不满足这个条件，挖洞法不成立，必须直接计算。</p>
+  </div>
+
+  <div class="page-jump">
+    <a href="9.2-greens-formula.html">← 回讲解</a>
+    <a href="9.3-surface-integrals.html" class="primary">9.3 曲面积分讲解 →</a>
+  </div>
+
+</main>
+
+<button class="back-to-top" aria-label="回到顶部">↑</button>
+<footer class="site-footer">
+  高数期末复习站 · 精心打磨每一类题的标准步骤
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>

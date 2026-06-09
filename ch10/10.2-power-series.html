@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10.2 幂级数 · 讲解</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  svg: { fontCache: 'global' },
+  options: { enableMenu: false }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/design-system.css">
+</head>
+<body>
+
+<div class="reading-progress"></div>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="logo">高数期末复习站</a>
+    <span class="sep">|</span>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第9章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch9/9.0-overview.html">章节导学</a>
+        <a href="../ch9/9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a>
+        <a href="../ch9/9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a>
+        <a href="../ch9/9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第10章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="10.0-overview.html">章节导学</a>
+        <a href="10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a>
+        <a href="10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a>
+        <a href="10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a>
+        <a href="10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a>
+        <a href="10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a>
+        <a href="10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第11章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch11/11.0-overview.html">章节导学</a>
+        <a href="../ch11/11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a>
+        <a href="../ch11/11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <a href="../exams/index.html" class="item">往年题</a>
+    <a href="../tips/index.html" class="item">技巧锦囊</a>
+    <button class="theme-toggle" aria-label="切换主题">🌙</button>
+  </div>
+</nav>
+
+<main class="main">
+
+  <div class="hero">
+    <span class="tag">10.2 · 讲解</span>
+    <h1>幂级数 <span class="em">无限个幂函数的和</span></h1>
+    <p class="subtitle">一句话：幂级数是"系数 × 幂次"的无限累加。考试考三件事：<br><strong>求收敛域、求和函数、把函数展开成幂级数。</strong></p>
+  </div>
+
+  <div class="inpage-toc">
+    <h4>本页导航</h4>
+    <ul>
+      <li><a href="#sec-essence">一句话本质</a></li>
+      <li><a href="#sec-concepts">核心概念</a></li>
+      <li><a href="#sec-radius">收敛半径</a></li>
+      <li><a href="#sec-sum">和函数</a></li>
+      <li><a href="#sec-expand">函数展开</a></li>
+      <li><a href="#sec-formulas">必背 5 个展开式</a></li>
+    </ul>
+  </div>
+
+  <h2 id="sec-essence">💡 一句话本质</h2>
+  <div class="formula-block">
+    <p style="font-size:18px; margin:0;">幂级数 = <strong>把复杂的函数表示成简单幂次的无限和</strong></p>
+  </div>
+  <p>就像 \(\frac{1}{1-x} = 1+x+x^2+x^3+\cdots\)（当 \(|x|&lt;1\) 时），幂级数让我们能用"加减乘除"来研究复杂的函数。</p>
+
+  <h2 id="sec-concepts">📐 核心概念</h2>
+
+  <h3>幂级数的一般形式</h3>
+  <div class="formula-block">
+    \[\sum_{n=0}^{\infty} a_n x^n = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + \cdots\]
+  </div>
+
+  <h3>收敛域 vs 收敛区间</h3>
+  <div class="box idea">
+    <span class="label">区别</span>
+    <p><strong>收敛区间</strong>是开区间 \((-R, R)\)，只由收敛半径决定。<br>
+    <strong>收敛域</strong>需要<strong>单独判断端点</strong> \(x=\pm R\)，可能是 \((-R,R)\)、\([-R,R)\)、\((-R,R]\) 或 \([-R,R]\)。</p>
+  </div>
+
+  <h2 id="sec-radius">🔍 收敛半径的求法</h2>
+
+  <h3>方法一：比值法（最常用）</h3>
+  <div class="formula-block">
+    \[R = \lim_{n\to\infty} \left|\frac{a_n}{a_{n+1}}\right|\]
+  </div>
+
+  <h3>方法二：根值法</h3>
+  <div class="formula-block">
+    \[R = \frac{1}{\limsup_{n\to\infty} \sqrt[n]{|a_n|}}\]
+  </div>
+
+  <div class="box key">
+    <span class="label">考场要点</span>
+    <p>求收敛域的<strong>标准流程</strong>：</p>
+    <ol>
+      <li>用比值法求收敛半径 \(R\)</li>
+      <li>写出收敛区间 \((-R, R)\)</li>
+      <li><strong>单独代入</strong> \(x=R\) 和 \(x=-R\)，判敛散</li>
+      <li>写出收敛域</li>
+    </ol>
+  </div>
+
+  <h2 id="sec-sum">📊 和函数：求 \(\sum a_n x^n = ?\)</h2>
+
+  <h3>核心思想</h3>
+  <p>把未知级数通过<strong>逐项求导</strong>或<strong>逐项积分</strong>，转化为已知的等比级数 \(\sum x^n = \frac{1}{1-x}\)。</p>
+
+  <div class="box idea">
+    <span class="label">看 n 在哪里</span>
+    <table>
+      <tr><th>n 的位置</th><th>操作</th><th>目的</th></tr>
+      <tr><td>分母（如 \(\frac{x^n}{n}\)）</td><td>逐项求导</td><td>消掉分母的 n</td></tr>
+      <tr><td>分子（如 \(n x^n\)）</td><td>逐项积分</td><td>消掉分子的 n</td></tr>
+      <tr><td>分子乘积（如 \(n(n-1)x^n\)）</td><td>逐次求导</td><td>逐次消掉 n</td></tr>
+    </table>
+  </div>
+
+  <h3>标准步骤</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>设和函数</h4>
+        <p>令 \(S(x) = \sum_{n=0}^{\infty} a_n x^n\)。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>逐项求导或积分</h4>
+        <p>根据 n 的位置选择操作，把级数化简为等比级数的形式。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>求等比级数和</h4>
+        <p>用 \(\sum x^n = \frac{1}{1-x}\) 求出简化后的和。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>逆操作还原</h4>
+        <p>如果 Step 2 是求导，现在积分回来；如果 Step 2 是积分，现在求导回来。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <h4>确定常数</h4>
+        <p>代入特殊点（通常是 \(x=0\)）确定积分常数 \(C\)。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="box warn">
+    <span class="label">常见错误</span>
+    <p>求 \(S(0)\) 时，不要直接把 \(x=0\) 代入求导后的式子！应该回到原级数看常数项。例如 \(\sum_{n=1}^{\infty}\frac{x^n}{n}\) 在 \(x=0\) 时为 0，不是 \(S'(0)\)。</p>
+  </div>
+
+  <h2 id="sec-expand">📐 函数展开成幂级数</h2>
+
+  <h3>核心思想</h3>
+  <p>把一个已知函数 \(f(x)\) 写成 \(\sum a_n x^n\) 的形式。方法通常是：<strong>变形 → 代公式</strong>。</p>
+
+  <h3>标准步骤</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>识别"招牌"</h4>
+        <p>看函数里有没有 \(e^{\square}, \sin\square, \cos\square, \ln(1+\square), \frac{1}{1-\square}\) 等熟悉的形式。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>变形匹配</h4>
+        <p>通过换元、提常数、求导/积分等操作，把函数变成 5 个基本展开式的标准形式。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>代入公式</h4>
+        <p>写出展开式，并注明收敛域。</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="sec-formulas">📋 必背 5 个展开式（连同收敛域）</h2>
+
+  <table>
+    <tr><th>函数</th><th>展开式</th><th>收敛域</th></tr>
+    <tr>
+      <td>\(\frac{1}{1-x}\)</td>
+      <td>\(\sum_{n=0}^{\infty} x^n = 1+x+x^2+\cdots\)</td>
+      <td>\(|x| &lt; 1\)</td>
+    </tr>
+    <tr>
+      <td>\(e^x\)</td>
+      <td>\(\sum_{n=0}^{\infty} \frac{x^n}{n!} = 1+x+\frac{x^2}{2!}+\cdots\)</td>
+      <td>\(x\in\mathbb{R}\)</td>
+    </tr>
+    <tr>
+      <td>\(\sin x\)</td>
+      <td>\(\sum_{n=0}^{\infty} \frac{(-1)^n x^{2n+1}}{(2n+1)!} = x-\frac{x^3}{3!}+\frac{x^5}{5!}-\cdots\)</td>
+      <td>\(x\in\mathbb{R}\)</td>
+    </tr>
+    <tr>
+      <td>\(\cos x\)</td>
+      <td>\(\sum_{n=0}^{\infty} \frac{(-1)^n x^{2n}}{(2n)!} = 1-\frac{x^2}{2!}+\frac{x^4}{4!}-\cdots\)</td>
+      <td>\(x\in\mathbb{R}\)</td>
+    </tr>
+    <tr>
+      <td>\(\ln(1+x)\)</td>
+      <td>\(\sum_{n=1}^{\infty} \frac{(-1)^{n-1} x^n}{n} = x-\frac{x^2}{2}+\frac{x^3}{3}-\cdots\)</td>
+      <td>\(-1 &lt; x \leq 1\)</td>
+    </tr>
+  </table>
+
+  <div class="box ok">
+    <span class="label">记忆口诀</span>
+    <p><strong>"一e三对，ln 端点要注意"</strong>：\(\frac{1}{1-x}\) 和 \(e^x\) 最常用；\(\sin, \cos\) 交替符号、只有奇/偶次；\(\ln(1+x)\) 的收敛域在 \(x=1\) 收敛、\(x=-1\) 发散。</p>
+  </div>
+
+  <div class="page-jump">
+    <a href="10.1-series-problems.html">← 回数项级数题型</a>
+    <a href="10.2-power-problems.html" class="primary">去练幂级数题型 →</a>
+  </div>
+
+</main>
+
+<button class="back-to-top" aria-label="回到顶部">↑</button>
+<footer class="site-footer">
+  高数期末复习站 · 精心打磨每一类题的标准步骤
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>

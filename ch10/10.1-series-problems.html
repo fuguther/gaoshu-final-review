@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10.1 数项级数 · 题型</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  svg: { fontCache: 'global' },
+  options: { enableMenu: false }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/design-system.css">
+</head>
+<body>
+
+<div class="reading-progress"></div>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="logo">高数期末复习站</a>
+    <span class="sep">|</span>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第9章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch9/9.0-overview.html">章节导学</a>
+        <a href="../ch9/9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a>
+        <a href="../ch9/9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a>
+        <a href="../ch9/9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第10章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="10.0-overview.html">章节导学</a>
+        <a href="10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a>
+        <a href="10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a>
+        <a href="10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a>
+        <a href="10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a>
+        <a href="10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a>
+        <a href="10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第11章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch11/11.0-overview.html">章节导学</a>
+        <a href="../ch11/11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a>
+        <a href="../ch11/11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <a href="../exams/index.html" class="item">往年题</a>
+    <a href="../tips/index.html" class="item">技巧锦囊</a>
+    <button class="theme-toggle" aria-label="切换主题">🌙</button>
+  </div>
+</nav>
+
+<main class="main">
+
+  <div class="breadcrumb">
+    <a href="../index.html">首页</a>
+    <span class="sep">›</span>
+    <a href="10.0-overview.html">第10章</a>
+    <span class="sep">›</span>
+    <span>10.1 数项级数 · 题型</span>
+  </div>
+
+  <div class="hero">
+    <span class="tag">10.1 · 题型</span>
+    <h1>数项级数 <span class="em">敛散性判别决策树</span></h1>
+    <p class="subtitle">看到判敛题，按这个流程走，不会漏、不会错、不会慌。</p>
+  </div>
+
+  <div class="inpage-toc">
+    <h4>本页导航</h4>
+    <ul>
+      <li><a href="#sec-decision">决策树</a></li>
+      <li><a href="#sec-type1">类型一：正项级数</a></li>
+      <li><a href="#sec-type2">类型二：交错级数</a></li>
+      <li><a href="#sec-type3">类型三：任意项级数</a></li>
+      <li><a href="#sec-example">综合例题</a></li>
+      <li><a href="#sec-traps">常见错误</a></li>
+    </ul>
+  </div>
+
+  <h2 id="sec-decision">🌲 三步决策树</h2>
+
+  <div class="decision-tree">
+    <div class="node question">Step 1：先看通项极限</div>
+    <div class="arrow">├─ \( \lim u_n \neq 0 \) → <strong>发散</strong>（直接写答案）</div>
+    <div class="arrow">└─ \( \lim u_n = 0 \) → 继续 Step 2</div>
+    <div class="node question">Step 2：判断级数类型</div>
+    <div class="arrow">├─ 正项级数 → 比较/比值/根值/积分</div>
+    <div class="arrow">├─ 交错级数 → 莱布尼茨判别法</div>
+    <div class="arrow">└─ 任意项级数 → 先判绝对收敛</div>
+    <div class="node question">Step 3：选具体方法</div>
+    <div class="arrow">（见下方各类型详细步骤）</div>
+  </div>
+
+  <div class="box key">
+    <span class="label">考场口诀</span>
+    <p><strong>先看极限判发散，再看正负定类型，正项比较比根积，交错莱布任意绝。</strong></p>
+  </div>
+
+  <h2 id="sec-type1">类型一：正项级数</h2>
+
+  <h3>标准步骤</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>尝试等价无穷小替换</h4>
+        <p>当 \(n\to\infty\) 时，把 \(u_n\) 用等价无穷小简化，看是否能化成 \(1/n^p\) 的形式。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>若能化成 \(1/n^p\)</h4>
+        <p>直接用 <strong>p-级数</strong>结论：\(p>1\) 收敛，\(p\leq 1\) 发散。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>若不能化，看结构选方法</h4>
+        <p>含阶乘/指数/连乘 → <strong>比值法</strong>；含 \(n\) 次方 → <strong>根值法</strong>；能和已知级数比 → <strong>比较法</strong>。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 1</span>
+      <span class="title">正项级数 · 等价无穷小</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        判断 \( \sum_{n=1}^{\infty} \sin\frac{1}{n} \) 的敛散性。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　当 \(n\to\infty\) 时，\(\sin\frac{1}{n} \sim \frac{1}{n}\)。</p>
+      <p><strong>Step 2</strong>　\(\sum\frac{1}{n}\) 是 \(p=1\) 的 p-级数，发散。</p>
+      <p><strong>结论</strong>　由极限比较法，\(\sum\sin\frac{1}{n}\) 与 \(\sum\frac{1}{n}\) 同敛散，故 <strong>发散</strong>。</p>
+    </div>
+  </div>
+
+  <h2 id="sec-type2">类型二：交错级数</h2>
+
+  <h3>标准步骤</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>验证 \(u_n > 0\)</h4>
+        <p>确认去掉 \((-1)^n\) 后剩下的部分恒正。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>验证单调递减</h4>
+        <p>证 \(u_{n+1} \leq u_n\)。常用方法：比值 \(u_{n+1}/u_n < 1\)，或求导看函数单调性。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>验证极限为零</h4>
+        <p>\(\lim_{n\to\infty} u_n = 0\)。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>（可选）判绝对/条件收敛</h4>
+        <p>若题目问"是绝对收敛还是条件收敛"，还需判 \(\sum u_n\) 的敛散性。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 2</span>
+      <span class="title">交错级数</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        判断 \( \sum_{n=1}^{\infty} (-1)^{n-1}\frac{1}{n} \) 的敛散性，若收敛，是绝对收敛还是条件收敛？
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　\(u_n = \frac{1}{n} > 0\)。</p>
+      <p><strong>Step 2</strong>　\(u_{n+1} = \frac{1}{n+1} < \frac{1}{n} = u_n\)，单调递减。</p>
+      <p><strong>Step 3</strong>　\(\lim_{n\to\infty}\frac{1}{n} = 0\)。</p>
+      <p><strong>结论 1</strong>　由莱布尼茨判别法，交错级数 <strong>收敛</strong>。</p>
+      <p><strong>Step 4</strong>　\(\sum|u_n| = \sum\frac{1}{n}\) 是调和级数，发散。</p>
+      <p><strong>结论 2</strong>　原级数收敛但非绝对收敛，故为 <strong>条件收敛</strong>。</p>
+    </div>
+  </div>
+
+  <h2 id="sec-type3">类型三：任意项级数</h2>
+
+  <h3>标准步骤</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>先判绝对收敛</h4>
+        <p>用正项级数的方法判 \(\sum|u_n|\)。若收敛 → <strong>绝对收敛</strong>，结束。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>若不绝对收敛，判原级数</h4>
+        <p>如果是交错级数，用莱布尼茨；否则尝试拆项或其他技巧。</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="sec-example">综合例题</h2>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 3</span>
+      <span class="title">含阶乘的比值法</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        判断 \( \sum_{n=1}^{\infty} \frac{n!}{n^n} \) 的敛散性。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>分析</strong>　含阶乘，首选比值法。</p>
+      <p><strong>Step 1</strong>　\(u_n = \frac{n!}{n^n}\)</p>
+      <div class="formula-block">
+        \[\frac{u_{n+1}}{u_n} = \frac{(n+1)!}{(n+1)^{n+1}} \cdot \frac{n^n}{n!} = \frac{n+1}{(n+1)^{n+1}} \cdot n^n = \frac{n^n}{(n+1)^n} = \left(\frac{n}{n+1}\right)^n = \frac{1}{\left(1+\frac{1}{n}\right)^n}\]
+      </div>
+      <p><strong>Step 2</strong>　\(\lim_{n\to\infty}\frac{u_{n+1}}{u_n} = \frac{1}{e} < 1\)</p>
+      <p><strong>结论</strong>　由比值判别法，级数 <strong>收敛</strong>。</p>
+    </div>
+  </div>
+
+  <h2 id="sec-traps">⚠️ 常见错误</h2>
+
+  <div class="box warn">
+    <span class="label">错误 1：必要条件当充分条件用</span>
+    <p>\(\lim u_n = 0\) 不能推出收敛！调和级数是永远的反例。</p>
+  </div>
+
+  <div class="box warn">
+    <span class="label">错误 2：交错级数忘记验证单调性</span>
+    <p>莱布尼茨判别法需要 <strong>两个条件</strong>：单调递减 + 极限为零。只验证一个就下结论会丢分。</p>
+  </div>
+
+  <div class="box warn">
+    <span class="label">错误 3：任意项级数没先判绝对收敛</span>
+    <p>题目问"是绝对收敛还是条件收敛"时，必须先判 \(\sum|u_n|\)。直接判原级数只能回答"收敛/发散"，不能回答"绝对/条件"。</p>
+  </div>
+
+  <div class="page-jump">
+    <a href="10.1-series-concepts.html">← 回讲解</a>
+    <a href="10.2-power-series.html" class="primary">10.2 幂级数讲解 →</a>
+  </div>
+
+</main>
+
+<button class="back-to-top" aria-label="回到顶部">↑</button>
+<footer class="site-footer">
+  高数期末复习站 · 精心打磨每一类题的标准步骤
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>
