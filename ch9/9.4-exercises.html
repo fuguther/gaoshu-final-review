@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9.4 高斯公式·斯托克斯公式 · 习题详解</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']], macros: { oiint: '\\unicode{x222F}', oiiint: '\\unicode{x2230}' } },
+  svg: { fontCache: 'global' },
+  options: { enableMenu: false }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdmirror.com/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="preconnect" href="https://fonts.loli.net">
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+<link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/design-system.css">
+<style>
+  .ex-intro{color:var(--ink-soft);font-size:15px;line-height:1.8;border-left:3px solid var(--red);
+    padding:4px 16px 4px 18px;margin:0 0 46px;background:var(--red-soft);border-radius:0 8px 8px 0;}
+  .ex-group{margin:0 0 56px;}
+  .ex-req{font-family:var(--serif);font-size:21px;font-weight:700;color:var(--ink);
+    padding-bottom:14px;border-bottom:1px solid var(--divider);margin:0 0 30px;
+    display:flex;align-items:baseline;gap:14px;}
+  .ex-bignum{color:var(--red);font-weight:900;font-size:24px;}
+  .ex{padding:0 0 30px;margin:0 0 30px;border-bottom:1px dashed var(--divider-light);}
+  .ex-group .ex:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+  .ex-q{display:flex;gap:14px;align-items:baseline;margin-bottom:16px;}
+  .ex-no{color:var(--red);font-weight:700;font-family:var(--mono);font-size:15px;flex-shrink:0;
+    min-width:42px;padding-top:2px;}
+  .ex-qmath{color:var(--ink);font-size:18px;}
+  .ex-sol{padding-left:56px;}
+  .ex-step{color:var(--ink-soft);margin:7px 0;line-height:1.95;}
+  .ex-sol mjx-container[display="true"]{text-align:left!important;margin:.45em 0!important;}
+  .ex-ans{margin-top:18px;padding:11px 18px;background:var(--paper);border:1px solid var(--divider);
+    border-radius:var(--radius-sm);box-shadow:var(--shadow-sm);display:flex;gap:12px;align-items:baseline;}
+  .ex-ans-label{color:var(--red);font-weight:700;font-size:13px;flex-shrink:0;letter-spacing:.04em;}
+  .ex-flag{margin-top:10px;font-size:13.5px;color:var(--gold);background:var(--gold-soft);
+    padding:8px 14px;border-radius:8px;line-height:1.7;}
+  @media(max-width:600px){.ex-sol{padding-left:0;}.ex-qmath{font-size:16px;}}
+</style>
+</head>
+<body>
+
+<div class="reading-progress"></div>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="logo">高数期末复习站</a>
+    <span class="sep">|</span>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第9章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="9.0-overview.html">章节导学</a>
+        <a href="9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a>
+        <a href="9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a>
+        <a href="9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a>
+        <a href="9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a>
+        <a href="9.3-exercises.html">9.3 曲面积分 <span class="sub">习题</span></a>
+        <a href="9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a>
+        <a href="9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a>
+        <a href="9.4-exercises.html">9.4 三大公式 <span class="sub">习题</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第10章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch10/10.0-overview.html">章节导学</a>
+        <a href="../ch10/10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.1-exercises.html">10.1 数项级数 <span class="sub">习题</span></a>
+        <a href="../ch10/10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.2-exercises.html">10.2 幂级数 <span class="sub">习题</span></a>
+        <a href="../ch10/10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.3-exercises.html">10.3 傅里叶级数 <span class="sub">习题</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第11章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch11/11.0-overview.html">章节导学</a>
+        <a href="../ch11/11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a>
+        <a href="../ch11/11.1-exercises.html">11.1 一阶方程 <span class="sub">习题</span></a>
+        <a href="../ch11/11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a>
+        <a href="../ch11/11.2-exercises.html">11.2 二阶线性 <span class="sub">习题</span></a>
+      </div>
+    </div>
+    <a href="../exams/index.html" class="item">往年题</a>
+    <a href="../tips/index.html" class="item">技巧锦囊</a>
+    <button class="theme-toggle" aria-label="切换主题">🌙</button>
+  </div>
+</nav>
+
+<main class="main">
+
+  <div class="breadcrumb">
+    <a href="../index.html">首页</a>
+    <span class="sep">›</span>
+    <a href="9.0-overview.html">第9章</a>
+    <span class="sep">›</span>
+    <span>9.4 三大公式 · 习题</span>
+  </div>
+
+  <div class="hero">
+    <span class="tag">9.4 · 三大公式（高数C必考 Q1/Q2）</span>
+    <h1>高斯公式 · 斯托克斯公式 <span class="em">习题全解</span></h1>
+    <p class="subtitle">《高等数学（生化医农类）下册》习题 9.4 中应用高斯/斯托克斯公式计算的题目 · 考场标准步骤</p>
+  </div>
+
+  <p class="ex-intro">高数C 期末 Q1 = 高斯公式、Q2 = 斯托克斯公式（合计约 25 分，每年必考；2025 卷 Q2 即本节 2(5)）。本页收齐习题 9.4 中应用两大公式计算的题目（问题 1、2，共 13 小题），逐题对照书末官方答案核对。求散度/旋度、向量恒等式证明等不单独考的题型未收录。</p>
+
+  <section class="ex-group">
+    <h2 class="ex-req"><span class="ex-bignum">1.</span>应用高斯公式计算曲面积分</h2>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(1)</span><span class="ex-qmath">\(\displaystyle 计算 \iint\limits_{S} xz^{2}dydz+(x^{2}y-z^{3})dzdx+(2xy+y^{2}z)dxdy, 其中 S 是 z=\sqrt{a^{2}-x^{2}-y^{2}} 和 z=0 所围成的半球区域的表面的外侧\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">设 \(P = xz^2\), \(Q = x^2y - z^3\), \(R = 2xy + y^2z\)，计算偏导数：</div>
+        <div class="ex-step">由高斯公式，设 \(S\) 为半球区域 \(\Omega\) 的表面外侧，则：</div>
+        <div class="ex-step">区域 \(\Omega\) 为上半球体：\(x^2 + y^2 + z^2 \leq a^2\), \(z \geq 0\)，采用球坐标：</div>
+        <div class="ex-step">积分范围为 \(0 \leq r \leq a\), \(0 \leq \varphi \leq \frac{\pi}{2}\), \(0 \leq \theta \leq 2\pi\)，且 \(x^2+y^2+z^2 = r^2\)：</div>
+        <div class="ex-step">\[计算各层积分：\]</div>
+        <div class="ex-step">\[相乘得最终结果：\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(\displaystyle\frac{2\pi a^5}{5}\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(2)</span><span class="ex-qmath">\(\displaystyle \iint\limits_{S} x^{2}dydz+y^{2}dzdx+z^{2}dxdy, S 是 x^{2}+y^{2}+z^{2}=R^{2}(z\geq 0) 与 z=0 围成的闭曲面的外侧\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">设 \(S\) 为上半球面 \(x^{2}+y^{2}+z^{2}=R^{2}(z\geq 0)\) 取外侧，\(S_1\) 为底面 \(z=0, x^{2}+y^{2}\leq R^{2}\) 取下侧，闭曲面 \(S\cup S_1\) 围成区域 \(\Omega: x^{2}+y^{2}+z^{2}\leq R^{2}, z\geq 0\)。</div>
+        <div class="ex-step">令 \(P=x^{2}, Q=y^{2}, R=z^{2}\)，则 \(\frac{\partial P}{\partial x}=2x, \frac{\partial Q}{\partial y}=2y, \frac{\partial R}{\partial z}=2z\)。</div>
+        <div class="ex-step">\[由高斯公式：\]</div>
+        <div class="ex-step">由对称性，\(\iiint\limits_{\Omega} x\,dV = 0\)，\(\iiint\limits_{\Omega} y\,dV = 0\)。</div>
+        <div class="ex-step">计算 \(\iiint\limits_{\Omega} z\,dV\)：</div>
+        <div class="ex-step">\[因此：\]</div>
+        <div class="ex-step">计算底面 \(S_1\) 上的积分：在 \(z=0\) 上，\(dz=0\)，故 \(dydz=0, dzdx=0\)，且 \(z^{2}=0\)，所以：</div>
+        <div class="ex-step">\[因此：\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(\frac{\pi R^{4}}{2}\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(3)</span><span class="ex-qmath">\(\displaystyle \iint\limits_{S} x^{2}dydz+y^{2}dzdx+z^{2}dxdy, S 为平面 x=0, y=0, z=0, x=a, y=a, z=a 所围立体之表面外侧\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">设 \(P = x^2\), \(Q = y^2\), \(R = z^2\)，则 \(\frac{\partial P}{\partial x} = 2x\), \(\frac{\partial Q}{\partial y} = 2y\), \(\frac{\partial R}{\partial z} = 2z\)</div>
+        <div class="ex-step">由高斯公式，\[I = \iiint\limits_{\Omega} \left(\frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}\right) dxdydz = \iiint\limits_{\Omega} (2x + 2y + 2z) dxdydz\]</div>
+        <div class="ex-step">其中 \(\Omega = [0,a] \times [0,a] \times [0,a]\)，由对称性，\[\iiint\limits_{\Omega} x \, dxdydz = \iiint\limits_{\Omega} y \, dxdydz = \iiint\limits_{\Omega} z \, dxdydz\]</div>
+        <div class="ex-step">计算 \[\iiint\limits_{\Omega} x \, dxdydz = \int_0^a x \, dx \int_0^a dy \int_0^a dz = \frac{a^2}{2} \cdot a \cdot a = \frac{a^4}{2}\]</div>
+        <div class="ex-step">因此 \[I = 2 \cdot 3 \cdot \frac{a^4}{2} = 3a^4\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(3a^4\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(4)</span><span class="ex-qmath">\(\displaystyle \iint\limits_{S} (x-y)dxdy+(y-z)xdydz, S 为柱面 x^{2}+y^{2}=1 及平面 z=0, z=3 所围立体表面外侧\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">设 \(P = (y-z)x\), \(Q = 0\), \(R = x-y\)，则原积分 \(I = \iint\limits_{S} P\,dydz + Q\,dzdx + R\,dxdy\)</div>
+        <div class="ex-step">计算偏导数：\(\frac{\partial P}{\partial x} = y-z\)，\(\frac{\partial Q}{\partial y} = 0\)，\(\frac{\partial R}{\partial z} = 0\)</div>
+        <div class="ex-step">\[由高斯公式：\]</div>
+        <div class="ex-step">积分区域 \(\Omega\): \(x^2+y^2 \leq 1\), \(0 \leq z \leq 3\)</div>
+        <div class="ex-step">对 \(\iiint\limits_{\Omega} y\, dV\)：区域关于 \(y=0\) 对称，被积函数 \(y\) 为奇函数，故</div>
+        <div class="ex-step">对 \(\iiint\limits_{\Omega} (-z)\, dV\)：</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(-\dfrac{9\pi}{2}\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(5)</span><span class="ex-qmath">\(\displaystyle \iint\limits_{S} \left(\frac{x^{2}y}{1+y^{2}}+6yz^{2}\right)dydz-\frac{2xz(1+y)+1+y^{2}}{1+y^{2}}dxdy+2x\arctan ydzdx, S 为在 Oxy 平面上方 z=1-x^{2}-y^{2} 的外侧\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">设 \(P = \frac{x^{2}y}{1+y^{2}}+6yz^{2}\), \(Q = 2x\arctan y\), \(R = -\frac{2xz(1+y)+1+y^{2}}{1+y^{2}}\)</div>
+        <div class="ex-step">\[计算偏导数：\]</div>
+        <div class="ex-step">\[验证高斯公式条件，计算散度：\]</div>
+        <div class="ex-step">由于散度为零，需补面后用高斯公式。设 \(S_1: z=0\)（\(x^{2}+y^{2}\leq 1\)）取下侧，与 \(S\) 围成区域 \(\Omega\)</div>
+        <div class="ex-step">在 \(S_1\) 上，\(z=0\), \(dz=0\)，故：</div>
+        <div class="ex-step">\(S_1\) 上 \(dydz=0\), \(dzdx=0\)，仅剩：</div>
+        <div class="ex-step">\(S_1\) 取下侧，法向量向下，\(dxdy\) 投影为负：</div>
+        <div class="ex-step">\[由高斯公式：\]</div>
+        <div class="ex-step">\[因此：\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(-\pi\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(6)</span><span class="ex-qmath">\(\displaystyle \iint\limits_{S} \boldsymbol{F}\cdot\boldsymbol{n}dS, 其中 \boldsymbol{F}=\{x^{2},y^{2},z^{2}\}, S 是锥面 x^{2}+y^{2}=z^{2} 在 0\leq z\leq h 部分的外侧\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">曲面 \(S\) 不封闭，补底面 \(S_1: z = h, x^2 + y^2 \leq h^2\)，取上侧，与 \(S\) 围成区域 \(\Omega\)。</div>
+        <div class="ex-step">在 \(S_1\) 上，\(\boldsymbol{n} = \{0, 0, 1\}\)，\(\boldsymbol{F} \cdot \boldsymbol{n} = z^2 = h^2\)，故</div>
+        <div class="ex-step">\[计算散度：\]</div>
+        <div class="ex-step">\[由高斯公式：\]</div>
+        <div class="ex-step">区域 \(\Omega\) 关于 \(x=0\) 和 \(y=0\) 对称，\(2x\) 和 \(2y\) 分别为 \(x\) 和 \(y\) 的奇函数，故</div>
+        <div class="ex-step">对 \(2z\) 积分，用柱坐标：\(x = r\cos\theta, y = r\sin\theta, z = z\)，\(\Omega\) 为 \(0 \leq \theta \leq 2\pi, 0 \leq r \leq h, r \leq z \leq h\)，</div>
+        <div class="ex-step">\[计算内层积分：\]</div>
+        <div class="ex-step">\[继续计算：\]</div>
+        <div class="ex-step">\[代入上下限：\]</div>
+        <div class="ex-step">\[因此：\]</div>
+        <div class="ex-step">\[所求积分为：\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(-\dfrac{\pi h^4}{2}\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(7)</span><span class="ex-qmath">\(\displaystyle \iint\limits_{S} \boldsymbol{F}\cdot\boldsymbol{n}dS, 其中 \boldsymbol{F}=\sqrt{x^{2}+y^{2}+z^{2}}\{x,y,z\}, S 是区域 1\leq x^{2}+y^{2}+z^{2}\leq 2 的边界曲面的外侧\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">设 \(r=\sqrt{x^2+y^2+z^2}\)，则 \(\boldsymbol{F}=r\{x,y,z\}=\{rx,ry,rz\}\)</div>
+        <div class="ex-step">计算 \(\frac{\partial(rx)}{\partial x}=\frac{x}{r}\cdot x+r=\frac{x^2}{r}+r=\frac{x^2+r^2}{r}=\frac{x^2+x^2+y^2+z^2}{r}=\frac{2x^2+y^2+z^2}{r}\)</div>
+        <div class="ex-step">由轮换对称性，\(\frac{\partial(ry)}{\partial y}=\frac{2y^2+x^2+z^2}{r}\)，\(\frac{\partial(rz)}{\partial z}=\frac{2z^2+x^2+y^2}{r}\)</div>
+        <div class="ex-step">\(\nabla\cdot\boldsymbol{F}=\frac{2x^2+y^2+z^2+2y^2+x^2+z^2+2z^2+x^2+y^2}{r}=\frac{4(x^2+y^2+z^2)}{r}=\frac{4r^2}{r}=4r\)</div>
+        <div class="ex-step">由高斯公式，\(\iint\limits_{S}\boldsymbol{F}\cdot\boldsymbol{n}dS=\iiint\limits_{\Omega}\nabla\cdot\boldsymbol{F}dV=\iiint\limits_{\Omega}4\sqrt{x^2+y^2+z^2}dV\)</div>
+        <div class="ex-step">其中 \(\Omega: 1\leq x^2+y^2+z^2\leq 2\)，采用球坐标：\(x=\rho\sin\varphi\cos\theta, y=\rho\sin\varphi\sin\theta, z=\rho\cos\varphi\)，\(dV=\rho^2\sin\varphi d\rho d\varphi d\theta\)</div>
+        <div class="ex-step">积分区域为 \(1\leq\rho\leq\sqrt{2}\)，\(0\leq\varphi\leq\pi\)，\(0\leq\theta\leq 2\pi\)</div>
+        <div class="ex-step">\[\iiint\limits_{\Omega}4\rho\cdot\rho^2\sin\varphi d\rho d\varphi d\theta=4\int_0^{2\pi}d\theta\int_0^{\pi}\sin\varphi d\varphi\int_1^{\sqrt{2}}\rho^3 d\rho\]</div>
+        <div class="ex-step">\[=4\cdot 2\pi\cdot\left[-\cos\varphi\right]_0^{\pi}\cdot\left[\frac{\rho^4}{4}\right]_1^{\sqrt{2}}\]</div>
+        <div class="ex-step">\[=8\pi\cdot(1+1)\cdot\frac{1}{4}\left((\sqrt{2})^4-1^4\right)\]</div>
+        <div class="ex-step">\[=16\pi\cdot\frac{1}{4}\cdot(4-1)\]</div>
+        <div class="ex-step">\[=4\pi\cdot 3\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(12\pi\)</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="ex-group">
+    <h2 class="ex-req"><span class="ex-bignum">2.</span>应用斯托克斯公式计算曲线积分</h2>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(1)</span><span class="ex-qmath">\(\displaystyle \oint_{C} ydx+zdy+xdz, C 是圆周 x^{2}+y^{2}+z^{2}=a^{2}, x+y+z=0, 由 z 轴正向看去, 圆周反时针方向\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">设 \(P=y, Q=z, R=x\)，则</div>
+        <div class="ex-step">\[由斯托克斯公式\]</div>
+        <div class="ex-step">其中 \(S\) 取平面 \(x+y+z=0\) 上被 \(C\) 围成的圆盘，法向量与 \(C\) 方向成右手系。平面 \(x+y+z=0\) 的法向量 \(\vec{n}=(1,1,1)\)，单位法向量</div>
+        <div class="ex-step">由 \(z\) 轴正向看去 \(C\) 为逆时针方向，右手定则要求法向量指向上方（\(z\) 分量为正），\(\vec{n}^{0}\) 满足此条件。</div>
+        <div class="ex-step">\[将曲面积分化为第一型\]</div>
+        <div class="ex-step">求圆盘半径。球心 \((0,0,0)\) 到平面 \(x+y+z=0\) 距离</div>
+        <div class="ex-step">平面过球心，圆盘半径 \(r=a\)，圆盘面积</div>
+        <div class="ex-step">\[代入得\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(-\sqrt{3}\pi a^{2}\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(2)</span><span class="ex-qmath">\(\displaystyle \int_{AmB} (x^{2}-yz)dx+(y^{2}-zx)dy+(z^{2}-xy)dz, AmB 是从点 A(a,0,0) 沿螺线 x=a\cos\varphi, y=a\sin\varphi, z=\frac{h}{2\pi}\varphi 到点 B(a,0,h) 的一段\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">设 \(P=x^2-yz\), \(Q=y^2-zx\), \(R=z^2-xy\)，计算偏导数：</div>
+        <div class="ex-step">由斯托克斯公式，对任意以 \(AmB\) 为边界且与曲线不相交的分片光滑曲面 \(S\)，有</div>
+        <div class="ex-step">\[代入旋度为零的结果：\]</div>
+        <div class="ex-step">积分与路径无关，改取直线段 \(AB\) 从 \(A(a,0,0)\) 到 \(B(a,0,h)\)，参数化为 \(x=a\), \(y=0\), \(z=t\), \(t\in[0,h]\)，则 \(dx=0\), \(dy=0\), \(dz=dt\)</div>
+        <div class="ex-step">\[代入计算：\]</div>
+        <div class="ex-step">\[求值：\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(\frac{h^3}{3}\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(3)</span><span class="ex-qmath">\(\displaystyle \oint_{C} (y+z)dx+(z+x)dy+(x+y)dz, C 为椭圆: x=a\sin^{2}t, y=2a\sin t\cos t, z=a\cos^{2}t, 依参数 t 从 0 到 \pi 的方向\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">设 \(P=y+z\), \(Q=z+x\), \(R=x+y\)，计算旋度</div>
+        <div class="ex-step">由斯托克斯公式，对任意以 \(C\) 为边界的曲面 \(S\)</div>
+        <div class="ex-step">验证 \(C\) 为闭曲线：当 \(t=0\) 时，\((x,y,z)=(0,0,a)\)；当 \(t=\pi\) 时，\(x=a\sin^{2}\pi=0\), \(y=2a\sin\pi\cos\pi=0\), \(z=a\cos^{2}\pi=a\)，故起点终点重合</div>
+        <div class="ex-step">\[旋度为零场，积分与路径无关，对闭曲线\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(0\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(4)</span><span class="ex-qmath">\(\displaystyle \oint_{L} y^{2}dx+xydy+xzdz, 其中 L 是圆柱面 x^{2}+y^{2}=2y 与平面 y=z 的交线, 由 z 轴看下去依逆时针方向\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">设 \(P=y^2\), \(Q=xy\), \(R=xz\)，则</div>
+        <div class="ex-step">取曲面 \(\Sigma\) 为平面 \(y=z\) 被圆柱面 \(x^2+y^2=2y\) 截下的部分，上侧（与 \(L\) 方向成右手系）。由斯托克斯公式：</div>
+        <div class="ex-step">曲面 \(\Sigma: z=y\)，法向量 \(\vec{n}=(0,-1,1)\)，单位法向量 \(\vec{n}_0=(0,-\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}})\)。投影到 \(xy\) 平面，区域 \(D: x^2+y^2\leq 2y\) 即 \(x^2+(y-1)^2\leq 1\)。</div>
+        <div class="ex-step">\[将曲面积分转化为投影：\]</div>
+        <div class="ex-step">代入 \(z=y\)：</div>
+        <div class="ex-step">或直接化为 \(xy\) 平面投影：</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(0\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(5)</span><span class="ex-qmath">\(\displaystyle \oint_{L} (y^{2}+z^{2})dx+(z^{2}+x^{2})dy+(x^{2}+y^{2})dz, 其中 L 为球面 z=\sqrt{2Rx-x^{2}-y^{2}} 与柱面 x^{2}+y^{2}=2rx(0<<r<R) 的交线, 其方向与球面上侧成右手系\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">设 \(P=y^2+z^2\), \(Q=z^2+x^2\), \(R=x^2+y^2\)，计算旋度各分量：</div>
+        <div class="ex-step">球面方程化为 \((x-R)^2+y^2+z^2=R^2\)，即球心在 \((R,0,0)\)、半径为 \(R\) 的上半球面。柱面 \(x^2+y^2=2rx\) 即 \((x-r)^2+y^2=r^2\)，为圆柱面。交线 \(L\) 所围曲面 \(\Sigma\) 取球面上被柱面截出的部分，法向量朝上（与上侧成右手系）。</div>
+        <div class="ex-step">\[由斯托克斯公式：\]</div>
+        <div class="ex-step">球面 \(z=\sqrt{2Rx-x^2-y^2}\)，求偏导：</div>
+        <div class="ex-step">曲面面积元关系：\(dydz=-\frac{\partial z}{\partial x}dxdy=\frac{x-R}{z}dxdy\)，\(dzdx=-\frac{\partial z}{\partial y}dxdy=\frac{y}{z}dxdy\)</div>
+        <div class="ex-step">\[代入被积式：\]</div>
+        <div class="ex-step">\[重新整理分子：\]</div>
+        <div class="ex-step">利用 \(dydz=\frac{x-R}{z}dxdy\), \(dzdx=\frac{y}{z}dxdy\) 验证：</div>
+        <div class="ex-step">统一投影到 \(xy\) 平面，区域 \(D: (x-r)^2+y^2\leq r^2\)，即 \(x^2+y^2\leq 2rx\)。法向量朝上：</div>
+        <div class="ex-step">\[曲面积分化为：\]</div>
+        <div class="ex-step">由于 \(D\) 关于 \(x\) 轴对称，\(\frac{y}{z}\) 为 \(y\) 的奇函数，故：</div>
+        <div class="ex-step">\[因此：\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(2\pi Rr^2\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(6)</span><span class="ex-qmath">\(\displaystyle \oint_{C} (y^{2}-z^{2})dx+(z^{2}-x^{2})dy+(x^{2}-y^{2})dz, C 为用平面 x+y+z=\frac{3}{2}a 切立方体 0\leq x\leq a, 0\leq y\leq a, 0\leq z\leq a 的表面所得的切痕, 其方向取从 x 轴正向看去反时针的方向\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">设 \(P=y^2-z^2\), \(Q=z^2-x^2\), \(R=x^2-y^2\)，计算旋度：</div>
+        <div class="ex-step">\[由斯托克斯公式：\]</div>
+        <div class="ex-step">平面 \(x+y+z=\frac{3}{2}a\) 的法向量 \(\vec{n}=(1,1,1)\)，单位法向量 \(\vec{n}_0=\frac{1}{\sqrt{3}}(1,1,1)\)，面积元：</div>
+        <div class="ex-step">\[计算点积：\]</div>
+        <div class="ex-step">求正六边形区域 \(S\) 在 \(xy\) 平面的投影区域 \(D\)。由 \(z=\frac{3}{2}a-x-y\) 及 \(0\leq z\leq a\)：</div>
+        <div class="ex-step">计算投影区域 \(D\) 的面积。正方形 \([0,a]\times[0,a]\) 减去两个三角形：</div>
+        <div class="ex-step">由于 \(dS=\sqrt{3}dxdy\)，曲面面积：</div>
+        <div class="ex-step">\[计算曲面积分：\]</div>
+        <div class="ex-step">验证方向：从 \(x\) 轴正向看去逆时针，即站在 \(x\) 轴正方向看 \(yz\) 平面，\(y\) 向右 \(z\) 向上时逆时针。法向量应满足 \(x\) 分量为正，\((1,1,1)\) 满足。但需确认整体方向：取点 \(\left(\frac{3a}{4},\frac{3a}{4},0\right)\) 在边界上，该方向正确。</div>
+        <div class="ex-step">重新检查方向：题目说"从 \(x\) 轴正向看去反时针"，即沿 \(x\) 轴负方向看，\(y\) 轴向右、\(z\) 轴向上时逆时针。由右手法则，\(\vec{n}\) 指向 \(x\) 增大方向为正。计算结果符号正确。</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(-\frac{9a^3}{2}\)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-jump">
+    <a href="9.4-big-three-problems.html">← 9.4 题型</a>
+    <a href="../ch10/10.1-exercises.html" class="primary">10.1 判敛散习题 →</a>
+  </div>
+
+</main>
+
+<button class="back-to-top" aria-label="回到顶部">↑</button>
+<footer class="site-footer">
+  高数期末复习站 · 教材习题考场标准步骤详解<a href="../index.html">🏠 回首页</a>
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>
