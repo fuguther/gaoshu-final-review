@@ -13,44 +13,70 @@
 <a href="../exams/index.html" class="item">往年题</a><a href="index.html" class="item active">技巧锦囊</a>
 <button class="theme-toggle" aria-label="切换主题">🌙</button>
 </div></nav>
-<main class="main">
-<div class="hero"><span class="tag">技巧锦囊</span><h1>跨章节小巧思 <span class="em">让计算更快更准</span></h1><p class="subtitle">这些技巧不是孤立的知识点，而是在解题过程中自然涌现的巧算方法。遇到对应场景时，能帮你省时间、少出错。\u003c/p\u003e</div\u003e
+<main class="main wide">
+<div class="hero"><span class="tag">技巧锦囊</span><h1>跨章节小巧思 <span class="em">让计算更快更准</span></h1><p class="subtitle">这些技巧不是孤立的知识点，而是在解题过程中自然涌现的巧算方法。遇到对应场景时，能帮你省时间、少出错。</p></div>
 
-<h2>第9章 · 曲线曲面积分</h2\u003e
-<div class="box idea">\u003cspan class="label">格林公式方向速判\u003c/span\u003e
-<p\u003e单连通区域，逆时针就是正向。如果你走的是顺时针，直接在格林公式结果前加负号，不用重新画方向。\u003c/p\u003e
-</div\u003e
-<div class="box idea">\u003cspan class="label">补线法选哪条线？\u003c/span\u003e
-<p\u003e优先补\u003cstrong\u003e坐标轴平行的直线\u003c/strong\u003e（如 \(y=0\) 或 \(x=0\)），因为在这类线上 \(dx=0\) 或 \(dy=0\)，积分瞬间简化。\u003c/p\u003e
-</div\u003e
-<div class="box idea">\u003cspan class="label">挖洞法选圆还是椭圆？\u003c/span\u003e
-<p\u003e看被积函数分母的形式：分母是 \(x^2+y^2\) 就挖圆，是 \(ax^2+by^2\) 就挖椭圆。目的是让分母在洞上变成常数，消掉。\u003c/p\u003e
-</div\u003e
+<h2>📌 核心技巧页</h2>
+<div class="chapter-nav" style="margin-bottom:48px;">
+  <a href="integrating-factor.html" class="chapter-card">
+    <div class="ch-num">微分方程</div>
+    <h3>积分因子速找</h3>
+    <p>一阶线性的积分因子公式、非恰当方程化恰当的单变量积分因子判别法，以及常见可凑微分组合速查表。</p>
+    <div class="links">
+      <span>含 3 道完整例题 →</span>
+    </div>
+  </a>
+  <a href="power-series-models.html" class="chapter-card">
+    <div class="ch-num">无穷级数</div>
+    <h3>幂级数求和模型</h3>
+    <p>几何级数族及其求导/积分衍生、错位相减与变量代换技巧、标准泰勒展开反用，附考场决策树。</p>
+    <div class="links">
+      <span>含 3 道完整例题 →</span>
+    </div>
+  </a>
+</div>
 
-<h2\u003e第10章 · 无穷级数</h2\u003e
-<div class="box idea">\u003cspan class="label">幂级数求和：先看n的位置\u003c/span\u003e
-<p\u003e分母有 \(n\) → 逐项\u003cstrong\u003e求导\u003c/strong\u003e消掉；分子有 \(n\) → 逐项\u003cstrong\u003e积分\u003c/strong\u003e消掉。如果分子是 \(n(n-1)\)，就逐次操作两次。\u003c/p\u003e
-</div\u003e
-<div class="box idea">\u003cspan class="label">收敛域端点：先猜后验\u003c/span\u003e
-<p\u003e求出收敛半径后，端点处通常只有两种可能：等比级数（\(|q|=1\) 发散）或 p-级数（\(p\leq1\) 发散）。先凭直觉猜，再代入验证。\u003c/p\u003e
-</div\u003e
-<div class="box idea">\u003cspan class="label">傅里叶端点：周期延拓后的极限\u003c/span\u003e
-<p\u003e求 \(S(\pm l)\) 时，不要看图上的端点值，要看"把图左右复制一份后"那个接缝处的平均值。\u003c/p\u003e
-</div\u003e
+<h2>第9章 · 曲线曲面积分</h2>
+<div class="box idea"><span class="label">格林公式方向速判</span>
+<p>单连通区域，逆时针就是正向。如果你走的是顺时针，直接在格林公式结果前加负号，不用重新画方向。</p>
+</div>
+<div class="box idea"><span class="label">补线法选哪条线？</span>
+<p>优先补<strong>坐标轴平行的直线</strong>（如 \(y=0\) 或 \(x=0\)），因为在这类线上 \(dx=0\) 或 \(dy=0\)，积分瞬间简化。</p>
+</div>
+<div class="box idea"><span class="label">挖洞法选圆还是椭圆？</span>
+<p>看被积函数分母的形式：分母是 \(x^2+y^2\) 就挖圆，是 \(ax^2+by^2\) 就挖椭圆。目的是让分母在洞上变成常数，消掉。</p>
+</div>
+<div class="box idea"><span class="label">对称性简化三重积分</span>
+<p>区域关于 \(xOy\) 面对称，被积函数是 \(z\) 的奇函数 → 积分直接为 0。偶函数则取上半区域的两倍。先扫对称性再选坐标系，常能避免大量计算。</p>
+</div>
 
-<h2\u003e第11章 · 微分方程</h2\u003e
-<div class="box idea">\u003cspan class="label">一阶方程识别：先看能不能分离\u003c/span\u003e
-<p\u003e不管方程多复杂，先试试能不能写成 \(\frac{dy}{dx}=f(x)g(y)\)。能分离就最简单，分离不了再看是不是齐次或线性。\u003c/p\u003e
-</div\u003e
-<div class="box idea">\u003cspan class="label">二阶共振判断：只看指数部分\u003c/span\u003e
-<p\u003e强迫项是 \(e^{2x}\)，特征根有 \(r=2\)，就撞型了。如果是 \(xe^{2x}\)，也是撞型（因为 \(x\) 不影响指数部分）。\u003c/p\u003e
-</div\u003e
-<div class="box idea">\u003cspan class="label">待定系数法：草稿纸上算好再抄\u003c/span\u003e
-<p\u003e代入 \(y^*\) 后比较系数的步骤计算量最大、最容易错。建议在草稿纸上完整算一遍，确认无误后再写到答题纸上。\u003c/p\u003e
-</div\u003e
+<h2>第10章 · 无穷级数</h2>
+<div class="box idea"><span class="label">幂级数求和：先看n的位置</span>
+<p>分母有 \(n\) → 逐项<strong>求导</strong>消掉；分子有 \(n\) → 逐项<strong>积分</strong>消掉。如果分子是 \(n(n-1)\)，就逐次操作两次。</p>
+</div>
+<div class="box idea"><span class="label">收敛域端点：先猜后验</span>
+<p>求出收敛半径后，端点处通常只有两种可能：等比级数（\(|q|=1\) 发散）或 p-级数（\(p\leq1\) 发散）。先凭直觉猜，再代入验证。</p>
+</div>
+<div class="box idea"><span class="label">傅里叶端点：周期延拓后的极限</span>
+<p>求 \(S(\pm l)\) 时，不要看图上的端点值，要看"把图左右复制一份后"那个接缝处的平均值。</p>
+</div>
+<div class="box idea"><span class="label">奇偶性判敛散：先看通项极限</span>
+<p>交错级数用莱布尼茨判别法前，先确认 \(a_n\to0\)。若通项不趋于 0，直接发散，不用再看单调性。正项级数则优先比值/根值，再比较。</p>
+</div>
 
-<div class="page-jump">\u003ca href="../index.html">← 回首页</a>\u003ca href="../exams/index.html" class="primary">往年题 →</a>\u003c/div\u003e
-</main\u003e\u003cbutton class="back-to-top" aria-label="回到顶部">↑\u003c/button\u003e
-<footer class="site-footer">高数期末复习站 · 精心打磨每一类题的标准步骤\u003ca href="../index.html">🏠 回首页\u003c/a\u003e\u003c/footer\u003e
-\u003cscript src="../js/site.js"\u003e\u003c/script\u003e
-\u003c/body\u003e\u003c/html\u003e
+<h2>第11章 · 微分方程</h2>
+<div class="box idea"><span class="label">一阶方程识别：先看能不能分离</span>
+<p>不管方程多复杂，先试试能不能写成 \(\frac{dy}{dx}=f(x)g(y)\)。能分离就最简单，分离不了再看是不是齐次或线性。</p>
+</div>
+<div class="box idea"><span class="label">二阶共振判断：只看指数部分</span>
+<p>强迫项是 \(e^{2x}\)，特征根有 \(r=2\)，就撞型了。如果是 \(xe^{2x}\)，也是撞型（因为 \(x\) 不影响指数部分）。</p>
+</div>
+<div class="box idea"><span class="label">待定系数法：草稿纸上算好再抄</span>
+<p>代入 \(y^*\) 后比较系数的步骤计算量最大、最容易错。建议在草稿纸上完整算一遍，确认无误后再写到答题纸上。</p>
+</div>
+
+<div class="page-jump"><a href="../index.html">← 回首页</a><a href="../exams/index.html" class="primary">往年题 →</a></div>
+</main><button class="back-to-top" aria-label="回到顶部">↑</button>
+<footer class="site-footer">高数期末复习站 · 精心打磨每一类题的标准步骤<a href="../index.html">🏠 回首页</a></footer>
+<script src="../js/site.js"></script>
+</body></html>

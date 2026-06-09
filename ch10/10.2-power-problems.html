@@ -1,82 +1,457 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>10.2 幂级数 · 题型</title>
-<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'},options:{enableMenu:false}};</script><script id="MathJax-script" async src="https://cdn.jsdmirror.com/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<link rel="preconnect" href="https://fonts.loli.net"><link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10.2 幂级数 · 题型</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  svg: { fontCache: 'global' },
+  options: { enableMenu: false }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdmirror.com/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="preconnect" href="https://fonts.loli.net">
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
 <link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/design-system.css">
-</head><body><div class="reading-progress"></div>
-<nav class="topnav"><div class="topnav-inner">
-<a href="../index.html" class="logo">高数期末复习站</a><span class="sep">|</span>
-<div class="dropdown"><button class="dropdown-toggle">第9章 ▾</button><div class="dropdown-menu"><a href="../ch9/9.0-overview.html">章节导学</a><a href="../ch9/9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a><a href="../ch9/9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a><a href="../ch9/9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a><a href="../ch9/9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a><a href="../ch9/9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a><a href="../ch9/9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a></div></div>
-<div class="dropdown"><button class="dropdown-toggle">第10章 ▾</button><div class="dropdown-menu"><a href="10.0-overview.html">章节导学</a><a href="10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a><a href="10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a><a href="10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a><a href="10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a><a href="10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a><a href="10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a></div></div>
-<div class="dropdown"><button class="dropdown-toggle">第11章 ▾</button><div class="dropdown-menu"><a href="../ch11/11.0-overview.html">章节导学</a><a href="../ch11/11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a><a href="../ch11/11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a><a href="../ch11/11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a><a href="../ch11/11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a></div></div>
-<a href="../exams/index.html" class="item">往年题</a><a href="../tips/index.html" class="item">技巧锦囊</a><button class="theme-toggle" aria-label="切换主题">🌙</button>
-</div></nav>
+</head>
+<body>
+
+<div class="reading-progress"></div>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="logo">高数期末复习站</a>
+    <span class="sep">|</span>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第9章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch9/9.0-overview.html">章节导学</a>
+        <a href="../ch9/9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a>
+        <a href="../ch9/9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a>
+        <a href="../ch9/9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第10章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="10.0-overview.html">章节导学</a>
+        <a href="10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a>
+        <a href="10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a>
+        <a href="10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a>
+        <a href="10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a>
+        <a href="10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a>
+        <a href="10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第11章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch11/11.0-overview.html">章节导学</a>
+        <a href="../ch11/11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a>
+        <a href="../ch11/11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <a href="../exams/index.html" class="item">往年题</a>
+    <a href="../tips/index.html" class="item">技巧锦囊</a>
+    <button class="theme-toggle" aria-label="切换主题">🌙</button>
+  </div>
+</nav>
+
 <main class="main">
-<div class="breadcrumb"><a href="../index.html">首页</a><span class="sep">›</span><a href="10.0-overview.html">第10章</a><span class="sep">›</span><span>10.2 幂级数 · 题型</span></div>
-<div class="hero"><span class="tag">10.2 · 题型</span><h1>幂级数 <span class="em">三类题型标准步骤</span></h1><p class="subtitle">考试考三件事：收敛域、和函数、展开。步骤最固定，练熟就能拿满。</p></div>
-<div class="inpage-toc"><h4>本页导航</h4><ul><li><a href="#sec-domain">题型一：收敛域</a></li><li><a href="#sec-sum">题型二：和函数</a></li><li><a href="#sec-expand">题型三：函数展开</a></li><li><a href="#sec-traps">常见错误</a></li></ul></div>
 
-<h2 id="sec-domain">题型一：求收敛域</h2>
-<div class="steps">
-<div class="step"><div class="step-num">1</div><div class="step-body"><h4>求收敛半径</h4><p>\(R = \lim_{n\to\infty} \left|\frac{a_n}{a_{n+1}}\right|\)</p></div></div>
-<div class="step"><div class="step-num">2</div><div class="step-body"><h4>写出收敛区间</h4><p>\((-R, R)\)</p></div></div>
-<div class="step"><div class="step-num">3</div><div class="step-body"><h4>单独判断端点</h4><p>代入 \(x=R\) 和 \(x=-R\)，用数项级数方法判敛散。</p></div></div>
-<div class="step"><div class="step-num">4</div><div class="step-body"><h4>写出收敛域</h4><p>四种可能：\((-R,R), [-R,R), (-R,R], [-R,R]\)</p></div></div>
-</div>
+  <div class="breadcrumb">
+    <a href="../index.html">首页</a>
+    <span class="sep">›</span>
+    <a href="10.0-overview.html">第10章</a>
+    <span class="sep">›</span>
+    <span>10.2 幂级数 · 题型</span>
+  </div>
 
-<div class="example"><div class="example-header"><span class="badge">例题</span><span class="title">收敛域</span></div><div class="example-body">
-<div class="question">求 \(\sum_{n=1}^{\infty} \frac{x^n}{n}\) 的收敛域。</div>
-<div class="solution-label">✓ 标准解答</div>
-<p>\(a_n = \frac{1}{n}\)，\(R = \lim \frac{1/n}{1/(n+1)} = \lim \frac{n+1}{n} = 1\)</p>
-<p>\(x=1\)：\(\sum \frac{1}{n}\) 调和级数，发散。</p>
-<p>\(x=-1\)：\(\sum \frac{(-1)^n}{n}\) 交错级数，收敛。</p>
-<div class="formula-block">收敛域为 \(\mathbf{[-1, 1)}\)</div>
-</div></div>
+  <div class="hero">
+    <span class="tag">10.2 · 题型</span>
+    <h1>幂级数 <span class="em">三类题型标准步骤</span></h1>
+    <p class="subtitle">考试只考三件事：求收敛域、求和函数、把函数展开成幂级数。<br>步骤最固定，练熟就能拿满。</p>
+  </div>
 
-<h2 id="sec-sum">题型二：求和函数</h2>
-<div class="box idea"><span class="label">核心口诀</span><p><strong>"分母有 n → 求导消掉；分子有 n → 积分消掉"</strong>。目标永远是把级数变成等比级数 \(\sum x^n = \frac{1}{1-x}\)。</p></div>
-<div class="steps">
-<div class="step"><div class="step-num">1</div><div class="step-body"><h4>设 \(S(x)\)，确定收敛域</h4></div></div>
-<div class="step"><div class="step-num">2</div><div class="step-body"><h4>看 n 的位置，选择求导或积分</h4></div></div>
-<div class="step"><div class="step-num">3</div><div class="step-body"><h4>化简为等比级数，求和</h4></div></div>
-<div class="step"><div class="step-num">4</div><div class="step-body"><h4>逆操作还原（求导后积分，积分后求导）</h4></div></div>
-<div class="step"><div class="step-num">5</div><div class="step-body"><h4>代入特殊点（如 \(x=0\)）定常数 \(C\)</h4></div></div>
-</div>
+  <div class="inpage-toc">
+    <h4>本页导航</h4>
+    <ul>
+      <li><a href="#sec-decision">三步定题型</a></li>
+      <li><a href="#sec-domain">题型一：求收敛域</a></li>
+      <li><a href="#sec-sum">题型二：求和函数</a></li>
+      <li><a href="#sec-expand">题型三：函数展开</a></li>
+      <li><a href="#sec-traps">常见错误</a></li>
+    </ul>
+  </div>
 
-<div class="example"><div class="example-header"><span class="badge">例题</span><span class="title">和函数</span></div><div class="example-body">
-<div class="question">求 \(\sum_{n=1}^{\infty} n x^{n-1}\) 的和函数（\(|x|&lt;1\)）。</div>
-<div class="solution-label">✓ 标准解答</div>
-<p>注意到 \(\int_0^x nt^{n-1}dt = x^n\)，所以先积分再求和：</p>
-<div class="formula-block">\[\int_0^x S(t)dt = \sum_{n=1}^{\infty} x^n = \frac{x}{1-x}\]</div>
-<p>两边求导：</p>
-<div class="formula-block">\[S(x) = \left(\frac{x}{1-x}\right)' = \frac{1}{(1-x)^2}\]</div>
-</div></div>
+  <h2 id="sec-decision">🎯 三步定题型</h2>
 
-<h2 id="sec-expand">题型三：函数展开成幂级数</h2>
-<div class="steps">
-<div class="step"><div class="step-num">1</div><div class="step-body"><h4>识别"招牌"：变形匹配5个基本展开式</h4></div></div>
-<div class="step"><div class="step-num">2</div><div class="step-body"><h4>代入公式，写出展开式</h4></div></div>
-<div class="step"><div class="step-num">3</div><div class="step-body"><h4>注明收敛域</h4></div></div>
-</div>
+  <div class="decision-tree">
+    <div class="node question">Step 1：看题目问什么</div>
+    <div class="arrow">├─ 给级数，问"收敛半径/收敛域" → <strong>题型一</strong></div>
+    <div class="arrow">├─ 给级数，问"和函数" → <strong>题型二</strong></div>
+    <div class="arrow">└─ 给函数，问"展开成幂级数" → <strong>题型三</strong></div>
+    <div class="node question">Step 2：题型二和题型三，先看能否匹配五个"招牌"</div>
+    <div class="arrow">└─ 变形后一定能套 \(\frac{1}{1-x}, e^x, \sin x, \cos x, \ln(1+x)\)</div>
+    <div class="node question">Step 3：所有题，最后一步都是写收敛域</div>
+    <div class="arrow">└─ 收敛域不写 = 扣分，端点不单独判断 = 扣分</div>
+  </div>
 
-<div class="example"><div class="example-header"><span class="badge">例题</span><span class="title">展开</span></div><div class="example-body">
-<div class="question">将 \(f(x) = \frac{1}{2+x}\) 在 \(x=0\) 处展开成幂级数。</div>
-<div class="solution-label">✓ 标准解答</div>
-<p>变形：\(\frac{1}{2+x} = \frac{1}{2}\cdot\frac{1}{1+\frac{x}{2}} = \frac{1}{2}\cdot\frac{1}{1-(-\frac{x}{2})}\)</p>
-<p>利用 \(\frac{1}{1-t} = \sum t^n\)（\(|t|&lt;1\)），令 \(t = -\frac{x}{2}\)：</p>
-<div class="formula-block">\[\frac{1}{2+x} = \frac{1}{2}\sum_{n=0}^{\infty}\left(-\frac{x}{2}\right)^n = \sum_{n=0}^{\infty}\frac{(-1)^n}{2^{n+1}}x^n\]
-收敛域：\(\left|-\frac{x}{2}\right| &lt; 1\)，即 \(|x| &lt; 2\)。端点需单独验证。
-</div>
-</div></div>
+  <div class="box key">
+    <span class="label">考场口诀</span>
+    <p><strong>"给级数求域用比值，给级数求和看 n 的位置，给函数展开找招牌；端点必须单独判，收敛域必须写。"</strong></p>
+  </div>
 
-<h2 id="sec-traps">⚠️ 常见错误</h2>
-<div class="box warn"><span class="label">端点忘记判断</span><p>收敛域必须<strong>单独代入端点</strong>验证。这是最常见的丢分点。</p></div>
-<div class="box warn"><span class="label">和函数忘记写收敛域</span><p>求和函数题，最后一定要写出"该和函数在 xx 上成立"。</p></div>
-<div class="box warn"><span class="label">展开后没写收敛域</span><p>展开题和收敛域题一样，必须注明成立范围。</p></div>
+  <h2 id="sec-domain">题型一：求收敛半径与收敛域</h2>
 
-<div class="page-jump"><a href="10.2-power-series.html">← 回讲解</a><a href="10.3-fourier.html" class="primary">10.3 傅里叶级数讲解 →</a></div>
-</main><button class="back-to-top" aria-label="回到顶部">↑</button>
-<footer class="site-footer">高数期末复习站 · 精心打磨每一类题的标准步骤<a href="../index.html">🏠 回首页</a></footer>
+  <h3>标准步骤</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>求收敛半径</h4>
+        <p>标准幂级数 \(\sum a_n x^n\)：用比值法 \(R = \lim\limits_{n\to\infty}\left|\frac{a_n}{a_{n+1}}\right|\)。<br>
+        缺项级数（如只含偶次项）：令 \(t = x^k\) 化为标准形，或直接用根值法。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>写出收敛区间</h4>
+        <p>得到开区间 \((-R, R)\)（若中心在 \(x_0\)，则为 \((x_0-R, x_0+R)\)）。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>单独判断端点</h4>
+        <p>代入 \(x = R\) 和 \(x = -R\)（或 \(x_0\pm R\)），用数项级数方法判敛散。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>写出收敛域</h4>
+        <p>四种可能：\((-R,R),\;[-R,R),\;(-R,R],\;[-R,R]\)。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 1</span>
+      <span class="title">收敛域 · 经典调和/交错级数</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        求幂级数 \(\displaystyle\sum_{n=1}^{\infty} \frac{x^n}{n}\) 的收敛域。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　系数 \(a_n = \frac{1}{n}\)，用比值法求收敛半径：</p>
+      <div class="formula-block">
+        \[R = \lim_{n\to\infty}\left|\frac{a_n}{a_{n+1}}\right| = \lim_{n\to\infty}\frac{1/n}{1/(n+1)} = \lim_{n\to\infty}\frac{n+1}{n} = 1\]
+      </div>
+      <p><strong>Step 2</strong>　收敛区间为 \((-1, 1)\)。</p>
+      <p><strong>Step 3</strong>　单独判断端点：</p>
+      <p>当 \(x = 1\) 时，级数化为 \(\sum\limits_{n=1}^{\infty}\frac{1}{n}\)，为调和级数，<strong>发散</strong>。</p>
+      <p>当 \(x = -1\) 时，级数化为 \(\sum\limits_{n=1}^{\infty}\frac{(-1)^n}{n}\)，为交错级数，满足莱布尼茨条件，<strong>收敛</strong>。</p>
+      <p><strong>Step 4</strong>　综合得收敛域：</p>
+      <p><strong>答案：</strong>\(\boxed{[-1,\;1)}\)</p>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 2</span>
+      <span class="title">收敛域 · 中心偏移型</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        求幂级数 \(\displaystyle\sum_{n=1}^{\infty} \frac{(x-1)^n}{n\cdot 2^n}\) 的收敛域。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　令 \(t = x-1\)，级数化为 \(\sum\limits_{n=1}^{\infty}\frac{t^n}{n\cdot 2^n}\)。</p>
+      <p>系数 \(a_n = \frac{1}{n\cdot 2^n}\)，用比值法：</p>
+      <div class="formula-block">
+        \[R_t = \lim_{n\to\infty}\left|\frac{a_n}{a_{n+1}}\right| = \lim_{n\to\infty}\frac{(n+1)\cdot 2^{n+1}}{n\cdot 2^n} = \lim_{n\to\infty}\frac{n+1}{n}\cdot 2 = 2\]
+      </div>
+      <p>故 \(|t| &lt; 2\)，即 \(|x-1| &lt; 2\)，收敛区间为 \((-1, 3)\)。</p>
+      <p><strong>Step 2</strong>　单独判断端点：</p>
+      <p>当 \(x = 3\)（即 \(t = 2\)）时，级数化为 \(\sum\limits_{n=1}^{\infty}\frac{2^n}{n\cdot 2^n} = \sum\limits_{n=1}^{\infty}\frac{1}{n}\)，调和级数，<strong>发散</strong>。</p>
+      <p>当 \(x = -1\)（即 \(t = -2\)）时，级数化为 \(\sum\limits_{n=1}^{\infty}\frac{(-2)^n}{n\cdot 2^n} = \sum\limits_{n=1}^{\infty}\frac{(-1)^n}{n}\)，交错级数，<strong>收敛</strong>。</p>
+      <p><strong>Step 3</strong>　综合得收敛域：</p>
+      <p><strong>答案：</strong>\(\boxed{[-1,\;3)}\)</p>
+    </div>
+  </div>
+
+  <div class="box idea">
+    <span class="label">技巧提炼</span>
+    <p>中心在 \(x=x_0\) 的幂级数，求收敛域的步骤与标准形完全一致：先求关于 \(t=x-x_0\) 的收敛半径，再换回去，最后<strong>别忘了端点也要换回 \(x\) 的值</strong>。</p>
+  </div>
+
+  <h2 id="sec-sum">题型二：求幂级数的和函数</h2>
+
+  <div class="box key">
+    <span class="label">核心口诀</span>
+    <p><strong>"分母有 n → 逐项求导消掉；分子有 n → 逐项积分消掉。"</strong><br>
+    目标永远是把级数变成等比级数 \(\sum x^n = \frac{1}{1-x}\)（\(|x|&lt;1\)）。</p>
+  </div>
+
+  <h3>标准步骤</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>设 \(S(x)\)，先求收敛域</h4>
+        <p>和函数必须在收敛域内才有意义，端点处的和函数值有时可通过连续性单独讨论。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>看 n 的位置，选择求导或积分</h4>
+        <p>分母含 \(n\)（如 \(\frac{x^n}{n}\)）→ <strong>逐项求导</strong>消掉分母；<br>
+        分子含 \(n\)（如 \(n x^n\)）→ <strong>逐项积分</strong>消掉分子。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>化简为等比级数，求和</h4>
+        <p>套 \(\sum x^n = \frac{1}{1-x}\)（\(|x|&lt;1\)）。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>逆操作还原</h4>
+        <p>求导后积分回来，积分后求导回来。注意积分常数 \(C\) 的确定。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <h4>代入特殊点（通常是 \(x=0\)）定常数 \(C\)</h4>
+        <p>定 \(C\) 时一定要回到<strong>原级数</strong>看 \(S(0)\)，不要代入求导后的式子。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 3</span>
+      <span class="title">和函数 · 分子有 n（先积后导）</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        求幂级数 \(\displaystyle\sum_{n=1}^{\infty} n x^{n-1}\) 的和函数，并写出收敛域。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　先求收敛域。系数 \(a_n = n\)，</p>
+      <div class="formula-block">
+        \[R = \lim_{n\to\infty}\frac{n}{n+1} = 1\]
+      </div>
+      <p>端点 \(x = \pm 1\) 时通项 \(n(\pm 1)^{n-1}\) 不趋于 0，发散。故收敛域为 \((-1, 1)\)。</p>
+      <p>设和函数 \(S(x) = \sum\limits_{n=1}^{\infty} n x^{n-1}\)（\(|x|&lt;1\)）。</p>
+      <p><strong>Step 2</strong>　分子有 \(n\)，选择<strong>先积分</strong>：</p>
+      <div class="formula-block">
+        \[\int_0^x S(t)\,dt = \sum_{n=1}^{\infty}\int_0^x n t^{n-1}\,dt = \sum_{n=1}^{\infty} x^n = \frac{x}{1-x}\]
+      </div>
+      <p>（最后一步利用了等比级数求和，\(|x|&lt;1\)。）</p>
+      <p><strong>Step 3</strong>　两边求导还原：</p>
+      <div class="formula-block">
+        \[S(x) = \left(\frac{x}{1-x}\right)' = \frac{(1-x)\cdot 1 - x\cdot(-1)}{(1-x)^2} = \frac{1}{(1-x)^2}\]
+      </div>
+      <p><strong>Step 4</strong>　验证 \(x=0\)：原级数 \(S(0) = 1\)，公式给出 \(\frac{1}{(1-0)^2}=1\)，一致。</p>
+      <p><strong>答案：</strong>\(\boxed{S(x) = \dfrac{1}{(1-x)^2},\quad x\in(-1,\;1)}\)</p>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 4</span>
+      <span class="title">和函数 · 分母有 n（先导后积）</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        求幂级数 \(\displaystyle\sum_{n=1}^{\infty} \frac{x^n}{n}\) 的和函数，并写出收敛域。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　先求收敛域。由例题 1 已知收敛域为 \([-1, 1)\)。</p>
+      <p>设 \(S(x) = \sum\limits_{n=1}^{\infty}\frac{x^n}{n}\)（\(x\in[-1,1)\)）。</p>
+      <p><strong>Step 2</strong>　分母有 \(n\)，选择<strong>先求导</strong>：</p>
+      <div class="formula-block">
+        \[S'(x) = \sum_{n=1}^{\infty}\frac{n x^{n-1}}{n} = \sum_{n=1}^{\infty} x^{n-1} = \frac{1}{1-x}\]
+      </div>
+      <p>（\(|x|&lt;1\) 时成立。）</p>
+      <p><strong>Step 3</strong>　两边从 \(0\) 到 \(x\) 积分还原：</p>
+      <div class="formula-block">
+        \[S(x) - S(0) = \int_0^x \frac{1}{1-t}\,dt = -\ln|1-x|\]
+      </div>
+      <p><strong>Step 4</strong>　定常数。回到原级数，\(S(0) = 0\)（首项为 \(\frac{0^1}{1}=0\)，且 \(n\geq 1\) 时每一项都含 \(x\) 的正幂次）。</p>
+      <p>又因为在收敛域内 \(x &lt; 1\)，所以 \(1-x &gt; 0\)，可去掉绝对值：</p>
+      <div class="formula-block">
+        \[S(x) = -\ln(1-x)\]
+      </div>
+      <p><strong>Step 5</strong>　验证端点 \(x=-1\)：原级数 \(\sum\frac{(-1)^n}{n} = -\ln 2\)，公式给出 \(-\ln(1-(-1)) = -\ln 2\)，一致。</p>
+      <p><strong>答案：</strong>\(\boxed{S(x) = -\ln(1-x),\quad x\in[-1,\;1)}\)</p>
+    </div>
+  </div>
+
+  <div class="box idea">
+    <span class="label">和函数的核心策略</span>
+    <p>分子含 \(n\) 时，积分会把 \(n\) 消掉（\(\int n x^{n-1} = x^n\)）；分母含 \(n\) 时，求导会把 \(n\) 消掉（\((x^n/n)' = x^{n-1}\)）。逆操作时，<strong>积分常数一定要通过原级数在特殊点的值来确定</strong>，绝不能代入求导后的式子。</p>
+  </div>
+
+  <h2 id="sec-expand">题型三：把函数展开成幂级数</h2>
+
+  <h3>标准步骤</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>识别"招牌"</h4>
+        <p>看函数里有没有 \(e^{\square}, \sin\square, \cos\square, \ln(1+\square), \frac{1}{1-\square}\) 等熟悉形式。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>变形匹配</h4>
+        <p>通过换元、提常数、部分分式分解、求导/积分等操作，把函数变成 5 个基本展开式的标准形式。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>代入公式，写出展开式</h4>
+        <p>写出 \(\sum a_n x^n\) 的形式，并注明收敛域。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>确定收敛域</h4>
+        <p>收敛域取各展开式收敛区间的<strong>交集</strong>，端点需单独验证。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 5</span>
+      <span class="title">函数展开 · 提常数配等比</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        将 \(f(x) = \dfrac{1}{2+x}\) 在 \(x=0\) 处展开成幂级数，并写出收敛域。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　变形，凑 \(\frac{1}{1-t}\) 的标准形式：</p>
+      <div class="formula-block">
+        \[f(x) = \frac{1}{2+x} = \frac{1}{2}\cdot\frac{1}{1+\frac{x}{2}} = \frac{1}{2}\cdot\frac{1}{1-\left(-\frac{x}{2}\right)}\]
+      </div>
+      <p><strong>Step 2</strong>　令 \(t = -\frac{x}{2}\)，利用 \(\frac{1}{1-t} = \sum\limits_{n=0}^{\infty} t^n\)（\(|t|&lt;1\)）：</p>
+      <div class="formula-block">
+        \[\frac{1}{2+x} = \frac{1}{2}\sum_{n=0}^{\infty}\left(-\frac{x}{2}\right)^n = \sum_{n=0}^{\infty}\frac{(-1)^n}{2^{n+1}}x^n\]
+      </div>
+      <p><strong>Step 3</strong>　确定收敛域。由 \(|t| = \left|-\frac{x}{2}\right| &lt; 1\) 得 \(|x| &lt; 2\)。</p>
+      <p>端点 \(x = 2\)：通项 \(\frac{(-1)^n}{2^{n+1}}\cdot 2^n = \frac{(-1)^n}{2}\) 不趋于 0，发散。</p>
+      <p>端点 \(x = -2\)：通项 \(\frac{1}{2^{n+1}}\cdot (-2)^n = \frac{(-1)^n}{2}\) 不趋于 0，发散。</p>
+      <p><strong>答案：</strong>\(\boxed{\displaystyle\frac{1}{2+x} = \sum_{n=0}^{\infty}\frac{(-1)^n}{2^{n+1}}x^n,\quad x\in(-2,\;2)}\)</p>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 6</span>
+      <span class="title">函数展开 · 部分分式分解</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        将 \(f(x) = \dfrac{1}{x^2-3x+2}\) 在 \(x=0\) 处展开成幂级数，并写出收敛域。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　因式分解并部分分式分解：</p>
+      <div class="formula-block">
+        \[x^2-3x+2 = (x-1)(x-2)\]
+      </div>
+      <p>设 \(\frac{1}{(x-1)(x-2)} = \frac{A}{x-1} + \frac{B}{x-2}\)，通分得 \(1 = A(x-2) + B(x-1)\)。</p>
+      <p>令 \(x=1\)：\(1 = A(-1) \Rightarrow A = -1\)。</p>
+      <p>令 \(x=2\)：\(1 = B(1) \Rightarrow B = 1\)。</p>
+      <p>于是</p>
+      <div class="formula-block">
+        \[f(x) = \frac{1}{x-2} - \frac{1}{x-1} = \frac{1}{1-x} - \frac{1}{2-x}\]
+      </div>
+      <p><strong>Step 2</strong>　分别展开两项：</p>
+      <div class="formula-block">
+        \[\frac{1}{1-x} = \sum_{n=0}^{\infty} x^n,\qquad |x| &lt; 1\]
+      </div>
+      <div class="formula-block">
+        \[\frac{1}{2-x} = \frac{1}{2}\cdot\frac{1}{1-\frac{x}{2}} = \frac{1}{2}\sum_{n=0}^{\infty}\left(\frac{x}{2}\right)^n = \sum_{n=0}^{\infty}\frac{x^n}{2^{n+1}},\qquad |x| &lt; 2\]
+      </div>
+      <p><strong>Step 3</strong>　合并：</p>
+      <div class="formula-block">
+        \[f(x) = \sum_{n=0}^{\infty} x^n - \sum_{n=0}^{\infty}\frac{x^n}{2^{n+1}} = \sum_{n=0}^{\infty}\left(1 - \frac{1}{2^{n+1}}\right)x^n = \sum_{n=0}^{\infty}\frac{2^{n+1}-1}{2^{n+1}}x^n\]
+      </div>
+      <p><strong>Step 4</strong>　确定收敛域。两个展开式分别要求 \(|x|&lt;1\) 和 \(|x|&lt;2\)，取交集得 \(|x|&lt;1\)。</p>
+      <p>端点 \(x = \pm 1\) 时通项 \(\left(1-\frac{1}{2^{n+1}}\right)(\pm 1)^n\) 的绝对值趋于 1，不趋于 0，均发散。</p>
+      <p><strong>答案：</strong>\(\boxed{\displaystyle\frac{1}{x^2-3x+2} = \sum_{n=0}^{\infty}\frac{2^{n+1}-1}{2^{n+1}}x^n,\quad x\in(-1,\;1)}\)</p>
+    </div>
+  </div>
+
+  <div class="box idea">
+    <span class="label">展开式的收敛域</span>
+    <p>如果展开式由多个级数相加得到，收敛域必须取各部分的<strong>交集</strong>。常见错误是只看最宽的限制（如 \(|x|&lt;2\)），而忽略了另一部分要求 \(|x|&lt;1\)。</p>
+  </div>
+
+  <h2 id="sec-traps">⚠️ 常见错误</h2>
+
+  <div class="box warn">
+    <span class="label">错误 1：端点忘记判断</span>
+    <p>收敛域必须<strong>单独代入端点</strong>验证敛散性。比值法/根值法只能给出开区间 \((-R,R)\)，端点处的敛散性必须用数项级数方法另行判断。这是最常见的丢分点。</p>
+  </div>
+
+  <div class="box warn">
+    <span class="label">错误 2：和函数漏写收敛域</span>
+    <p>求和函数题，最后一定要写出"该和函数在某某区间上成立"。和函数在收敛域外是没有定义的。</p>
+  </div>
+
+  <div class="box warn">
+    <span class="label">错误 3：展开后没写收敛域</span>
+    <p>展开题和收敛域题一样，必须注明成立范围。只写展开式不写范围，等于只完成了一半。</p>
+  </div>
+
+  <div class="box warn">
+    <span class="label">错误 4：求和函数时定常数出错</span>
+    <p>先导后积还原时，\(S(x) = S(0) + \int_0^x S'(t)\,dt\)。定 \(S(0)\) 必须回到<strong>原级数</strong>看常数项，不能把 \(x=0\) 直接代入求导后的式子。例如 \(\sum\frac{x^n}{n}\) 的 \(S(0)=0\)，但求导后 \(\frac{1}{1-x}\) 在 \(x=0\) 时为 1。</p>
+  </div>
+
+  <div class="box warn">
+    <span class="label">错误 5：缺项幂级数直接用标准比值法</span>
+    <p>对于缺项级数（如只含偶次项 \(\sum a_n x^{2n}\)），不能直接对 \(a_n\) 用 \(R = |a_n/a_{n+1}|\)。正确做法是令 \(t = x^2\) 化为标准形，或者用根值法 \(R = 1/\limsup\sqrt[2n]{|a_n|}\)。</p>
+  </div>
+
+  <div class="page-jump">
+    <a href="10.2-power-series.html">← 回讲解</a>
+    <a href="10.3-fourier.html" class="primary">10.3 傅里叶级数讲解 →</a>
+  </div>
+
+</main>
+
+<button class="back-to-top" aria-label="回到顶部">↑</button>
+<footer class="site-footer">
+  高数期末复习站 · 精心打磨每一类题的标准步骤<a href="../index.html">🏠 回首页</a>
+</footer>
+
 <script src="../js/site.js"></script>
-</body></html>
+</body>
+</html>

@@ -18,84 +18,296 @@ window.MathJax = {
 <link rel="stylesheet" href="../css/design-system.css">
 </head>
 <body>
+
 <div class="reading-progress"></div>
 
-<nav class="topnav"><div class="topnav-inner">
-  <a href="../index.html" class="logo">高数期末复习站</a><span class="sep">|</span>
-  <div class="dropdown"><button class="dropdown-toggle">第9章 ▾</button><div class="dropdown-menu"><a href="../ch9/9.0-overview.html">章节导学</a><a href="../ch9/9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a><a href="../ch9/9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a><a href="../ch9/9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a><a href="../ch9/9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a><a href="../ch9/9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a><a href="../ch9/9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a></div></div>
-  <div class="dropdown"><button class="dropdown-toggle">第10章 ▾</button><div class="dropdown-menu"><a href="../ch10/10.0-overview.html">章节导学</a><a href="../ch10/10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a><a href="../ch10/10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a><a href="../ch10/10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a><a href="../ch10/10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a><a href="../ch10/10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a><a href="../ch10/10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a></div></div>
-  <div class="dropdown"><button class="dropdown-toggle">第11章 ▾</button><div class="dropdown-menu"><a href="11.0-overview.html">章节导学</a><a href="11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a><a href="11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a><a href="11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a><a href="11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a></div></div>
-  <a href="../exams/index.html" class="item">往年题</a><a href="../tips/index.html" class="item">技巧锦囊</a>
-  <button class="theme-toggle" aria-label="切换主题">🌙</button>
-</div></nav>
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="logo">高数期末复习站</a>
+    <span class="sep">|</span>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第9章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch9/9.0-overview.html">章节导学</a>
+        <a href="../ch9/9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a>
+        <a href="../ch9/9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a>
+        <a href="../ch9/9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第10章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch10/10.0-overview.html">章节导学</a>
+        <a href="../ch10/10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第11章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="11.0-overview.html">章节导学</a>
+        <a href="11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a>
+        <a href="11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a>
+        <a href="11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a>
+        <a href="11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <a href="../exams/index.html" class="item">往年题</a>
+    <a href="../tips/index.html" class="item">技巧锦囊</a>
+    <button class="theme-toggle" aria-label="切换主题">🌙</button>
+  </div>
+</nav>
 
 <main class="main">
+
   <div class="hero">
     <span class="tag">11.2 · 讲解</span>
     <h1>二阶线性微分方程 <span class="em">特征方程 + 待定系数</span></h1>
-    <p class="subtitle">一句话：先写特征方程求齐次通解，再设特解代入求非齐次解，最后加在一起。</p>
+    <p class="subtitle">一句话：齐次解由<strong>特征根</strong>决定；非齐次解 = 齐次通解 + 一个<strong>特解</strong>。共振时乘 \(x^k\) 修正。</p>
   </div>
 
   <div class="inpage-toc">
     <h4>本页导航</h4>
-    <ul><li><a href="#sec-homogeneous">齐次方程</a></li><li><a href="#sec-nonhomogeneous">非齐次方程</a></li><li><a href="#sec-resonance">共振（修正）</a></li><li><a href="#sec-summary">速查表</a></li></ul>
+    <ul>
+      <li><a href="#sec-essence">一句话本质</a></li>
+      <li><a href="#sec-why">为什么解是"齐次通解 + 特解"</a></li>
+      <li><a href="#sec-homogeneous">齐次方程</a></li>
+      <li><a href="#sec-nonhomogeneous">非齐次方程与待定系数法</a></li>
+      <li><a href="#sec-resonance">共振与修正</a></li>
+      <li><a href="#sec-intuition">直观理解</a></li>
+      <li><a href="#sec-link">与前后知识的联系</a></li>
+    </ul>
+  </div>
+
+  <h2 id="sec-essence">💡 一句话本质</h2>
+  <div class="formula-block">
+    <p style="font-size:18px; margin:0;"><strong>齐次方程</strong> \(y''+py'+qy=0\)：找两个线性无关的"基解"，通解是它们的线性组合。<br>
+    <strong>非齐次方程</strong> \(y''+py'+qy=f(x)\)：先求齐次通解 \(Y\)，再"猜"一个满足方程的特解 \(y^*\)，最终 \(y=Y+y^*\)。</p>
+  </div>
+
+  <h2 id="sec-why">📖 为什么解的结构是"齐次通解 + 特解"</h2>
+  <p>这和线性代数中"线性方程组的通解 = 齐次解空间的一个基 + 特解"完全同源。核心在于<strong>叠加原理</strong>：</p>
+
+  <div class="box idea">
+    <span class="label">叠加原理</span>
+    <p>若 \(y_1\) 和 \(y_2\) 都是齐次方程 \(y''+py'+qy=0\) 的解，则它们的任意线性组合 \(C_1y_1+C_2y_2\) 也是解。<br>
+    若 \(y^*\) 是非齐次方程的一个特解，\(Y\) 是对应齐次方程的通解，则 \(y=Y+y^*\) 就是非齐次方程的<strong>全部</strong>解。</p>
+  </div>
+
+  <p>为什么是"全部"？假设 \(y_1\) 和 \(y_2\) 是任意两个非齐次方程的解，把它们相减：</p>
+  <div class="formula-block">
+    \[(y_1''+py_1'+qy_1)-(y_2''+py_2'+qy_2)=f(x)-f(x)=0\]
+    <div class="caption">差 \(y_1-y_2\) 满足齐次方程，说明任意两个非齐次解之间只差一个齐次解</div>
+  </div>
+
+  <p>因此，只要找到一个特解 \(y^*\)，再补上齐次方程的"所有可能修正" \(Y\)，就得到了非齐次方程的<strong>完整解族</strong>。</p>
+
+  <div class="box key">
+    <span class="label">解空间的维数</span>
+    <p>二阶线性齐次方程的解空间恰好是 <strong>2 维</strong>的——你只需要找到两个<strong>线性无关</strong>的解 \(y_1,y_2\)，所有解都可以写成 \(C_1y_1+C_2y_2\)。<br>
+    这和二阶导数需要两次积分才能消去、从而引入两个任意常数，是同一回事。</p>
   </div>
 
   <h2 id="sec-homogeneous">📐 齐次方程：\(y''+py'+qy=0\)</h2>
-  <h3>标准步骤</h3>
-  <div class="steps">
-    <div class="step"><div class="step-num">1</div><div class="step-body"><h4>写特征方程</h4><p>把 \(y''\to r^2, y'\to r, y\to 1\)，得 \(r^2+pr+q=0\)。</p></div></div>
-    <div class="step"><div class="step-num">2</div><div class="step-body"><h4>求根，判别三种情况</h4>
-      <table>
-        <tr><th>判别式</th><th>根</th><th>通解</th></tr>
-        <tr><td>\(\Delta>0\)</td><td>两不同实根 \(r_1,r_2\)</td><td>\(y=C_1e^{r_1x}+C_2e^{r_2x}\)</td></tr>
-        <tr><td>\(\Delta=0\)</td><td>重根 \(r\)</td><td>\(y=(C_1+C_2x)e^{rx}\)</td></tr>
-        <tr><td>\(\Delta<0\)</td><td>共轭复根 \(\alpha\pm\beta i\)</td><td>\(y=e^{\alpha x}(C_1\cos\beta x+C_2\sin\beta x)\)</td></tr>
-      </table>
-    </div></div>
+
+  <h3>核心思想：把微分方程变成代数方程</h3>
+  <p>猜测解具有指数形式 \(y=e^{rx}\)，代入方程：</p>
+  <div class="formula-block">
+    \[r^2e^{rx}+pre^{rx}+qe^{rx}=0\quad\Rightarrow\quad r^2+pr+q=0\]
+    <div class="caption">这就是<strong>特征方程</strong>——一个普通的二次代数方程</div>
+  </div>
+
+  <p>二次方程有三种根的情况，对应三种通解形式：</p>
+
+  <table>
+    <tr><th>判别式</th><th>根的情况</th><th>两个线性无关解</th><th>通解</th></tr>
+    <tr>
+      <td>\(\Delta=p^2-4q>0\)</td>
+      <td>两相异实根 \(r_1\neq r_2\)</td>
+      <td>\(e^{r_1x},\;e^{r_2x}\)</td>
+      <td>\(y=C_1e^{r_1x}+C_2e^{r_2x}\)</td>
+    </tr>
+    <tr>
+      <td>\(\Delta=p^2-4q=0\)</td>
+      <td>重根 \(r_1=r_2=r\)</td>
+      <td>\(e^{rx},\;xe^{rx}\)</td>
+      <td>\(y=(C_1+C_2x)e^{rx}\)</td>
+    </tr>
+    <tr>
+      <td>\(\Delta=p^2-4q<0\)</td>
+      <td>共轭复根 \(\alpha\pm\beta i\)</td>
+      <td>\(e^{\alpha x}\cos\beta x,\;e^{\alpha x}\sin\beta x\)</td>
+      <td>\(y=e^{\alpha x}(C_1\cos\beta x+C_2\sin\beta x)\)</td>
+    </tr>
+  </table>
+
+  <div class="box warn">
+    <span class="label">重根时为什么多了个 \(x\)？</span>
+    <p>重根只给出一个指数解 \(e^{rx}\)，但解空间必须是 2 维的。验证可知 \(xe^{rx}\) 也满足方程，且与 \(e^{rx}\) 线性无关。所以通解要写成 \((C_1+C_2x)e^{rx}\)。<strong>漏掉 \(x\) 是期末常见错误。</strong></p>
+  </div>
+
+  <div class="box idea">
+    <span class="label">复根情形的记忆法</span>
+    <p>复根 \(\alpha\pm\beta i\) 的通解永远写成实函数形式 \(e^{\alpha x}(C_1\cos\beta x+C_2\sin\beta x)\)。<br>
+    \(\alpha\) 决定"包络"（指数增长/衰减），\(\beta\) 决定"振荡频率"。不要把 \(\alpha,\beta\) 和系数 \(p,q\) 搞混。</p>
   </div>
 
   <h2 id="sec-nonhomogeneous">📐 非齐次方程：\(y''+py'+qy=f(x)\)</h2>
-  <p>通解 = 齐次通解 \(Y\) + 特解 \(y^*\)。关键是<strong>设对特解的形式</strong>。</p>
 
-  <h3>特解设定表（最核心）</h3>
-  <table>
-    <tr><th>\(f(x)\) 形式</th><th>特解 \(y^*\) 的设法</th></tr>
-    <tr><td>\(P_n(x)e^{\lambda x}\)</td><td>\(x^k Q_n(x)e^{\lambda x}\)，其中 \(Q_n\) 是同次多项式，\(k\) 看 \(\lambda\) 是不是特征根</td></tr>
-    <tr><td>\(e^{\alpha x}(A\cos\beta x+B\sin\beta x)\)</td><td>\(x^k e^{\alpha x}(C\cos\beta x+D\sin\beta x)\)，\(k\) 看 \(\alpha\pm\beta i\) 是不是特征根</td></tr>
-  </table>
-
-  <div class="box key"><span class="label">关键：k 怎么定？</span>
-    <p>\(\lambda\)（或 \(\alpha\pm\beta i\)）</p>
-    <ul><li><strong>不是</strong>特征根 → \(k=0\)（直接设）</li><li>是<strong>单根</strong> → \(k=1\)（乘 \(x\)）</li><li>是<strong>重根</strong> → \(k=2\)（乘 \(x^2\)）</li></ul>
+  <h3>解的结构定理</h3>
+  <div class="formula-block">
+    \[y=Y+y^*\]
+    <div class="caption">\(Y\)：对应齐次方程的通解；\(y^*\)：非齐次方程的任一特解</div>
   </div>
 
-  <h2 id="sec-resonance">🔔 共振：什么时候要乘 x？</h2>
-  <p><strong>共振的本质</strong>：你设的特解形式和齐次通解"撞型"了，代入后左边会算出 0，无法确定系数。解决方法是乘 \(x\)（或 \(x^2\)）把它"拉开"。</p>
+  <p>求 \(Y\) 已经会了（特征方程法）。关键是<strong>如何"猜"对特解 \(y^*\)</strong>。考试只要求两种 \(f(x)\) 类型，用<strong>待定系数法</strong>：</p>
 
-  <div class="example">
-    <div class="example-header"><span class="badge">例题</span><span class="title">共振判断</span></div>
-    <div class="example-body">
-      <div class="question">方程 \(y''-3y'+2y=e^x\)，如何设特解？</div>
-      <div class="solution-label">✓ 分析</div>
-      <p>特征方程 \(r^2-3r+2=0\)，根 \(r_1=1, r_2=2\)。</p>
-      <p>强迫项 \(e^x\) 中 \(\lambda=1\)，恰好是特征根 \(r_1\)！</p>
-      <p>如果设 \(y^*=Ae^x\)，代入左边得 \(Ae^x-3Ae^x+2Ae^x=0\)，右边是 \(e^x\)，矛盾。</p>
-      <p>因此必须修正：\(y^*=\mathbf{Axe^x}\)。</p>
+  <h3>类型 A：\(f(x)=P_m(x)e^{\lambda x}\)（多项式 × 指数）</h3>
+  <div class="formula-block">
+    \[\text{设 }y^*=x^kQ_m(x)e^{\lambda x}\]
+    <div class="caption">\(Q_m(x)\) 是与 \(P_m(x)\) 同次的待定多项式；\(k\) 由共振规则决定</div>
+  </div>
+
+  <h3>类型 B：\(f(x)=e^{\lambda x}(P\cos\omega x+Q\sin\omega x)\)（三角型）</h3>
+  <div class="formula-block">
+    \[\text{设 }y^*=x^ke^{\lambda x}(A\cos\omega x+B\sin\omega x)\]
+    <div class="caption">即使 \(f(x)\) 中只有 \(\cos\) 或只有 \(\sin\)，设特解时两者都必须保留</div>
+  </div>
+
+  <div class="box key">
+    <span class="label">核心：\(k\) 怎么定？</span>
+    <ul>
+      <li>类型 A：看 \(\lambda\) 是否为特征根——<strong>不是</strong>根 → \(k=0\)；<strong>单根</strong> → \(k=1\)；<strong>重根</strong> → \(k=2\)</li>
+      <li>类型 B：看 \(\lambda\pm i\omega\) 是否为特征根——<strong>不是</strong>根 → \(k=0\)；<strong>是</strong>根 → \(k=1\)（复根不可能是重根，所以 \(k\) 最大为 1）</li>
+    </ul>
+  </div>
+
+  <h3>标准解题流程</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>写特征方程，求根，写出齐次通解 \(Y\)</h4>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>判 \(f(x)\) 类型，检查共振，设特解 \(y^*\)</h4>
+        <p>对照类型 A/B 设形式，根据特征根判断 \(k\)。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>代入原方程，比较系数，解出待定常数</h4>
+        <p>求导后代入，整理后令同类项系数相等。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>写出通解 \(y=Y+y^*\)</h4>
+        <p>不要忘记把齐次通解加回去。</p>
+      </div>
     </div>
   </div>
 
-  <h2 id="sec-summary">📋 二阶线性方程解题速查</h2>
-  <div class="steps">
-    <div class="step"><div class="step-num">1</div><div class="step-body"><h4>写特征方程，求根，写齐次通解 \(Y\)</h4></div></div>
-    <div class="step"><div class="step-num">2</div><div class="step-body"><h4>看 \(f(x)\) 形式，设特解 \(y^*\)</h4><p>检查 \(\lambda\) 或 \(\alpha\pm\beta i\) 是否和特征根撞型，撞了就乘 \(x\)。</p></div></div>
-    <div class="step"><div class="step-num">3</div><div class="step-body"><h4>代入原方程，比较系数，解出待定系数</h4></div></div>
-    <div class="step"><div class="step-num">4</div><div class="step-body"><h4>通解 \(y=Y+y^*\)</h4></div></div>
+  <h2 id="sec-resonance">🔔 共振：什么时候要乘 \(x^k\)？</h2>
+
+  <p><strong>共振的本质</strong>：你设的特解形式和齐次通解"撞型"了。如果把撞型的函数代入方程左边，算出来的结果是 0（因为它满足齐次方程），无法匹配右边的 \(f(x)\)。乘 \(x^k\) 的目的就是把它们"拉开"，让代入后不再为 0。</p>
+
+  <div class="box idea">
+    <span class="label">一个具体的碰撞</span>
+    <p>方程 \(y''-3y'+2y=e^x\)。特征方程 \(r^2-3r+2=0\) 的根是 \(r_1=1, r_2=2\)。<br>
+    如果你不设 \(x\) 修正，直接猜 \(y^*=Ae^x\)，代入左边：\(Ae^x-3Ae^x+2Ae^x=0\)，右边却是 \(e^x\)，永远不可能相等。<br>
+    原因？\(e^x\) 本身就是齐次方程的解！<br>
+    修正后设 \(y^*=Axe^x\)，代入可得 \(-Ae^x=e^x\)，于是 \(A=-1\)。</p>
   </div>
 
-  <div class="page-jump"><a href="11.1-first-order-problems.html">← 回一阶题型</a><a href="11.2-second-order-problems.html" class="primary">去练二阶题型 →</a></div>
+  <div class="box warn">
+    <span class="label">共振是最大丢分点</span>
+    <p>期末考试中，<strong>忘记乘 \(x^k\)</strong> 是待定系数法最常见的错误。判断方法很简单：看 \(f(x)\) 的"指数底" \(e^{\lambda x}\) 中的 \(\lambda\)（或三角型中的 \(\lambda\pm i\omega\)）是否在特征根列表里——在，就必须修正；不在，直接设。</p>
+  </div>
+
+  <h2 id="sec-intuition">🧠 直观理解</h2>
+
+  <h3>物理图景：弹簧振子</h3>
+  <p>二阶线性方程最经典的物理模型是<strong>弹簧振子</strong>：质量为 \(m\) 的物体连接劲度系数为 \(k\) 的弹簧，运动方程为</p>
+  <div class="formula-block">
+    \[m\ddot{x}+c\dot{x}+kx=F(t)\]
+    <div class="caption">\(c\) 为阻尼系数，\(F(t)\) 为外力</div>
+  </div>
+
+  <p>把各项除以 \(m\)，就是标准的 \(y''+py'+qy=f(x)\) 形式。</p>
+
+  <table>
+    <tr><th>数学对象</th><th>物理意义</th></tr>
+    <tr>
+      <td>齐次方程 \(y''+py'+qy=0\)</td>
+      <td><strong>自由振动</strong>：没有外力，系统只靠初始条件演化</td>
+    </tr>
+    <tr>
+      <td>齐次通解 \(Y\)</td>
+      <td>自由振动的固有模式——可能衰减（\(\alpha<0\)）、可能振荡（复根）</td>
+    </tr>
+    <tr>
+      <td>特解 \(y^*\)</td>
+      <td><strong>受迫响应</strong>：外力 \(f(x)\) "驱动"出的稳态运动</td>
+    </tr>
+    <tr>
+      <td>共振（\(\lambda\) 为特征根）</td>
+      <td>外力的"频率"恰好击中系统的<strong>固有频率</strong>，能量不断累积，振幅越来越大（需乘 \(x\) 修正）</td>
+    </tr>
+  </table>
+
+  <div class="box idea">
+    <span class="label">特征根与阻尼</span>
+    <p>特征根的<strong>实部</strong> \(\alpha\) 对应阻尼：\(\alpha<0\) 时振动随时间衰减；\(\alpha=0\) 时等幅振荡；\(\alpha>0\) 时发散（不稳定）。<br>
+    特征根的<strong>虚部</strong> \(\beta\) 对应振荡频率：\(\beta\) 越大，振动越快。</p>
+  </div>
+
+  <div class="box idea">
+    <span class="label">另一个模型：RLC 电路</span>
+    <p>电感 \(L\)、电阻 \(R\)、电容 \(C\) 串联电路中，电荷 \(q\) 满足 \(L\ddot{q}+R\dot{q}+\frac{1}{C}q=E(t)\)。这和弹簧振子方程数学上完全相同，只是符号不同。<strong>学好一个模型，等于同时学懂了两个领域。</strong></p>
+  </div>
+
+  <h2 id="sec-link">🔗 与前后知识的联系</h2>
+
+  <h3>与一阶线性的统一视角</h3>
+  <p>一阶线性方程 \(y'+P(x)y=Q(x)\) 的通解也是"齐次通解 + 特解"结构：先用分离变量求齐次解 \(Ce^{-\int Pdx}\)，再用常数变易法找一个特解。二阶方程把这个思想完全继承了下来，只是"找特解"的方法从常数变易换成了更简便的<strong>待定系数法</strong>（仅限常系数）。</p>
+
+  <div class="box note">
+    <span class="label">知识网络</span>
+    <ul>
+      <li><strong>向前</strong>：一阶线性方程的"齐次通解 + 特解"结构，在二阶这里发扬光大；常数变易法是通用方法，待定系数法是常系数下的快捷方式。</li>
+      <li><strong>横向</strong>：特征方程法把"微分"变成"代数"——这是整个微分方程领域最核心的思想之一（算子法、拉普拉斯变换都基于此）。</li>
+      <li><strong>向后</strong>：高阶常系数线性方程（三阶、四阶）完全套用同一套框架——写特征方程，按根写基解，待定系数设特解。维数升高，逻辑不变。</li>
+    </ul>
+  </div>
+
+  <h3>特征方程 ↔ 代数方程：降维的艺术</h3>
+  <p>微分方程处理的是"函数及其变化率"的无限维对象，特征方程法巧妙地把问题降到了有限维（二次方程只有两个根）。这是数学中反复出现的<strong>降维思想</strong>：格林公式把曲线积分降为二重积分，高斯公式把曲面积分降为三重积分，特征方程把微分方程降为代数方程。</p>
+
+  <div class="page-jump">
+    <a href="11.1-first-order-problems.html">← 回一阶题型</a>
+    <a href="11.2-second-order-problems.html" class="primary">去练二阶题型 →</a>
+  </div>
+
 </main>
+
 <button class="back-to-top" aria-label="回到顶部">↑</button>
-<footer class="site-footer">高数期末复习站 · 精心打磨每一类题的标准步骤<a href="../index.html">🏠 回首页</a></footer>
+<footer class="site-footer">
+  高数期末复习站 · 精心打磨每一类题的标准步骤<a href="../index.html">🏠 回首页</a>
+</footer>
+
 <script src="../js/site.js"></script>
-</body></html>
+</body>
+</html>

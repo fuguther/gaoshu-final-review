@@ -1,59 +1,310 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>10.3 傅里叶级数 · 讲解</title>
-<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'},options:{enableMenu:false}};</script><script id="MathJax-script" async src="https://cdn.jsdmirror.com/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<link rel="preconnect" href="https://fonts.loli.net"><link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10.3 傅里叶级数 · 讲解</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  svg: { fontCache: 'global' },
+  options: { enableMenu: false }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdmirror.com/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="preconnect" href="https://fonts.loli.net">
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
 <link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/design-system.css">
-</head><body><div class="reading-progress"></div>
-<nav class="topnav"><div class="topnav-inner">
-<a href="../index.html" class="logo">高数期末复习站</a><span class="sep">|</span>
-<div class="dropdown"><button class="dropdown-toggle">第9章 ▾</button><div class="dropdown-menu"><a href="../ch9/9.0-overview.html">章节导学</a><a href="../ch9/9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a><a href="../ch9/9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a><a href="../ch9/9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a><a href="../ch9/9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a><a href="../ch9/9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a><a href="../ch9/9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a></div></div>
-<div class="dropdown"><button class="dropdown-toggle">第10章 ▾</button><div class="dropdown-menu"><a href="10.0-overview.html">章节导学</a><a href="10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a><a href="10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a><a href="10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a><a href="10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a><a href="10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a><a href="10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a></div></div>
-<div class="dropdown"><button class="dropdown-toggle">第11章 ▾</button><div class="dropdown-menu"><a href="../ch11/11.0-overview.html">章节导学</a><a href="../ch11/11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a><a href="../ch11/11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a><a href="../ch11/11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a><a href="../ch11/11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a></div></div>
-<a href="../exams/index.html" class="item">往年题</a><a href="../tips/index.html" class="item">技巧锦囊</a><button class="theme-toggle" aria-label="切换主题">🌙</button>
-</div></nav>
+</head>
+<body>
+
+<div class="reading-progress"></div>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="logo">高数期末复习站</a>
+    <span class="sep">|</span>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第9章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch9/9.0-overview.html">章节导学</a>
+        <a href="../ch9/9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a>
+        <a href="../ch9/9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a>
+        <a href="../ch9/9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第10章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="10.0-overview.html">章节导学</a>
+        <a href="10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a>
+        <a href="10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a>
+        <a href="10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a>
+        <a href="10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a>
+        <a href="10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a>
+        <a href="10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第11章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch11/11.0-overview.html">章节导学</a>
+        <a href="../ch11/11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a>
+        <a href="../ch11/11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <a href="../exams/index.html" class="item">往年题</a>
+    <a href="../tips/index.html" class="item">技巧锦囊</a>
+    <button class="theme-toggle" aria-label="切换主题">🌙</button>
+  </div>
+</nav>
+
 <main class="main">
-<div class="hero"><span class="tag">10.3 · 讲解</span><h1>傅里叶级数 <span class="em">把函数拆成波的叠加</span></h1><p class="subtitle">一句话：傅里叶级数用无穷多个正弦/余弦波的叠加来表示一个周期函数。考试考两件事：求 S(x) 和做展开。</p></div>
-<div class="inpage-toc"><h4>本页导航</h4><ul><li><a href="#sec-formula">系数公式</a></li><li><a href="#sec-dirichlet">Dirichlet 定理（求 S(x)）</a></li><li><a href="#sec-odd-even">奇偶延拓</a></li><li><a href="#sec-summary">考场速记</a></li></ul></div>
 
-<h2 id="sec-formula">📐 傅里叶系数公式</h2>
-<p>设 \(f(x)\) 周期为 \(2l\)，则</p>
-<div class="formula-block">
-\[a_0 = \frac{1}{l}\int_{-l}^{l} f(x)\,dx, \quad a_n = \frac{1}{l}\int_{-l}^{l} f(x)\cos\frac{n\pi x}{l}\,dx, \quad b_n = \frac{1}{l}\int_{-l}^{l} f(x)\sin\frac{n\pi x}{l}\,dx\]
-</div>
-<p>傅里叶级数：\(\displaystyle\frac{a_0}{2} + \sum_{n=1}^{\infty}\left(a_n\cos\frac{n\pi x}{l} + b_n\sin\frac{n\pi x}{l}\right)\)</p>
+  <div class="hero">
+    <span class="tag">10.3 · 讲解</span>
+    <h1>傅里叶级数 <span class="em">把函数拆成波的叠加</span></h1>
+    <p class="subtitle">一句话：<strong>任何周期函数都可以分解成一系列正弦/余弦谐波的叠加。</strong>考试考两件事：求和函数 \(S(x)\) 在特定点的值，以及把一个给定函数展开成傅里叶级数。</p>
+  </div>
 
-<h2 id="sec-dirichlet">🔔 Dirichlet 定理：求 S(x)</h2>
-<div class="box key"><span class="label">核心结论（必背）</span>
-<p>设 \(f(x)\) 在一个周期内只有有限个第一类间断点和有限个极值点，则其傅里叶级数收敛，和函数 \(S(x)\) 为：</p>
-<div class="formula-block">
-\[S(x) = \begin{cases} f(x), & \text{若 } x \text{ 是连续点} \\ \displaystyle\frac{f(x^+)+f(x^-)}{2}, & \text{若 } x \text{ 是间断点} \end{cases}\]
-</div>
-</box>
+  <div class="inpage-toc">
+    <h4>本页导航</h4>
+    <ul>
+      <li><a href="#sec-essence">一句话本质</a></li>
+      <li><a href="#sec-why">为什么要傅里叶级数</a></li>
+      <li><a href="#sec-formula">傅里叶系数与 Dirichlet 定理</a></li>
+      <li><a href="#sec-intuition">直观理解：频谱与谐波</a></li>
+      <li><a href="#sec-link">与前后知识的联系</a></li>
+      <li><a href="#sec-summary">考场速记</a></li>
+    </ul>
+  </div>
 
-<div class="box idea"><span class="label">端点注意</span>
-<p>在区间端点 \(x=\pm l\) 处，\(S(\pm l) = \displaystyle\frac{f(l^-)+f(-l^+)}{2}\)。也就是说，要看<strong>周期延拓后</strong>的左右极限，不是原函数在端点的值。</p>
-</div>
+  <h2 id="sec-essence">💡 一句话本质</h2>
+  <div class="formula-block">
+    <p style="font-size:18px; margin:0;">周期函数 \(f(x)\) = 直流分量 \(\frac{a_0}{2}\) + 一次谐波 + 二次谐波 + ……<br>
+    每个谐波都是正弦/余弦波，系数 \(a_n, b_n\) 告诉它"占多少比重"。</p>
+  </div>
 
-<h2 id="sec-odd-even">📐 奇偶延拓</h2>
-<table>
-<tr><th>类型</th><th>条件</th><th>结果</th></tr>
-<tr><td>偶延拓</td><td>把 \([0,l]\) 上的 \(f(x)\) 偶延拓到 \([-l,l]\)</td><td>\(b_n=0\)，只含余弦项（\(a_n\) 不全为0）</td></tr>
-<tr><td>奇延拓</td><td>把 \([0,l]\) 上的 \(f(x)\) 奇延拓到 \([-l,l]\)</td><td>\(a_n=0\)（包括 \(a_0\)），只含正弦项（\(b_n\) 不全为0）</td></tr>
-</table>
+  <h2 id="sec-why">📖 为什么要傅里叶级数</h2>
 
-<h2 id="sec-summary">📋 考场速记</h2>
-<div class="steps">
-<div class="step"><div class="step-num">1</div><div class="step-body"><h4>求 S(x)</h4><p>连续点 \(S=f\)；间断点 \(S=\) 左右极限平均；端点看周期延拓后的极限。</p></div></div>
-<div class="step"><div class="step-num">2</div><div class="step-body"><h4>做展开</h4><p>算 \(a_0, a_n, b_n\) 三个积分，代公式。注意奇偶性可简化计算。</p></div></div>
-</div>
+  <h3>从物理说起：信号分解</h3>
+  <p>你听到的声音、看到的图像、传输的无线电波，本质上都是<strong>周期信号</strong>。一种自然的问题是：能不能把一个复杂的信号拆成简单的"基元"？</p>
+  <p>答案是能——而且最自然的基元就是<strong>正弦波和余弦波</strong>。一个复杂的声音，其实是基频（决定音高）加上一系列泛音（决定音色）的叠加。钢琴和小提琴发出同一个音高的音符，区别就在于各次谐波的比重不同。</p>
 
-<div class="box warn"><span class="label">常见错误</span>
-<p>\(a_0\) 的公式里有系数 \(\frac{1}{l}\)，但傅里叶级数里写的是 \(\frac{a_0}{2}\)，不是 \(a_0\)。</p>
-</div>
+  <div class="box idea">
+    <span class="label">经典比喻</span>
+    <p>交响乐团演奏同一个音符：小提琴的泛音丰富、长笛的泛音少、单簧管的谐波分布又不一样。傅里叶级数告诉我们——<strong>任何乐器的音色，都唯一对应一组 \(a_n, b_n\) 系数</strong>，这组系数就是它的"频谱指纹"。</p>
+  </div>
 
-<div class="page-jump"><a href="10.2-power-problems.html">← 回幂级数题型</a><a href="10.3-fourier-problems.html" class="primary">去练傅里叶题型 →</a></div>
-</main><button class="back-to-top" aria-label="回到顶部">↑</button>
-<footer class="site-footer">高数期末复习站 · 精心打磨每一类题的标准步骤<a href="../index.html">🏠 回首页</a></footer>
+  <h3>与泰勒展开的对比</h3>
+  <p>泰勒级数也是"把一个函数拆成简单函数之和"，但它用的是幂函数 \(1, x, x^2, x^3, \dots\)，逼近的是函数在某一点附近的<strong>局部</strong>行为。傅里叶级数用的是三角函数，描述的是函数在整个周期上的<strong>全局</strong>结构。</p>
+
+  <table>
+    <tr><th>对比项</th><th>泰勒级数</th><th>傅里叶级数</th></tr>
+    <tr>
+      <td><strong>基函数</strong></td>
+      <td>幂函数 \(x^n\)</td>
+      <td>三角函数 \(\cos\frac{n\pi x}{l}, \sin\frac{n\pi x}{l}\)</td>
+    </tr>
+    <tr>
+      <td><strong>逼近范围</strong></td>
+      <td>某一点 \(x_0\) 的局部邻域</td>
+      <td>整个周期区间 \([-l, l]\)</td>
+    </tr>
+    <tr>
+      <td><strong>收敛意义</strong></td>
+      <td>逐点收敛于 \(f(x)\)（在收敛半径内）</td>
+      <td>在连续点收敛于 \(f(x)\)，在间断点收敛于左右极限平均</td>
+    </tr>
+    <tr>
+      <td><strong>对函数要求</strong></td>
+      <td>需要无穷阶可导</td>
+      <td>只需要可积、有限个间断点和极值点</td>
+    </tr>
+    <tr>
+      <td><strong>典型应用</strong></td>
+      <td>近似计算、求高阶导数</td>
+      <td>信号处理、频谱分析、解偏微分方程</td>
+    </tr>
+  </table>
+
+  <div class="box idea">
+    <span class="label">关键区别</span>
+    <p>泰勒展开"盯着一个点"把函数展开；傅里叶展开"铺开在整个周期"把函数拆成波的叠加。泰勒要求函数"光滑"（能求任意阶导），傅里叶只要求函数"不太坏"（有限个间断点和极值点即可）。</p>
+  </div>
+
+  <h2 id="sec-formula">📐 傅里叶系数公式与 Dirichlet 收敛定理</h2>
+
+  <h3>一般区间 \([-l, l]\) 上的系数</h3>
+  <p>设 \(f(x)\) 以 \(2l\) 为周期，且在 \([-l, l]\) 上可积，则其傅里叶系数为：</p>
+  <div class="formula-block">
+    \[a_0 = \frac{1}{l}\int_{-l}^{l} f(x)\,dx, \quad a_n = \frac{1}{l}\int_{-l}^{l} f(x)\cos\frac{n\pi x}{l}\,dx, \quad b_n = \frac{1}{l}\int_{-l}^{l} f(x)\sin\frac{n\pi x}{l}\,dx \quad (n=1,2,3,\dots)\]
+  </div>
+  <p>对应的傅里叶级数为：</p>
+  <div class="formula-block">
+    \[\frac{a_0}{2} + \sum_{n=1}^{\infty}\left(a_n\cos\frac{n\pi x}{l} + b_n\sin\frac{n\pi x}{l}\right)\]
+  </div>
+
+  <h3>特例：区间 \([-\pi, \pi]\)</h3>
+  <p>当 \(l = \pi\) 时，公式简化为最常见的形式：</p>
+  <div class="formula-block">
+    \[a_0 = \frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\,dx, \quad a_n = \frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\cos nx\,dx, \quad b_n = \frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\sin nx\,dx\]
+    \[\frac{a_0}{2} + \sum_{n=1}^{\infty}(a_n\cos nx + b_n\sin nx)\]
+  </div>
+
+  <div class="box warn">
+    <span class="label">注意 \(a_0\) 的系数</span>
+    <p>系数公式里 \(a_0\) 的积分前是 \(\frac{1}{l}\)（或 \(\frac{1}{\pi}\)），但级数里写的是 \(\frac{a_0}{2}\)，不是 \(a_0\)。这是一个高频易错点：算出 \(a_0\) 后代入级数时<strong>别忘了除以 2</strong>。</p>
+  </div>
+
+  <h3>Dirichlet 收敛定理</h3>
+  <p>算出了系数，级数到底等于什么？Dirichlet 定理给出了精确回答：</p>
+
+  <div class="box key">
+    <span class="label">Dirichlet 定理（必背）</span>
+    <p>设 \(f(x)\) 在一个周期内满足：</p>
+    <ul>
+      <li><strong>连续性条件</strong>：连续或只有<strong>有限个</strong>第一类间断点；</li>
+      <li><strong>单调性条件</strong>：只有<strong>有限个</strong>极值点。</li>
+    </ul>
+    <p>则其傅里叶级数处处收敛，和函数 \(S(x)\) 为：</p>
+    <div class="formula-block">
+      \[S(x) = \begin{cases} f(x), & \text{若 } x \text{ 是 } f \text{ 的连续点} \\ \displaystyle\frac{f(x^+)+f(x^-)}{2}, & \text{若 } x \text{ 是 } f \text{ 的第一类间断点} \end{cases}\]
+    </div>
+    <p>在区间端点 \(x = \pm l\) 处，\(S(\pm l) = \displaystyle\frac{f(-l^+)+f(l^-)}{2}\)。</p>
+  </div>
+
+  <div class="box idea">
+    <span class="label">端点怎么理解？</span>
+    <p>端点 \(x = l\) 处的收敛值，取决于<strong>周期延拓后</strong> \(l\) 点的左右极限——也就是 \(f\) 在右端点的左极限 \(f(l^-)\) 和左端点的右极限 \(f(-l^+)\) 的平均。不要直接代入原函数在端点的值。</p>
+  </div>
+
+  <div class="box warn">
+    <span class="label">间断点 ≠ 不收敛</span>
+    <p>Dirichlet 定理保证：即使 \(f(x)\) 有跳跃间断点，傅里叶级数仍然<strong>收敛</strong>——只是收敛到跳跃处的"中点"。这与泰勒级数形成鲜明对比：泰勒级数在间断点附近往往发散。</p>
+  </div>
+
+  <h2 id="sec-intuition">🧠 直观理解：频谱与谐波叠加</h2>
+
+  <h3>每个系数是一个"权重"</h3>
+  <p>\(a_n\) 和 \(b_n\) 的物理意义是：第 \(n\) 次谐波在总信号中占多少比重。</p>
+  <ul>
+    <li>\(n=1\) 对应<strong>基波</strong>（基频），决定音高或基本周期；</li>
+    <li>\(n=2,3,\dots\) 对应<strong>二次、三次谐波</strong>（泛音），决定"音色"或细节结构；</li>
+    <li>\(a_0/2\) 是直流分量（信号的平均值）。</li>
+  </ul>
+
+  <div class="box idea">
+    <span class="label">经典比喻：调音台</span>
+    <p>想象一个调音台，每个推子控制一个频率通道。\(a_n, b_n\) 就是第 \(n\) 个推子的刻度。把基波推大、泛音推小，得到纯净的纯音；把高次泛音推大，得到尖锐刺耳的声音。<strong>傅里叶级数就是数学上的"调音台拆解"。</strong></p>
+  </div>
+
+  <h3>Gibbs 现象</h3>
+  <p>在函数的跳跃间断点附近，傅里叶级数的部分和会出现一个"过冲"——即使取越来越多的项，过冲的幅度也不会完全消失，而是趋近于跳跃高度的约 9%。这就是著名的 <strong>Gibbs 现象</strong>。</p>
+  <p>直观理解：用光滑的正弦波去逼近一个"陡峭的台阶"，在台阶边缘附近总会"用力过猛"一点。这个现象说明：在间断点附近，傅里叶级数的收敛是<strong>逐点</strong>的，但不是<strong>一致</strong>的。</p>
+
+  <h2 id="sec-link">🔗 与前后知识的联系</h2>
+
+  <h3>奇偶函数的简化：正弦级数与余弦级数</h3>
+  <p>如果 \(f(x)\) 具有奇偶性，傅里叶系数会大幅简化：</p>
+
+  <table>
+    <tr><th>类型</th><th>条件</th><th>系数特点</th><th>级数形式</th></tr>
+    <tr>
+      <td><strong>偶函数</strong></td>
+      <td>\(f(-x)=f(x)\)</td>
+      <td>\(b_n = 0\)（所有正弦项消失）</td>
+      <td>\(\frac{a_0}{2} + \sum a_n\cos\frac{n\pi x}{l}\)（余弦级数）</td>
+    </tr>
+    <tr>
+      <td><strong>奇函数</strong></td>
+      <td>\(f(-x)=-f(x)\)</td>
+      <td>\(a_0 = 0,\; a_n = 0\)（所有余弦项消失）</td>
+      <td>\(\sum b_n\sin\frac{n\pi x}{l}\)（正弦级数）</td>
+    </tr>
+  </table>
+
+  <div class="box idea">
+    <span class="label">为什么奇函数只剩正弦？</span>
+    <p>正弦函数 \(\sin nx\) 本身是奇函数，余弦函数 \(\cos nx\) 本身是偶函数。用奇函数去"匹配"偶函数的基，内积自然为零——这就是 \(a_n = 0\) 的几何直观。</p>
+  </div>
+
+  <h3>奇偶延拓：从 \([0,l]\) 到 \([-l,l]\)</h3>
+  <p>实际题目常常只给出 \([0,l]\) 上的函数 \(f(x)\)，要求展开成<strong>正弦级数</strong>或<strong>余弦级数</strong>。这时候需要做延拓：</p>
+  <ul>
+    <li><strong>偶延拓</strong>：在 \([-l,0)\) 上定义 \(f(-x)=f(x)\)，得到偶函数，展开后只有余弦项；</li>
+    <li><strong>奇延拓</strong>：在 \([-l,0)\) 上定义 \(f(-x)=-f(x)\)，得到奇函数，展开后只有正弦项。</li>
+  </ul>
+
+  <div class="box key">
+    <span class="label">考试常用公式（\([0,l]\) 上的正弦/余弦展开）</span>
+    <p><strong>正弦级数</strong>（奇延拓）：\(a_n = 0\)，\(\displaystyle b_n = \frac{2}{l}\int_{0}^{l} f(x)\sin\frac{n\pi x}{l}\,dx\)</p>
+    <p><strong>余弦级数</strong>（偶延拓）：\(b_n = 0\)，\(\displaystyle a_n = \frac{2}{l}\int_{0}^{l} f(x)\cos\frac{n\pi x}{l}\,dx\)</p>
+    <p>注意积分区间变成 \([0,l]\)，前面系数变成 \(\frac{2}{l}\)。</p>
+  </div>
+
+  <div class="box note">
+    <span class="label">知识网络</span>
+    <ul>
+      <li><strong>向前</strong>：第10章前面学了数项级数（判断敛散）和幂级数（泰勒展开），傅里叶级数是"函数展开成级数"的第三种形式，也是工程应用最广的一种。</li>
+      <li><strong>横向</strong>：傅里叶级数与线性代数中的"正交分解"本质相同——\(\cos nx\) 和 \(\sin nx\) 构成一组正交基，系数 \(a_n, b_n\) 就是函数在这组基上的"坐标"。</li>
+      <li><strong>向后</strong>：后续专业课（信号与系统、数字信号处理、偏微分方程）中，傅里叶变换、离散傅里叶变换（DFT）、快速傅里叶变换（FFT）都是这里的直接推广。</li>
+    </ul>
+  </div>
+
+  <h2 id="sec-summary">📋 考场速记</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>求 \(S(x)\) 在某点的值</h4>
+        <p>先判断该点是<strong>连续点</strong>、<strong>间断点</strong>还是<strong>端点</strong>。</p>
+        <p>连续点：\(S(x)=f(x)\)；间断点：\(S(x)=\frac{1}{2}[\text{左极限}+\text{右极限}]\)；端点：\(S(\pm l)=\frac{1}{2}[f(-l^+)+f(l^-)]\)。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>做傅里叶展开</h4>
+        <p>算 \(a_0, a_n, b_n\) 三个积分 → 代入级数公式。先看<strong>奇偶性</strong>，可能直接省掉一半计算。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>只做正弦/余弦展开</h4>
+        <p>题目给 \([0,l]\) 上的 \(f(x)\) 并要求正弦/余弦级数 → 先判断是<strong>奇延拓</strong>还是<strong>偶延拓</strong>，再用 \(\frac{2}{l}\int_0^l\) 算系数。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="box warn">
+    <span class="label">三大易错点</span>
+    <ul>
+      <li>\(a_0\) 公式里是 \(\frac{1}{l}\int\)，级数里写的是 \(\frac{a_0}{2}\)——<strong>常忘除 2</strong>；</li>
+      <li>端点 \(x=\pm l\) 的 \(S(x)\) 要看<strong>周期延拓</strong>后的左右极限，不是原函数端点值；</li>
+      <li>\([0,l]\) 上做正弦/余弦展开时，积分限是 \(0\) 到 \(l\)，系数前面是 \(\frac{2}{l}\) 不是 \(\frac{1}{l}\)。</li>
+    </ul>
+  </div>
+
+  <div class="page-jump">
+    <a href="10.2-power-problems.html">← 回幂级数题型</a>
+    <a href="10.3-fourier-problems.html" class="primary">去练傅里叶题型 →</a>
+  </div>
+
+</main>
+
+<button class="back-to-top" aria-label="回到顶部">↑</button>
+<footer class="site-footer">
+  高数期末复习站 · 精心打磨每一类题的标准步骤<a href="../index.html">🏠 回首页</a>
+</footer>
+
 <script src="../js/site.js"></script>
-</body></html>
+</body>
+</html>

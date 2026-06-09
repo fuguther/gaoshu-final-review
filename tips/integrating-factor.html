@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>积分因子速找 · 技巧锦囊</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  svg: { fontCache: 'global' },
+  options: { enableMenu: false }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdmirror.com/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="preconnect" href="https://fonts.loli.net">
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+<link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/design-system.css">
+</head>
+<body>
+
+<div class="reading-progress"></div>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="logo">高数期末复习站</a>
+    <span class="sep">|</span>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第9章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch9/9.0-overview.html">章节导学</a>
+        <a href="../ch9/9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a>
+        <a href="../ch9/9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a>
+        <a href="../ch9/9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第10章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch10/10.0-overview.html">章节导学</a>
+        <a href="../ch10/10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第11章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch11/11.0-overview.html">章节导学</a>
+        <a href="../ch11/11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a>
+        <a href="../ch11/11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <a href="../exams/index.html" class="item">往年题</a>
+    <a href="index.html" class="item active">技巧锦囊</a>
+    <button class="theme-toggle" aria-label="切换主题">🌙</button>
+  </div>
+</nav>
+
+<main class="main">
+
+  <div class="breadcrumb">
+    <a href="../index.html">首页</a>
+    <span class="sep">›</span>
+    <a href="index.html">技巧锦囊</a>
+    <span class="sep">›</span>
+    <span>积分因子速找</span>
+  </div>
+
+  <div class="hero">
+    <span class="tag">技巧锦囊</span>
+    <h1>积分因子 <span class="em">速找与凑微分</span></h1>
+    <p class="subtitle">一阶线性直接套公式；非恰当方程先判只含 x 还是只含 y；<br>常见凑微分组合背熟，考场上能省一半草稿纸。</p>
+  </div>
+
+  <div class="inpage-toc">
+    <h4>本页导航</h4>
+    <ul>
+      <li><a href="#sec-linear">一阶线性方程的积分因子</a></li>
+      <li><a href="#sec-exact">非恰当方程化恰当</a></li>
+      <li><a href="#sec-table">常见可凑微分组合速查表</a></li>
+      <li><a href="#sec-examples">例题精选</a></li>
+    </ul>
+  </div>
+
+  <h2 id="sec-linear">一阶线性方程的积分因子</h2>
+
+  <p>标准形式：</p>
+  <div class="formula-block">
+    \[\frac{dy}{dx}+P(x)y=Q(x)\]
+  </div>
+
+  <p>积分因子直接写：</p>
+  <div class="formula-block">
+    \[\mu(x)=e^{\int P(x)\,dx}\]
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>把方程化为标准形式</h4>
+        <p>确保 \(y'\) 系数为 1，即写成 \(y'+P(x)y=Q(x)\)。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>计算积分因子</h4>
+        <p>\(\mu=e^{\int P(x)\,dx}\)，<strong>不必加积分常数</strong>，取最简形式即可。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>两边同乘积分因子</h4>
+        <p>左边自动化为 \((\mu y)'\)，然后两边积分。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="box key">
+    <span class="label">记忆口诀</span>
+    <p><strong>"标准形式先化好，积分因子 e 的积；两边一乘左边整，直接积分出通解。"</strong></p>
+  </div>
+
+  <h2 id="sec-exact">非恰当方程化恰当</h2>
+
+  <p>给定 \(M(x,y)\,dx+N(x,y)\,dy=0\)，先检验恰当性：</p>
+  <div class="formula-block">
+    \[\frac{\partial M}{\partial y}=\frac{\partial N}{\partial x}\ ?\]
+  </div>
+
+  <p>若不恰当，尝试找只含单变量的积分因子：</p>
+
+  <div class="decision-tree">
+    <div class="node question">计算 \(\dfrac{M_y-N_x}{N}\)</div>
+    <div class="arrow">├─ 结果<strong>只含 x</strong> → 积分因子 \(\mu(x)=e^{\int \frac{M_y-N_x}{N}\,dx}\)</div>
+    <div class="arrow">└─ 结果含 y → 换一条路</div>
+    <div class="node question">计算 \(\dfrac{N_x-M_y}{M}\)</div>
+    <div class="arrow">├─ 结果<strong>只含 y</strong> → 积分因子 \(\mu(y)=e^{\int \frac{N_x-M_y}{M}\,dy}\)</div>
+    <div class="arrow">└─ 结果仍含 x → 积分因子不是单变量，需另寻他法</div>
+  </div>
+
+  <div class="box warn">
+    <span class="label">注意符号</span>
+    <p>判 x 只用时分子是 \(M_y-N_x\)；判 y 只用时分子是 \(N_x-M_y\)。两个公式分子符号相反，不要记混。</p>
+  </div>
+
+  <h2 id="sec-table">常见可凑微分组合速查表</h2>
+
+  <p>以下组合在考场上反复出现，直接认出可大幅提速：</p>
+
+  <table>
+    <tr>
+      <th>被积表达式</th>
+      <th>凑微分结果</th>
+      <th>识别信号</th>
+    </tr>
+    <tr>
+      <td>\(y\,dx+x\,dy\)</td>
+      <td>\(d(xy)\)</td>
+      <td>两项对称，系数都是 1</td>
+    </tr>
+    <tr>
+      <td>\(x\,dx+y\,dy\)</td>
+      <td>\(d\left(\dfrac{x^2+y^2}{2}\right)\)</td>
+      <td>各自对自己变量微分</td>
+    </tr>
+    <tr>
+      <td>\(\dfrac{x\,dy-y\,dx}{x^2}\)</td>
+      <td>\(d\left(\dfrac{y}{x}\right)\)</td>
+      <td>分母 \(x^2\)，分子交叉</td>
+    </tr>
+    <tr>
+      <td>\(\dfrac{y\,dx-x\,dy}{y^2}\)</td>
+      <td>\(d\left(\dfrac{x}{y}\right)\)</td>
+      <td>分母 \(y^2\)，分子交叉</td>
+    </tr>
+    <tr>
+      <td>\(\dfrac{x\,dy-y\,dx}{x^2+y^2}\)</td>
+      <td>\(d\left(\arctan\dfrac{y}{x}\right)\)</td>
+      <td>分母是和，分子交叉</td>
+    </tr>
+    <tr>
+      <td>\(\dfrac{x\,dx+y\,dy}{x^2+y^2}\)</td>
+      <td>\(d\left(\dfrac{1}{2}\ln(x^2+y^2)\right)\)</td>
+      <td>分母是和，分子各自</td>
+    </tr>
+    <tr>
+      <td>\(y^2\,dx+2xy\,dy\)</td>
+      <td>\(d(xy^2)\)</td>
+      <td>一项只含 x，一项交叉</td>
+    </tr>
+  </table>
+
+  <div class="box idea">
+    <span class="label">凑微分技巧</span>
+    <p>拿到 \(M\,dx+N\,dy\)，先扫一眼有没有上表中的<strong>整体结构</strong>。如果没有，试试把各项拆成"已知组合 ± 剩余"，剩余部分再检验是否恰当或继续凑。</p>
+  </div>
+
+  <h2 id="sec-examples">例题精选</h2>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 1</span>
+      <span class="title">一阶线性 · 标准套公式</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        求微分方程 \(y'+\dfrac{2}{x}y=x^2\) 的通解。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　已是标准形式，\(P(x)=\dfrac{2}{x},\ Q(x)=x^2\)。</p>
+      <p><strong>Step 2</strong>　积分因子：</p>
+      <div class="formula-block">
+        \[\mu(x)=e^{\int \frac{2}{x}\,dx}=e^{2\ln|x|}=x^2\]
+      </div>
+      <p><strong>Step 3</strong>　两边同乘 \(x^2\)：</p>
+      <div class="formula-block">
+        \[x^2y'+2xy=x^4\quad\Longrightarrow\quad (x^2y)'=x^4\]
+      </div>
+      <p><strong>Step 4</strong>　积分：</p>
+      <div class="formula-block">
+        \[x^2y=\int x^4\,dx=\frac{x^5}{5}+C\]
+      </div>
+      <p><strong>答案：</strong>\(\boxed{y=\dfrac{x^3}{5}+\dfrac{C}{x^2}}\)</p>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 2</span>
+      <span class="title">非恰当方程 · 只含 x 的积分因子</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        求解 \((2xy^3-y)\,dx+(x^2y^2+x)\,dy=0\)。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　检验恰当性。\(M=2xy^3-y,\ N=x^2y^2+x\)：</p>
+      <div class="formula-block">
+        \[M_y=6xy^2-1,\quad N_x=2xy^2+1\]
+      </div>
+      <p>\(M_y\neq N_x\)，不恰当。</p>
+      <p><strong>Step 2</strong>　试探只含 x 的积分因子：</p>
+      <div class="formula-block">
+        \[\frac{M_y-N_x}{N}=\frac{6xy^2-1-(2xy^2+1)}{x^2y^2+x}=\frac{4xy^2-2}{x(xy^2+1)}\]
+      </div>
+      <p>含 y，不行。再试只含 y：</p>
+      <div class="formula-block">
+        \[\frac{N_x-M_y}{M}=\frac{2xy^2+1-(6xy^2-1)}{2xy^3-y}=\frac{-4xy^2+2}{y(2xy^2-1)}=\frac{-2(2xy^2-1)}{y(2xy^2-1)}=-\frac{2}{y}\]
+      </div>
+      <p>只含 y！积分因子：</p>
+      <div class="formula-block">
+        \[\mu(y)=e^{\int -\frac{2}{y}\,dy}=e^{-2\ln|y|}=\frac{1}{y^2}\]
+      </div>
+      <p><strong>Step 3</strong>　同乘 \(\dfrac{1}{y^2}\)：</p>
+      <div class="formula-block">
+        \[\left(2xy-\frac{1}{y}\right)dx+\left(x^2+\frac{x}{y^2}\right)dy=0\]
+      </div>
+      <p>验证：\(\dfrac{\partial}{\partial y}\left(2xy-\dfrac{1}{y}\right)=2x+\dfrac{1}{y^2}=\dfrac{\partial}{\partial x}\left(x^2+\dfrac{x}{y^2}\right)\)，恰当。</p>
+      <p><strong>Step 4</strong>　凑全微分。观察得：</p>
+      <div class="formula-block">
+        \[d(x^2y)+d\left(-\frac{x}{y}\right)=0\quad\Longrightarrow\quad d\left(x^2y-\frac{x}{y}\right)=0\]
+      </div>
+      <p><strong>答案：</strong>\(\boxed{x^2y-\dfrac{x}{y}=C}\)（或等价地 \(x^2y^2-x=Cy\)）</p>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 3</span>
+      <span class="title">凑微分 · 直接认出组合</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        求解 \((x+y)\,dx+(x-y)\,dy=0\)。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　拆项重组：</p>
+      <div class="formula-block">
+        \[x\,dx-y\,dy+y\,dx+x\,dy=0\]
+      </div>
+      <p><strong>Step 2</strong>　认出两组凑微分：</p>
+      <div class="formula-block">
+        \[d\left(\frac{x^2-y^2}{2}\right)+d(xy)=0\]
+      </div>
+      <p><strong>答案：</strong>\(\boxed{x^2-y^2+2xy=C}\)</p>
+    </div>
+  </div>
+
+  <div class="box key">
+    <span class="label">考场速判流程</span>
+    <p>拿到 \(M\,dx+N\,dy=0\)：
+    <br>① 先看是不是一阶线性（能解出 \(y'\)）→ 套积分因子公式；
+    <br>② 再看是不是恰当（\(M_y=N_x\)）→ 直接凑或积分求势函数；
+    <br>③ 不恰当 → 算 \(\dfrac{M_y-N_x}{N}\) 和 \(\dfrac{N_x-M_y}{M}\)，看是否单变量 → 找积分因子；
+    <br>④ 以上都不行 → 拆项观察常见凑微分组合，或尝试换元（齐次方程令 \(u=y/x\)）。</p>
+  </div>
+
+  <div class="page-jump">
+    <a href="index.html">&larr; 回技巧总览</a>
+    <a href="power-series-models.html" class="primary">幂级数求和模型 &rarr;</a>
+  </div>
+
+</main>
+
+<button class="back-to-top" aria-label="回到顶部">↑</button>
+<footer class="site-footer">
+  高数期末复习站 · 精心打磨每一类题的标准步骤<a href="../index.html">🏠 回首页</a>
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>幂级数求和模型 · 技巧锦囊</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  svg: { fontCache: 'global' },
+  options: { enableMenu: false }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdmirror.com/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="preconnect" href="https://fonts.loli.net">
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+<link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/design-system.css">
+</head>
+<body>
+
+<div class="reading-progress"></div>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="logo">高数期末复习站</a>
+    <span class="sep">|</span>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第9章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch9/9.0-overview.html">章节导学</a>
+        <a href="../ch9/9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a>
+        <a href="../ch9/9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a>
+        <a href="../ch9/9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第10章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch10/10.0-overview.html">章节导学</a>
+        <a href="../ch10/10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第11章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch11/11.0-overview.html">章节导学</a>
+        <a href="../ch11/11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a>
+        <a href="../ch11/11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a>
+        <a href="../ch11/11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a>
+      </div>
+    </div>
+    <a href="../exams/index.html" class="item">往年题</a>
+    <a href="index.html" class="item active">技巧锦囊</a>
+    <button class="theme-toggle" aria-label="切换主题">🌙</button>
+  </div>
+</nav>
+
+<main class="main">
+
+  <div class="breadcrumb">
+    <a href="../index.html">首页</a>
+    <span class="sep">›</span>
+    <a href="index.html">技巧锦囊</a>
+    <span class="sep">›</span>
+    <span>幂级数求和模型</span>
+  </div>
+
+  <div class="hero">
+    <span class="tag">技巧锦囊</span>
+    <h1>幂级数求和 <span class="em">模型与套路</span></h1>
+    <p class="subtitle">几乎所有幂级数求和都能归到"几何级数族"或"标准展开反用"这两条主线上。<br>关键是认出模型，选对操作（求导/积分/错位/代换）。</p>
+  </div>
+
+  <div class="inpage-toc">
+    <h4>本页导航</h4>
+    <ul>
+      <li><a href="#sec-geo">几何级数族及其衍生</a></li>
+      <li><a href="#sec-manip">错位相减、变量代换与提取因子</a></li>
+      <li><a href="#sec-expand">标准展开反用</a></li>
+      <li><a href="#sec-examples">例题精选</a></li>
+    </ul>
+  </div>
+
+  <h2 id="sec-geo">几何级数族及其衍生</h2>
+
+  <p>一切的基础：</p>
+  <div class="formula-block">
+    \[\sum_{n=0}^{\infty}x^n=\frac{1}{1-x},\qquad |x|<1\]
+  </div>
+
+  <p>由此出发，通过逐项求导、逐项积分得到最常用的一组模型：</p>
+
+  <table>
+    <tr>
+      <th>级数形式</th>
+      <th>和函数</th>
+      <th>操作</th>
+    </tr>
+    <tr>
+      <td>\(\displaystyle\sum_{n=0}^{\infty}x^n\)</td>
+      <td>\(\dfrac{1}{1-x}\)</td>
+      <td>母级数</td>
+    </tr>
+    <tr>
+      <td>\(\displaystyle\sum_{n=1}^{\infty}nx^{n-1}\)</td>
+      <td>\(\dfrac{1}{(1-x)^2}\)</td>
+      <td>母级数逐项求导</td>
+    </tr>
+    <tr>
+      <td>\(\displaystyle\sum_{n=1}^{\infty}nx^n\)</td>
+      <td>\(\dfrac{x}{(1-x)^2}\)</td>
+      <td>上式乘 \(x\)</td>
+    </tr>
+    <tr>
+      <td>\(\displaystyle\sum_{n=2}^{\infty}n(n-1)x^{n-2}\)</td>
+      <td>\(\dfrac{2}{(1-x)^3}\)</td>
+      <td>再求导一次</td>
+    </tr>
+    <tr>
+      <td>\(\displaystyle\sum_{n=1}^{\infty}\frac{x^n}{n}\)</td>
+      <td>\(-\ln(1-x)\)</td>
+      <td>母级数逐项积分</td>
+    </tr>
+    <tr>
+      <td>\(\displaystyle\sum_{n=1}^{\infty}\frac{x^n}{n+1}\)</td>
+      <td>\(\dfrac{-\ln(1-x)}{x}-1\)</td>
+      <td>提取 \(x\) 后积分</td>
+    </tr>
+  </table>
+
+  <div class="box key">
+    <span class="label">核心规律</span>
+    <p><strong>分母有 \(n\) → 逐项求导消掉；分子有 \(n\) → 逐项积分消掉。</strong> 如果分子是 \(n(n-1)\) 这种多项式，就逐次操作（先提 \(x^2\) 让指数对齐，再积分两次）。</p>
+  </div>
+
+  <h2 id="sec-manip">错位相减、变量代换与提取因子</h2>
+
+  <h3>错位相减法</h3>
+  <p>适用于形如 \(\sum a_n x^n\) 且 \(a_n\) 满足递推的情形。经典例子：</p>
+  <div class="formula-block">
+    \[S=\sum_{n=1}^{\infty}\frac{n}{2^n}\]
+    <p class="caption">令 \(x=\frac{1}{2}\)，用 \(\sum nx^n=\frac{x}{(1-x)^2}\) 直接得 \(S=2\)。</p>
+  </div>
+
+  <h3>变量代换</h3>
+  <p>把 \(x^2, -x, 2x\) 等整体看作新变量 \(t\)，套母级数公式后再回代。</p>
+  <div class="formula-block">
+    \[\sum_{n=0}^{\infty}\frac{(-1)^n x^{2n}}{n!}=e^{-x^2}\]
+    <p class="caption">把 \(-x^2\) 看作母级数 \(e^t=\sum t^n/n!\) 中的 \(t\)。</p>
+  </div>
+
+  <h3>提取因子</h3>
+  <p>如果级数里出现 \(x^{n+1}, x^{n-1}\) 等偏移指数，先提取或补一个 \(x\) 让指数对齐到 \(x^n\)，再套公式。</p>
+
+  <h2 id="sec-expand">标准展开反用</h2>
+
+  <p>当级数系数里出现阶乘、交错号、奇偶次幂时，往往对应初等函数的泰勒展开：</p>
+
+  <table>
+    <tr>
+      <th>级数形式</th>
+      <th>和函数</th>
+      <th>收敛域</th>
+    </tr>
+    <tr>
+      <td>\(\displaystyle\sum_{n=0}^{\infty}\frac{x^n}{n!}\)</td>
+      <td>\(e^x\)</td>
+      <td>\((-\infty,+\infty)\)</td>
+    </tr>
+    <tr>
+      <td>\(\displaystyle\sum_{n=0}^{\infty}\frac{(-1)^n x^{2n+1}}{(2n+1)!}\)</td>
+      <td>\(\sin x\)</td>
+      <td>\((-\infty,+\infty)\)</td>
+    </tr>
+    <tr>
+      <td>\(\displaystyle\sum_{n=0}^{\infty}\frac{(-1)^n x^{2n}}{(2n)!}\)</td>
+      <td>\(\cos x\)</td>
+      <td>\((-\infty,+\infty)\)</td>
+    </tr>
+    <tr>
+      <td>\(\displaystyle\sum_{n=0}^{\infty}\frac{(-1)^n x^{n+1}}{n+1}\)</td>
+      <td>\(\ln(1+x)\)</td>
+      <td>\((-1,1]\)</td>
+    </tr>
+    <tr>
+      <td>\(\displaystyle\sum_{n=0}^{\infty}\binom{\alpha}{n}x^n\)</td>
+      <td>\((1+x)^{\alpha}\)</td>
+      <td>\(|x|<1\)</td>
+    </tr>
+  </table>
+
+  <div class="box idea">
+    <span class="label">识别信号</span>
+    <p><strong>阶乘在分母</strong> → 想 \(e^x, \sin x, \cos x\)；<strong>交错 + 奇次幂</strong> → 想 \(\sin x\)；<strong>交错 + 偶次幂</strong> → 想 \(\cos x\)；<strong>无阶乘、分母是 \(n\) 或 \(n+1\)</strong> → 想 \(\ln\) 或几何级数积分。</p>
+  </div>
+
+  <h2 id="sec-examples">例题精选</h2>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 1</span>
+      <span class="title">求导消分母 · 含 \(n\) 在分母</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        求幂级数 \(\displaystyle S(x)=\sum_{n=1}^{\infty}\frac{x^n}{n}\) 的和函数及收敛域。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　判收敛域。用比值法：</p>
+      <div class="formula-block">
+        \[\lim_{n\to\infty}\left|\frac{x^{n+1}/(n+1)}{x^n/n}\right|=|x|\lim_{n\to\infty}\frac{n}{n+1}=|x|\]
+      </div>
+      <p>收敛半径 \(R=1\)。端点 \(x=1\) 时为调和级数发散；\(x=-1\) 时为交错级数收敛。故收敛域为 \([-1,1)\)。</p>
+      <p><strong>Step 2</strong>　分母有 \(n\)，逐项求导消之：</p>
+      <div class="formula-block">
+        \[S'(x)=\sum_{n=1}^{\infty}x^{n-1}=\frac{1}{1-x},\qquad |x|<1\]
+      </div>
+      <p><strong>Step 3</strong>　积分还原（注意 \(S(0)=0\)）：</p>
+      <div class="formula-block">
+        \[S(x)=\int_0^x\frac{1}{1-t}\,dt=-\ln(1-x)\]
+      </div>
+      <p><strong>答案：</strong>\(\boxed{S(x)=-\ln(1-x),\quad x\in[-1,1)}\)</p>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 2</span>
+      <span class="title">积分消分子 · 含 \(n\) 在分子</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        求幂级数 \(\displaystyle S(x)=\sum_{n=1}^{\infty}n x^n\) 的和函数及收敛域。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　收敛域。比值法得 \(R=1\)。端点 \(x=\pm 1\) 时通项不趋于 0，发散。收敛域 \((-1,1)\)。</p>
+      <p><strong>Step 2</strong>　分子有 \(n\)，先提 \(x\) 让指数对齐，再逐项积分：</p>
+      <div class="formula-block">
+        \[S(x)=x\sum_{n=1}^{\infty}n x^{n-1}\]
+      </div>
+      <p>令 \(T(x)=\sum_{n=1}^{\infty}n x^{n-1}\)，积分：</p>
+      <div class="formula-block">
+        \[\int_0^x T(t)\,dt=\sum_{n=1}^{\infty}x^n=\frac{x}{1-x}\]
+      </div>
+      <p><strong>Step 3</strong>　求导还原：</p>
+      <div class="formula-block">
+        \[T(x)=\left(\frac{x}{1-x}\right)'=\frac{(1-x)+x}{(1-x)^2}=\frac{1}{(1-x)^2}\]
+      </div>
+      <p>因此</p>
+      <div class="formula-block">
+        \[S(x)=x\cdot T(x)=\frac{x}{(1-x)^2}\]
+      </div>
+      <p><strong>答案：</strong>\(\boxed{S(x)=\dfrac{x}{(1-x)^2},\quad x\in(-1,1)}\)</p>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-header">
+      <span class="badge">例题 3</span>
+      <span class="title">标准展开反用 · 三角级数</span>
+    </div>
+    <div class="example-body">
+      <div class="question">
+        求级数 \(\displaystyle\sum_{n=0}^{\infty}\frac{(-1)^n\pi^{2n+1}}{3^{2n+1}(2n+1)!}\) 的和。
+      </div>
+      <div class="solution-label">✓ 标准解答</div>
+      <p><strong>Step 1</strong>　识别结构。分母有 \((2n+1)!\)，交错号 \((-1)^n\)，指数为奇次 \(2n+1\)，这是 \(\sin x\) 的展开信号。</p>
+      <p><strong>Step 2</strong>　把级数改写成标准展开形式：</p>
+      <div class="formula-block">
+        \[\sum_{n=0}^{\infty}\frac{(-1)^n}{(2n+1)!}\left(\frac{\pi}{3}\right)^{2n+1}\]
+      </div>
+      <p>对照 \(\sin x=\sum_{n=0}^{\infty}\dfrac{(-1)^n x^{2n+1}}{(2n+1)!}\)，令 \(x=\dfrac{\pi}{3}\)。</p>
+      <p><strong>答案：</strong>\(\boxed{\sin\dfrac{\pi}{3}=\dfrac{\sqrt{3}}{2}}\)</p>
+    </div>
+  </div>
+
+  <div class="box key">
+    <span class="label">考场决策树</span>
+    <p>拿到幂级数求和题：<br>
+    ① 分母有 \(n, n+1\) 等 → <strong>逐项求导</strong>，目标化到 \(\sum x^n\)；<br>
+    ② 分子有 \(n, n(n-1)\) 等 → <strong>逐项积分</strong>（通常先提 \(x^k\) 对齐指数）；<br>
+    ③ 分母有阶乘 → <strong>标准展开反用</strong>，判 \(e^x, \sin x, \cos x\)；<br>
+    ④ 以上都不像 → 试试<strong>错位相减</strong>或<strong>变量代换</strong>（如 \(t=-x, t=x^2\)）。</p>
+  </div>
+
+  <div class="page-jump">
+    <a href="integrating-factor.html">&larr; 积分因子速找</a>
+    <a href="index.html" class="primary">回技巧总览 &rarr;</a>
+  </div>
+
+</main>
+
+<button class="back-to-top" aria-label="回到顶部">↑</button>
+<footer class="site-footer">
+  高数期末复习站 · 精心打磨每一类题的标准步骤<a href="../index.html">🏠 回首页</a>
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>
