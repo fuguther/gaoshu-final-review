@@ -15,7 +15,7 @@ window.MathJax = {
 <link rel="preconnect" href="https://fonts.loli.net">
 <link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
 <link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/design-system.css?v=2">
+<link rel="stylesheet" href="../css/design-system.css">
 <style>
   .ex-intro{color:var(--ink-soft);font-size:15px;line-height:1.8;border-left:3px solid var(--red);
     padding:4px 16px 4px 18px;margin:0 0 46px;background:var(--red-soft);border-radius:0 8px 8px 0;}
@@ -119,833 +119,487 @@ window.MathJax = {
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(1)</span><span class="ex-qmath">\(\displaystyle \frac{dy}{dx}=\frac{1+y^{2}}{(1+x^{2})xy}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">\[\frac{dy}{dx}=\frac{1+y^{2}}{(1+x^{2})xy}\]</div>
-        <div class="ex-step">\[\frac{y}{1+y^{2}}dy=\frac{1}{x(1+x^{2})}dx\]</div>
-        <div class="ex-step">\[\frac{y}{1+y^{2}}dy=\left(\frac{1}{x}-\frac{x}{1+x^{2}}\right)dx\]</div>
-        <div class="ex-step">\[\int\frac{y}{1+y^{2}}dy=\int\frac{1}{x}dx-\int\frac{x}{1+x^{2}}dx\]</div>
-        <div class="ex-step">\[\frac{1}{2}\ln(1+y^{2})=\ln|x|-\frac{1}{2}\ln(1+x^{2})+C_{1}\]</div>
-        <div class="ex-step">\[\frac{1}{2}\ln(1+y^{2})=\ln|x|-\frac{1}{2}\ln(1+x^{2})+\frac{1}{2}\ln C\]</div>
-        <div class="ex-step">\[\ln(1+y^{2})=2\ln|x|-\ln(1+x^{2})+\ln C\]</div>
-        <div class="ex-step">\[\ln(1+y^{2})=\ln\frac{Cx^{2}}{1+x^{2}}\]</div>
-        <div class="ex-step">\[1+y^{2}=\frac{Cx^{2}}{1+x^{2}}\]</div>
-        <div class="ex-step">\[y^{2}=\frac{Cx^{2}}{1+x^{2}}-1=\frac{Cx^{2}-1-x^{2}}{1+x^{2}}=\frac{(C-1)x^{2}-1}{1+x^{2}}\]</div>
-        <div class="ex-step">令 \(C_{2}=C-1\)，则 \(y^{2}=\frac{C_{2}x^{2}-1}{1+x^{2}}\)</div>
-        <div class="ex-step">\[y=\pm\sqrt{\frac{C_{2}x^{2}-1}{1+x^{2}}}\]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[y=\pm\sqrt{\frac{Cx^{2}-1}{1+x^{2}}}\]（其中 \(C\) 为任意常数，且需满足 \(Cx^{2}&gt;1\) 使根号有意义）</span></div>
+        <div class="ex-step">方程改写为 \(\frac{y}{1+y^2}dy = \frac{1}{x(1+x^2)}dx\)</div>
+        <div class="ex-step">对右边分解 \(\frac{1}{x(1+x^2)} = \frac{1}{x} - \frac{x}{1+x^2}\)</div>
+        <div class="ex-step">两边积分得 \(\frac{1}{2}\ln(1+y^2) = \ln|x| - \frac{1}{2}\ln(1+x^2) + \frac{1}{2}\ln C\)</div>
+        <div class="ex-step">整理为 \(\ln(1+y^2) = 2\ln|x| - \ln(1+x^2) + \ln C = \ln\frac{Cx^2}{1+x^2}\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(1+y^2 = \frac{Cx^2}{1+x^2}\)，即 \((1+x^2)(1+y^2) = Cx^2\)（\(C&gt;0\) 为任意常数），或等价写成 \(y^2 = \frac{(C-1)x^2-1}{1+x^2}\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(2)</span><span class="ex-qmath">\(\displaystyle a\left(x\frac{dy}{dx}+2y\right)=xy\frac{dy}{dx}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">原方程为 \(a\left(x\frac{dy}{dx}+2y\right)=xy\frac{dy}{dx}\)</div>
-        <div class="ex-step">展开得 \(ax\frac{dy}{dx}+2ay=xy\frac{dy}{dx}\)</div>
-        <div class="ex-step">移项整理：\(ax\frac{dy}{dx}-xy\frac{dy}{dx}=-2ay\)</div>
-        <div class="ex-step">提取公因式：\(x(a-y)\frac{dy}{dx}=-2ay\)</div>
-        <div class="ex-step">分离变量：\(\frac{a-y}{y}dy=-\frac{2a}{x}dx\)</div>
-        <div class="ex-step">左边拆项：\(\left(\frac{a}{y}-1\right)dy=-\frac{2a}{x}dx\)</div>
-        <div class="ex-step">两边积分：\(\int\left(\frac{a}{y}-1\right)dy=\int-\frac{2a}{x}dx\)</div>
-        <div class="ex-step">计算积分：\(a\ln|y|-y=-2a\ln|x|+C_1\)</div>
-        <div class="ex-step">整理：\(a\ln|y|+2a\ln|x|=y+C_1\)</div>
-        <div class="ex-step">即 \(a\ln|x^2y|=y+C_1\)</div>
-        <div class="ex-step">指数化：\(|x^2y|=e^{\frac{y+C_1}{a}}\)</div>
-        <div class="ex-step">去掉绝对值：\(x^2y=Ce^{\frac{y}{a}}\)，其中 \(C=\pm e^{\frac{C_1}{a}}\) 为任意非零常数</div>
-        <div class="ex-step">当 \(C=0\) 时，\(y=0\) 也是原方程的解（代入原方程验证：左边 \(=a(0+0)=0\)，右边 \(=0\)）</div>
-        <div class="ex-step">故通解为 \(x^2y=Ce^{\frac{y}{a}}\)，\(C\) 为任意常数</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(x^2y=Ce^{\frac{y}{a}}\)（\(C\) 为任意常数）</span></div>
+        <div class="ex-step">方程整理为 \(a x\frac{dy}{dx} + 2ay = xy\frac{dy}{dx}\)，即 \((ax-xy)\frac{dy}{dx} = -2ay\)，分离变量得 \(\frac{y-a}{y}dy = \frac{2a}{x}dx\)</div>
+        <div class="ex-step">左边拆分为 \(\left(1-\frac{a}{y}\right)dy = \frac{2a}{x}dx\)</div>
+        <div class="ex-step">积分得 \(y - a\ln|y| = 2a\ln|x| + C_1\)</div>
+        <div class="ex-step">整理为 \(y = a\ln|y| + a\ln x^2 + C_1 = a\ln|yx^2| + C_1\)</div>
+        <div class="ex-step">指数化得 \(e^{y/a} = e^{C_1/a}|yx^2|\)，即 \(x^2 y = C e^{y/a}\)（\(C = \pm e^{C_1/a}\)）</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>通解为 \(x^2 y = C e^{y/a}\)（\(C\) 为任意常数），或等价写成 \(y = a\ln|x^2 y| + C\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(3)</span><span class="ex-qmath">\(\displaystyle y-xy'=a(y^{2}+y')\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">原方程 \(y-xy'=a(y^2+y')\)</div>
-        <div class="ex-step">整理得 \(y-ay^2=xy'+ay'=(x+a)y'\)</div>
-        <div class="ex-step">即 \((x+a)\frac{dy}{dx}=y-ay^2=y(1-ay)\)</div>
-        <div class="ex-step">分离变量：\(\frac{dx}{x+a}=\frac{dy}{y(1-ay)}\)</div>
-        <div class="ex-step">对右边作部分分式：\(\frac{1}{y(1-ay)}=\frac{A}{y}+\frac{B}{1-ay}\)</div>
-        <div class="ex-step">\(1=A(1-ay)+By\)，令 \(y=0\) 得 \(A=1\)；令 \(y=\frac{1}{a}\) 得 \(B=a\)</div>
-        <div class="ex-step">故 \(\frac{1}{y(1-ay)}=\frac{1}{y}+\frac{a}{1-ay}\)</div>
-        <div class="ex-step">积分两边：\(\int\frac{dx}{x+a}=\int\left(\frac{1}{y}+\frac{a}{1-ay}\right)dy\)</div>
-        <div class="ex-step">\(\ln|x+a|=\ln|y|-\ln|1-ay|+C_1=\ln\left|\frac{y}{1-ay}\right|+C_1\)</div>
-        <div class="ex-step">\(\ln|x+a|=\ln\left|\frac{y}{1-ay}\right|+C_1\)</div>
-        <div class="ex-step">\(|x+a|=e^{C_1}\left|\frac{y}{1-ay}\right|\)，即 \(x+a=C\frac{y}{1-ay}\)（\(C=\pm e^{C_1}\)为任意非零常数，\(C=0\)亦包含特解）</div>
-        <div class="ex-step">\((x+a)(1-ay)=Cy\)</div>
-        <div class="ex-step">\(x+a-ay(x+a)=Cy\)</div>
-        <div class="ex-step">\(x+a=Cy+ay(x+a)=y(C+a(x+a))\)</div>
-        <div class="ex-step">由 \(x+a=C\frac{y}{1-ay}\) 解出 \(y\)：\((x+a)(1-ay)=Cy\)</div>
-        <div class="ex-step">\(x+a-ay(x+a)=Cy\)</div>
-        <div class="ex-step">\(x+a=y(C+ax+a^2)\)</div>
-        <div class="ex-step">\(y=\frac{x+a}{C+ax+a^2}\)</div>
-        <div class="ex-step">令 \(C\) 为任意常数，验证 \(y=0\) 时原方程左边\(=0\)，右边\(=a(0+y')=ay'\)，得\(y'=0\)，即\(y=0\)为常数解，已含于通解中（取\(C\to\infty\)）</div>
-        <div class="ex-step">另验证 \(y=\frac{1}{a}\)：左边\(=\frac{1}{a}-x\cdot 0=\frac{1}{a}\)，右边\(=a(\frac{1}{a^2}+0)=\frac{1}{a}\)，是特解；但 \(y=\frac{1}{a}\) 时 \(1-ay=0\)，分离变量失效，需检验是否含于通解：若 \(y=\frac{1}{a}\)，则 \(x+a=C\frac{1/a}{0}\) 无有限 \(C\)，故 \(y=\frac{1}{a}\) 为额外特解</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>通解为 \(y=\frac{x+a}{C+ax+a^2}\)（\(C\) 为任意常数），另有特解 \(y=\frac{1}{a}\)</span></div>
+        <div class="ex-step">识别方程为 \( y - xy' = a(y^2 + y') \)，整理为关于 \( y' \) 的显式形式</div>
+        <div class="ex-step">\[分离变量\]</div>
+        <div class="ex-step">对右边分式分解 \( \frac{1}{y(1-ay)} = \frac{1}{y} + \frac{a}{1-ay} \)，积分得</div>
+        <div class="ex-step">\[整理为\]</div>
+        <div class="ex-step">取指数并令 \( C = e^{C_1} \)，化简得隐式通解</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>通解为 \( \frac{y}{1-ay} = C(x+a)^a e^x \)（\( C \) 为任意常数），或显式写为 \( y = \frac{C(x+a)^a e^x}{1 + aC(x+a)^a e^x} \)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(4)</span><span class="ex-qmath">\(\displaystyle \frac{dy}{dx}=10^{x+y}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">\[ \frac{dy}{dx} = 10^{x+y} = 10^x \cdot 10^y \]</div>
-        <div class="ex-step">\[ \frac{dy}{10^y} = 10^x dx \]</div>
-        <div class="ex-step">\[ 10^{-y} dy = 10^x dx \]</div>
-        <div class="ex-step">\[ \int 10^{-y} dy = \int 10^x dx \]</div>
-        <div class="ex-step">\[ \frac{10^{-y}}{-\ln 10} = \frac{10^x}{\ln 10} + C_1 \]</div>
-        <div class="ex-step">\[ -\frac{10^{-y}}{\ln 10} = \frac{10^x}{\ln 10} + C_1 \]</div>
-        <div class="ex-step">\[ -10^{-y} = 10^x + C_1 \ln 10 \]</div>
-        <div class="ex-step">\[ 10^{-y} = -10^x + C \] （其中 \( C = -C_1 \ln 10 \) 为任意常数）</div>
-        <div class="ex-step">\[ -y = \log_{10}(C - 10^x) \]</div>
-        <div class="ex-step">\[ y = -\log_{10}(C - 10^x) \]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[ y = -\log_{10}(C - 10^x) \] 或等价地写成 \[ 10^x + 10^{-y} = C \] ，其中 \( C \) 为任意正常数（保证 \( C &gt; 10^x \) 使对数有意义）</span></div>
+        <div class="ex-step">识别为可分离变量方程：\(\frac{dy}{dx} = 10^x \cdot 10^y\)</div>
+        <div class="ex-step">分离变量：\(10^{-y}dy = 10^x dx\)</div>
+        <div class="ex-step">积分两边：\(\int 10^{-y}dy = \int 10^x dx\)</div>
+        <div class="ex-step">计算积分：\(\frac{10^{-y}}{-\ln 10} = \frac{10^x}{\ln 10} + C_1\)</div>
+        <div class="ex-step">整理得：\(-10^{-y} = 10^x + C\)（其中 \(C = C_1\ln 10\)）</div>
+        <div class="ex-step">即 \(10^x + 10^{-y} = C\)，或写成 \(10^{-y} = C - 10^x\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y = -\log_{10}(C - 10^x)\)，或等价形式 \(10^x + 10^{-y} = C\)（\(C\) 为任意常数）</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(5)</span><span class="ex-qmath">\(\displaystyle \sqrt{1+x^{2}}dy-\sqrt{1-y^{2}}dx=0\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">\[\sqrt{1+x^{2}}dy-\sqrt{1-y^{2}}dx=0\]</div>
-        <div class="ex-step">\[\sqrt{1+x^{2}}dy=\sqrt{1-y^{2}}dx\]</div>
-        <div class="ex-step">\[\frac{dy}{\sqrt{1-y^{2}}}=\frac{dx}{\sqrt{1+x^{2}}}\]</div>
-        <div class="ex-step">\[\int\frac{dy}{\sqrt{1-y^{2}}}=\int\frac{dx}{\sqrt{1+x^{2}}}\]</div>
-        <div class="ex-step">\[\arcsin y=\ln|x+\sqrt{1+x^{2}}|+C\]</div>
-        <div class="ex-step">\[y=\sin\left(\ln|x+\sqrt{1+x^{2}}|+C\right)\]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[y=\sin\left(\ln\left(x+\sqrt{1+x^{2}}\right)+C\right)\]</span></div>
+        <div class="ex-step">识别为可分离变量方程，\[\sqrt{1+x^{2}}\,dy = \sqrt{1-y^{2}}\,dx\]</div>
+        <div class="ex-step">分离变量得 \[\frac{dy}{\sqrt{1-y^{2}}} = \frac{dx}{\sqrt{1+x^{2}}}\]</div>
+        <div class="ex-step">两边积分，\[\arcsin y = \ln\left(x+\sqrt{1+x^{2}}\right)+C\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>通解为 \[y = \sin\left[\ln\left(x+\sqrt{1+x^{2}}\right)+C\right]\] 或等价地 \[\arcsin y = \text{arsinh}\,x + C\]</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(6)</span><span class="ex-qmath">\(\displaystyle d\rho+\rho\tan\theta d\theta=0\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">\[d\rho+\rho\tan\theta d\theta=0\]</div>
-        <div class="ex-step">\[d\rho=-\rho\tan\theta d\theta\]</div>
-        <div class="ex-step">\[\frac{d\rho}{\rho}=-\tan\theta d\theta\]</div>
-        <div class="ex-step">\[\int\frac{d\rho}{\rho}=-\int\tan\theta d\theta\]</div>
-        <div class="ex-step">\[\int\frac{d\rho}{\rho}=\ln|\rho|\]</div>
-        <div class="ex-step">\[-\int\tan\theta d\theta=-\int\frac{\sin\theta}{\cos\theta}d\theta=\int\frac{d(\cos\theta)}{\cos\theta}=\ln|\cos\theta|+C_1\]</div>
-        <div class="ex-step">\[\ln|\rho|=\ln|\cos\theta|+C_1\]</div>
-        <div class="ex-step">\[|\rho|=e^{C_1}|\cos\theta|\]</div>
-        <div class="ex-step">\[\rho=C\cos\theta\]，其中 \(C=\pm e^{C_1}\) 为任意非零常数，且 \(\rho=0\) 也是解，故 \(C\) 为任意常数</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[\rho=C\cos\theta\]</span></div>
+        <div class="ex-step">识别方程：\(d\rho + \rho\tan\theta\, d\theta = 0\)，即 \(\frac{d\rho}{\rho} = -\tan\theta\, d\theta\)，为可分离变量方程</div>
+        <div class="ex-step">积分：\[\int\frac{d\rho}{\rho} = -\int\tan\theta\, d\theta = \int\frac{d\cos\theta}{\cos\theta}\]</div>
+        <div class="ex-step">得 \(\ln|\rho| = \ln|\cos\theta| + C_1\)，即 \(\rho = C\cos\theta\)（\(C = \pm e^{C_1}\)，含 \(\rho=0\)）</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(\rho = C\cos\theta\)（\(C\) 为任意常数）</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(7)</span><span class="ex-qmath">\(\displaystyle (1-x)dy-y^{2}dx=0\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">当 \( y \neq 0 \) 时，方程 \((1-x)dy - y^2 dx = 0\) 可分离变量为</div>
-        <div class="ex-step">\[两边积分\]</div>
-        <div class="ex-step">\[计算积分\]</div>
-        <div class="ex-step">\[整理得\]</div>
-        <div class="ex-step">当 \( y = 0 \) 时，代入原方程验证：\((1-x) \cdot 0 - 0 \cdot dx = 0\)，故 \( y = 0 \) 是特解</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[</span></div>
+        <div class="ex-step">识别方程为可分离变量型：\((1-x)dy = y^{2}dx\)</div>
+        <div class="ex-step">分离变量（\(y \neq 0\)）：\(\frac{dy}{y^{2}} = \frac{dx}{1-x}\)</div>
+        <div class="ex-step">两边积分：\(\int y^{-2}dy = \int \frac{dx}{1-x}\)</div>
+        <div class="ex-step">计算得：\(-\frac{1}{y} = -\ln|1-x| + C_{1}\)</div>
+        <div class="ex-step">整理并令 \(C = -C_{1}\)：\(\frac{1}{y} = \ln|1-x| + C\)</div>
+        <div class="ex-step">显式通解：\(y = \frac{1}{\ln|1-x| + C}\)</div>
+        <div class="ex-step">检验特解：\(y = 0\) 代入原方程满足，但分离变量时已排除，故为奇解</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>通解为 \(y = \frac{1}{\ln|1-x| + C}\)（\(C\) 为任意常数），另有特解 \(y = 0\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(8)</span><span class="ex-qmath">\(\displaystyle (x+2y)dx+(2x-3y)dy=0\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \(M=x+2y\)，\(N=2x-3y\)</div>
-        <div class="ex-step">计算 \(\frac{\partial M}{\partial y}=2\)，\(\frac{\partial N}{\partial x}=2\)</div>
-        <div class="ex-step">由 \(\frac{\partial M}{\partial y}=\frac{\partial N}{\partial x}\)，方程为全微分方程</div>
-        <div class="ex-step">求 \(u(x,y)\) 使 \(\frac{\partial u}{\partial x}=x+2y\)</div>
-        <div class="ex-step">\[u=\int(x+2y)dx=\frac{x^2}{2}+2xy+\varphi(y)\]</div>
-        <div class="ex-step">由 \(\frac{\partial u}{\partial y}=2x+\varphi'(y)=2x-3y\)</div>
-        <div class="ex-step">得 \(\varphi'(y)=-3y\)</div>
-        <div class="ex-step">\[\varphi(y)=\int(-3y)dy=-\frac{3y^2}{2}\]</div>
-        <div class="ex-step">故 \[u=\frac{x^2}{2}+2xy-\frac{3y^2}{2}\]</div>
-        <div class="ex-step">通解为 \(\frac{x^2}{2}+2xy-\frac{3y^2}{2}=C\)</div>
-        <div class="ex-step">即 \[x^2+4xy-3y^2=C_1\]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(x^2+4xy-3y^2=C\)</span></div>
+        <div class="ex-step">识别为齐次方程，令 \( y = ux \)，则 \( dy = u\,dx + x\,du \)</div>
+        <div class="ex-step">代入得 \((x+2ux)\,dx + (2x-3ux)(u\,dx+x\,du) = 0\)，整理为 \(x(1+2u)\,dx + x(2-3u)(u\,dx+x\,du) = 0\)</div>
+        <div class="ex-step">展开并合并 \(dx\) 项：\([1+2u+2u-3u^2]\,dx + x(2-3u)\,du = 0\)，即 \((1+4u-3u^2)\,dx + x(2-3u)\,du = 0\)</div>
+        <div class="ex-step">分离变量：\(\frac{dx}{x} = \frac{3u-2}{1+4u-3u^2}\,du = \frac{3u-2}{(1-u)(1+3u)}\,du\)</div>
+        <div class="ex-step">对右边作部分分式：\(\frac{3u-2}{(1-u)(1+3u)} = \frac{A}{1-u} + \frac{B}{1+3u}\)，解得 \(A = -\frac{1}{4}\)，\(B = \frac{9}{4}\)，即 \(\frac{1}{4}\left(\frac{-1}{1-u} + \frac{9}{1+3u}\right)\)</div>
+        <div class="ex-step">积分：\(\ln|x| = \frac{1}{4}\left(\ln|1+3u| - \ln|1-u|\right) + C_1\)，即 \(4\ln|x| = \ln\left|\frac{1+3u}{1-u}\right| + C_2\)</div>
+        <div class="ex-step">回代 \(u = \frac{y}{x}\) 并整理：\(x^4 = C\cdot\frac{x+3y}{x-y}\)，即 \(x^4(x-y) = C(x+3y)\)，或写成 \(x^3(x-y) = C_3(x+3y)\) 检验后得 \(x^4\frac{x-y}{x+3y} = C\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(x^4 - x^3y = C(x+3y)\)，或等价地写成 \((x-y)(x+3y)^3 = C_1\) 经验证，标准形式为 \((x+3y)^3(x-y) = C\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(9)</span><span class="ex-qmath">\(\displaystyle (3x+5y)dx+(4x+6y)dy=0\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">\( (3x+5y)dx+(4x+6y)dy=0 \)</div>
-        <div class="ex-step">验证：\( P=3x+5y \)，\( Q=4x+6y \)</div>
-        <div class="ex-step">\( \frac{\partial P}{\partial y}=5 \)，\( \frac{\partial Q}{\partial x}=4 \)</div>
-        <div class="ex-step">因 \( \frac{\partial P}{\partial y} \neq \frac{\partial Q}{\partial x} \)，非全微分方程</div>
-        <div class="ex-step">求积分因子：\( \frac{1}{Q}\left(\frac{\partial P}{\partial y}-\frac{\partial Q}{\partial x}\right)=\frac{5-4}{4x+6y}=\frac{1}{4x+6y} \) 非仅 \( x \) 函数</div>
-        <div class="ex-step">\( \frac{1}{P}\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)=\frac{4-5}{3x+5y}=\frac{-1}{3x+5y} \) 非仅 \( y \) 函数</div>
-        <div class="ex-step">尝试齐次方程：令 \( y=ux \)，\( dy=udx+xdu \)</div>
-        <div class="ex-step">\( (3x+5ux)dx+(4x+6ux)(udx+xdu)=0 \)</div>
-        <div class="ex-step">\( x(3+5u)dx+x(4+6u)(udx+xdu)=0 \)</div>
-        <div class="ex-step">\( (3+5u)dx+(4+6u)(udx+xdu)=0 \)</div>
-        <div class="ex-step">\( (3+5u+4u+6u^2)dx+(4+6u)xdu=0 \)</div>
-        <div class="ex-step">\( (3+9u+6u^2)dx+(4+6u)xdu=0 \)</div>
-        <div class="ex-step">\( (3+9u+6u^2)dx=-(4+6u)xdu \)</div>
-        <div class="ex-step">\( \frac{dx}{x}=-\frac{4+6u}{3+9u+6u^2}du \)</div>
-        <div class="ex-step">\( 3+9u+6u^2=3(1+3u+2u^2)=3(1+u)(1+2u) \)</div>
-        <div class="ex-step">\( \frac{4+6u}{3(1+u)(1+2u)}=\frac{A}{1+u}+\frac{B}{1+2u} \)</div>
-        <div class="ex-step">\( 4+6u=3A(1+2u)+3B(1+u) \)</div>
-        <div class="ex-step">\( u=-1 \)：\( 4-6=3A(-1) \)，\( -2=-3A \)，\( A=\frac{2}{3} \)</div>
-        <div class="ex-step">\( u=-\frac{1}{2} \)：\( 4-3=3B\cdot\frac{1}{2} \)，\( 1=\frac{3B}{2} \)，\( B=\frac{2}{3} \)</div>
-        <div class="ex-step">\( \frac{4+6u}{3(1+u)(1+2u)}=\frac{2}{3(1+u)}+\frac{2}{3(1+2u)} \)</div>
-        <div class="ex-step">\( \frac{dx}{x}=-\left(\frac{2}{3(1+u)}+\frac{2}{3(1+2u)}\right)du \)</div>
-        <div class="ex-step">\( \ln|x|=-\frac{2}{3}\ln|1+u|-\frac{1}{3}\ln|1+2u|+C_1 \)</div>
-        <div class="ex-step">\( 3\ln|x|=-2\ln|1+u|-\ln|1+2u|+C_2 \)</div>
-        <div class="ex-step">\( \ln|x^3|+\ln|(1+u)^2|+\ln|1+2u|=C_2 \)</div>
-        <div class="ex-step">\( \ln|x^3(1+u)^2(1+2u)|=C_2 \)</div>
-        <div class="ex-step">\( x^3(1+u)^2(1+2u)=C \)</div>
-        <div class="ex-step">代回 \( u=\frac{y}{x} \)</div>
-        <div class="ex-step">\( x^3\left(1+\frac{y}{x}\right)^2\left(1+\frac{2y}{x}\right)=C \)</div>
-        <div class="ex-step">\( x^3\cdot\frac{(x+y)^2}{x^2}\cdot\frac{x+2y}{x}=C \)</div>
-        <div class="ex-step">\( (x+y)^2(x+2y)=C \)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\( (x+y)^2(x+2y)=C \)</span></div>
+        <div class="ex-step">识别为齐次方程，令 \(u=\frac{y}{x}\)，则 \(y=ux\)，\(dy=u\,dx+x\,du\)</div>
+        <div class="ex-step">代入得 \((3x+5ux)\,dx+(4x+6ux)(u\,dx+x\,du)=0\)，即 \(x(3+5u)\,dx+x(4+6u)(u\,dx+x\,du)=0\)</div>
+        <div class="ex-step">除以 \(x\) 并整理：\((3+5u+4u+6u^2)\,dx+x(4+6u)\,du=0\)，即 \((6u^2+9u+3)\,dx+x(4+6u)\,du=0\)</div>
+        <div class="ex-step">分离变量：\(\frac{dx}{x}=-\frac{4+6u}{6u^2+9u+3}\,du=-\frac{2(2+3u)}{3(2u^2+3u+1)}\,du=-\frac{2(2+3u)}{3(2u+1)(u+1)}\,du\)</div>
+        <div class="ex-step">对右边分式分解：\(\frac{2(2+3u)}{(2u+1)(u+1)}=\frac{A}{2u+1}+\frac{B}{u+1}\)，解得 \(A=2\)，\(B=2\)，故 \(\frac{dx}{x}=-\frac{2}{3}\left(\frac{1}{2u+1}+\frac{1}{u+1}\right)du\)</div>
+        <div class="ex-step">积分得 \(\ln|x|=-\frac{2}{3}\left(\frac{1}{2}\ln|2u+1|+\ln|u+1|\right)+C_1=-\frac{1}{3}\ln|2u+1|-\frac{2}{3}\ln|u+1|+C_1\)</div>
+        <div class="ex-step">整理：\(3\ln|x|+\ln|2u+1|+2\ln|u+1|=3C_1\)，即 \(\ln|x^3(2u+1)(u+1)^2|=3C_1\)</div>
+        <div class="ex-step">回代 \(u=\frac{y}{x}\)：\(x^3\left(2\frac{y}{x}+1\right)\left(\frac{y}{x}+1\right)^2=C\)，即 \(x^3\cdot\frac{2y+x}{x}\cdot\frac{(y+x)^2}{x^2}=C\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\((x+2y)(x+y)^2=C\) 或展开为 \(x^3+4x^2y+5xy^2+2y^3=C\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(10)</span><span class="ex-qmath">\(\displaystyle y'=xy+x+y+1\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">\( y' = xy + x + y + 1 = x(y+1) + (y+1) = (x+1)(y+1) \)</div>
-        <div class="ex-step">当 \( y \neq -1 \) 时，分离变量得 \[ \frac{dy}{y+1} = (x+1)\,dx \]</div>
-        <div class="ex-step">两边积分 \[ \int \frac{dy}{y+1} = \int (x+1)\,dx \]</div>
-        <div class="ex-step">计算积分得 \[ \ln|y+1| = \frac{x^2}{2} + x + C_1 \]</div>
-        <div class="ex-step">取指数得 \[ |y+1| = e^{C_1} \cdot e^{\frac{x^2}{2}+x} \]</div>
-        <div class="ex-step">去掉绝对值，令 \( C = \pm e^{C_1} \)（\( C \neq 0 \)），得 \[ y+1 = C e^{\frac{x^2}{2}+x} \]</div>
-        <div class="ex-step">即 \[ y = C e^{\frac{x^2}{2}+x} - 1 \]</div>
-        <div class="ex-step">验证 \( y = -1 \)：代入原方程，左边 \( y' = 0 \)，右边 \( x(-1)+x+(-1)+1 = -x+x-1+1 = 0 \)，故 \( y = -1 \) 是解，对应上式中 \( C = 0 \)</div>
-        <div class="ex-step">\[因此通解为\]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[ y = C e^{\frac{x^2}{2}+x} - 1, \quad C \in \mathbb{R} \]</span></div>
+        <div class="ex-step">识别方程结构：\( y' = xy + x + y + 1 = (x+1)(y+1) \)，为可分离变量型</div>
+        <div class="ex-step">令 \( u = y+1 \)，则 \( u' = y' \)，方程化为 \( u' = (x+1)u \)</div>
+        <div class="ex-step">分离变量：\( \frac{du}{u} = (x+1)\,dx \)（\( u \neq 0 \)）</div>
+        <div class="ex-step">积分得 \( \ln|u| = \frac{x^2}{2} + x + C_1 \)，即 \( |u| = e^{C_1}e^{\frac{x^2}{2}+x} \)</div>
+        <div class="ex-step">去掉绝对值并含 \( u=0 \) 情形：\( u = Ce^{\frac{x^2}{2}+x} \)（\( C \in \mathbb{R} \)）</div>
+        <div class="ex-step">回代 \( u = y+1 \)：\( y+1 = Ce^{\frac{x^2}{2}+x} \)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\( y = Ce^{\frac{x^2}{2}+x} - 1 \)，其中 \( C \) 为任意常数</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(11)</span><span class="ex-qmath">\(\displaystyle 2(x+y)dx+ydy=0\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">方程为 \(2(x+y)dx+ydy=0\)，即 \(\frac{dy}{dx}=-\frac{2(x+y)}{y}\)</div>
-        <div class="ex-step">令 \(u=\frac{y}{x}\)，则 \(y=ux\)，\(dy=udx+xdu\)</div>
-        <div class="ex-step">代入得 \(2(x+ux)dx+ux(udx+xdu)=0\)</div>
-        <div class="ex-step">整理得 \(2x(1+u)dx+u^2xdx+ux^2du=0\)</div>
-        <div class="ex-step">即 \(x[2(1+u)+u^2]dx+ux^2du=0\)</div>
-        <div class="ex-step">分离变量得 \(\frac{dx}{x}+\frac{u}{u^2+2u+2}du=0\)</div>
-        <div class="ex-step">对分母配方：\(u^2+2u+2=(u+1)^2+1\)</div>
-        <div class="ex-step">改写分子：\(u=(u+1)-1\)</div>
-        <div class="ex-step">积分得 \(\int\frac{dx}{x}+\int\frac{(u+1)-1}{(u+1)^2+1}du=C\)</div>
-        <div class="ex-step">即 \(\ln|x|+\int\frac{u+1}{(u+1)^2+1}du-\int\frac{1}{(u+1)^2+1}du=C\)</div>
-        <div class="ex-step">计算得 \(\ln|x|+\frac{1}{2}\ln[(u+1)^2+1]-\arctan(u+1)=C\)</div>
-        <div class="ex-step">代回 \(u=\frac{y}{x}\)：\(\ln|x|+\frac{1}{2}\ln\left[\left(\frac{y}{x}+1\right)^2+1\right]-\arctan\left(\frac{y}{x}+1\right)=C\)</div>
-        <div class="ex-step">化简对数项：\(\left(\frac{y+x}{x}\right)^2+1=\frac{(x+y)^2+x^2}{x^2}=\frac{x^2+2xy+y^2+x^2}{x^2}=\frac{2x^2+2xy+y^2}{x^2}\)</div>
-        <div class="ex-step">因此 \(\ln|x|+\frac{1}{2}\ln\frac{2x^2+2xy+y^2}{x^2}-\arctan\frac{x+y}{x}=C\)</div>
-        <div class="ex-step">即 \(\ln|x|+\frac{1}{2}\ln(2x^2+2xy+y^2)-\ln|x|-\arctan\frac{x+y}{x}=C\)</div>
-        <div class="ex-step">化简得 \(\frac{1}{2}\ln(2x^2+2xy+y^2)-\arctan\frac{x+y}{x}=C\)</div>
-        <div class="ex-step">或写成 \(\ln(2x^2+2xy+y^2)-2\arctan\frac{x+y}{x}=C_1\)</div>
-        <div class="ex-step">进一步整理：\(\ln(2x^2+2xy+y^2)=2\arctan\frac{x+y}{x}+C_1\)</div>
-        <div class="ex-step">即 \(2x^2+2xy+y^2=e^{C_1}\cdot e^{2\arctan\frac{x+y}{x}}\)</div>
-        <div class="ex-step">令 \(C_2=e^{C_1}&gt;0\)，则 \(2x^2+2xy+y^2=C_2e^{2\arctan\frac{x+y}{x}}\)</div>
-        <div class="ex-step">也可写成 \(2x^2+2xy+y^2=Ce^{2\arctan\left(1+\frac{y}{x}\right)}\)，其中 \(C\) 为任意常数</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(2x^2+2xy+y^2=Ce^{2\arctan\frac{x+y}{x}}\) 或等价地 \((x+y)^2+x^2=Ce^{2\arctan\frac{x+y}{x}}\)</span></div>
+        <div class="ex-step">识别方程类型：\(2(x+y)\,dx + y\,dy = 0\)，即 \(\frac{dy}{dx} = -\frac{2(x+y)}{y}\)，属可化为齐次方程或需换元的一阶方程。令 \(u = x + y\)，则 \(y = u - x\)，\(\frac{dy}{dx} = \frac{du}{dx} - 1\)</div>
+        <div class="ex-step">代入得 \(\frac{du}{dx} - 1 = -\frac{2u}{u-x} = \frac{2u}{x-u}\)，整理为 \(\frac{du}{dx} = \frac{2u + x - u}{x - u} = \frac{u + x}{x - u} = \frac{u/x + 1}{1 - u/x}\)</div>
+        <div class="ex-step">令 \(v = \frac{u}{x}\)，则 \(u = vx\)，\(\frac{du}{dx} = v + x\frac{dv}{dx}\)，代入得 \(v + x\frac{dv}{dx} = \frac{v+1}{1-v}\)</div>
+        <div class="ex-step">分离变量：\(x\frac{dv}{dx} = \frac{v+1}{1-v} - v = \frac{v+1 - v(1-v)}{1-v} = \frac{v^2+1}{1-v}\)，即 \(\frac{1-v}{v^2+1}\,dv = \frac{dx}{x}\)</div>
+        <div class="ex-step">积分：\(\int\frac{1}{v^2+1}\,dv - \int\frac{v}{v^2+1}\,dv = \int\frac{dx}{x}\)，得 \(\arctan v - \frac{1}{2}\ln(v^2+1) = \ln|x| + C_1\)</div>
+        <div class="ex-step">回代 \(v = \frac{u}{x} = \frac{x+y}{x}\)：\(\arctan\frac{x+y}{x} - \frac{1}{2}\ln\left(\frac{(x+y)^2}{x^2}+1\right) = \ln|x| + C_1\)</div>
+        <div class="ex-step">化简：\(\arctan\frac{x+y}{x} - \frac{1}{2}\ln\frac{(x+y)^2+x^2}{x^2} = \ln|x| + C_1\)，即 \(\arctan\frac{x+y}{x} - \frac{1}{2}\ln\left((x+y)^2+x^2\right) + \ln|x| = \ln|x| + C_1\)</div>
+        <div class="ex-step">整理得 \(\arctan\frac{x+y}{x} = \frac{1}{2}\ln\left(2x^2+2xy+y^2\right) + C\)，或等价写成 \(2\arctan\frac{x+y}{x} = \ln\left(2x^2+2xy+y^2\right) + C_2\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(2\arctan\frac{x+y}{x} = \ln\left(2x^2+2xy+y^2\right) + C\)，或隐式通解 \(\arctan\left(1+\frac{y}{x}\right) = \frac{1}{2}\ln\left((x+y)^2+x^2\right) + C\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(12)</span><span class="ex-qmath">\(\displaystyle 2xdz-2zdx=\sqrt{x^{2}+4z^{2}}dx\ (x&gt;0)\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">方程变形为 \[2x\frac{dz}{dx}-2z=\sqrt{x^2+4z^2}\]</div>
-        <div class="ex-step">令 \(z=xu\)，则 \(\frac{dz}{dx}=u+x\frac{du}{dx}\)</div>
-        <div class="ex-step">代入得 \[2x\left(u+x\frac{du}{dx}\right)-2xu=\sqrt{x^2+4x^2u^2}\]</div>
-        <div class="ex-step">化简左边：\[2xu+2x^2\frac{du}{dx}-2xu=2x^2\frac{du}{dx}\]</div>
-        <div class="ex-step">化简右边：\[\sqrt{x^2(1+4u^2)}=x\sqrt{1+4u^2}\]（因 \(x&gt;0\)）</div>
-        <div class="ex-step">方程化为 \[2x^2\frac{du}{dx}=x\sqrt{1+4u^2}\]</div>
-        <div class="ex-step">分离变量：\[\frac{2}{\sqrt{1+4u^2}}du=\frac{dx}{x}\]</div>
-        <div class="ex-step">左边积分：\[\int\frac{2}{\sqrt{1+4u^2}}du=\int\frac{2}{\sqrt{1+(2u)^2}}du\]</div>
-        <div class="ex-step">令 \(t=2u\)，\(dt=2du\)，积分变为 \[\int\frac{1}{\sqrt{1+t^2}}dt=\ln|t+\sqrt{1+t^2}|=\ln|2u+\sqrt{1+4u^2}|\]</div>
-        <div class="ex-step">右边积分：\[\int\frac{dx}{x}=\ln|x|=\ln x\]（因 \(x&gt;0\)）</div>
-        <div class="ex-step">得 \[\ln(2u+\sqrt{1+4u^2})=\ln x+\ln C=\ln(Cx)\]</div>
-        <div class="ex-step">即 \[2u+\sqrt{1+4u^2}=Cx\]</div>
-        <div class="ex-step">回代 \(u=\frac{z}{x}\)：\[\frac{2z}{x}+\sqrt{1+\frac{4z^2}{x^2}}=Cx\]</div>
-        <div class="ex-step">即 \[\frac{2z}{x}+\frac{\sqrt{x^2+4z^2}}{x}=Cx\]</div>
-        <div class="ex-step">两边乘 \(x\)：\[2z+\sqrt{x^2+4z^2}=Cx^2\]</div>
-        <div class="ex-step">移项：\[\sqrt{x^2+4z^2}=Cx^2-2z\]</div>
-        <div class="ex-step">两边平方：\[x^2+4z^2=C^2x^4-4Cx^2z+4z^2\]</div>
-        <div class="ex-step">消去 \(4z^2\)：\[x^2=C^2x^4-4Cx^2z\]</div>
-        <div class="ex-step">除以 \(x^2\)（\(x&gt;0\)）：\[1=C^2x^2-4Cz\]</div>
-        <div class="ex-step">解出 \(z\)：\[4Cz=C^2x^2-1\]</div>
-        <div class="ex-step">\[z=\frac{C^2x^2-1}{4C}=\frac{Cx^2}{4}-\frac{1}{4C}\]</div>
-        <div class="ex-step">令 \(C_1=\frac{C}{2}\)，则 \(C=2C_1\)，代入得 \[z=\frac{2C_1\cdot x^2}{4}-\frac{1}{4\cdot 2C_1}=\frac{C_1x^2}{2}-\frac{1}{8C_1}\]</div>
-        <div class="ex-step">或直接令常数为 \(C\)，写为 \[z=\frac{Cx^2}{2}-\frac{1}{4C}\]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[z=\frac{Cx^2}{2}-\frac{1}{4C}\] 或等价地 \[z=\frac{C_1}{2}x^2-\frac{1}{4C_1}\]，其中 \(C\)（或 \(C_1\)）为任意正常数（保证 \(Cx^2-2z&gt;0\) 使平方根有意义）</span></div>
+        <div class="ex-step">方程改写为 \(2x\,dz = \left(2z + \sqrt{x^2+4z^2}\right)dx\)，即 \(\frac{dz}{dx} = \frac{2z + \sqrt{x^2+4z^2}}{2x}\)</div>
+        <div class="ex-step">齐次方程，令 \(z = ux\)，则 \(\frac{dz}{dx} = u + x\frac{du}{dx}\)，代入得</div>
+        <div class="ex-step">分离变量：\(x\frac{du}{dx} = \frac{\sqrt{1+4u^2}}{2}\)，即 \(\frac{2\,du}{\sqrt{1+4u^2}} = \frac{dx}{x}\)</div>
+        <div class="ex-step">积分左边：令 \(2u = \tan\theta\)，或直接用公式 \(\int\frac{du}{\sqrt{a^2+u^2}} = \ln|u+\sqrt{a^2+u^2}|\)，得</div>
+        <div class="ex-step">即 \(2u + \sqrt{1+4u^2} = Cx\)，回代 \(u = \frac{z}{x}\)：</div>
+        <div class="ex-step">化简：\(\frac{2z + \sqrt{x^2+4z^2}}{x} = Cx\)，即 \(2z + \sqrt{x^2+4z^2} = Cx^2\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(2z + \sqrt{x^2+4z^2} = Cx^2\)（或等价写成 \(z = \frac{Cx^2}{4} - \frac{1}{4C}\)，\(C&gt;0\)）</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(13)</span><span class="ex-qmath">\(\displaystyle (x+4y)dx+2xdy=0\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">方程为 \((x+4y)dx+2xdy=0\)</div>
-        <div class="ex-step">改写为 \(\frac{dy}{dx}=-\frac{x+4y}{2x}=-\frac{1}{2}-\frac{2y}{x}\)</div>
-        <div class="ex-step">即 \(\frac{dy}{dx}+\frac{2}{x}y=-\frac{1}{2}\)</div>
-        <div class="ex-step">先解齐次方程 \(\frac{dy}{dx}+\frac{2}{x}y=0\)，分离变量得 \(\frac{dy}{y}=-\frac{2}{x}dx\)</div>
-        <div class="ex-step">积分得 \(\ln|y|=-2\ln|x|+\ln|C|\)，即 \(y=\frac{C}{x^2}\)</div>
-        <div class="ex-step">常数变易，设 \(y=\frac{C(x)}{x^2}\)，则 \(\frac{dy}{dx}=\frac{C'(x)}{x^2}-\frac{2C(x)}{x^3}\)</div>
-        <div class="ex-step">代入原方程：\(\frac{C'(x)}{x^2}-\frac{2C(x)}{x^3}+\frac{2}{x}\cdot\frac{C(x)}{x^2}=-\frac{1}{2}\)</div>
-        <div class="ex-step">化简得 \(\frac{C'(x)}{x^2}=-\frac{1}{2}\)，即 \(C'(x)=-\frac{x^2}{2}\)</div>
-        <div class="ex-step">积分得 \(C(x)=-\frac{x^3}{6}+C_1\)</div>
-        <div class="ex-step">通解为 \(y=\frac{-\frac{x^3}{6}+C_1}{x^2}=-\frac{x}{6}+\frac{C_1}{x^2}\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y=\frac{C}{x^2}-\frac{x}{6}\)（或 \(x^2y+\frac{x^3}{6}=C\)，或 \(6x^2y+x^3=C\)）</span></div>
+        <div class="ex-step">方程 \((x+4y)\,dx + 2x\,dy = 0\) 改写为 \(\frac{dy}{dx} = -\frac{x+4y}{2x} = -\frac{1}{2} - \frac{2y}{x}\)，识别为齐次/可化为齐次型，令 \(y = ux\)</div>
+        <div class="ex-step">代入 \(y = ux\), \(dy = u\,dx + x\,du\) 得 \(u + x\frac{du}{dx} = -\frac{1}{2} - 2u\)，即 \(x\frac{du}{dx} = -\frac{1}{2} - 3u\)</div>
+        <div class="ex-step">分离变量 \(\frac{du}{3u+\frac{1}{2}} = -\frac{dx}{x}\)，即 \(\frac{2\,du}{6u+1} = -\frac{dx}{x}\)</div>
+        <div class="ex-step">积分得 \(\frac{1}{3}\ln|6u+1| = -\ln|x| + C_1\)，即 \(\ln|6u+1| = -3\ln|x| + C_2\)</div>
+        <div class="ex-step">回代 \(u = \frac{y}{x}\) 得 \(6\frac{y}{x}+1 = \frac{C}{x^3}\)，即 \(\frac{6y+x}{x} = \frac{C}{x^3}\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[x^2(x+6y) = C\] 或等价写成 \((x+6y)x^2 = C\)（\(C\) 为任意常数）</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(14)</span><span class="ex-qmath">\(\displaystyle (2x^{2}+y^{2})dx+(2xy+3y^{2})dy=0\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \(M = 2x^2 + y^2\)，\(N = 2xy + 3y^2\)</div>
-        <div class="ex-step">计算偏导数：\(\frac{\partial M}{\partial y} = 2y\)，\(\frac{\partial N}{\partial x} = 2y\)</div>
-        <div class="ex-step">由 \(\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}\)，方程为全微分方程</div>
-        <div class="ex-step">求 \(u(x,y)\) 使得 \(\frac{\partial u}{\partial x} = M = 2x^2 + y^2\)</div>
-        <div class="ex-step">\[u = \int (2x^2 + y^2)dx = \frac{2}{3}x^3 + xy^2 + \varphi(y)\]</div>
-        <div class="ex-step">由 \(\frac{\partial u}{\partial y} = 2xy + \varphi'(y) = N = 2xy + 3y^2\)</div>
-        <div class="ex-step">得 \(\varphi'(y) = 3y^2\)</div>
-        <div class="ex-step">\[\varphi(y) = \int 3y^2 dy = y^3\]</div>
-        <div class="ex-step">故 \(u(x,y) = \frac{2}{3}x^3 + xy^2 + y^3\)</div>
-        <div class="ex-step">通解为 \(\frac{2}{3}x^3 + xy^2 + y^3 = C\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[\frac{2}{3}x^3 + xy^2 + y^3 = C\]</span></div>
+        <div class="ex-step">验证恰当性，\(\frac{\partial M}{\partial y} = 2y\)，\(\frac{\partial N}{\partial x} = 2y\)，方程为全微分方程</div>
+        <div class="ex-step">求势函数，\(u(x,y) = \int (2x^2+y^2)\,dx = \frac{2}{3}x^3 + xy^2 + \varphi(y)\)</div>
+        <div class="ex-step">由 \(\frac{\partial u}{\partial y} = 2xy + \varphi'(y) = 2xy + 3y^2\)，得 \(\varphi'(y) = 3y^2\)，\(\varphi(y) = y^3\)</div>
+        <div class="ex-step">通解为 \(\frac{2}{3}x^3 + xy^2 + y^3 = C\)，或等价写为 \(2x^3 + 3xy^2 + 3y^3 = C_1\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(2x^3 + 3xy^2 + 3y^3 = C\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(15)</span><span class="ex-qmath">\(\displaystyle (e^{x+y}-e^{x})dx+(e^{x+y}+e^{y})dy=0\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">原方程为 \((e^{x+y}-e^{x})dx+(e^{x+y}+e^{y})dy=0\)</div>
-        <div class="ex-step">整理为 \(e^{x}(e^{y}-1)dx+e^{y}(e^{x}+1)dy=0\)</div>
-        <div class="ex-step">分离变量：\(\frac{e^{x}}{e^{x}+1}dx=-\frac{e^{y}}{e^{y}-1}dy\)</div>
-        <div class="ex-step">两边积分：\(\int\frac{e^{x}}{e^{x}+1}dx=-\int\frac{e^{y}}{e^{y}-1}dy\)</div>
-        <div class="ex-step">计算左边积分：\(\int\frac{e^{x}}{e^{x}+1}dx=\ln|e^{x}+1|=\ln(e^{x}+1)\)（因 \(e^{x}+1&gt;0\)）</div>
-        <div class="ex-step">计算右边积分：\(\int\frac{e^{y}}{e^{y}-1}dy=\ln|e^{y}-1|\)</div>
-        <div class="ex-step">得 \(\ln(e^{x}+1)=-\ln|e^{y}-1|+C_{1}\)</div>
-        <div class="ex-step">即 \(\ln(e^{x}+1)+\ln|e^{y}-1|=C_{1}\)</div>
-        <div class="ex-step">即 \(\ln[(e^{x}+1)|e^{y}-1|]=C_{1}\)</div>
-        <div class="ex-step">即 \((e^{x}+1)|e^{y}-1|=e^{C_{1}}\)</div>
-        <div class="ex-step">去掉绝对值，令 \(C=\pm e^{C_{1}}\)（\(C\neq 0\)），得 \((e^{x}+1)(e^{y}-1)=C\)</div>
-        <div class="ex-step">验证 \(C=0\)：当 \(e^{y}=1\) 即 \(y=0\) 时，代入原方程左边 \(=(e^{x}-e^{x})dx+(e^{x}+1)\cdot 0=0\)，成立，故 \(C=0\) 可取</div>
-        <div class="ex-step">验证 \(y=1\) 即 \(e^{y}-1=0\) 时，原方程化为 \((e^{x+1}-e^{x})dx+(e^{x+1}+e)\cdot 0=0\) 即 \(e^{x}(e-1)dx=0\)，不恒成立，故 \(e^{y}-1=0\) 不是解；同理 \(e^{x}+1=0\) 无解</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\((e^{x}+1)(e^{y}-1)=C\)，其中 \(C\) 为任意常数</span></div>
+        <div class="ex-step">识别方程为全微分方程，验证 \(\frac{\partial M}{\partial y} = e^{x+y}\) 与 \(\frac{\partial N}{\partial x} = e^{x+y}\) 相等，其中 \(M = e^{x+y}-e^x\)，\(N = e^{x+y}+e^y\)</div>
+        <div class="ex-step">重组微分形式：\(e^{x+y}(dx+dy) - e^x dx + e^y dy = 0\)，即 \(d(e^{x+y}) - d(e^x) + d(e^y) = 0\)</div>
+        <div class="ex-step">积分得 \(e^{x+y} - e^x + e^y = C\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(e^{x+y} - e^x + e^y = C\)（或等价写成 \((e^x+1)(e^y-1) = C_1\)）</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(16)</span><span class="ex-qmath">\(\displaystyle (x^{2}-y^{2})dy-2xydx=0\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">\[(x^{2}-y^{2})dy-2xydx=0\]</div>
-        <div class="ex-step">\[M=-2xy,\quad N=x^{2}-y^{2}\]</div>
-        <div class="ex-step">\[\frac{\partial M}{\partial y}=-2x,\quad \frac{\partial N}{\partial x}=2x\]</div>
-        <div class="ex-step">\[\frac{\frac{\partial M}{\partial y}-\frac{\partial N}{\partial x}}{N}=\frac{-2x-2x}{x^{2}-y^{2}}=\frac{-4x}{x^{2}-y^{2}}\]</div>
-        <div class="ex-step">\[\frac{\frac{\partial N}{\partial x}-\frac{\partial M}{\partial y}}{M}=\frac{2x-(-2x)}{-2xy}=\frac{4x}{-2xy}=-\frac{2}{y}\]</div>
-        <div class="ex-step">\[\mu(y)=e^{\int(-\frac{2}{y})dy}=e^{-2\ln|y|}=\frac{1}{y^{2}}\]</div>
-        <div class="ex-step">\[\frac{1}{y^{2}}(x^{2}-y^{2})dy-\frac{2x}{y}dx=0\]</div>
-        <div class="ex-step">\[\left(\frac{x^{2}}{y^{2}}-1\right)dy-\frac{2x}{y}dx=0\]</div>
-        <div class="ex-step">\[P=-\frac{2x}{y},\quad Q=\frac{x^{2}}{y^{2}}-1\]</div>
-        <div class="ex-step">\[\frac{\partial P}{\partial y}=\frac{2x}{y^{2}},\quad \frac{\partial Q}{\partial x}=\frac{2x}{y^{2}}\]</div>
-        <div class="ex-step">\[u=\int Pdx=\int-\frac{2x}{y}dx=-\frac{x^{2}}{y}+\varphi(y)\]</div>
-        <div class="ex-step">\[\frac{\partial u}{\partial y}=\frac{x^{2}}{y^{2}}+\varphi'(y)=Q=\frac{x^{2}}{y^{2}}-1\]</div>
-        <div class="ex-step">\[\varphi'(y)=-1\]</div>
-        <div class="ex-step">\[\varphi(y)=-y\]</div>
-        <div class="ex-step">\[u(x,y)=-\frac{x^{2}}{y}-y\]</div>
-        <div class="ex-step">\[-\frac{x^{2}}{y}-y=C_{1}\]</div>
-        <div class="ex-step">\[\frac{x^{2}}{y}+y=C\]</div>
-        <div class="ex-step">\[x^{2}+y^{2}=Cy\]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[x^{2}+y^{2}=Cy\]</span></div>
+        <div class="ex-step">识别方程为齐次方程，令 \(y = ux\)，则 \(dy = u\,dx + x\,du\)</div>
+        <div class="ex-step">代入原方程 \((x^2 - u^2x^2)(u\,dx + x\,du) - 2ux^2\,dx = 0\)，整理得</div>
+        <div class="ex-step">\[分解左边\]</div>
+        <div class="ex-step">\[积分得\]</div>
+        <div class="ex-step">回代 \(u = \frac{y}{x}\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[x^2 + y^2 = Cy \quad (C\text{ 为任意常数})\]</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(17)</span><span class="ex-qmath">\(\displaystyle \frac{dy}{dx}=\frac{2x^{3}y-y^{4}}{x^{4}-2xy^{3}}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">令 \( y = ux \)，则 \( \frac{dy}{dx} = u + x\frac{du}{dx} \)</div>
-        <div class="ex-step">代入原方程：\( u + x\frac{du}{dx} = \frac{2x^{3}\cdot ux - (ux)^{4}}{x^{4} - 2x\cdot (ux)^{3}} = \frac{2ux^{4} - u^{4}x^{4}}{x^{4} - 2u^{3}x^{4}} = \frac{2u - u^{4}}{1 - 2u^{3}} \)</div>
-        <div class="ex-step">\( x\frac{du}{dx} = \frac{2u - u^{4}}{1 - 2u^{3}} - u = \frac{2u - u^{4} - u(1 - 2u^{3})}{1 - 2u^{3}} = \frac{2u - u^{4} - u + 2u^{4}}{1 - 2u^{3}} = \frac{u + u^{4}}{1 - 2u^{3}} = \frac{u(1 + u^{3})}{1 - 2u^{3}} \)</div>
-        <div class="ex-step">分离变量：\( \frac{1 - 2u^{3}}{u(1 + u^{3})}du = \frac{dx}{x} \)</div>
-        <div class="ex-step">对左边进行部分分式分解。设 \( \frac{1 - 2u^{3}}{u(1 + u^{3})} = \frac{1 - 2u^{3}}{u(1 + u)(1 - u + u^{2})} = \frac{A}{u} + \frac{B}{1 + u} + \frac{Cu + D}{1 - u + u^{2}} \)</div>
-        <div class="ex-step">由 \( 1 - 2u^{3} = A(1 + u^{3}) + Bu(1 - u + u^{2}) + (Cu + D)u(1 + u) \)</div>
-        <div class="ex-step">令 \( u = 0 \)：\( 1 = A \)，得 \( A = 1 \)</div>
-        <div class="ex-step">令 \( u = -1 \)：\( 1 - 2(-1)^{3} = 3 = B\cdot(-1)\cdot(1 + 1 + 1) = -3B \)，得 \( B = -1 \)</div>
-        <div class="ex-step">比较 \( u^{3} \) 项：\( -2 = A + B + C = 1 - 1 + C \)，得 \( C = -2 \)</div>
-        <div class="ex-step">比较常数项：\( 1 = A = 1 \)（已满足）</div>
-        <div class="ex-step">比较 \( u \) 项：\( 0 = B + D = -1 + D \)，得 \( D = 1 \)</div>
-        <div class="ex-step">验证：\( \frac{1}{u} - \frac{1}{1+u} + \frac{-2u+1}{1-u+u^{2}} = \frac{1}{u} - \frac{1}{1+u} + \frac{1-2u}{u^{2}-u+1} \)</div>
-        <div class="ex-step">积分：\( \int\left(\frac{1}{u} - \frac{1}{1+u} + \frac{1-2u}{u^{2}-u+1}\right)du = \int\frac{dx}{x} \)</div>
-        <div class="ex-step">\( \int\frac{1}{u}du = \ln|u| \)</div>
-        <div class="ex-step">\( \int\frac{-1}{1+u}du = -\ln|1+u| \)</div>
-        <div class="ex-step">对于 \( \int\frac{1-2u}{u^{2}-u+1}du \)，注意 \( d(u^{2}-u+1) = (2u-1)du = -(1-2u)du \)</div>
-        <div class="ex-step">\( \int\frac{1-2u}{u^{2}-u+1}du = -\int\frac{d(u^{2}-u+1)}{u^{2}-u+1} = -\ln|u^{2}-u+1| \)</div>
-        <div class="ex-step">左边积分结果：\( \ln|u| - \ln|1+u| - \ln|u^{2}-u+1| = \ln\left|\frac{u}{(1+u)(u^{2}-u+1)}\right| = \ln\left|\frac{u}{1+u^{3}}\right| \)</div>
-        <div class="ex-step">\( \ln\left|\frac{u}{1+u^{3}}\right| = \ln|x| + \ln|C| = \ln|Cx| \)</div>
-        <div class="ex-step">\( \frac{u}{1+u^{3}} = Cx \)</div>
-        <div class="ex-step">代回 \( u = \frac{y}{x} \)：\( \frac{\frac{y}{x}}{1+\frac{y^{3}}{x^{3}}} = Cx \)</div>
-        <div class="ex-step">\( \frac{\frac{y}{x}}{\frac{x^{3}+y^{3}}{x^{3}}} = Cx \)</div>
-        <div class="ex-step">\( \frac{y}{x}\cdot\frac{x^{3}}{x^{3}+y^{3}} = Cx \)</div>
-        <div class="ex-step">\( \frac{yx^{2}}{x^{3}+y^{3}} = Cx \)</div>
-        <div class="ex-step">\( \frac{yx}{x^{3}+y^{3}} = C \)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\( x^{3} + y^{3} = Cxy \) 或写成 \( x^{3} + y^{3} = C_{1}xy \)（其中 \( C_{1} = \frac{1}{C} \) 为任意非零常数，包含 \( C = 0 \) 时 \( y = 0 \) 的特解）</span></div>
+        <div class="ex-step">识别齐次方程，令 \(u=\frac{y}{x}\)，则 \(y=ux\)，\(\frac{dy}{dx}=u+x\frac{du}{dx}\)</div>
+        <div class="ex-step">分子分母同除以 \(x^4\)，得 \(\frac{dy}{dx}=\frac{2u-u^4}{1-2u^3}\)</div>
+        <div class="ex-step">代入换元，\(u+x\frac{du}{dx}=\frac{2u-u^4}{1-2u^3}\)，分离变量：</div>
+        <div class="ex-step">分离变量得 \(\frac{1-2u^3}{u(1+u^3)}du=\frac{dx}{x}\)，对左边分解：</div>
+        <div class="ex-step">\[积分两边：\]</div>
+        <div class="ex-step">整理得 \(\frac{u}{1+u^3}=Cx\)，即 \(\frac{y/x}{1+(y/x)^3}=Cx\)，化简：</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(x^3+y^3=Cy\)（或写成 \(x^3+y^3=Cy\)，其中 \(C\) 为任意常数；另 \(y=0\) 也是解，已包含）</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(18)</span><span class="ex-qmath">\(\displaystyle (2x+3y)y'-y=0\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">方程改写为 \( (2x+3y)\frac{dy}{dx} - y = 0 \)，即 \( (2x+3y)\frac{dy}{dx} = y \)</div>
-        <div class="ex-step">当 \( y \neq 0 \) 时，\( \frac{dy}{dx} = \frac{y}{2x+3y} \)，取倒数得 \( \frac{dx}{dy} = \frac{2x+3y}{y} = \frac{2x}{y} + 3 \)</div>
-        <div class="ex-step">令 \( x = vy \)，则 \( \frac{dx}{dy} = v + y\frac{dv}{dy} \)</div>
-        <div class="ex-step">代入得 \( v + y\frac{dv}{dy} = \frac{2vy}{y} + 3 = 2v + 3 \)</div>
-        <div class="ex-step">分离变量：\( y\frac{dv}{dy} = v + 3 \)，即 \( \frac{dv}{v+3} = \frac{dy}{y} \)</div>
-        <div class="ex-step">积分两边：\( \int \frac{dv}{v+3} = \int \frac{dy}{y} \)</div>
-        <div class="ex-step">得 \( \ln|v+3| = \ln|y| + C_1 \)</div>
-        <div class="ex-step">即 \( v+3 = Cy \)（其中 \( C = \pm e^{C_1} \)）</div>
-        <div class="ex-step">回代 \( v = \frac{x}{y} \)：\( \frac{x}{y} + 3 = Cy \)</div>
-        <div class="ex-step">整理得 \( x + 3y = Cy^2 \)</div>
-        <div class="ex-step">验证 \( y = 0 \)：代入原方程左边 \( = (2x+0)\cdot y' - 0 = 0 \)，但 \( y = 0 \) 时 \( y' \) 任意，实际上 \( y = 0 \) 已包含于 \( C \to \infty \) 情形或单独验证不满足通式形式，而 \( x + 3y = Cy^2 \) 已含于通解</div>
-        <div class="ex-step">由 \( x + 3y = Cy^2 \) 解出 \( x = Cy^2 - 3y \)，或写成 \( Cy^2 - x - 3y = 0 \)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\( x = Cy^2 - 3y \) 或等价地 \( Cy^2 - x - 3y = 0 \)（\( C \) 为任意常数）</span></div>
+        <div class="ex-step">方程改写为 \( \frac{dx}{dy} = \frac{2x+3y}{y} = \frac{2x}{y} + 3 \)，即 \( \frac{dx}{dy} - \frac{2}{y}x = 3 \)（关于 \( x \) 的一阶线性方程，\( y \) 为自变量）</div>
+        <div class="ex-step">积分因子 \( \mu = e^{-\int \frac{2}{y}dy} = e^{-2\ln|y|} = \frac{1}{y^2} \)</div>
+        <div class="ex-step">通解公式 \( x = y^2\left(\int \frac{3}{y^2}dy + C\right) = y^2\left(-\frac{3}{y} + C\right) = Cy^2 - 3y \)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\( x = Cy^2 - 3y \)（或 \( x + 3y = Cy^2 \)，\( C \) 为任意常数）</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(19)</span><span class="ex-qmath">\(\displaystyle x\frac{dy}{dx}-2y=2x\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">方程化为标准形式：\[\frac{dy}{dx} - \frac{2}{x}y = 2\]</div>
-        <div class="ex-step">积分因子：\[\mu(x) = e^{\int -\frac{2}{x}dx} = e^{-2\ln|x|} = x^{-2} = \frac{1}{x^2}\]</div>
-        <div class="ex-step">方程两边乘以积分因子：\[\frac{1}{x^2}\frac{dy}{dx} - \frac{2}{x^3}y = \frac{2}{x^2}\]</div>
-        <div class="ex-step">左边化为全微分：\[\frac{d}{dx}\left(\frac{y}{x^2}\right) = \frac{2}{x^2}\]</div>
-        <div class="ex-step">两边积分：\[\frac{y}{x^2} = \int \frac{2}{x^2}dx = -\frac{2}{x} + C\]</div>
-        <div class="ex-step">解出 \(y\)：\[y = x^2\left(-\frac{2}{x} + C\right) = -2x + Cx^2\]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[y = Cx^2 - 2x\]</span></div>
+        <div class="ex-step">方程化为标准形式 \(\frac{dy}{dx} - \frac{2}{x}y = 2\)，识别为一阶线性非齐次方程</div>
+        <div class="ex-step">积分因子 \(\mu(x) = e^{\int -\frac{2}{x}dx} = e^{-2\ln|x|} = x^{-2}\)</div>
+        <div class="ex-step">乘以积分因子得 \(\frac{d}{dx}\left(x^{-2}y\right) = 2x^{-2}\)</div>
+        <div class="ex-step">积分得 \(x^{-2}y = \int 2x^{-2}dx = -2x^{-1} + C\)</div>
+        <div class="ex-step">解出 \(y = x^2\left(-\frac{2}{x} + C\right) = -2x + Cx^2\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y = Cx^2 - 2x\)，其中 \(C\) 为任意常数</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(20)</span><span class="ex-qmath">\(\displaystyle \frac{dy}{dx}-y=-2e^{-x}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">方程为 \(\frac{dy}{dx}-y=-2e^{-x}\)，这是一阶线性方程，标准形式为 \(\frac{dy}{dx}+P(x)y=Q(x)\)，其中 \(P(x)=-1\)，\(Q(x)=-2e^{-x}\)</div>
-        <div class="ex-step">求积分因子 \(\mu(x)=e^{\int P(x)\,dx}=e^{\int (-1)\,dx}=e^{-x}\)</div>
-        <div class="ex-step">方程两边乘以积分因子 \(e^{-x}\)，得 \(e^{-x}\frac{dy}{dx}-e^{-x}y=-2e^{-2x}\)</div>
-        <div class="ex-step">左边化为全微分形式，即 \(\frac{d}{dx}\left(ye^{-x}\right)=-2e^{-2x}\)</div>
-        <div class="ex-step">两边积分，\(\int\frac{d}{dx}\left(ye^{-x}\right)dx=\int -2e^{-2x}\,dx\)</div>
-        <div class="ex-step">计算右边积分，\(\int -2e^{-2x}\,dx=-2\cdot\frac{e^{-2x}}{-2}+C=e^{-2x}+C\)</div>
-        <div class="ex-step">因此 \(ye^{-x}=e^{-2x}+C\)</div>
-        <div class="ex-step">两边乘以 \(e^{x}\)，得 \(y=e^{-x}+Ce^{x}\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y=Ce^{x}+e^{-x}\)</span></div>
+        <div class="ex-step">一阶线性方程标准形：\(\frac{dy}{dx} + P(x)y = Q(x)\)，此处 \(P(x) = -1\)，\(Q(x) = -2e^{-x}\)</div>
+        <div class="ex-step">积分因子 \(\mu(x) = e^{\int -1\,dx} = e^{-x}\)</div>
+        <div class="ex-step">方程两边乘 \(\mu(x)\)：\(e^{-x}\frac{dy}{dx} - e^{-x}y = -2e^{-2x}\)，即 \(\frac{d}{dx}\left(ye^{-x}\right) = -2e^{-2x}\)</div>
+        <div class="ex-step">积分得 \(ye^{-x} = \int -2e^{-2x}\,dx = e^{-2x} + C\)</div>
+        <div class="ex-step">通解 \(y = e^{x}\left(e^{-2x} + C\right) = e^{-x} + Ce^{x}\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y = Ce^{x} + e^{-x}\)（\(C\) 为任意常数）</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(21)</span><span class="ex-qmath">\(\displaystyle \frac{ds}{dt}-s\cot t=1-(t+2)\cot t\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">识别方程为 \(\frac{ds}{dt} - s\cot t = 1 - (t+2)\cot t\)，这是一阶线性微分方程，标准形式为 \(\frac{ds}{dt} + P(t)s = Q(t)\)，其中 \(P(t) = -\cot t\)，\(Q(t) = 1 - (t+2)\cot t\)</div>
-        <div class="ex-step">计算积分因子 \(\mu(t) = e^{\int P(t)\,dt} = e^{\int -\cot t\,dt} = e^{-\ln|\sin t|} = \frac{1}{\sin t}\)</div>
-        <div class="ex-step">方程两边乘以积分因子 \(\frac{1}{\sin t}\)，得 \(\frac{1}{\sin t}\frac{ds}{dt} - \frac{s\cot t}{\sin t} = \frac{1-(t+2)\cot t}{\sin t}\)</div>
-        <div class="ex-step">左边化为全微分 \(\frac{d}{dt}\left(\frac{s}{\sin t}\right) = \frac{1}{\sin t} - \frac{(t+2)\cot t}{\sin t} = \frac{1}{\sin t} - \frac{(t+2)\cos t}{\sin^2 t}\)</div>
-        <div class="ex-step">对右边积分求通解，\(\frac{s}{\sin t} = \int\frac{1}{\sin t}\,dt - \int\frac{(t+2)\cos t}{\sin^2 t}\,dt\)</div>
-        <div class="ex-step">计算 \(\int\frac{1}{\sin t}\,dt = \int\csc t\,dt = \ln|\csc t - \cot t| = \ln\left|\frac{1-\cos t}{\sin t}\right|\)</div>
-        <div class="ex-step">对第二项积分用分部积分，设 \(u = t+2\)，\(dv = \frac{\cos t}{\sin^2 t}\,dt = d\left(-\frac{1}{\sin t}\right)\)，则 \(\int\frac{(t+2)\cos t}{\sin^2 t}\,dt = -\frac{t+2}{\sin t} + \int\frac{1}{\sin t}\,dt = -\frac{t+2}{\sin t} + \ln|\csc t - \cot t|\)</div>
-        <div class="ex-step">代回得 \(\frac{s}{\sin t} = \ln|\csc t - \cot t| - \left(-\frac{t+2}{\sin t} + \ln|\csc t - \cot t|\right) + C = \frac{t+2}{\sin t} + C\)</div>
-        <div class="ex-step">解得 \(s = (t+2) + C\sin t\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(s = t + 2 + C\sin t\)</span></div>
+        <div class="ex-step">识别一阶线性方程标准形 \(\frac{ds}{dt} - s\cot t = 1-(t+2)\cot t\)，其中 \(P(t)=-\cot t\)</div>
+        <div class="ex-step">求积分因子 \(\mu(t)=e^{\int -\cot t\,dt}=e^{-\ln|\sin t|}=\frac{1}{\sin t}\)（取 \(t\in(0,\pi)\) 时 \(\sin t&gt;0\)）</div>
+        <div class="ex-step">方程两边乘积分因子得 \(\frac{d}{dt}\left(\frac{s}{\sin t}\right)=\frac{1}{\sin t}-\frac{(t+2)\cos t}{\sin^2 t}\)</div>
+        <div class="ex-step">右边积分：\(\int\frac{dt}{\sin t}-\int\frac{(t+2)\cos t}{\sin^2 t}dt\)；第一项 \(=\ln\left|\tan\frac{t}{2}\right|\)，第二项用分部积分 \(\int(t+2)d\left(-\frac{1}{\sin t}\right)=-\frac{t+2}{\sin t}+\int\frac{dt}{\sin t}\)</div>
+        <div class="ex-step">合并得 \(\frac{s}{\sin t}=-\frac{t+2}{\sin t}+C\)，即 \(s=-(t+2)+C\sin t\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(s=C\sin t-t-2\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(22)</span><span class="ex-qmath">\(\displaystyle x\frac{dy}{dx}-y=(x-1)e^{x}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">将方程化为标准形式，两边除以 \(x\)，得 \[ \frac{dy}{dx} - \frac{1}{x}y = \frac{(x-1)e^x}{x} \]</div>
-        <div class="ex-step">求积分因子，\(\mu(x) = e^{\int -\frac{1}{x}dx} = e^{-\ln|x|} = \frac{1}{x}\)（取 \(x&gt;0\)）</div>
-        <div class="ex-step">方程两边乘以积分因子 \(\frac{1}{x}\)，得 \[ \frac{1}{x}\frac{dy}{dx} - \frac{1}{x^2}y = \frac{(x-1)e^x}{x^2} \]</div>
-        <div class="ex-step">左边化为全微分形式，即 \[ \frac{d}{dx}\left(\frac{y}{x}\right) = \frac{(x-1)e^x}{x^2} \]</div>
-        <div class="ex-step">对右边进行积分，先拆分：\[ \frac{(x-1)e^x}{x^2} = \frac{xe^x - e^x}{x^2} = \frac{e^x}{x} - \frac{e^x}{x^2} \]</div>
-        <div class="ex-step">积分 \(\int\left(\frac{e^x}{x} - \frac{e^x}{x^2}\right)dx\)，注意到 \(\frac{d}{dx}\left(\frac{e^x}{x}\right) = \frac{xe^x - e^x}{x^2} = \frac{e^x}{x} - \frac{e^x}{x^2}\)，故 \[ \int\frac{(x-1)e^x}{x^2}dx = \frac{e^x}{x} + C \]</div>
-        <div class="ex-step">因此 \[ \frac{y}{x} = \frac{e^x}{x} + C \]</div>
-        <div class="ex-step">两边乘以 \(x\)，得 \[ y = e^x + Cx \]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y = e^x + Cx\)（\(C\) 为任意常数）</span></div>
+        <div class="ex-step">识别为一阶线性方程，化为标准形式 \(\frac{dy}{dx}-\frac{1}{x}y=\frac{x-1}{x}e^{x}\)</div>
+        <div class="ex-step">积分因子 \(\mu(x)=e^{\int-\frac{1}{x}dx}=e^{-\ln|x|}=\frac{1}{x}\)</div>
+        <div class="ex-step">方程两边乘 \(\frac{1}{x}\) 得 \(\frac{d}{dx}\left(\frac{y}{x}\right)=\frac{x-1}{x^{2}}e^{x}\)</div>
+        <div class="ex-step">右边拆分为 \(\frac{x-1}{x^{2}}e^{x}=\frac{1}{x}e^{x}-\frac{1}{x^{2}}e^{x}\)，恰为 \(\frac{d}{dx}\left(\frac{e^{x}}{x}\right)\)</div>
+        <div class="ex-step">积分得 \(\frac{y}{x}=\frac{e^{x}}{x}+C\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y=e^{x}+Cx\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(23)</span><span class="ex-qmath">\(\displaystyle \frac{ds}{dt}+\frac{s}{t}=\cos t+\frac{\sin t}{t}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">方程为 \(\frac{ds}{dt}+\frac{s}{t}=\cos t+\frac{\sin t}{t}\)，这是一阶线性方程，标准形式为 \(\frac{ds}{dt}+P(t)s=Q(t)\)，其中 \(P(t)=\frac{1}{t}\)，\(Q(t)=\cos t+\frac{\sin t}{t}\)</div>
-        <div class="ex-step">积分因子 \(\mu(t)=e^{\int P(t)\,dt}=e^{\int \frac{1}{t}\,dt}=e^{\ln|t|}=t\)</div>
-        <div class="ex-step">方程两边乘以积分因子：\(t\frac{ds}{dt}+s=t\cos t+\sin t\)</div>
-        <div class="ex-step">左边化为全微分：\(\frac{d}{dt}(ts)=t\cos t+\sin t\)</div>
-        <div class="ex-step">两边积分：\(ts=\int(t\cos t+\sin t)\,dt\)</div>
-        <div class="ex-step">计算积分 \(\int t\cos t\,dt\)，分部积分：\(u=t\)，\(dv=\cos t\,dt\)，则 \(du=dt\)，\(v=\sin t\)，所以 \(\int t\cos t\,dt=t\sin t-\int\sin t\,dt=t\sin t+\cos t\)</div>
-        <div class="ex-step">计算积分 \(\int\sin t\,dt=-\cos t\)</div>
-        <div class="ex-step">因此 \(\int(t\cos t+\sin t)\,dt=t\sin t+\cos t-\cos t+C=t\sin t+C\)</div>
-        <div class="ex-step">得到 \(ts=t\sin t+C\)</div>
-        <div class="ex-step">解得 \(s=\sin t+\frac{C}{t}\)</div>
+        <div class="ex-step">识别方程为 \(\frac{ds}{dt}+\frac{1}{t}s=\cos t+\frac{\sin t}{t}\)，一阶线性，\(P(t)=\frac{1}{t}\)，\(Q(t)=\cos t+\frac{\sin t}{t}\)</div>
+        <div class="ex-step">积分因子 \(\mu=e^{\int\frac{1}{t}dt}=e^{\ln|t|}=t\)</div>
+        <div class="ex-step">方程化为 \(\frac{d}{dt}(st)=t\cos t+\sin t\)</div>
+        <div class="ex-step">右边恰为 \(\frac{d}{dt}(t\sin t)\)，故 \(st=t\sin t+C\)</div>
       <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(s=\sin t+\frac{C}{t}\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(24)</span><span class="ex-qmath">\(\displaystyle \frac{dy}{dx}-\frac{2y}{x+1}=(x+1)^{\frac{5}{2}}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">识别方程为 \(\frac{dy}{dx} + P(x)y = Q(x)\)，其中 \(P(x) = -\frac{2}{x+1}\)，\(Q(x) = (x+1)^{\frac{5}{2}}\)</div>
-        <div class="ex-step">计算积分因子 \(\mu(x) = e^{\int P(x)dx} = e^{\int -\frac{2}{x+1}dx} = e^{-2\ln|x+1|} = e^{\ln(x+1)^{-2}} = (x+1)^{-2}\)</div>
-        <div class="ex-step">方程两边乘积分因子：\((x+1)^{-2}\frac{dy}{dx} - 2(x+1)^{-3}y = (x+1)^{\frac{5}{2}} \cdot (x+1)^{-2}\)</div>
-        <div class="ex-step">左边化为全微分：\(\frac{d}{dx}\left[y(x+1)^{-2}\right] = (x+1)^{\frac{1}{2}}\)</div>
+        <div class="ex-step">识别一阶线性方程：\(\frac{dy}{dx} + P(x)y = Q(x)\)，其中 \(P(x) = -\frac{2}{x+1}\)，\(Q(x) = (x+1)^{\frac{5}{2}}\)</div>
+        <div class="ex-step">求积分因子：\(\mu(x) = e^{\int -\frac{2}{x+1}dx} = e^{-2\ln|x+1|} = (x+1)^{-2}\)</div>
+        <div class="ex-step">方程两边乘积分因子得：\(\frac{d}{dx}\left[y(x+1)^{-2}\right] = (x+1)^{\frac{5}{2}} \cdot (x+1)^{-2} = (x+1)^{\frac{1}{2}}\)</div>
         <div class="ex-step">两边积分：\(y(x+1)^{-2} = \int (x+1)^{\frac{1}{2}}dx = \frac{2}{3}(x+1)^{\frac{3}{2}} + C\)</div>
-        <div class="ex-step">解得 \(y = (x+1)^2\left[\frac{2}{3}(x+1)^{\frac{3}{2}} + C\right] = \frac{2}{3}(x+1)^{\frac{7}{2}} + C(x+1)^2\)</div>
+        <div class="ex-step">解得通解：\(y = (x+1)^2\left[\frac{2}{3}(x+1)^{\frac{3}{2}} + C\right] = \frac{2}{3}(x+1)^{\frac{7}{2}} + C(x+1)^2\)</div>
       <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y = \frac{2}{3}(x+1)^{\frac{7}{2}} + C(x+1)^2\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(25)</span><span class="ex-qmath">\(\displaystyle (x+1)\frac{dy}{dx}-ny=e^{x}(x+1)^{n+1}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">方程 \((x+1)\frac{dy}{dx}-ny=e^{x}(x+1)^{n+1}\) 化为标准形式</div>
-        <div class="ex-step">\[积分因子\]</div>
-        <div class="ex-step">\[方程两边乘积分因子\]</div>
-        <div class="ex-step">\[左边化为全微分\]</div>
-        <div class="ex-step">\[两边积分\]</div>
-        <div class="ex-step">解出 \(y\)</div>
+        <div class="ex-step">识别为一阶线性方程，标准形式 \(\frac{dy}{dx}-\frac{n}{x+1}y=e^{x}(x+1)^{n}\)</div>
+        <div class="ex-step">积分因子 \(\mu=e^{-\int\frac{n}{x+1}dx}=e^{-n\ln|x+1|}=(x+1)^{-n}\)</div>
+        <div class="ex-step">方程化为 \(\frac{d}{dx}\left[y(x+1)^{-n}\right]=e^{x}\)</div>
+        <div class="ex-step">积分得 \(y(x+1)^{-n}=e^{x}+C\)</div>
       <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y=(x+1)^{n}\left(e^{x}+C\right)\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(26)</span><span class="ex-qmath">\(\displaystyle \frac{dy}{dx}+\frac{y}{x}=y^{3}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">原方程 \(\frac{dy}{dx}+\frac{y}{x}=y^{3}\) 为伯努利方程，\(n=3\)。令 \(z=y^{1-3}=y^{-2}\)，则 \(\frac{dz}{dx}=-2y^{-3}\frac{dy}{dx}\)，即 \(y^{-3}\frac{dy}{dx}=-\frac{1}{2}\frac{dz}{dx}\)</div>
-        <div class="ex-step">原方程两边除以 \(y^{3}\) 得 \(y^{-3}\frac{dy}{dx}+\frac{y^{-2}}{x}=1\)，代入 \(z=y^{-2}\) 得 \(-\frac{1}{2}\frac{dz}{dx}+\frac{z}{x}=1\)</div>
-        <div class="ex-step">整理为 \(\frac{dz}{dx}-\frac{2}{x}z=-2\)</div>
-        <div class="ex-step">求积分因子 \(\mu(x)=e^{\int -\frac{2}{x}dx}=e^{-2\ln|x|}=x^{-2}=\frac{1}{x^{2}}\)</div>
-        <div class="ex-step">方程两边乘 \(\frac{1}{x^{2}}\) 得 \(\frac{1}{x^{2}}\frac{dz}{dx}-\frac{2}{x^{3}}z=-\frac{2}{x^{2}}\)，即 \(\frac{d}{dx}\left(\frac{z}{x^{2}}\right)=-\frac{2}{x^{2}}\)</div>
-        <div class="ex-step">积分得 \(\frac{z}{x^{2}}=\int -\frac{2}{x^{2}}dx=\frac{2}{x}+C\)</div>
-        <div class="ex-step">故 \(z=x^{2}\left(\frac{2}{x}+C\right)=2x+Cx^{2}\)</div>
-        <div class="ex-step">回代 \(z=y^{-2}\) 得 \(y^{-2}=2x+Cx^{2}\)，即 \(\frac{1}{y^{2}}=2x+Cx^{2}\)</div>
-        <div class="ex-step">通解为 \(y^{2}=\frac{1}{2x+Cx^{2}}\) 或 \(y=\pm\frac{1}{\sqrt{2x+Cx^{2}}}\)，另 \(y=0\) 也是解</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y^{2}=\frac{1}{2x+Cx^{2}}\)（\(C\) 为任意常数），或写成 \(y=\pm\frac{1}{\sqrt{2x+Cx^{2}}}\)，及特解 \(y=0\)</span></div>
+        <div class="ex-step">识别为伯努利方程 \(\frac{dy}{dx}+\frac{1}{x}y=y^{3}\)，其中 \(n=3\)，令 \(z=y^{1-3}=y^{-2}\)，则 \(\frac{dz}{dx}=-2y^{-3}\frac{dy}{dx}\)</div>
+        <div class="ex-step">原方程两边除以 \(y^{3}\) 得 \(y^{-3}\frac{dy}{dx}+\frac{1}{x}y^{-2}=1\)，即 \(-\frac{1}{2}\frac{dz}{dx}+\frac{1}{x}z=1\)，化为线性方程 \(\frac{dz}{dx}-\frac{2}{x}z=-2\)</div>
+        <div class="ex-step">积分因子 \(\mu(x)=e^{\int -\frac{2}{x}dx}=e^{-2\ln|x|}=x^{-2}\)，方程化为 \(\frac{d}{dx}(x^{-2}z)=-2x^{-2}\)</div>
+        <div class="ex-step">积分得 \(x^{-2}z=2x^{-1}+C\)，即 \(z=2x+Cx^{2}\)</div>
+        <div class="ex-step">回代 \(z=y^{-2}\) 得 \(y^{-2}=2x+Cx^{2}\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>通解为 \(\frac{1}{y^{2}}=2x+Cx^{2}\)（或 \(y^{2}=\frac{1}{2x+Cx^{2}}\)），另含特解 \(y=0\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(27)</span><span class="ex-qmath">\(\displaystyle x\frac{dy}{dx}+y=2\sqrt{xy}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">当 \(x&gt;0, y&gt;0\) 时，令 \(y=ux\)，则 \(\frac{dy}{dx}=u+x\frac{du}{dx}\)</div>
-        <div class="ex-step">代入原方程：\(x\left(u+x\frac{du}{dx}\right)+ux=2\sqrt{x\cdot ux}\)</div>
-        <div class="ex-step">化简得：\(ux+x^2\frac{du}{dx}+ux=2x\sqrt{u}\)</div>
-        <div class="ex-step">即：\(x^2\frac{du}{dx}+2ux=2x\sqrt{u}\)</div>
-        <div class="ex-step">两边除以 \(x\)：\(x\frac{du}{dx}+2u=2\sqrt{u}\)</div>
-        <div class="ex-step">分离变量：\(x\frac{du}{dx}=2\sqrt{u}-2u=2\sqrt{u}(1-\sqrt{u})\)</div>
-        <div class="ex-step">\(\frac{du}{2\sqrt{u}(1-\sqrt{u})}=\frac{dx}{x}\)</div>
-        <div class="ex-step">令 \(v=\sqrt{u}\)，则 \(u=v^2\)，\(du=2v\,dv\)</div>
-        <div class="ex-step">左边 \(=\frac{2v\,dv}{2v(1-v)}=\frac{dv}{1-v}\)</div>
-        <div class="ex-step">积分两边：\(\int\frac{dv}{1-v}=\int\frac{dx}{x}\)</div>
-        <div class="ex-step">\(-\ln|1-v|=\ln|x|+C_1\)</div>
-        <div class="ex-step">\(\ln|1-v|=-\ln|x|+C_2=\ln\frac{1}{|x|}+C_2\)</div>
-        <div class="ex-step">\(1-v=\frac{C}{x}\)，其中 \(C\) 为任意常数（可正可负，吸收符号）</div>
-        <div class="ex-step">\(v=1-\frac{C}{x}=\frac{x-C}{x}\)</div>
-        <div class="ex-step">回代 \(v=\sqrt{u}=\sqrt{\frac{y}{x}}\)</div>
-        <div class="ex-step">\(\sqrt{\frac{y}{x}}=\frac{x-C}{x}=1-\frac{C}{x}\)</div>
-        <div class="ex-step">\(\frac{y}{x}=\left(1-\frac{C}{x}\right)^2=\frac{(x-C)^2}{x^2}\)</div>
-        <div class="ex-step">\(y=\frac{(x-C)^2}{x}\)</div>
-        <div class="ex-step">当 \(x&lt;&lt;0, y&lt;&lt;0\) 时，令 \(y=ux\)（\(u&gt;0, x&lt;&lt;0\)），则 \(\sqrt{xy}=\sqrt{x^2u}=|x|\sqrt{u}=-x\sqrt{u}\)</div>
-        <div class="ex-step">同理可得：\(x\frac{du}{dx}+2u=-2\sqrt{u}\)，即 \(x\frac{du}{dx}=-2\sqrt{u}(1+\sqrt{u})\)</div>
-        <div class="ex-step">\[分离变量并积分，类似推导可得同形式解\]</div>
-        <div class="ex-step">验证 \(y=0\) 也是解（奇解），但已包含于 \(C=x\) 的极限情形或单独考虑；实际上 \(y=x\) 对应 \(C=0\) 时 \(y=\frac{x^2}{x}=x\)</div>
-        <div class="ex-step">综合并整理常数，令 \(c=-C\)，则 \(y=\frac{(x+c)^2}{x}\)</div>
-        <div class="ex-step">展开验证：\(y=\frac{x^2+2cx+c^2}{x}=x+2c+\frac{c^2}{x}\)</div>
-        <div class="ex-step">\(\frac{dy}{dx}=1-\frac{c^2}{x^2}\)</div>
-        <div class="ex-step">左边 \(=x\left(1-\frac{c^2}{x^2}\right)+x+2c+\frac{c^2}{x}=x-\frac{c^2}{x}+x+2c+\frac{c^2}{x}=2x+2c\)</div>
-        <div class="ex-step">右边 \(=2\sqrt{x\cdot\frac{(x+c)^2}{x}}=2\sqrt{(x+c)^2}=2|x+c|\)</div>
-        <div class="ex-step">当 \(x(x+c)&gt;0\) 时，即 \(x&gt;0\) 且 \(x+c&gt;0\) 或 \(x&lt;&lt;0\) 且 \(x+c&lt;&lt;0\)，有 \(|x+c|=x+c\)（同号情形），右边 \(=2(x+c)=2x+2c\)，验证成立</div>
-        <div class="ex-step">当 \(x(x+c)&lt;0\) 时需取 \(|x+c|=-(x+c)\)，此时解为 \(y=\frac{(x+c)^2}{x}\) 但需 \(xy\geq0\)，即 \(x\) 与 \(y\) 同号</div>
-        <div class="ex-step">由 \(y=\frac{(x+c)^2}{x}\) 知 \(xy=(x+c)^2\geq0\)，且 \(x\neq0\)，故 \(xy\geq0\) 自动满足，但需 \(xy&gt;0\) 使原方程根号有意义，即 \(x\neq-c\)</div>
-        <div class="ex-step">当 \(x=-c\) 时 \(y=0\)，此时原方程左边 \(=x\cdot0+0=0\)，右边 \(=0\)，故 \(y=0\) 是解，对应点 \((-c,0)\)</div>
-        <div class="ex-step">通解为 \(y=\frac{(x+C)^2}{x}\)，其中 \(C\) 为任意常数，\(x\neq0\)，且 \(x\neq-C\) 时 \(y\neq0\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[y=\frac{(x+C)^2}{x},\quad x\neq0\] 或等价地写成 \[x y=(x+C)^2\] 其中 \(C\) 为任意常数；此外 \(y=0\) 也是解（当 \(C=-x\) 的退化情形，实际为特解）</span></div>
+        <div class="ex-step">识别方程为伯努利方程，令 \(u=\frac{y}{x}\)，即 \(y=ux\)，则 \(\frac{dy}{dx}=u+x\frac{du}{dx}\)</div>
+        <div class="ex-step">代入原方程 \(x\left(u+x\frac{du}{dx}\right)+ux=2\sqrt{x\cdot ux}\)，化简得 \(x^2\frac{du}{dx}+2ux=2x\sqrt{u}\)，即 \(x\frac{du}{dx}+2u=2\sqrt{u}\)</div>
+        <div class="ex-step">分离变量：\(\frac{du}{2\sqrt{u}-2u}=\frac{dx}{x}\)，令 \(v=\sqrt{u}\)，则 \(u=v^2\)，\(du=2v\,dv\)，左边化为 \(\frac{2v\,dv}{2v-2v^2}=\frac{dv}{1-v}\)</div>
+        <div class="ex-step">积分得 \(-\ln|1-v|=\ln|x|+C_1\)，即 \(\frac{1}{1-v}=Cx\)，故 \(v=1-\frac{1}{Cx}=\frac{Cx-1}{Cx}\)</div>
+        <div class="ex-step">回代 \(v=\sqrt{u}=\sqrt{\frac{y}{x}}\)，得 \(\sqrt{\frac{y}{x}}=\frac{Cx-1}{Cx}\)，即 \(\frac{y}{x}=\left(\frac{Cx-1}{Cx}\right)^2\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y=x\left(\frac{Cx-1}{Cx}\right)^2=\frac{(Cx-1)^2}{C^2x}\)，或写成 \(y=\frac{x(Cx-1)^2}{C^2x^2}\cdot x=\frac{(Cx-1)^2}{C^2}\)（令 \(C_2=\frac{1}{C}\) 得等价形式），通解为 \(y=x\left(1-\frac{2}{Cx}+\frac{1}{C^2x^2}\right)\)，简记为 \(y=x\left(1+\frac{\tilde{C}}{x}\right)^2\) 展开形式，标准写法：\(\sqrt{xy}=\frac{x}{2}+C\) 或显式 \(y=\frac{(x+C)^2}{4x}\)（其中 \(C\) 为任意常数，且 \(x&gt;0,y&gt;0\) 或 \(x&lt;&lt;0,y&lt;&lt;0\)）</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(28)</span><span class="ex-qmath">\(\displaystyle nx\frac{dy}{dx}+2y=xy^{n+1}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">方程为 \(nx\frac{dy}{dx}+2y=xy^{n+1}\)</div>
-        <div class="ex-step">化为标准形式：\(\frac{dy}{dx}+\frac{2}{nx}y=\frac{1}{n}y^{n+1}\)</div>
-        <div class="ex-step">这是伯努利方程，令 \(z=y^{-n}\)，则 \(\frac{dz}{dx}=-ny^{-n-1}\frac{dy}{dx}\)</div>
-        <div class="ex-step">原方程两边除以 \(y^{n+1}\)：\(nxy^{-n-1}\frac{dy}{dx}+2y^{-n}=x\)</div>
-        <div class="ex-step">即 \(-x\frac{dz}{dx}+2z=x\)</div>
-        <div class="ex-step">整理得：\(\frac{dz}{dx}-\frac{2}{x}z=-1\)</div>
-        <div class="ex-step">积分因子：\(\mu=e^{\int-\frac{2}{x}dx}=e^{-2\ln|x|}=x^{-2}\)</div>
-        <div class="ex-step">方程两边乘 \(x^{-2}\)：\(x^{-2}\frac{dz}{dx}-2x^{-3}z=-x^{-2}\)</div>
-        <div class="ex-step">即 \(\frac{d}{dx}(x^{-2}z)=-x^{-2}\)</div>
-        <div class="ex-step">积分：\(x^{-2}z=\int-x^{-2}dx=x^{-1}+C\)</div>
-        <div class="ex-step">故 \(z=x+Cx^2\)</div>
-        <div class="ex-step">由 \(z=y^{-n}\)，得 \(y^{-n}=x+Cx^2\)</div>
-        <div class="ex-step">即 \(y^n=\frac{1}{x+Cx^2}\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y^n=\frac{1}{x+Cx^2}\) 或 \(y=\left(\frac{1}{x+Cx^2}\right)^{\frac{1}{n}}\)，其中 \(C\) 为任意常数</span></div>
+        <div class="ex-step">方程 \( nx\frac{dy}{dx}+2y=xy^{n+1} \) 化为伯努利方程标准形：\(\frac{dy}{dx}+\frac{2}{nx}y=\frac{1}{n}y^{n+1}\)，其中 \(n\neq 0\)，\(\alpha=n+1\neq 1\)</div>
+        <div class="ex-step">令 \(z=y^{1-\alpha}=y^{-n}\)，则 \(\frac{dz}{dx}=-ny^{-n-1}\frac{dy}{dx}\)，即 \(y^{-n-1}\frac{dy}{dx}=-\frac{1}{n}\frac{dz}{dx}\)</div>
+        <div class="ex-step">原方程两边除以 \(y^{n+1}\) 得 \(y^{-n-1}\frac{dy}{dx}+\frac{2}{nx}y^{-n}=\frac{1}{n}\)，代入 \(z=y^{-n}\) 化为线性方程：\(-\frac{1}{n}\frac{dz}{dx}+\frac{2}{nx}z=\frac{1}{n}\)，即 \(\frac{dz}{dx}-\frac{2}{x}z=-1\)</div>
+        <div class="ex-step">积分因子 \(\mu=e^{\int -\frac{2}{x}dx}=e^{-2\ln|x|}=x^{-2}\)，方程化为 \(\frac{d}{dx}(x^{-2}z)=-x^{-2}\)</div>
+        <div class="ex-step">积分得 \(x^{-2}z=\frac{1}{x}+C\)，即 \(z=x+Cx^2\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>回代 \(z=y^{-n}\) 得通解 \(\boxed{y^{-n}=x+Cx^2}\) 或 \(\displaystyle y^n=\frac{1}{x+Cx^2}\)（\(C\) 为任意常数），另含特解 \(y=0\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(29)</span><span class="ex-qmath">\(\displaystyle 3xy'-y-3xy^{4}\ln x=0\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">\[3xy'-y-3xy^{4}\ln x=0\]</div>
-        <div class="ex-step">方程化为 \(y'-\frac{1}{3x}y=y^{4}\ln x\)，此为伯努利方程，\(n=4\)</div>
-        <div class="ex-step">令 \(z=y^{1-4}=y^{-3}\)，则 \(\frac{dz}{dx}=-3y^{-4}\frac{dy}{dx}\)</div>
-        <div class="ex-step">原方程两边除以 \(y^4\)：\(3xy^{-4}y'-y^{-3}-3x\ln x=0\)</div>
-        <div class="ex-step">即 \(-x\frac{dz}{dx}-z=3x\ln x\)，整理得 \(\frac{dz}{dx}+\frac{1}{x}z=-3\ln x\)</div>
-        <div class="ex-step">积分因子 \(\mu(x)=e^{\int\frac{1}{x}dx}=e^{\ln|x|}=x\)</div>
-        <div class="ex-step">方程化为 \(\frac{d}{dx}(xz)=-3x\ln x\)</div>
-        <div class="ex-step">\[xz=-3\int x\ln x\,dx\]</div>
-        <div class="ex-step">计算 \(\int x\ln x\,dx=\frac{x^2}{2}\ln x-\int\frac{x^2}{2}\cdot\frac{1}{x}dx=\frac{x^2}{2}\ln x-\frac{x^2}{4}\)</div>
-        <div class="ex-step">\[xz=-3\left(\frac{x^2}{2}\ln x-\frac{x^2}{4}\right)+C=-\frac{3x^2}{2}\ln x+\frac{3x^2}{4}+C\]</div>
-        <div class="ex-step">\[z=-\frac{3x}{2}\ln x+\frac{3x}{4}+\frac{C}{x}\]</div>
-        <div class="ex-step">由 \(z=y^{-3}\)，得 \(y^{-3}=-\frac{3x}{2}\ln x+\frac{3x}{4}+\frac{C}{x}\)</div>
-        <div class="ex-step">通解为 \(\frac{1}{y^3}=\frac{3x}{4}-\frac{3x\ln x}{2}+\frac{C}{x}\)，或等价地写为 \(\frac{x}{y^3}=\frac{3x^2}{4}-\frac{3x^2\ln x}{2}+C\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[\frac{1}{y^3}=\frac{3x}{4}-\frac{3x\ln x}{2}+\frac{C}{x}\]（\(C\)为任意常数），或等价形式 \[\frac{x}{y^3}=\frac{3x^2}{4}-\frac{3x^2\ln x}{2}+C\]</span></div>
+        <div class="ex-step">方程 \(3xy'-y-3xy^{4}\ln x=0\) 化为 \(y'-\frac{1}{3x}y=y^{4}\ln x\)，识别为伯努利方程 \(n=4\)</div>
+        <div class="ex-step">令 \(z=y^{1-4}=y^{-3}\)，则 \(\frac{dz}{dx}=-3y^{-4}\frac{dy}{dx}\)，原方程两边乘 \(-\frac{1}{3}y^{-4}\) 得 \(z'+\frac{1}{x}z=-3\ln x\)</div>
+        <div class="ex-step">积分因子 \(\mu(x)=e^{\int\frac{1}{x}dx}=x\)，方程化为 \(\frac{d}{dx}(xz)=-3x\ln x\)</div>
+        <div class="ex-step">积分得 \(xz=-3\int x\ln x\,dx=-3\left(\frac{x^2}{2}\ln x-\frac{x^2}{4}\right)+C=-\frac{3x^2}{2}\ln x+\frac{3x^2}{4}+C\)</div>
+        <div class="ex-step">即 \(z=-\frac{3x}{2}\ln x+\frac{3x}{4}+\frac{C}{x}\)，回代 \(z=y^{-3}\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[y^{-3}=-\frac{3x}{2}\ln x+\frac{3x}{4}+\frac{C}{x}\] 或等价写成 \[\frac{1}{y^3}=\frac{3x^2-6x^2\ln x+4C}{4x}\]，即 \(y^3=\frac{4x}{3x^2-6x^2\ln x+C_1}\)（\(C_1=4C\) 为任意常数），另含特解 \(y=0\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(30)</span><span class="ex-qmath">\(\displaystyle \frac{dy}{dx}-3xy-xy^{2}=0\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">\[\frac{dy}{dx}-3xy-xy^{2}=0\]</div>
-        <div class="ex-step">\[\frac{dy}{dx}=x(3y+y^{2})\]</div>
-        <div class="ex-step">\[\frac{dy}{3y+y^{2}}=x\,dx\]</div>
-        <div class="ex-step">\[\frac{dy}{y(3+y)}=x\,dx\]</div>
-        <div class="ex-step">\[\frac{1}{3}\left(\frac{1}{y}-\frac{1}{y+3}\right)dy=x\,dx\]</div>
-        <div class="ex-step">\[\int\frac{1}{3}\left(\frac{1}{y}-\frac{1}{y+3}\right)dy=\int x\,dx\]</div>
-        <div class="ex-step">\[\frac{1}{3}\left(\ln|y|-\ln|y+3|\right)=\frac{x^{2}}{2}+C_{1}\]</div>
-        <div class="ex-step">\[\ln\left|\frac{y}{y+3}\right|=\frac{3x^{2}}{2}+3C_{1}\]</div>
-        <div class="ex-step">\[\frac{y}{y+3}=Ce^{\frac{3x^{2}}{2}}\]</div>
-        <div class="ex-step">\[y=Ce^{\frac{3x^{2}}{2}}(y+3)\]</div>
-        <div class="ex-step">\[y\left(1-Ce^{\frac{3x^{2}}{2}}\right)=3Ce^{\frac{3x^{2}}{2}}\]</div>
-        <div class="ex-step">\[y=\frac{3Ce^{\frac{3x^{2}}{2}}}{1-Ce^{\frac{3x^{2}}{2}}}\]</div>
-        <div class="ex-step">令 \(C_{2}=-C\)，则</div>
-        <div class="ex-step">\[y=\frac{-3C_{2}e^{\frac{3x^{2}}{2}}}{1+C_{2}e^{\frac{3x^{2}}{2}}}=\frac{3C_{2}e^{\frac{3x^{2}}{2}}}{C_{2}e^{\frac{3x^{2}}{2}}-1}\]</div>
-        <div class="ex-step">\[或等价写成\]</div>
-        <div class="ex-step">\[y=\frac{3}{1-Ce^{-\frac{3x^{2}}{2}}}-3=\frac{3Ce^{-\frac{3x^{2}}{2}}}{1-Ce^{-\frac{3x^{2}}{2}}}\]</div>
-        <div class="ex-step">验证 \(y=0\) 和 \(y=-3\)：代入原方程，\(y=0\) 时 \(\frac{dy}{dx}=0\)，成立；\(y=-3\) 时 \(\frac{dy}{dx}=0\)，左边 \(0-3x(-3)-x(9)=9x-9x=0\)，成立。</div>
-        <div class="ex-step">\(y=0\) 对应 \(C=0\)；\(y=-3\) 为特解，不包含在上述通式中。</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[y=\frac{3Ce^{\frac{3x^{2}}{2}}}{1-Ce^{\frac{3x^{2}}{2}}}\]（\(C\) 为任意常数），特解 \(y=-3\)，或等价形式 \(y=\frac{3}{1-Ce^{-\frac{3x^{2}}{2}}}-3\)</span></div>
+        <div class="ex-step">识别为伯努利方程：\(\frac{dy}{dx} - 3xy = xy^2\)，其中 \(n=2\)</div>
+        <div class="ex-step">令 \(z = y^{1-2} = y^{-1}\)，则 \(\frac{dz}{dx} = -y^{-2}\frac{dy}{dx}\)</div>
+        <div class="ex-step">原方程化为线性方程：\(\frac{dz}{dx} + 3xz = -x\)</div>
+        <div class="ex-step">积分因子 \(\mu = e^{\int 3x\,dx} = e^{\frac{3x^2}{2}}\)</div>
+        <div class="ex-step">解得 \(z = e^{-\frac{3x^2}{2}}\left[\int -x e^{\frac{3x^2}{2}}\,dx + C\right] = e^{-\frac{3x^2}{2}}\left[-\frac{1}{3}e^{\frac{3x^2}{2}} + C\right] = -\frac{1}{3} + Ce^{-\frac{3x^2}{2}}\)</div>
+        <div class="ex-step">由 \(z = \frac{1}{y}\) 回代，得 \(\frac{1}{y} = Ce^{-\frac{3x^2}{2}} - \frac{1}{3}\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(\frac{1}{y} = Ce^{-\frac{3x^2}{2}} - \frac{1}{3}\)，或等价写成 \(y = \frac{3}{3Ce^{-\frac{3x^2}{2}}-1}\)（另含特解 \(y=0\)）</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(31)</span><span class="ex-qmath">\(\displaystyle (y^{2}-6x)dy+2ydx=0\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">原方程为 \((y^{2}-6x)\,dy+2y\,dx=0\)，改写为 \(2y\,dx+(y^{2}-6x)\,dy=0\)</div>
-        <div class="ex-step">视 \(x\) 为 \(y\) 的函数，化为 \(\frac{dx}{dy}=\frac{6x-y^{2}}{2y}=\frac{3x}{y}-\frac{y}{2}\)</div>
-        <div class="ex-step">即 \(\frac{dx}{dy}-\frac{3}{y}x=-\frac{y}{2}\)，为一阶线性方程，其中 \(P(y)=-\frac{3}{y}\)，\(Q(y)=-\frac{y}{2}\)</div>
-        <div class="ex-step">积分因子 \(\mu(y)=e^{\int -\frac{3}{y}\,dy}=e^{-3\ln|y|}=y^{-3}=\frac{1}{y^{3}}\)</div>
-        <div class="ex-step">方程两边乘 \(\frac{1}{y^{3}}\)：\(\frac{1}{y^{3}}\frac{dx}{dy}-\frac{3}{y^{4}}x=-\frac{1}{2y^{2}}\)</div>
-        <div class="ex-step">左边为 \(\frac{d}{dy}\left(\frac{x}{y^{3}}\right)=-\frac{1}{2y^{2}}\)</div>
-        <div class="ex-step">积分得 \(\frac{x}{y^{3}}=\int-\frac{1}{2y^{2}}\,dy=\frac{1}{2y}+C\)</div>
-        <div class="ex-step">故 \(x=y^{3}\left(\frac{1}{2y}+C\right)=\frac{y^{2}}{2}+Cy^{3}\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(x=\frac{y^{2}}{2}+Cy^{3}\) 或写成 \(2x=y^{2}+Cy^{3}\)（\(C\) 为任意常数）</span></div>
+        <div class="ex-step">方程 \((y^2-6x)\,dy + 2y\,dx = 0\) 改写为 \(\frac{dx}{dy} = \frac{6x-y^2}{2y}\)，即 \(\frac{dx}{dy} - \frac{3}{y}x = -\frac{y}{2}\)，识别为以 \(y\) 为自变量的一阶线性方程</div>
+        <div class="ex-step">积分因子 \(\mu(y) = e^{-\int \frac{3}{y}\,dy} = e^{-3\ln|y|} = \frac{1}{y^3}\)</div>
+        <div class="ex-step">方程两边乘 \(\frac{1}{y^3}\) 得 \(\frac{d}{dy}\left(\frac{x}{y^3}\right) = -\frac{1}{2y^2}\)</div>
+        <div class="ex-step">积分得 \(\frac{x}{y^3} = \frac{1}{2y} + C\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(x = \frac{y^2}{2} + Cy^3\) 或等价写成 \(2x = y^2 + Cy^3\)（\(C\) 为任意常数）</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(32)</span><span class="ex-qmath">\(\displaystyle (\sin^{2}y+x\cot y)y'=1\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">将方程改写为关于 \(x\) 对 \(y\) 的导数形式：\[\frac{dx}{dy} = \sin^{2}y + x\cot y\]</div>
-        <div class="ex-step">整理为标准一阶线性方程：\[\frac{dx}{dy} - (\cot y) \cdot x = \sin^{2}y\]</div>
-        <div class="ex-step">求积分因子：\[\mu(y) = e^{-\int \cot y \, dy} = e^{-\ln|\sin y|} = \frac{1}{\sin y}\]（取 \(\sin y &gt; 0\) 情形）</div>
-        <div class="ex-step">方程两边乘以积分因子：\[\frac{1}{\sin y}\frac{dx}{dy} - \frac{\cos y}{\sin^{2}y} \cdot x = \sin y\]</div>
-        <div class="ex-step">左边化为全微分：\[\frac{d}{dy}\left(\frac{x}{\sin y}\right) = \sin y\]</div>
-        <div class="ex-step">两边积分：\[\frac{x}{\sin y} = \int \sin y \, dy = -\cos y + C\]</div>
-        <div class="ex-step">解出 \(x\)：\[x = -\sin y \cos y + C\sin y = -\frac{1}{2}\sin 2y + C\sin y\]</div>
-        <div class="ex-step">或等价地写为：\[x = \sin y \left(C - \cos y\right)\]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(x = C\sin y - \sin y\cos y\) 或 \(x = \sin y(C - \cos y)\)，其中 \(C\) 为任意常数；亦可写成 \(x = C\sin y - \frac{1}{2}\sin 2y\)</span></div>
+        <div class="ex-step">方程改写为 \(\frac{dx}{dy} = \sin^{2}y + x\cot y\)，即 \(\frac{dx}{dy} - (\cot y)x = \sin^{2}y\)，关于 \(x\) 的一阶线性方程</div>
+        <div class="ex-step">积分因子 \(\mu = e^{-\int\cot y\,dy} = e^{-\ln|\sin y|} = \frac{1}{\sin y}\)</div>
+        <div class="ex-step">方程化为 \(\frac{d}{dy}\left(\frac{x}{\sin y}\right) = \sin y\)</div>
+        <div class="ex-step">积分得 \(\frac{x}{\sin y} = -\cos y + C\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(x = \sin y(C - \cos y)\) 或 \(x = C\sin y - \frac{1}{2}\sin 2y\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(33)</span><span class="ex-qmath">\(\displaystyle (x-2xy-y^{2})dy+y^{2}dx=0\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">将方程 \((x-2xy-y^{2})dy+y^{2}dx=0\) 改写为</div>
-        <div class="ex-step">\[整理为\]</div>
-        <div class="ex-step">\[计算积分因子\]</div>
-        <div class="ex-step">\[方程两边乘以积分因子\]</div>
-        <div class="ex-step">令 \(t = -\frac{1}{y}\)，则 \(dt = \frac{1}{y^{2}}dy\)，积分</div>
-        <div class="ex-step">\[因此\]</div>
-        <div class="ex-step">\[解得\]</div>
+        <div class="ex-step">方程 \((x-2xy-y^2)dy+y^2dx=0\) 改写为 \(\frac{dx}{dy}\)，视 \(x\) 为 \(y\) 的函数：</div>
+        <div class="ex-step">一阶线性方程，积分因子 \(\mu(y) = e^{\int\frac{1-2y}{y^2}dy} = e^{-\frac{1}{y}-2\ln|y|} = \frac{1}{y^2}e^{-\frac{1}{y}}\)</div>
+        <div class="ex-step">\[通解公式：\]</div>
+        <div class="ex-step">令 \(t = -\frac{1}{y}\)，则 \(dt = \frac{1}{y^2}dy\)，积分化为 \(\int e^{t}dt = e^{t} = e^{-\frac{1}{y}}\)</div>
       <div class="ex-ans"><span class="ex-ans-label">答案</span><span>通解为 \(x = y^{2}\left(1 + Ce^{\frac{1}{y}}\right)\)，或等价地写为 \(x = y^{2} + Cy^{2}e^{\frac{1}{y}}\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(34)</span><span class="ex-qmath">\(\displaystyle \frac{xdy}{x^{2}+y^{2}}=\left(\frac{y}{x^{2}+y^{2}}-1\right)dx\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">\[整理方程为\]</div>
-        <div class="ex-step">\[左边化为微分形式\]</div>
-        <div class="ex-step">令 \(u=\frac{y}{x}\)，则 \(y=ux\)，\(dy=udx+xdu\)</div>
-        <div class="ex-step">\[分离变量\]</div>
-        <div class="ex-step">\[两边积分\]</div>
-        <div class="ex-step">回代 \(u=\frac{y}{x}\)</div>
-        <div class="ex-step">解出 \(y\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>其中 \(C\) 为任意常数，或等价地写为</span></div>
+        <div class="ex-step">整理方程为 \(\frac{xdy - ydx}{x^2+y^2} = -dx\)，即 \(d\left(\arctan\frac{y}{x}\right) = -dx\)</div>
+        <div class="ex-step">识别左边为恰当微分：\(\frac{xdy - ydx}{x^2+y^2} = \frac{1}{1+(y/x)^2}d\left(\frac{y}{x}\right) = d\left(\arctan\frac{y}{x}\right)\)</div>
+        <div class="ex-step">积分得 \(\arctan\frac{y}{x} = -x + C\)</div>
+        <div class="ex-step">解出 \(y = x\tan(C-x)\)，并验证 \(x=0\) 时原方程无定义，无需额外讨论</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y = x\tan(C-x)\)，或写成 \(\arctan\frac{y}{x} + x = C\)（\(C\) 为任意常数）</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(35)</span><span class="ex-qmath">\(\displaystyle e^{y}dx+(xe^{y}-2y)dy=0\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \(M=e^{y}\)，\(N=xe^{y}-2y\)</div>
-        <div class="ex-step">计算 \(\frac{\partial M}{\partial y}=e^{y}\)，\(\frac{\partial N}{\partial x}=e^{y}\)</div>
-        <div class="ex-step">由 \(\frac{\partial M}{\partial y}=\frac{\partial N}{\partial x}\)，方程为全微分方程</div>
-        <div class="ex-step">求 \(u(x,y)\) 使得 \(\frac{\partial u}{\partial x}=e^{y}\)</div>
-        <div class="ex-step">\[u(x,y)=\int e^{y}\,dx=xe^{y}+h(y)\]</div>
-        <div class="ex-step">由 \(\frac{\partial u}{\partial y}=xe^{y}-2y\)，得 \(xe^{y}+h'(y)=xe^{y}-2y\)</div>
-        <div class="ex-step">\(h'(y)=-2y\)</div>
-        <div class="ex-step">\[h(y)=\int(-2y)\,dy=-y^{2}\]</div>
-        <div class="ex-step">通解为 \(xe^{y}-y^{2}=C\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(xe^{y}-y^{2}=C\)</span></div>
+        <div class="ex-step">识别方程为恰当方程或需找积分因子。设 \(M = e^{y}\)，\(N = xe^{y}-2y\)，验证 \(\frac{\partial M}{\partial y} = e^{y}\)，\(\frac{\partial N}{\partial x} = e^{y}\)，二者相等，故为恰当方程。</div>
+        <div class="ex-step">求 \(u(x,y)\) 使得 \(\frac{\partial u}{\partial x} = e^{y}\)，积分得 \(u = xe^{y} + \varphi(y)\)。</div>
+        <div class="ex-step">由 \(\frac{\partial u}{\partial y} = xe^{y} + \varphi'(y) = xe^{y} - 2y\)，得 \(\varphi'(y) = -2y\)，故 \(\varphi(y) = -y^2\)。</div>
+        <div class="ex-step">通解为 \(u(x,y) = C\)，即 \(xe^{y} - y^2 = C\)。</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(xe^{y} - y^2 = C\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(36)</span><span class="ex-qmath">\(\displaystyle yx^{y-1}dx+x^{y}\ln xdy=0\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">原方程为 \( yx^{y-1}dx + x^y \ln x \, dy = 0 \)</div>
-        <div class="ex-step">验证是否为全微分方程，设 \( M = yx^{y-1} \)，\( N = x^y \ln x \)</div>
-        <div class="ex-step">计算 \( \frac{\partial M}{\partial y} = x^{y-1} + yx^{y-1}\ln x = x^{y-1}(1 + y\ln x) \)</div>
-        <div class="ex-step">计算 \( \frac{\partial N}{\partial x} = yx^{y-1}\ln x + x^y \cdot \frac{1}{x} = yx^{y-1}\ln x + x^{y-1} = x^{y-1}(1 + y\ln x) \)</div>
-        <div class="ex-step">由 \( \frac{\partial M}{\partial y} = \frac{\partial N}{\partial x} \)，方程为全微分方程</div>
-        <div class="ex-step">求 \( u(x,y) \) 使得 \( \frac{\partial u}{\partial x} = M = yx^{y-1} \)</div>
-        <div class="ex-step">对 \( x \) 积分：\( u = \int yx^{y-1} dx = x^y + \varphi(y) \)</div>
-        <div class="ex-step">由 \( \frac{\partial u}{\partial y} = x^y \ln x + \varphi'(y) = N = x^y \ln x \)</div>
-        <div class="ex-step">得 \( \varphi'(y) = 0 \)，故 \( \varphi(y) = C_1 \)</div>
-        <div class="ex-step">取 \( u(x,y) = x^y \)</div>
-        <div class="ex-step">通解为 \( x^y = C \)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\( x^y = C \)（其中 \( C \) 为任意正常数，或写为 \( y \ln x = \ln C \) 即 \( y = \frac{\ln C}{\ln x} \)）</span></div>
+        <div class="ex-step">识别方程为全微分方程，验证 \(\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}\)，其中 \(M = yx^{y-1}\)，\(N = x^y \ln x\)</div>
+        <div class="ex-step">计算偏导数：\(\frac{\partial M}{\partial y} = x^{y-1} + yx^{y-1}\ln x = x^{y-1}(1+y\ln x)\)，\(\frac{\partial N}{\partial x} = yx^{y-1}\ln x + x^y \cdot \frac{1}{x} = x^{y-1}(y\ln x + 1)\)，二者相等，确为全微分方程</div>
+        <div class="ex-step">求原函数 \(u(x,y)\)，由 \(\frac{\partial u}{\partial x} = yx^{y-1}\) 积分得 \(u = \int yx^{y-1}dx = x^y + h(y)\)</div>
+        <div class="ex-step">由 \(\frac{\partial u}{\partial y} = x^y \ln x + h'(y) = x^y \ln x\)，得 \(h'(y) = 0\)，故 \(h(y) = C_1\)</div>
+        <div class="ex-step">原函数为 \(u(x,y) = x^y\)，通解为 \(x^y = C\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(x^y = C\)（或等价地写为 \(y = \frac{\ln C}{\ln x}\) 或 \(y\ln x = \ln C\)）</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(37)</span><span class="ex-qmath">\(\displaystyle \frac{xdx+ydy}{\sqrt{x^{2}+y^{2}}}=\frac{ydx-xdy}{x^{2}}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \(u = x^2 + y^2\)，则 \(du = 2x\,dx + 2y\,dy\)，故 \(x\,dx + y\,dy = \frac{1}{2}du\)</div>
-        <div class="ex-step">设 \(v = \frac{y}{x}\)，则 \(dv = \frac{x\,dy - y\,dx}{x^2}\)，故 \(y\,dx - x\,dy = -x^2\,dv\)</div>
-        <div class="ex-step">\[原方程化为\]</div>
-        <div class="ex-step">\[即\]</div>
-        <div class="ex-step">\[积分得\]</div>
-        <div class="ex-step">代回 \(u = x^2 + y^2\)，\(v = \frac{y}{x}\)：</div>
-        <div class="ex-step">\[整理为\]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(\sqrt{x^2 + y^2} + \frac{y}{x} = C\)</span></div>
+        <div class="ex-step">识别方程为全微分方程形式，左边化为 \(\frac{\frac{1}{2}d(x^2+y^2)}{\sqrt{x^2+y^2}} = d\sqrt{x^2+y^2}\)</div>
+        <div class="ex-step">右边化为 \(\frac{ydx-xdy}{x^2} = -d\left(\frac{y}{x}\right)\)</div>
+        <div class="ex-step">原方程改写为 \(d\sqrt{x^2+y^2} = -d\left(\frac{y}{x}\right)\)</div>
+        <div class="ex-step">积分得 \(\sqrt{x^2+y^2} + \frac{y}{x} = C\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(\sqrt{x^2+y^2} + \frac{y}{x} = C\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(38)</span><span class="ex-qmath">\(\displaystyle \frac{y+\sin x\cdot\cos^{2}(xy)}{\cos^{2}(xy)}dx+\frac{x}{\cos^{2}(xy)}dy+\sin ydy=0\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">原方程为 \(\frac{y+\sin x\cdot\cos^{2}(xy)}{\cos^{2}(xy)}dx+\frac{x}{\cos^{2}(xy)}dy+\sin ydy=0\)</div>
-        <div class="ex-step">拆分为 \(\frac{y}{\cos^{2}(xy)}dx+\sin x\,dx+\frac{x}{\cos^{2}(xy)}dy+\sin y\,dy=0\)</div>
-        <div class="ex-step">重组为 \(\left(\frac{y}{\cos^{2}(xy)}dx+\frac{x}{\cos^{2}(xy)}dy\right)+(\sin x\,dx+\sin y\,dy)=0\)</div>
-        <div class="ex-step">观察 \(\frac{y\,dx+x\,dy}{\cos^{2}(xy)}=\frac{d(xy)}{\cos^{2}(xy)}=d(\tan(xy))\)</div>
-        <div class="ex-step">验证：令 \(u=xy\)，则 \(du=y\,dx+x\,dy\)，且 \(\int\frac{du}{\cos^{2}u}=\tan u\)</div>
-        <div class="ex-step">第二项积分：\(\int\sin x\,dx=-\cos x\)，\(\int\sin y\,dy=-\cos y\)</div>
-        <div class="ex-step">方程化为 \(d(\tan(xy))-d(\cos x)-d(\cos y)=0\)</div>
-        <div class="ex-step">即 \(d(\tan(xy)-\cos x-\cos y)=0\)</div>
-        <div class="ex-step">积分得 \(\tan(xy)-\cos x-\cos y=C\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(\tan(xy)-\cos x-\cos y=C\)</span></div>
+        <div class="ex-step">原方程重组为 \(\frac{y\,dx + x\,dy}{\cos^{2}(xy)} + \sin x\,dx + \sin y\,dy = 0\)</div>
+        <div class="ex-step">识别 \(y\,dx + x\,dy = d(xy)\)，且 \(\frac{d(xy)}{\cos^{2}(xy)} = d(\tan(xy))\)</div>
+        <div class="ex-step">方程化为全微分形式 \(d(\tan(xy)) + d(-\cos x) + d(-\cos y) = 0\)</div>
+        <div class="ex-step">即 \(d\left(\tan(xy) - \cos x - \cos y\right) = 0\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(\tan(xy) - \cos x - \cos y = C\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(39)</span><span class="ex-qmath">\(\displaystyle (1+x\sqrt{x^{2}+y^{2}})dx+(-1+\sqrt{x^{2}+y^{2}})ydy=0\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \(u = \sqrt{x^2+y^2}\)，则 \(u^2 = x^2+y^2\)，\(u\,du = x\,dx + y\,dy\)</div>
-        <div class="ex-step">原方程化为 \((1+xu)\,dx + (-1+u)y\,dy = 0\)</div>
-        <div class="ex-step">即 \(dx + xu\,dx - y\,dy + u\cdot y\,dy = 0\)</div>
-        <div class="ex-step">由 \(u\,du = x\,dx + y\,dy\)，得 \(x\,dx = u\,du - y\,dy\)，即 \(x = \frac{u\,du - y\,dy}{dx}\)（此替换不便，改用极坐标）</div>
-        <div class="ex-step">设 \(x = r\cos\theta\)，\(y = r\sin\theta\)，则 \(r = \sqrt{x^2+y^2}\)，\(dx = \cos\theta\,dr - r\sin\theta\,d\theta\)，\(dy = \sin\theta\,dr + r\cos\theta\,d\theta\)</div>
-        <div class="ex-step">代入原方程：\((1+r\cos\theta \cdot r)(\cos\theta\,dr - r\sin\theta\,d\theta) + (-1+r)r\sin\theta(\sin\theta\,dr + r\cos\theta\,d\theta) = 0\)</div>
-        <div class="ex-step">展开：\((1+r^2\cos\theta)\cos\theta\,dr - r\sin\theta(1+r^2\cos\theta)\,d\theta + (-1+r)r\sin^2\theta\,dr + (-1+r)r^2\sin\theta\cos\theta\,d\theta = 0\)</div>
-        <div class="ex-step">合并 \(dr\) 项：\(\cos\theta\,dr + r^2\cos^2\theta\,dr + (-r\sin^2\theta + r^2\sin^2\theta)\,dr\)</div>
-        <div class="ex-step">合并 \(d\theta\) 项：\(-r\sin\theta\,dr - r^3\sin\theta\cos\theta\,d\theta + (-1+r)r^2\sin\theta\cos\theta\,d\theta\)</div>
-        <div class="ex-step">重新整理 \(dr\) 系数：\(\cos\theta + r^2\cos^2\theta - r\sin^2\theta + r^2\sin^2\theta = \cos\theta + r^2(\cos^2\theta+\sin^2\theta) - r\sin^2\theta = \cos\theta + r^2 - r\sin^2\theta\)</div>
-        <div class="ex-step">重新整理 \(d\theta\) 系数（乘以 \(d\theta\) 的项）：\(-r\sin\theta(1+r^2\cos\theta) + (-1+r)r^2\sin\theta\cos\theta = -r\sin\theta - r^3\sin\theta\cos\theta - r^2\sin\theta\cos\theta + r^3\sin\theta\cos\theta = -r\sin\theta - r^2\sin\theta\cos\theta\)</div>
-        <div class="ex-step">方程为：\((\cos\theta + r^2 - r\sin^2\theta)\,dr + (-r\sin\theta - r^2\sin\theta\cos\theta)\,d\theta = 0\)</div>
-        <div class="ex-step">即 \((\cos\theta + r^2 - r\sin^2\theta)\,dr = r\sin\theta(1+r\cos\theta)\,d\theta\)</div>
-        <div class="ex-step">尝试直接变量替换：令 \(u = \sqrt{x^2+y^2}\)，验证是否为全微分方程</div>
-        <div class="ex-step">设 \(M = 1+x\sqrt{x^2+y^2} = 1+xu\)，\(N = (-1+\sqrt{x^2+y^2})y = (-1+u)y\)</div>
-        <div class="ex-step">\(\frac{\partial M}{\partial y} = x\cdot\frac{y}{u} = \frac{xy}{u}\)</div>
-        <div class="ex-step">\(\frac{\partial N}{\partial x} = y\cdot\frac{x}{u} = \frac{xy}{u}\)</div>
-        <div class="ex-step">\(\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}\)，方程为全微分方程</div>
-        <div class="ex-step">求 \(U(x,y)\) 使得 \(\frac{\partial U}{\partial x} = M = 1+xu = 1+x\sqrt{x^2+y^2}\)</div>
-        <div class="ex-step">\(U = \int(1+x\sqrt{x^2+y^2})\,dx = x + \int x\sqrt{x^2+y^2}\,dx\)</div>
-        <div class="ex-step">对 \(\int x\sqrt{x^2+y^2}\,dx\)，令 \(t = x^2+y^2\)，\(dt = 2x\,dx\)</div>
-        <div class="ex-step">\(\int x\sqrt{x^2+y^2}\,dx = \frac{1}{2}\int\sqrt{t}\,dt = \frac{1}{2}\cdot\frac{2}{3}t^{3/2} = \frac{1}{3}(x^2+y^2)^{3/2} = \frac{1}{3}u^3\)</div>
-        <div class="ex-step">\(U = x + \frac{1}{3}(x^2+y^2)^{3/2} + \phi(y)\)</div>
-        <div class="ex-step">\(\frac{\partial U}{\partial y} = \frac{1}{3}\cdot\frac{3}{2}(x^2+y^2)^{1/2}\cdot 2y + \phi'(y) = y\sqrt{x^2+y^2} + \phi'(y) = yu + \phi'(y)\)</div>
-        <div class="ex-step">需 \(\frac{\partial U}{\partial y} = N = (-1+u)y = -y + yu\)</div>
-        <div class="ex-step">\(yu + \phi'(y) = -y + yu\)</div>
-        <div class="ex-step">\(\phi'(y) = -y\)</div>
-        <div class="ex-step">\(\phi(y) = -\frac{1}{2}y^2\)</div>
-        <div class="ex-step">\(U(x,y) = x + \frac{1}{3}(x^2+y^2)^{3/2} - \frac{1}{2}y^2\)</div>
-        <div class="ex-step">通解为 \(x + \frac{1}{3}(x^2+y^2)^{3/2} - \frac{1}{2}y^2 = C\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(x + \frac{1}{3}(x^2+y^2)^{3/2} - \frac{1}{2}y^2 = C\)</span></div>
+        <div class="ex-step">令 \(u = \sqrt{x^2+y^2}\)，则 \(u\,du = x\,dx + y\,dy\)，原方程化为 \((1+xu)dx + (-1+u)y\,dy = 0\)</div>
+        <div class="ex-step">由 \(u^2 = x^2+y^2\) 取微分得 \(x\,dx + y\,dy = u\,du\)，即 \(y\,dy = u\,du - x\,dx\)，代入原方程：</div>
+        <div class="ex-step">展开整理：\(dx + xu\,dx + u^2\,du - u\,du - xu\,du + x\,dx = 0\)，即 \((1+x)dx + u^2\,du - u\,du + x(u\,dx - u\,du) = 0\)</div>
+        <div class="ex-step">重新分组：\((1+x)dx - u\,du + u^2\,du + xu\,dx - xu\,du = (1+x)dx + (u^2-u)du + xu(dx-du) = 0\)</div>
+        <div class="ex-step">换思路：令 \(x = r\cos\theta, y = r\sin\theta\)，则 \(u = r\)，\(dx = \cos\theta\,dr - r\sin\theta\,d\theta\)，\(dy = \sin\theta\,dr + r\cos\theta\,d\theta\)，原方程变为</div>
+        <div class="ex-step">整理 \(dr\) 与 \(d\theta\) 系数：</div>
+        <div class="ex-step">简化：\(dr\) 系数 \(= \cos\theta + r^2 - r\sin^2\theta = \cos\theta + r^2 - r(1-\cos^2\theta)\)，\(d\theta\) 系数 \(= -r\sin\theta(1+r\cos\theta)\)</div>
+        <div class="ex-step">尝试分离：令 \(v = x/y\)，或直接观察原方程，改写为 \(dx - y\,dy + \sqrt{x^2+y^2}(x\,dx + y\,dy) = 0\)</div>
+        <div class="ex-step">即 \(dx - y\,dy + u \cdot u\,du = 0\)，所以 \(dx - y\,dy + u^2\,du = 0\)</div>
+        <div class="ex-step">由 \(y\,dy = u\,du - x\,dx\)，代入得 \(dx - (u\,du - x\,dx) + u^2\,du = 0\)，即 \((1+x)dx + (u^2-u)du = 0\)</div>
+        <div class="ex-step">积分：\(\int(1+x)dx + \int(u^2-u)du = C\)，得 \(x + \frac{x^2}{2} + \frac{u^3}{3} - \frac{u^2}{2} = C\)</div>
+        <div class="ex-step">代回 \(u = \sqrt{x^2+y^2}\)：</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(x + \frac{x^2}{2} + \frac{1}{3}(x^2+y^2)^{3/2} - \frac{1}{2}(x^2+y^2) = C\) 或等价写成 \(6x + 3x^2 + 2(x^2+y^2)^{3/2} - 3(x^2+y^2) = C_1\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(40)</span><span class="ex-qmath">\(\displaystyle \left(\frac{1}{y}\sin\frac{x}{y}-\frac{y}{x^{2}}\cos\frac{y}{x}+1\right)dx+\left(\frac{1}{x}\cos\frac{y}{x}-\frac{x}{y^{2}}\sin\frac{x}{y}+\frac{1}{y^{2}}\right)dy=0\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \(M=\frac{1}{y}\sin\frac{x}{y}-\frac{y}{x^{2}}\cos\frac{y}{x}+1\)，\(N=\frac{1}{x}\cos\frac{y}{x}-\frac{x}{y^{2}}\sin\frac{x}{y}+\frac{1}{y^{2}}\)</div>
-        <div class="ex-step">验证恰当性，计算 \(\frac{\partial M}{\partial y}\):</div>
-        <div class="ex-step">计算 \(\frac{\partial N}{\partial x}\):</div>
-        <div class="ex-step">比较得 \(\frac{\partial M}{\partial y}=\frac{\partial N}{\partial x}\)，方程为恰当方程</div>
-        <div class="ex-step">求 \(u(x,y)\) 使得 \(\frac{\partial u}{\partial x}=M\)，对 \(x\) 积分：</div>
-        <div class="ex-step">由 \(\frac{\partial u}{\partial y}=N\) 确定 \(\varphi(y)\):</div>
-        <div class="ex-step">与 \(N=\frac{1}{x}\cos\frac{y}{x}-\frac{x}{y^{2}}\sin\frac{x}{y}+\frac{1}{y^{2}}\) 比较：</div>
-        <div class="ex-step">注意 \(\frac{1}{x}\cos\frac{y}{x}=\frac{1}{x^{2}}\cdot x\cos\frac{y}{x}\)，重新检验：实际上 \(\frac{\partial}{\partial y}\sin\frac{y}{x}=\frac{1}{x}\cos\frac{y}{x}\)，故</div>
-        <div class="ex-step">比较得 \(\varphi'(y)=\frac{1}{y^{2}}\)，积分得 \(\varphi(y)=-\frac{1}{y}\)</div>
-        <div class="ex-step">因此 \(u(x,y)=-\cos\frac{x}{y}+\sin\frac{y}{x}+x-\frac{1}{y}\)</div>
-        <div class="ex-step">通解为 \(u(x,y)=C\)，即</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[\sin\frac{y}{x}-\cos\frac{x}{y}+x-\frac{1}{y}=C\]</span></div>
+        <div class="ex-step">验证全微分：设 \(M=\frac{1}{y}\sin\frac{x}{y}-\frac{y}{x^{2}}\cos\frac{y}{x}+1\)，\(N=\frac{1}{x}\cos\frac{y}{x}-\frac{x}{y^{2}}\sin\frac{x}{y}+\frac{1}{y^{2}}\)，计算得 \(\frac{\partial M}{\partial y}=-\frac{1}{y^{2}}\sin\frac{x}{y}-\frac{x}{y^{3}}\cos\frac{x}{y}-\frac{1}{x^{2}}\cos\frac{y}{x}+\frac{y}{x^{3}}\sin\frac{y}{x}\)，\(\frac{\partial N}{\partial x}=-\frac{1}{x^{2}}\cos\frac{y}{x}+\frac{y}{x^{3}}\sin\frac{y}{x}-\frac{1}{y^{2}}\sin\frac{x}{y}-\frac{x}{y^{3}}\cos\frac{x}{y}\)，故 \(\frac{\partial M}{\partial y}=\frac{\partial N}{\partial x}\)，方程为全微分方程。</div>
+        <div class="ex-step">分项重组：原方程化为 \(\left(\frac{1}{y}\sin\frac{x}{y}dx-\frac{x}{y^{2}}\sin\frac{x}{y}dy\right)+\left(-\frac{y}{x^{2}}\cos\frac{y}{x}dx+\frac{1}{x}\cos\frac{y}{x}dy\right)+dx+\frac{1}{y^{2}}dy=0\)</div>
+        <div class="ex-step">识别微分形式：\(\frac{1}{y}\sin\frac{x}{y}dx-\frac{x}{y^{2}}\sin\frac{x}{y}dy = d\left(-\cos\frac{x}{y}\right)\)，\(-\frac{y}{x^{2}}\cos\frac{y}{x}dx+\frac{1}{x}\cos\frac{y}{x}dy = d\left(\sin\frac{y}{x}\right)\)，且 \(dx+\frac{1}{y^{2}}dy = d\left(x-\frac{1}{y}\right)\)</div>
+        <div class="ex-step">合并得全微分：\(d\left(-\cos\frac{x}{y}+\sin\frac{y}{x}+x-\frac{1}{y}\right)=0\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>通解为 \(-\cos\frac{x}{y}+\sin\frac{y}{x}+x-\frac{1}{y}=C\)，即 \(\sin\frac{y}{x}-\cos\frac{x}{y}+x-\frac{1}{y}=C\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(41)</span><span class="ex-qmath">\(\displaystyle y(1+xy)dx-xdy=0\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">原方程 \( y(1+xy)dx-xdy=0 \) 即 \( ydx + xy^2dx - xdy = 0 \)</div>
-        <div class="ex-step">整理为 \( ydx - xdy + xy^2dx = 0 \)</div>
-        <div class="ex-step">两边除以 \( y^2 \)（设 \( y \neq 0 \)）：\( \frac{ydx-xdy}{y^2} + xdx = 0 \)</div>
-        <div class="ex-step">注意到 \( d\left(\frac{x}{y}\right) = \frac{ydx-xdy}{y^2} \)</div>
-        <div class="ex-step">方程化为 \( d\left(\frac{x}{y}\right) + xdx = 0 \)</div>
-        <div class="ex-step">但需统一变量，令 \( u = \frac{x}{y} \)，即 \( x = uy \)，则 \( dx = udy + ydu \)</div>
-        <div class="ex-step">或直接观察：原方程除以 \( x^2 \)：\( \frac{y}{x^2}(1+xy)dx - \frac{dy}{x} = 0 \)</div>
-        <div class="ex-step">更优：令 \( u = \frac{y}{x} \)，则 \( y = ux \)，\( dy = udx + xdu \)</div>
-        <div class="ex-step">代入：\( ux(1+x\cdot ux)dx - x(udx+xdu) = 0 \)</div>
-        <div class="ex-step">展开：\( ux(1+u x^2)dx - xudx - x^2du = 0 \)</div>
-        <div class="ex-step">即 \( uxdx + u^2x^3dx - uxdx - x^2du = 0 \)</div>
-        <div class="ex-step">化简：\( u^2x^3dx - x^2du = 0 \)</div>
-        <div class="ex-step">即 \( u^2x^3dx = x^2du \)</div>
-        <div class="ex-step">分离变量：\( \frac{du}{u^2} = xdx \)</div>
-        <div class="ex-step">两边积分：\( \int u^{-2}du = \int xdx \)</div>
-        <div class="ex-step">计算：\( -\frac{1}{u} = \frac{x^2}{2} + C_1 \)</div>
-        <div class="ex-step">即 \( -\frac{1}{u} = \frac{x^2}{2} + C \)（合并常数）</div>
-        <div class="ex-step">代回 \( u = \frac{y}{x} \)：\( -\frac{x}{y} = \frac{x^2}{2} + C \)</div>
-        <div class="ex-step">整理：\( -\frac{x}{y} = \frac{x^2+2C}{2} \)</div>
-        <div class="ex-step">即 \( \frac{x}{y} = -\frac{x^2+C_2}{2} \)（重新记常数）</div>
-        <div class="ex-step">解出 \( y \)：\( y = -\frac{2x}{x^2+C} \)</div>
-        <div class="ex-step">验证 \( y = 0 \)：代入原方程，左边 \( = 0 \)，是特解，已包含于通解中（取 \( C \to \infty \) 极限情形，或单独考虑）</div>
-        <div class="ex-step">另验证：取 \( y = -\frac{2x}{x^2+C} \)，则 \( dy = -\frac{2(x^2+C)-2x\cdot 2x}{(x^2+C)^2}dx = -\frac{2C-2x^2}{(x^2+C)^2}dx = \frac{2(x^2-C)}{(x^2+C)^2}dx \)</div>
-        <div class="ex-step">\( 1+xy = 1-\frac{2x^2}{x^2+C} = \frac{x^2+C-2x^2}{x^2+C} = \frac{C-x^2}{x^2+C} \)</div>
-        <div class="ex-step">左边 \( y(1+xy)dx - xdy = -\frac{2x}{x^2+C}\cdot\frac{C-x^2}{x^2+C}dx - x\cdot\frac{2(x^2-C)}{(x^2+C)^2}dx \)</div>
-        <div class="ex-step">\( = \frac{-2x(C-x^2)-2x(x^2-C)}{(x^2+C)^2}dx = \frac{-2xC+2x^3-2x^3+2xC}{(x^2+C)^2}dx = 0 \)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>通解为 \[ y = -\frac{2x}{x^2+C} \] 或等价写成 \[ \frac{x^2}{2} + \frac{x}{y} = C \]（\( C \) 为任意常数），另含特解 \( y = 0 \)</span></div>
+        <div class="ex-step">识别方程形式：\( y(1+xy)dx - xdy = 0 \)，即 \( \frac{dy}{dx} = \frac{y(1+xy)}{x} = \frac{y}{x} + y^2 \)</div>
+        <div class="ex-step">这是伯努利方程：\( \frac{dy}{dx} - \frac{1}{x}y = y^2 \)，其中 \( n=2 \)，令 \( z = y^{1-2} = y^{-1} \)，则 \( \frac{dz}{dx} = -y^{-2}\frac{dy}{dx} \)</div>
+        <div class="ex-step">代入得 \( -y^2\frac{dz}{dx} - \frac{1}{x}y = y^2 \)，即 \( \frac{dz}{dx} + \frac{1}{x}z = -1 \)</div>
+        <div class="ex-step">一阶线性方程，积分因子 \( \mu = e^{\int \frac{1}{x}dx} = x \)，通解 \( xz = \int -x\,dx = -\frac{x^2}{2} + C \)</div>
+        <div class="ex-step">回代 \( z = \frac{1}{y} \)：\( \frac{x}{y} = -\frac{x^2}{2} + C \)，即 \( \frac{x}{y} + \frac{x^2}{2} = C \)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\( \frac{x}{y} + \frac{x^2}{2} = C \)（或写成 \( y = \frac{2x}{2C-x^2} \)，以及特解 \( y = 0 \)）</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(42)</span><span class="ex-qmath">\(\displaystyle (x^{2}+y^{2}+2x)dx+2ydy=0\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">观察方程 \((x^{2}+y^{2}+2x)\mathrm{d}x+2y\mathrm{d}y=0\)，改写为 \(2y\frac{\mathrm{d}y}{\mathrm{d}x}=-(x^{2}+y^{2}+2x)\)</div>
-        <div class="ex-step">令 \(u=y^{2}\)，则 \(\frac{\mathrm{d}u}{\mathrm{d}x}=2y\frac{\mathrm{d}y}{\mathrm{d}x}\)，方程化为 \(\frac{\mathrm{d}u}{\mathrm{d}x}+u=-(x^{2}+2x)\)</div>
-        <div class="ex-step">这是一阶线性方程，积分因子 \(\mu(x)=e^{\int 1\mathrm{d}x}=e^{x}\)</div>
-        <div class="ex-step">两边乘 \(e^{x}\)：\(\frac{\mathrm{d}}{\mathrm{d}x}(ue^{x})=-(x^{2}+2x)e^{x}\)</div>
-        <div class="ex-step">计算 \(\int x^{2}e^{x}\mathrm{d}x=x^{2}e^{x}-2\int xe^{x}\mathrm{d}x=x^{2}e^{x}-2(xe^{x}-e^{x})=(x^{2}-2x+2)e^{x}\)</div>
-        <div class="ex-step">计算 \(\int 2xe^{x}\mathrm{d}x=2(xe^{x}-e^{x})=(2x-2)e^{x}\)</div>
-        <div class="ex-step">故 \(\int(x^{2}+2x)e^{x}\mathrm{d}x=(x^{2}-2x+2)e^{x}+(2x-2)e^{x}=x^{2}e^{x}\)</div>
-        <div class="ex-step">因此 \(ue^{x}=-x^{2}e^{x}+C\)</div>
-        <div class="ex-step">即 \(y^{2}e^{x}=-x^{2}e^{x}+C\)</div>
-        <div class="ex-step">整理得 \((x^{2}+y^{2})e^{x}=C\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\((x^{2}+y^{2})e^{x}=C\)</span></div>
+        <div class="ex-step">识别方程结构，将 \(2y\,dy\) 改写为 \(d(y^2)\)，原方程化为 \((x^2+y^2+2x)\,dx + d(y^2) = 0\)</div>
+        <div class="ex-step">令 \(u = x^2 + y^2\)，则 \(du = 2x\,dx + d(y^2)\)，即 \(d(y^2) = du - 2x\,dx\)，代入得 \((u+2x)\,dx + du - 2x\,dx = 0\)，化简为 \(u\,dx + du = 0\)</div>
+        <div class="ex-step">分离变量得 \(\frac{du}{u} = -dx\)（\(u \neq 0\)）</div>
+        <div class="ex-step">积分得 \(\ln|u| = -x + C_1\)，即 \(u = Ce^{-x}\)</div>
+        <div class="ex-step">回代 \(u = x^2 + y^2\)，得 \(x^2 + y^2 = Ce^{-x}\)；验证 \(u=0\) 即 \(x=y=0\) 已包含于 \(C=0\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>通解为 \[x^2 + y^2 = Ce^{-x}\]（\(C\) 为任意常数）</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(43)</span><span class="ex-qmath">\(\displaystyle \frac{y}{x}dx+(y^{3}-\ln x)dy=0\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \(M=\frac{y}{x}\)，\(N=y^{3}-\ln x\)</div>
-        <div class="ex-step">计算 \(\frac{\partial M}{\partial y}=\frac{1}{x}\)，\(\frac{\partial N}{\partial x}=-\frac{1}{x}\)</div>
-        <div class="ex-step">\(\frac{\frac{\partial M}{\partial y}-\frac{\partial N}{\partial x}}{N}=\frac{\frac{1}{x}+\frac{1}{x}}{y^{3}-\ln x}=\frac{\frac{2}{x}}{y^{3}-\ln x}\) 仅与 \(y\) 有关不成立，改求 \(\frac{\frac{\partial N}{\partial x}-\frac{\partial M}{\partial y}}{M}=\frac{-\frac{1}{x}-\frac{1}{x}}{\frac{y}{x}}=\frac{-\frac{2}{x}}{\frac{y}{x}}=-\frac{2}{y}\)</div>
-        <div class="ex-step">积分因子 \(\mu(y)=e^{\int-\frac{2}{y}dy}=e^{-2\ln|y|}=\frac{1}{y^{2}}\)（取 \(y&gt;0\)）</div>
-        <div class="ex-step">乘以积分因子得 \(\frac{1}{xy}dx+\left(y-\frac{\ln x}{y^{2}}\right)dy=0\)</div>
-        <div class="ex-step">验证新方程：\(\tilde{M}=\frac{1}{xy}\)，\(\tilde{N}=y-\frac{\ln x}{y^{2}}\)，\(\frac{\partial\tilde{M}}{\partial y}=-\frac{1}{xy^{2}}\)，\(\frac{\partial\tilde{N}}{\partial x}=-\frac{1}{xy^{2}}\)</div>
-        <div class="ex-step">求 \(u(x,y)\) 使 \(\frac{\partial u}{\partial x}=\frac{1}{xy}\)</div>
-        <div class="ex-step">\(u=\int\frac{1}{xy}dx=\frac{\ln x}{y}+\varphi(y)\)</div>
-        <div class="ex-step">由 \(\frac{\partial u}{\partial y}=-\frac{\ln x}{y^{2}}+\varphi'(y)=y-\frac{\ln x}{y^{2}}\)</div>
-        <div class="ex-step">得 \(\varphi'(y)=y\)，\(\varphi(y)=\frac{y^{2}}{2}\)</div>
-        <div class="ex-step">故 \(u=\frac{\ln x}{y}+\frac{y^{2}}{2}\)</div>
-        <div class="ex-step">通解为 \(\frac{\ln x}{y}+\frac{y^{2}}{2}=C\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(\frac{\ln x}{y}+\frac{y^{2}}{2}=C\) 或等价地写为 \(2\ln x+y^{3}=Cy\)（\(C\) 为任意常数）</span></div>
+        <div class="ex-step">识别方程为 \( \frac{y}{x}dx + (y^3 - \ln x)dy = 0 \)，设 \( M = \frac{y}{x} \)，\( N = y^3 - \ln x \)，验证 \( \frac{\partial M}{\partial y} = \frac{1}{x} \)，\( \frac{\partial N}{\partial x} = -\frac{1}{x} \)，非恰当方程</div>
+        <div class="ex-step">计算 \( \frac{1}{N}\left(\frac{\partial M}{\partial y} - \frac{\partial N}{\partial x}\right) = \frac{1}{y^3 - \ln x} \cdot \frac{2}{x} \) 仅依赖于 \( y \) 不成立；改求 \( \frac{1}{M}\left(\frac{\partial N}{\partial x} - \frac{\partial M}{\partial y}\right) = \frac{x}{y} \cdot \left(-\frac{2}{x}\right) = -\frac{2}{y} \) 仅依赖于 \( y \)</div>
+        <div class="ex-step">取积分因子 \( \mu(y) = e^{\int -\frac{2}{y}dy} = e^{-2\ln|y|} = \frac{1}{y^2} \)（设 \( y &gt; 0 \)）</div>
+        <div class="ex-step">乘以积分因子得恰当方程 \( \frac{1}{xy}dx + \left(y - \frac{\ln x}{y^2}\right)dy = 0 \)，验证 \( \frac{\partial}{\partial y}\left(\frac{1}{xy}\right) = -\frac{1}{xy^2} = \frac{\partial}{\partial x}\left(y - \frac{\ln x}{y^2}\right) \)</div>
+        <div class="ex-step">求势函数 \( u(x,y) \)，由 \( \frac{\partial u}{\partial x} = \frac{1}{xy} \) 积分得 \( u = \frac{\ln x}{y} + \varphi(y) \)；由 \( \frac{\partial u}{\partial y} = -\frac{\ln x}{y^2} + \varphi'(y) = y - \frac{\ln x}{y^2} \) 得 \( \varphi'(y) = y \)，故 \( \varphi(y) = \frac{y^2}{2} \)</div>
+        <div class="ex-step">通解为 \( \frac{\ln x}{y} + \frac{y^2}{2} = C \)，即 \( 2\ln x + y^3 = 2Cy \) 或等价写为 \( y^3 + 2\ln|x| = Cy \)（常数 \( C \) 重新标记）</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\( \frac{\ln|x|}{y} + \frac{y^2}{2} = C \) 或等价形式 \( 2\ln|x| + y^3 = Cy \)（\( C \) 为任意常数），特解 \( y = 0 \)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(44)</span><span class="ex-qmath">\(\displaystyle (x\cos y-y\sin y)dy+(x\sin y+y\cos y)dx=0\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \(M=x\sin y+y\cos y\)，\(N=x\cos y-y\sin y\)</div>
-        <div class="ex-step">计算偏导数，\(\frac{\partial M}{\partial y}=x\cos y+\cos y-y\sin y\)，\(\frac{\partial N}{\partial x}=\cos y\)</div>
-        <div class="ex-step">计算 \(\frac{\frac{\partial M}{\partial y}-\frac{\partial N}{\partial x}}{N}=\frac{x\cos y+\cos y-y\sin y-\cos y}{x\cos y-y\sin y}=\frac{x\cos y-y\sin y}{x\cos y-y\sin y}=1\)</div>
-        <div class="ex-step">积分因子 \(\mu(x)=e^{\int 1\,dx}=e^x\)</div>
-        <div class="ex-step">方程两边乘 \(e^x\)：\(e^x(x\sin y+y\cos y)\,dx+e^x(x\cos y-y\sin y)\,dy=0\)</div>
-        <div class="ex-step">验证恰当性：\(\frac{\partial}{\partial y}[e^x(x\sin y+y\cos y)]=e^x(x\cos y+\cos y-y\sin y)\)</div>
-        <div class="ex-step">\(\frac{\partial}{\partial x}[e^x(x\cos y-y\sin y)]=e^x(x\cos y-y\sin y)+e^x\cos y=e^x(x\cos y+\cos y-y\sin y)\)</div>
-        <div class="ex-step">恰当，求原函数 \(u(x,y)\)</div>
-        <div class="ex-step">\(u=\int e^x(x\sin y+y\cos y)\,dx\)，对 \(x\) 积分，视 \(y\) 为常数</div>
-        <div class="ex-step">分部积分：\(\int xe^x\sin y\,dx=\sin y\cdot(xe^x-e^x)=e^x(x-1)\sin y\)</div>
-        <div class="ex-step">\(\int ye^x\cos y\,dx=ye^x\cos y\)</div>
-        <div class="ex-step">故 \(u=e^x(x-1)\sin y+ye^x\cos y+\varphi(y)=e^x(x\sin y-\sin y+y\cos y)+\varphi(y)\)</div>
-        <div class="ex-step">对 \(y\) 求偏导：\(\frac{\partial u}{\partial y}=e^x(x\cos y-\cos y+\cos y-y\sin y)+\varphi'(y)=e^x(x\cos y-y\sin y)+\varphi'(y)\)</div>
-        <div class="ex-step">与 \(N\) 比较：\(e^x(x\cos y-y\sin y)+\varphi'(y)=e^x(x\cos y-y\sin y)\)</div>
-        <div class="ex-step">得 \(\varphi'(y)=0\)，即 \(\varphi(y)=C_0\)</div>
-        <div class="ex-step">取 \(u=e^x(x\sin y+y\cos y-\sin y)=C_1\)</div>
-        <div class="ex-step">整理：\(e^x[(x-1)\sin y+y\cos y]=C\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(e^x[(x-1)\sin y+y\cos y]=C\)</span></div>
+        <div class="ex-step">识别方程为恰当方程或寻找积分因子。设 \(M=x\sin y+y\cos y\), \(N=x\cos y-y\sin y\)，计算偏导数：</div>
+        <div class="ex-step">计算 \(\frac{1}{N}\left(\frac{\partial M}{\partial y}-\frac{\partial N}{\partial x}\right)=\frac{x\cos y+\cos y-y\sin y-\cos y}{x\cos y-y\sin y}=\frac{x\cos y-y\sin y}{x\cos y-y\sin y}=1\)，仅为 \(x\) 的函数（实为常数），故积分因子 \(\mu=e^{\int 1\,dx}=e^x\)。</div>
+        <div class="ex-step">以 \(\mu=e^x\) 乘原方程，新方程 \(M_1=e^x(x\sin y+y\cos y)\), \(N_1=e^x(x\cos y-y\sin y)\) 为恰当方程。求势函数 \(u(x,y)\)：</div>
+        <div class="ex-step">验证 \(\frac{\partial u}{\partial y}=e^x(x\cos y+\cos y-y\sin y-\cos y)+\varphi'(y)=e^x(x\cos y-y\sin y)=N_1\)，故 \(\varphi'(y)=0\)，取 \(\varphi(y)=0\)。</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(通解为\)</span></div>
       </div>
     </div>
   </section>
@@ -954,170 +608,112 @@ window.MathJax = {
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(1)</span><span class="ex-qmath">\(\displaystyle \frac{dx}{y}+\frac{4dy}{x}=0,\ 当\ x=4\ 时,\ y=2\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">\[\frac{dx}{y}+\frac{4dy}{x}=0\]</div>
-        <div class="ex-step">\[x\,dx + 4y\,dy = 0\]</div>
-        <div class="ex-step">\[\int x\,dx + \int 4y\,dy = C\]</div>
-        <div class="ex-step">\[\frac{x^2}{2} + 2y^2 = C\]</div>
-        <div class="ex-step">当 \(x=4,\ y=2\) 时，\(\frac{16}{2} + 2 \cdot 4 = C\)</div>
-        <div class="ex-step">\[8 + 8 = C\]</div>
-        <div class="ex-step">\[C = 16\]</div>
-        <div class="ex-step">\[\frac{x^2}{2} + 2y^2 = 16\]</div>
-        <div class="ex-step">\[x^2 + 4y^2 = 32\]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[x^2 + 4y^2 = 32\]</span></div>
+        <div class="ex-step">方程 \(\frac{dx}{y}+\frac{4dy}{x}=0\) 为可分离变量方程，整理得 \(x\,dx + 4y\,dy = 0\)</div>
+        <div class="ex-step">积分得 \(\int x\,dx + \int 4y\,dy = C\)，即 \(\frac{x^2}{2} + 2y^2 = C\)</div>
+        <div class="ex-step">由初始条件 \(x=4,\ y=2\) 代入：\(\frac{16}{2} + 2\cdot 4 = 8 + 8 = 16 = C\)</div>
+        <div class="ex-step">故通解为 \(\frac{x^2}{2} + 2y^2 = 16\)，即 \(x^2 + 4y^2 = 32\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(x^2 + 4y^2 = 32\)（或写成 \(\frac{x^2}{32} + \frac{y^2}{8} = 1\)）</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(2)</span><span class="ex-qmath">\(\displaystyle (x^{2}+y^{2})dx=2xydy,\ 当\ x=1\ 时,\ y=0\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">原方程 \((x^{2}+y^{2})dx=2xydy\) 改写为</div>
-        <div class="ex-step">令 \(y=vx\)，则 \(\frac{dy}{dx}=v+x\frac{dv}{dx}\)，代入得</div>
-        <div class="ex-step">\[分离变量\]</div>
-        <div class="ex-step">\[两边积分，左边\]</div>
-        <div class="ex-step">\[合并常数得\]</div>
-        <div class="ex-step">去掉绝对值，令 \(C_{0}=\pm e^{-C}\)，得</div>
-        <div class="ex-step">回代 \(v=\frac{y}{x}\)</div>
-        <div class="ex-step">代入初始条件 \(x=1,y=0\)</div>
-        <div class="ex-step">\[特解为\]</div>
-        <div class="ex-step">\[整理得\]</div>
-        <div class="ex-step">由 \(x=1,y=0\) 及连续性，取</div>
-        <div class="ex-step">验证定义域：当 \(x=1\) 时 \(x^{2}-x=0\)，在 \(x&gt;1\) 时 \(x^{2}-x&gt;0\)，且原方程在 \(x=1,y=0\) 处 \(\frac{dy}{dx}=\frac{1}{0}\) 无定义，需考虑 \(x&lt;&lt;0\) 分支。当 \(x&lt;&lt;0\) 时 \(x^{2}-x&gt;0\)，在 \(x=1\) 左侧邻域 \(0&lt;x&lt;&lt;1\) 时 \(x^{2}-x&lt;&lt;0\)。故有效范围为 \(x\leq 0\) 或 \(x\geq 1\)。由初始条件 \(x=1\) 出发，取 \(x\geq 1\) 时 \(y=\sqrt{x^{2}-x}\) 或 \(x\leq 0\) 时 \(y=-\sqrt{x^{2}-x}\)（验证：\(x=1,y=0\) 在 \(x\geq 1\) 分支）。</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y^{2}=x^{2}-x\) 或写成 \(x^{2}-y^{2}-x=0\)，显式特解为 \(y=\sqrt{x^{2}-x}\)（\(x\geq 1\)）</span></div>
+        <div class="ex-step">方程化为 \(\frac{dy}{dx} = \frac{x^2+y^2}{2xy}\)，识别为齐次方程，令 \(y = ux\)，则 \(\frac{dy}{dx} = u + x\frac{du}{dx}\)</div>
+        <div class="ex-step">代入得 \(u + x\frac{du}{dx} = \frac{1+u^2}{2u}\)，整理得 \(x\frac{du}{dx} = \frac{1-u^2}{2u}\)</div>
+        <div class="ex-step">分离变量 \(\frac{2u}{1-u^2}du = \frac{dx}{x}\)，积分得 \(-\ln|1-u^2| = \ln|x| + C_1\)</div>
+        <div class="ex-step">化简得 \(x(1-u^2) = C\)，回代 \(u = \frac{y}{x}\) 得 \(x - \frac{y^2}{x} = C\)，即 \(x^2 - y^2 = Cx\)</div>
+        <div class="ex-step">由初始条件 \(x=1, y=0\) 得 \(C = 1\)，故 \(x^2 - y^2 = x\)</div>
+        <div class="ex-step">解出 \(y^2 = x^2 - x = x(x-1)\)，由 \(x=1\) 时 \(y=0\) 及连续性，取 \(y = \sqrt{x^2-x}\)（需 \(x \geq 1\) 或 \(x \leq 0\)，结合初始点邻域取 \(x \geq 1\)）</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y^2 = x^2 - x\)，或写成 \(y = \sqrt{x^2-x}\)（\(x \geq 1\)）</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(3)</span><span class="ex-qmath">\(\displaystyle xdy-ydx=\sqrt{x^{2}+y^{2}}dx,\ 当\ x=\frac{1}{2}\ 时,\ y=0\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">方程化为 \(xdy - ydx = \sqrt{x^2+y^2}dx\)，即 \(xdy = (y + \sqrt{x^2+y^2})dx\)</div>
-        <div class="ex-step">当 \(x = \frac{1}{2} &gt; 0\)，设 \(y = ux\)，则 \(dy = udx + xdu\)</div>
-        <div class="ex-step">代入得 \(x(udx + xdu) = (ux + \sqrt{x^2+u^2x^2})dx = (ux + |x|\sqrt{1+u^2})dx\)</div>
-        <div class="ex-step">因 \(x &gt; 0\)，有 \(|x| = x\)，故 \(x(udx + xdu) = x(u + \sqrt{1+u^2})dx\)</div>
-        <div class="ex-step">除以 \(x\) 得 \(udx + xdu = (u + \sqrt{1+u^2})dx\)</div>
-        <div class="ex-step">化简得 \(xdu = \sqrt{1+u^2}dx\)</div>
-        <div class="ex-step">分离变量 \(\frac{du}{\sqrt{1+u^2}} = \frac{dx}{x}\)</div>
-        <div class="ex-step">积分两边 \(\int\frac{du}{\sqrt{1+u^2}} = \int\frac{dx}{x}\)</div>
-        <div class="ex-step">得 \(\ln(u + \sqrt{1+u^2}) = \ln|x| + C_1\)</div>
-        <div class="ex-step">即 \(u + \sqrt{1+u^2} = Cx\)（其中 \(C = e^{C_1}\)，且因 \(x &gt; 0\) 取正）</div>
-        <div class="ex-step">由 \(u = \frac{y}{x}\) 代回，得 \(\frac{y}{x} + \sqrt{1+\frac{y^2}{x^2}} = Cx\)</div>
-        <div class="ex-step">即 \(\frac{y + \sqrt{x^2+y^2}}{x} = Cx\)，故 \(y + \sqrt{x^2+y^2} = Cx^2\)</div>
-        <div class="ex-step">代入初始条件 \(x = \frac{1}{2}, y = 0\)：\(0 + \sqrt{\frac{1}{4}+0} = C \cdot \frac{1}{4}\)</div>
-        <div class="ex-step">即 \(\frac{1}{2} = \frac{C}{4}\)，解得 \(C = 2\)</div>
-        <div class="ex-step">特解满足 \(y + \sqrt{x^2+y^2} = 2x^2\)</div>
-        <div class="ex-step">移项 \(\sqrt{x^2+y^2} = 2x^2 - y\)</div>
-        <div class="ex-step">两边平方 \(x^2 + y^2 = 4x^4 - 4x^2y + y^2\)</div>
-        <div class="ex-step">化简 \(x^2 = 4x^4 - 4x^2y\)</div>
-        <div class="ex-step">因 \(x \neq 0\)，除以 \(x^2\) 得 \(1 = 4x^2 - 4y\)</div>
-        <div class="ex-step">解得 \(y = x^2 - \frac{1}{4}\)</div>
-        <div class="ex-step">验证：当 \(x = \frac{1}{2}\) 时，\(y = \frac{1}{4} - \frac{1}{4} = 0\)，符合初始条件；且 \(\sqrt{x^2+y^2} = 2x^2 - y = 2x^2 - x^2 + \frac{1}{4} = x^2 + \frac{1}{4} \geq 0\)，满足非负要求</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y = x^2 - \frac{1}{4}\)</span></div>
+        <div class="ex-step">方程改写为 \(x\,dy = \left(y + \sqrt{x^2+y^2}\right)dx\)，即 \(\frac{dy}{dx} = \frac{y + \sqrt{x^2+y^2}}{x}\)，此为齐次方程。</div>
+        <div class="ex-step">令 \(y = ux\)，则 \(\frac{dy}{dx} = u + x\frac{du}{dx}\)，代入得 \(u + x\frac{du}{dx} = u + \sqrt{1+u^2}\)，即 \(x\frac{du}{dx} = \sqrt{1+u^2}\)。</div>
+        <div class="ex-step">分离变量：\(\frac{du}{\sqrt{1+u^2}} = \frac{dx}{x}\)，积分得 \(\ln\left(u + \sqrt{1+u^2}\right) = \ln|x| + C\)。</div>
+        <div class="ex-step">由初始条件 \(x=\frac{1}{2}, y=0\) 得 \(u=0\)，代入：\(\ln(1) = \ln\frac{1}{2} + C\)，故 \(C = \ln 2\)。</div>
+        <div class="ex-step">回代 \(u = \frac{y}{x}\)：\(\frac{y}{x} + \sqrt{1+\frac{y^2}{x^2}} = 2x\)，即 \(y + \sqrt{x^2+y^2} = 2x^2\)。</div>
+        <div class="ex-step">由 \(\sqrt{x^2+y^2} = 2x^2 - y\) 平方得 \(x^2+y^2 = 4x^4 - 4x^2y + y^2\)，整理得 \(x^2(1-4x^2+4y) = 0\)，即 \(y = x^2 - \frac{1}{4}\)。</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y = x^2 - \frac{1}{4}\)（或等价写成 \(y = x^2 - \frac{1}{4}\)，验证满足原方程及初始条件）</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(4)</span><span class="ex-qmath">\(\displaystyle \sin y\cdot\cos xdy=\cos y\cdot\sin xdx,\ 当\ x=0\ 时,\ y=\frac{\pi}{4}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">\[\sin y\cdot\cos x\,dy=\cos y\cdot\sin x\,dx\]</div>
-        <div class="ex-step">\[\frac{\sin y}{\cos y}\,dy=\frac{\sin x}{\cos x}\,dx\]</div>
-        <div class="ex-step">\[\tan y\,dy=\tan x\,dx\]</div>
-        <div class="ex-step">\[\int\tan y\,dy=\int\tan x\,dx\]</div>
-        <div class="ex-step">\[-\ln|\cos y|=-\ln|\cos x|+C_1\]</div>
-        <div class="ex-step">\[\ln|\cos y|=\ln|\cos x|+C_2\]</div>
-        <div class="ex-step">\[|\cos y|=e^{C_2}|\cos x|\]</div>
-        <div class="ex-step">\[\cos y=C\cos x\]（其中 \(C=\pm e^{C_2}\)）</div>
-        <div class="ex-step">代入初始条件 \(x=0,\ y=\frac{\pi}{4}\)：</div>
-        <div class="ex-step">\[\cos\frac{\pi}{4}=C\cos 0\]</div>
-        <div class="ex-step">\[\frac{\sqrt{2}}{2}=C\cdot 1\]</div>
-        <div class="ex-step">\[C=\frac{\sqrt{2}}{2}\]</div>
-        <div class="ex-step">\[\cos y=\frac{\sqrt{2}}{2}\cos x\]</div>
-        <div class="ex-step">\[y=\arccos\left(\frac{\sqrt{2}}{2}\cos x\right)\]</div>
+        <div class="ex-step">方程化为可分离变量形式：\[\frac{\sin y}{\cos y}dy=\frac{\sin x}{\cos x}dx\]，即 \[\tan y\,dy=\tan x\,dx\]</div>
+        <div class="ex-step">积分得：\[-\ln|\cos y|=-\ln|\cos x|+C_1\]，即 \[\ln|\cos y|=\ln|\cos x|+C_2\]</div>
+        <div class="ex-step">指数化简得：\[\cos y=C\cos x\]（其中 \(C=\pm e^{C_2}\)）</div>
+        <div class="ex-step">代入初始条件 \(x=0,\ y=\frac{\pi}{4}\)：\[\cos\frac{\pi}{4}=C\cos 0\Rightarrow\frac{\sqrt{2}}{2}=C\]</div>
+        <div class="ex-step">故特解为：\[\cos y=\frac{\sqrt{2}}{2}\cos x\]，即 \[y=\arccos\left(\frac{\sqrt{2}}{2}\cos x\right)\]</div>
       <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[y=\arccos\left(\frac{\sqrt{2}}{2}\cos x\right)\]</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(5)</span><span class="ex-qmath">\(\displaystyle \frac{dy}{dx}-\frac{2y}{x}=x^{2}e^{x},\ 当\ x=1\ 时,\ y=0\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">方程为 \(\frac{dy}{dx}-\frac{2}{x}y=x^{2}e^{x}\)，这是一阶线性微分方程，标准形式为 \(\frac{dy}{dx}+P(x)y=Q(x)\)，其中 \(P(x)=-\frac{2}{x}\)，\(Q(x)=x^{2}e^{x}\)</div>
-        <div class="ex-step">积分因子 \(\mu(x)=e^{\int P(x)dx}=e^{\int -\frac{2}{x}dx}=e^{-2\ln|x|}=e^{\ln x^{-2}}=\frac{1}{x^{2}}\)</div>
-        <div class="ex-step">方程两边乘以积分因子：\(\frac{1}{x^{2}}\frac{dy}{dx}-\frac{2}{x^{3}}y=e^{x}\)</div>
-        <div class="ex-step">左边为 \(\frac{d}{dx}\left(\frac{y}{x^{2}}\right)=e^{x}\)</div>
-        <div class="ex-step">两边积分：\(\frac{y}{x^{2}}=\int e^{x}dx=e^{x}+C\)</div>
-        <div class="ex-step">通解为 \(y=x^{2}(e^{x}+C)=x^{2}e^{x}+Cx^{2}\)</div>
-        <div class="ex-step">代入初始条件 \(x=1\)，\(y=0\)：\(0=1^{2}\cdot e^{1}+C\cdot 1^{2}=e+C\)</div>
-        <div class="ex-step">解得 \(C=-e\)</div>
-        <div class="ex-step">特解为 \(y=x^{2}e^{x}-ex^{2}=x^{2}(e^{x}-e)\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y=x^{2}(e^{x}-e)\)</span></div>
+        <div class="ex-step">识别为一阶线性方程，标准形式 \(\frac{dy}{dx} + P(x)y = Q(x)\)，其中 \(P(x) = -\frac{2}{x}\)，\(Q(x) = x^2 e^x\)</div>
+        <div class="ex-step">积分因子 \(\mu(x) = e^{\int -\frac{2}{x}dx} = e^{-2\ln|x|} = x^{-2}\)</div>
+        <div class="ex-step">方程两边乘积分因子得 \(\frac{d}{dx}\left(x^{-2}y\right) = e^x\)</div>
+        <div class="ex-step">积分得 \(x^{-2}y = e^x + C\)，即 \(y = x^2(e^x + C)\)</div>
+        <div class="ex-step">代入初始条件 \(x=1, y=0\)：\(0 = 1\cdot(e + C)\)，得 \(C = -e\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y = x^2(e^x - e)\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(6)</span><span class="ex-qmath">\(\displaystyle \frac{dy}{dx}+\frac{2y}{x}=\frac{1}{x^{2}},\ 当\ x=1\ 时,\ y=2\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">方程为 \(\frac{dy}{dx}+\frac{2}{x}y=\frac{1}{x^{2}}\)，其中 \(P(x)=\frac{2}{x}\)，\(Q(x)=\frac{1}{x^{2}}\)</div>
-        <div class="ex-step">积分因子 \(\mu(x)=e^{\int P(x)dx}=e^{\int \frac{2}{x}dx}=e^{2\ln|x|}=e^{\ln x^{2}}=x^{2}\)（取 \(x&gt;0\)）</div>
-        <div class="ex-step">方程两边乘以 \(x^{2}\)：\(x^{2}\frac{dy}{dx}+2xy=1\)</div>
-        <div class="ex-step">左边为 \(\frac{d}{dx}(x^{2}y)=1\)</div>
-        <div class="ex-step">积分得 \(x^{2}y=\int 1\,dx=x+C\)</div>
-        <div class="ex-step">通解为 \(y=\frac{x+C}{x^{2}}=\frac{1}{x}+\frac{C}{x^{2}}\)</div>
-        <div class="ex-step">代入初始条件 \(x=1\)，\(y=2\)：\(2=\frac{1}{1}+\frac{C}{1}=1+C\)</div>
-        <div class="ex-step">解得 \(C=1\)</div>
-        <div class="ex-step">特解为 \(y=\frac{1}{x}+\frac{1}{x^{2}}=\frac{x+1}{x^{2}}\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y=\frac{x+1}{x^{2}}\)</span></div>
+        <div class="ex-step">识别为一阶线性方程，标准形式 \(\frac{dy}{dx}+P(x)y=Q(x)\)，其中 \(P(x)=\frac{2}{x}\)，\(Q(x)=\frac{1}{x^2}\)</div>
+        <div class="ex-step">积分因子 \(\mu(x)=e^{\int\frac{2}{x}dx}=e^{2\ln|x|}=x^2\)（取 \(x&gt;0\)）</div>
+        <div class="ex-step">方程化为 \(\frac{d}{dx}(x^2y)=x^2\cdot\frac{1}{x^2}=1\)</div>
+        <div class="ex-step">积分得 \(x^2y=\int 1\,dx=x+C\)，即 \(y=\frac{x+C}{x^2}=\frac{1}{x}+\frac{C}{x^2}\)</div>
+        <div class="ex-step">代入初始条件 \(x=1,y=2\)：\(2=1+C\)，得 \(C=1\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y=\frac{1}{x}+\frac{1}{x^2}=\frac{x+1}{x^2}\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(7)</span><span class="ex-qmath">\(\displaystyle \frac{dy}{dx}+y\tan x=\sec x,\ 当\ x=0\ 时,\ y=-1\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">识别一阶线性方程标准形式 \(\frac{dy}{dx} + P(x)y = Q(x)\)，得 \(P(x) = \tan x\)，\(Q(x) = \sec x\)</div>
-        <div class="ex-step">计算积分因子 \(\mu(x) = e^{\int \tan x \, dx} = e^{-\ln|\cos x|} = \frac{1}{\cos x} = \sec x\)</div>
-        <div class="ex-step">方程两边乘积分因子：\(\sec x \frac{dy}{dx} + y \sec x \tan x = \sec^2 x\)</div>
-        <div class="ex-step">左边化为全微分：\(\frac{d}{dx}(y \sec x) = \sec^2 x\)</div>
-        <div class="ex-step">两边积分：\(y \sec x = \int \sec^2 x \, dx = \tan x + C\)</div>
-        <div class="ex-step">解出通解：\(y = \tan x \cdot \cos x + C \cos x = \sin x + C \cos x\)</div>
-        <div class="ex-step">代入初始条件 \(x = 0\)，\(y = -1\)：\(-1 = \sin 0 + C \cos 0 = 0 + C \cdot 1\)</div>
-        <div class="ex-step">得 \(C = -1\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y = \sin x - \cos x\)</span></div>
+        <div class="ex-step">识别为一阶线性方程，标准形式 \(\frac{dy}{dx}+P(x)y=Q(x)\)，其中 \(P(x)=\tan x\)，\(Q(x)=\sec x\)</div>
+        <div class="ex-step">积分因子 \(\mu(x)=e^{\int\tan x\,dx}=e^{-\ln|\cos x|}=\sec x\)（取 \(x=0\) 附近 \(\cos x&gt;0\) 的分支）</div>
+        <div class="ex-step">方程两边乘 \(\sec x\) 得 \(\frac{d}{dx}(y\sec x)=\sec^2 x\)</div>
+        <div class="ex-step">积分得 \(y\sec x=\tan x+C\)，即 \(y=\sin x+C\cos x\)</div>
+        <div class="ex-step">代入 \(y(0)=-1\)：\(-1=0+C\cdot 1\)，故 \(C=-1\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y=\sin x-\cos x\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(8)</span><span class="ex-qmath">\(\displaystyle \frac{dy}{dx}-\frac{2y}{x+1}=(x+1)^{3},\ 当\ x=0\ 时,\ y=1\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">方程为 \(\frac{dy}{dx}-\frac{2y}{x+1}=(x+1)^{3}\)，这是一阶线性方程，标准形式为 \(\frac{dy}{dx}+P(x)y=Q(x)\)</div>
-        <div class="ex-step">其中 \(P(x)=-\frac{2}{x+1}\)，\(Q(x)=(x+1)^{3}\)</div>
-        <div class="ex-step">积分因子 \(\mu(x)=e^{\int P(x)dx}=e^{\int -\frac{2}{x+1}dx}=e^{-2\ln|x+1|}=e^{\ln(x+1)^{-2}}=(x+1)^{-2}\)</div>
-        <div class="ex-step">方程两边乘以积分因子：\((x+1)^{-2}\frac{dy}{dx}-2(x+1)^{-3}y=(x+1)^{3}\cdot(x+1)^{-2}\)</div>
-        <div class="ex-step">左边为 \(\frac{d}{dx}\left[y\cdot(x+1)^{-2}\right]=(x+1)\)</div>
-        <div class="ex-step">积分得 \(y\cdot(x+1)^{-2}=\int(x+1)dx=\frac{(x+1)^{2}}{2}+C\)</div>
-        <div class="ex-step">解得 \(y=(x+1)^{2}\left[\frac{(x+1)^{2}}{2}+C\right]=\frac{(x+1)^{4}}{2}+C(x+1)^{2}\)</div>
-        <div class="ex-step">代入初始条件 \(x=0\)，\(y=1\)：\(1=\frac{(0+1)^{4}}{2}+C(0+1)^{2}=\frac{1}{2}+C\)</div>
-        <div class="ex-step">解得 \(C=1-\frac{1}{2}=\frac{1}{2}\)</div>
-        <div class="ex-step">特解为 \(y=\frac{(x+1)^{4}}{2}+\frac{(x+1)^{2}}{2}=\frac{(x+1)^{2}}{2}\left[(x+1)^{2}+1\right]\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y=\frac{(x+1)^{4}}{2}+\frac{(x+1)^{2}}{2}\) 或等价地 \(y=\frac{(x+1)^{2}\left[(x+1)^{2}+1\right]}{2}\)</span></div>
+        <div class="ex-step">识别为一阶线性方程，标准形式 \(\frac{dy}{dx}+P(x)y=Q(x)\)，其中 \(P(x)=-\frac{2}{x+1}\)，\(Q(x)=(x+1)^3\)</div>
+        <div class="ex-step">积分因子 \(\mu(x)=e^{\int -\frac{2}{x+1}dx}=e^{-2\ln|x+1|}=(x+1)^{-2}\)</div>
+        <div class="ex-step">方程两边乘 \(\mu(x)\) 得 \(\frac{d}{dx}\left[y(x+1)^{-2}\right]=(x+1)\)</div>
+        <div class="ex-step">积分得 \(y(x+1)^{-2}=\frac{(x+1)^2}{2}+C\)，即 \(y=\frac{(x+1)^4}{2}+C(x+1)^2\)</div>
+        <div class="ex-step">代入 \(x=0,y=1\)：\(1=\frac{1}{2}+C\)，得 \(C=\frac{1}{2}\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y=\frac{(x+1)^4+(x+1)^2}{2}\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(9)</span><span class="ex-qmath">\(\displaystyle x(1+y^{2})dx-y(1+x^{2})dy=0,\ 当\ x=0\ 时,\ y=2\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">分离变量：\(x(1+y^{2})dx = y(1+x^{2})dy\)，\(\frac{x}{1+x^{2}}dx = \frac{y}{1+y^{2}}dy\)</div>
-        <div class="ex-step">两边积分：\(\int \frac{x}{1+x^{2}}dx = \int \frac{y}{1+y^{2}}dy\)</div>
-        <div class="ex-step">计算积分：\(\frac{1}{2}\ln(1+x^{2}) = \frac{1}{2}\ln(1+y^{2}) + C_{1}\)</div>
-        <div class="ex-step">化简：\(\ln(1+x^{2}) = \ln(1+y^{2}) + 2C_{1}\)，即\(\ln\frac{1+x^{2}}{1+y^{2}} = 2C_{1}\)</div>
-        <div class="ex-step">设\(C = e^{2C_{1}}\)，得\(\frac{1+x^{2}}{1+y^{2}} = C\)，即\(1+x^{2} = C(1+y^{2})\)</div>
-        <div class="ex-step">代入初始条件\(x=0, y=2\)：\(1+0 = C(1+4)\)，\(1 = 5C\)，\(C = \frac{1}{5}\)</div>
-        <div class="ex-step">代入得\(1+x^{2} = \frac{1}{5}(1+y^{2})\)，即\(5(1+x^{2}) = 1+y^{2}\)</div>
-        <div class="ex-step">整理：\(y^{2} = 5+5x^{2}-1 = 5x^{2}+4\)</div>
-        <div class="ex-step">由\(y=2&gt;0\)，取\(y = \sqrt{5x^{2}+4}\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y = \sqrt{5x^{2}+4}\)</span></div>
+        <div class="ex-step">方程为可分离变量型：\(\frac{x}{1+x^{2}}dx = \frac{y}{1+y^{2}}dy\)</div>
+        <div class="ex-step">积分得：\(\frac{1}{2}\ln(1+x^{2}) = \frac{1}{2}\ln(1+y^{2}) + C_{1}\)，即 \(\ln(1+x^{2}) = \ln(1+y^{2}) + 2C_{1}\)</div>
+        <div class="ex-step">去对数：\(1+x^{2} = C(1+y^{2})\)，其中 \(C = e^{2C_{1}} &gt; 0\)</div>
+        <div class="ex-step">代入初始条件 \(x=0, y=2\)：\(1 = C(1+4) = 5C\)，故 \(C = \frac{1}{5}\)</div>
+        <div class="ex-step">特解为：\(1+x^{2} = \frac{1}{5}(1+y^{2})\)，整理得 \(5(1+x^{2}) = 1+y^{2}\)，即 \(y^{2} = 5x^{2}+4\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y = \sqrt{5x^{2}+4}\)（取正号因 \(y(0)=2&gt;0\)）</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(10)</span><span class="ex-qmath">\(\displaystyle y(x)=\int_{0}^{x}y(t)dt+x+1\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">由方程 \( y(x)=\int_{0}^{x}y(t)dt+x+1 \)，令 \( x=0 \) 得 \( y(0)=\int_{0}^{0}y(t)dt+0+1=1 \)</div>
-        <div class="ex-step">对方程两边关于 \( x \) 求导，得 \( y'(x)=y(x)+1 \)</div>
-        <div class="ex-step">分离变量得 \( \frac{dy}{y+1}=dx \)</div>
-        <div class="ex-step">两边积分 \( \int\frac{dy}{y+1}=\int dx \)，得 \( \ln|y+1|=x+C_1 \)</div>
-        <div class="ex-step">即 \( y+1=Ce^{x} \)，其中 \( C=\pm e^{C_1} \)</div>
-        <div class="ex-step">通解为 \( y=Ce^{x}-1 \)</div>
-        <div class="ex-step">代入初始条件 \( y(0)=1 \)，得 \( 1=Ce^{0}-1=C-1 \)</div>
-        <div class="ex-step">解得 \( C=2 \)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\( y(x)=2e^{x}-1 \)</span></div>
+        <div class="ex-step">对方程 \(y(x)=\int_{0}^{x}y(t)dt+x+1\) 两边关于 \(x\) 求导，由微积分基本定理得 \(y'(x)=y(x)+1\)</div>
+        <div class="ex-step">识别为一阶线性微分方程（亦是可分离变量方程），分离变量：\(\frac{dy}{y+1}=dx\)</div>
+        <div class="ex-step">积分得 \(\ln|y+1|=x+C_1\)，即 \(y+1=Ce^{x}\)，通解为 \(y=Ce^{x}-1\)</div>
+        <div class="ex-step">由原方程令 \(x=0\) 求初始条件：\(y(0)=\int_{0}^{0}y(t)dt+0+1=1\)</div>
+        <div class="ex-step">代入通解：\(1=Ce^{0}-1\)，得 \(C=2\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y=2e^{x}-1\)</span></div>
       </div>
     </div>
   </section>

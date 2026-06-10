@@ -15,7 +15,7 @@ window.MathJax = {
 <link rel="preconnect" href="https://fonts.loli.net">
 <link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
 <link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/design-system.css?v=2">
+<link rel="stylesheet" href="../css/design-system.css">
 <style>
   .ex-intro{color:var(--ink-soft);font-size:15px;line-height:1.8;border-left:3px solid var(--red);
     padding:4px 16px 4px 18px;margin:0 0 46px;background:var(--red-soft);border-radius:0 8px 8px 0;}
@@ -149,73 +149,56 @@ window.MathJax = {
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(3)</span><span class="ex-qmath">\(\displaystyle \iint\limits_{S}(x+y+z)\mathrm{d}S, S为上半球面z=\sqrt{a^{2}-x^{2}-y^{2}};\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">\(S: z=\sqrt{a^2-x^2-y^2}\), 投影区域 \(D: x^2+y^2\leq a^2\)</div>
-        <div class="ex-step">\(\frac{\partial z}{\partial x}=\frac{-x}{\sqrt{a^2-x^2-y^2}}=\frac{-x}{z}\), \(\frac{\partial z}{\partial y}=\frac{-y}{\sqrt{a^2-x^2-y^2}}=\frac{-y}{z}\)</div>
-        <div class="ex-step">\(\mathrm{d}S=\sqrt{1+\left(\frac{\partial z}{\partial x}\right)^2+\left(\frac{\partial z}{\partial y}\right)^2}\mathrm{d}x\mathrm{d}y=\sqrt{1+\frac{x^2}{z^2}+\frac{y^2}{z^2}}\mathrm{d}x\mathrm{d}y=\frac{\sqrt{x^2+y^2+z^2}}{z}\mathrm{d}x\mathrm{d}y=\frac{a}{z}\mathrm{d}x\mathrm{d}y\)</div>
-        <div class="ex-step">\(\iint\limits_{S}(x+y+z)\mathrm{d}S=\iint\limits_{D}\left(x+y+\sqrt{a^2-x^2-y^2}\right)\cdot\frac{a}{\sqrt{a^2-x^2-y^2}}\mathrm{d}x\mathrm{d}y\)</div>
-        <div class="ex-step">\(=a\iint\limits_{D}\frac{x}{\sqrt{a^2-x^2-y^2}}\mathrm{d}x\mathrm{d}y+a\iint\limits_{D}\frac{y}{\sqrt{a^2-x^2-y^2}}\mathrm{d}x\mathrm{d}y+a\iint\limits_{D}\mathrm{d}x\mathrm{d}y\)</div>
-        <div class="ex-step">对于 \(\iint\limits_{D}\frac{x}{\sqrt{a^2-x^2-y^2}}\mathrm{d}x\mathrm{d}y\), 区域 \(D\) 关于 \(y\) 轴对称, 被积函数关于 \(x\) 为奇函数, 故 \(\iint\limits_{D}\frac{x}{\sqrt{a^2-x^2-y^2}}\mathrm{d}x\mathrm{d}y=0\)</div>
-        <div class="ex-step">对于 \(\iint\limits_{D}\frac{y}{\sqrt{a^2-x^2-y^2}}\mathrm{d}x\mathrm{d}y\), 区域 \(D\) 关于 \(x\) 轴对称, 被积函数关于 \(y\) 为奇函数, 故 \(\iint\limits_{D}\frac{y}{\sqrt{a^2-x^2-y^2}}\mathrm{d}x\mathrm{d}y=0\)</div>
-        <div class="ex-step">\(\iint\limits_{D}\mathrm{d}x\mathrm{d}y=\pi a^2\)</div>
-        <div class="ex-step">原式 \(=a\cdot 0+a\cdot 0+a\cdot\pi a^2=\pi a^3\)</div>
+        <div class="ex-step">曲面 \(S: z=\sqrt{a^2-x^2-y^2}\) 在 \(xy\) 平面投影为 \(D: x^2+y^2\leq a^2\)，面积元素</div>
+        <div class="ex-step">由对称性，\(\iint_S x\,\mathrm{d}S=\iint_S y\,\mathrm{d}S=0\)（\(x,y\) 分别为奇函数，曲面关于 \(yz,zx\) 平面对称），故</div>
+        <div class="ex-step">代入 \(z=\sqrt{a^2-x^2-y^2}\) 与 \(\mathrm{d}S\) 表达式：</div>
+        <div class="ex-step">积分区域 \(D\) 为半径 \(a\) 的圆盘，面积为 \(\pi a^2\)，因此</div>
       <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(\pi a^3\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(4)</span><span class="ex-qmath">\(\displaystyle \iint\limits_{S}\sqrt{R^{2}-x^{2}-y^{2}}\mathrm{d}S, S为上半球面z=\sqrt{R^{2}-x^{2}-y^{2}};\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">\(S: z=\sqrt{R^{2}-x^{2}-y^{2}}\), \(D_{xy}: x^{2}+y^{2}\leq R^{2}\)</div>
-        <div class="ex-step">\(\frac{\partial z}{\partial x}=\frac{-x}{\sqrt{R^{2}-x^{2}-y^{2}}}\), \(\frac{\partial z}{\partial y}=\frac{-y}{\sqrt{R^{2}-x^{2}-y^{2}}}\)</div>
-        <div class="ex-step">\(\mathrm{d}S=\sqrt{1+\left(\frac{\partial z}{\partial x}\right)^{2}+\left(\frac{\partial z}{\partial y}\right)^{2}}\mathrm{d}x\mathrm{d}y=\sqrt{1+\frac{x^{2}+y^{2}}{R^{2}-x^{2}-y^{2}}}\mathrm{d}x\mathrm{d}y=\frac{R}{\sqrt{R^{2}-x^{2}-y^{2}}}\mathrm{d}x\mathrm{d}y\)</div>
-        <div class="ex-step">\(\iint\limits_{S}\sqrt{R^{2}-x^{2}-y^{2}}\mathrm{d}S=\iint\limits_{D_{xy}}\sqrt{R^{2}-x^{2}-y^{2}}\cdot\frac{R}{\sqrt{R^{2}-x^{2}-y^{2}}}\mathrm{d}x\mathrm{d}y=\iint\limits_{D_{xy}}R\mathrm{d}x\mathrm{d}y\)</div>
-        <div class="ex-step">\(\iint\limits_{D_{xy}}R\mathrm{d}x\mathrm{d}y=R\cdot\pi R^{2}=\pi R^{3}\)</div>
+        <div class="ex-step">曲面 \(S: z=\sqrt{R^{2}-x^{2}-y^{2}}\)，投影区域 \(D_{xy}: x^{2}+y^{2}\leq R^{2}\)</div>
+        <div class="ex-step">面积元素公式 \(\mathrm{d}S=\sqrt{1+z_{x}^{2}+z_{y}^{2}}\,\mathrm{d}x\mathrm{d}y\)，由 \(z_{x}=\frac{-x}{z}\)，\(z_{y}=\frac{-y}{z}\) 得</div>
+        <div class="ex-step">故 \(\mathrm{d}S=\frac{R}{\sqrt{R^{2}-x^{2}-y^{2}}}\,\mathrm{d}x\mathrm{d}y\)，积分化为</div>
+        <div class="ex-step">\[极坐标计算\]</div>
       <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(\pi R^{3}\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(5)</span><span class="ex-qmath">\(\displaystyle \iint\limits_{S}x^{2}y^{2}\mathrm{d}S, S为上半球面z=\sqrt{R^{2}-x^{2}-y^{2}};\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">曲面 \(S: z = \sqrt{R^2 - x^2 - y^2}\)，投影区域 \(D: x^2 + y^2 \leq R^2\)</div>
-        <div class="ex-step">\(\frac{\partial z}{\partial x} = \frac{-x}{\sqrt{R^2-x^2-y^2}} = -\frac{x}{z}\)，\(\frac{\partial z}{\partial y} = -\frac{y}{z}\)</div>
-        <div class="ex-step">\(\mathrm{d}S = \sqrt{1 + \left(\frac{\partial z}{\partial x}\right)^2 + \left(\frac{\partial z}{\partial y}\right)^2}\,\mathrm{d}x\mathrm{d}y = \sqrt{1 + \frac{x^2}{z^2} + \frac{y^2}{z^2}}\,\mathrm{d}x\mathrm{d}y\)</div>
-        <div class="ex-step">\(= \sqrt{\frac{z^2 + x^2 + y^2}{z^2}}\,\mathrm{d}x\mathrm{d}y = \sqrt{\frac{R^2}{z^2}}\,\mathrm{d}x\mathrm{d}y = \frac{R}{z}\,\mathrm{d}x\mathrm{d}y = \frac{R}{\sqrt{R^2-x^2-y^2}}\,\mathrm{d}x\mathrm{d}y\)</div>
-        <div class="ex-step">\(\iint\limits_{S} x^2y^2\,\mathrm{d}S = \iint\limits_{D} x^2y^2 \cdot \frac{R}{\sqrt{R^2-x^2-y^2}}\,\mathrm{d}x\mathrm{d}y\)</div>
-        <div class="ex-step">极坐标变换：\(x = r\cos\theta\)，\(y = r\sin\theta\)，\(\mathrm{d}x\mathrm{d}y = r\,\mathrm{d}r\mathrm{d}\theta\)，\(0 \leq r \leq R\)，\(0 \leq \theta \leq 2\pi\)</div>
-        <div class="ex-step">\(= \int_{0}^{2\pi}\int_{0}^{R} r^4\cos^2\theta\sin^2\theta \cdot \frac{R}{\sqrt{R^2-r^2}} \cdot r\,\mathrm{d}r\mathrm{d}\theta\)</div>
-        <div class="ex-step">\(= R\int_{0}^{2\pi}\cos^2\theta\sin^2\theta\,\mathrm{d}\theta \cdot \int_{0}^{R}\frac{r^5}{\sqrt{R^2-r^2}}\,\mathrm{d}r\)</div>
-        <div class="ex-step">\(\int_{0}^{2\pi}\cos^2\theta\sin^2\theta\,\mathrm{d}\theta = \int_{0}^{2\pi}\frac{\sin^2(2\theta)}{4}\,\mathrm{d}\theta = \frac{1}{4}\int_{0}^{2\pi}\frac{1-\cos(4\theta)}{2}\,\mathrm{d}\theta = \frac{1}{8}\left[\theta - \frac{\sin(4\theta)}{4}\right]_{0}^{2\pi} = \frac{\pi}{4}\)</div>
-        <div class="ex-step">对 \(\int_{0}^{R}\frac{r^5}{\sqrt{R^2-r^2}}\,\mathrm{d}r\)，令 \(r = R\sin t\)，\(\mathrm{d}r = R\cos t\,\mathrm{d}t\)，\(t \in [0, \frac{\pi}{2}]\)</div>
-        <div class="ex-step">\(= \int_{0}^{\frac{\pi}{2}}\frac{R^5\sin^5 t}{R\cos t} \cdot R\cos t\,\mathrm{d}t = R^5\int_{0}^{\frac{\pi}{2}}\sin^5 t\,\mathrm{d}t\)</div>
-        <div class="ex-step">\(= R^5 \cdot \frac{4 \cdot 2}{5 \cdot 3 \cdot 1} = R^5 \cdot \frac{8}{15} = \frac{8R^5}{15}\)</div>
-        <div class="ex-step">原积分 \(= R \cdot \frac{\pi}{4} \cdot \frac{8R^5}{15} = \frac{8\pi R^6}{60} = \frac{2\pi R^6}{15}\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(\frac{2\pi R^6}{15}\)</span></div>
+        <div class="ex-step">由 \(z=\sqrt{R^{2}-x^{2}-y^{2}}\)，得 \(\frac{\partial z}{\partial x}=-\frac{x}{z},\ \frac{\partial z}{\partial y}=-\frac{y}{z}\)，故</div>
+        <div class="ex-step">\[积分化为\]</div>
+        <div class="ex-step">极坐标变换 \(x=r\cos\theta,\ y=r\sin\theta\)，</div>
+        <div class="ex-step">角度积分：\(\displaystyle\int_{0}^{2\pi}\cos^{2}\theta\sin^{2}\theta\,\mathrm{d}\theta=\frac{1}{4}\int_{0}^{2\pi}\sin^{2}2\theta\,\mathrm{d}\theta=\frac{\pi}{4}\)</div>
+        <div class="ex-step">径向积分令 \(r=R\sin t\)，</div>
+        <div class="ex-step">原积分 \(=R\cdot\dfrac{\pi}{4}\cdot\dfrac{8R^{5}}{15}=\dfrac{2\pi R^{6}}{15}\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(\dfrac{2\pi R^{6}}{15}\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(6)</span><span class="ex-qmath">\(\displaystyle \iint\limits_{S}(x^{2}+y^{2})\mathrm{d}S, S为曲面z=\sqrt{x^{2}+y^{2}}及平面z=1所围之立体的表面;\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">曲面 \(S\) 由两部分组成：锥面 \(S_1: z=\sqrt{x^2+y^2}\) (\(0\leq z\leq 1\)) 和顶面 \(S_2: z=1\) (\(x^2+y^2\leq 1\))</div>
-        <div class="ex-step">对 \(S_1\): \(\frac{\partial z}{\partial x}=\frac{x}{\sqrt{x^2+y^2}}\), \(\frac{\partial z}{\partial y}=\frac{y}{\sqrt{x^2+y^2}}\)</div>
-        <div class="ex-step">对 \(S_2\): \(z=1\), \(\frac{\partial z}{\partial x}=0\), \(\frac{\partial z}{\partial y}=0\)</div>
-        <div class="ex-step">计算 \(\iint_{S_1}(x^2+y^2)\mathrm{d}S\):</div>
-        <div class="ex-step">\[化为极坐标：\]</div>
-        <div class="ex-step">计算 \(\iint_{S_2}(x^2+y^2)\mathrm{d}S\):</div>
-        <div class="ex-step">\[化为极坐标：\]</div>
-        <div class="ex-step">\[求和：\]</div>
+        <div class="ex-step">曲面 \(S\) 由锥面 \(S_1: z=\sqrt{x^2+y^2}\) 和平面 \(S_2: z=1\) 组成，交线为 \(x^2+y^2=1, z=1\)</div>
+        <div class="ex-step">对 \(S_2\)（上底圆盘 \(x^2+y^2\leq 1, z=1\)）：\(\mathrm{d}S=\mathrm{d}x\mathrm{d}y\)，\(\iint_{S_2}(x^2+y^2)\mathrm{d}S=\iint_{x^2+y^2\leq 1}(x^2+y^2)\mathrm{d}x\mathrm{d}y=\int_0^{2\pi}\mathrm{d}\theta\int_0^1 r^3\mathrm{d}r=\frac{\pi}{2}\)</div>
+        <div class="ex-step">对 \(S_1\)（锥面 \(z=\sqrt{x^2+y^2}, 0\leq z\leq 1\)）：\(\frac{\partial z}{\partial x}=\frac{x}{z},\frac{\partial z}{\partial y}=\frac{y}{z}\)，\(\mathrm{d}S=\sqrt{1+\frac{x^2+y^2}{z^2}}\mathrm{d}x\mathrm{d}y=\sqrt{2}\mathrm{d}x\mathrm{d}y\)</div>
+        <div class="ex-step">\[\iint_{S_1}(x^2+y^2)\mathrm{d}S=\sqrt{2}\iint_{x^2+y^2\leq 1}(x^2+y^2)\mathrm{d}x\mathrm{d}y=\sqrt{2}\cdot\frac{\pi}{2}=\frac{\sqrt{2}\pi}{2}\]</div>
+        <div class="ex-step">\[\iint_S(x^2+y^2)\mathrm{d}S=\frac{\pi}{2}+\frac{\sqrt{2}\pi}{2}=\frac{(1+\sqrt{2})\pi}{2}\]</div>
       <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(\frac{(1+\sqrt{2})\pi}{2}\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(7)</span><span class="ex-qmath">\(\displaystyle \iint\limits_{S}(xy+yz+zx)\mathrm{d}S, S为锥面z=\sqrt{x^{2}+y^{2}}被曲面x^{2}+y^{2}=2ax所截之部分.\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">曲面 \(S: z=\sqrt{x^2+y^2}\)，被柱面 \(x^2+y^2=2ax\) 所截。投影区域 \(D: x^2+y^2\leq 2ax\)，即 \((x-a)^2+y^2\leq a^2\)。</div>
-        <div class="ex-step">面积元素：\(\frac{\partial z}{\partial x}=\frac{x}{\sqrt{x^2+y^2}}=\frac{x}{z}\)，\(\frac{\partial z}{\partial y}=\frac{y}{z}\)</div>
+        <div class="ex-step">曲面 \(S: z=\sqrt{x^2+y^2}\)，由 \(x^2+y^2=2ax\) 即 \((x-a)^2+y^2=a^2\) 截得，投影区域 \(D: x^2+y^2\leq 2ax\)。</div>
+        <div class="ex-step">面积元公式：\(\mathrm{d}S=\sqrt{1+z_x^2+z_y^2}\,\mathrm{d}x\mathrm{d}y=\sqrt{1+\frac{x^2}{x^2+y^2}+\frac{y^2}{x^2+y^2}}\,\mathrm{d}x\mathrm{d}y=\sqrt{2}\,\mathrm{d}x\mathrm{d}y\)</div>
         <div class="ex-step">\[积分化为：\]</div>
-        <div class="ex-step">区域 \(D\) 关于 \(x\) 轴对称。对于 \(xy+y\sqrt{x^2+y^2}=y(x+\sqrt{x^2+y^2})\)，关于 \(y\) 是奇函数，故：</div>
-        <div class="ex-step">\[只需计算：\]</div>
-        <div class="ex-step">极坐标变换：\(x=r\cos\theta, y=r\sin\theta\)。柱面 \(x^2+y^2=2ax\) 化为 \(r=2a\cos\theta\)。区域 \(D\) 对应 \(-\frac{\pi}{2}\leq\theta\leq\frac{\pi}{2}, 0\leq r\leq 2a\cos\theta\)。</div>
-        <div class="ex-step">\[内层积分：\]</div>
-        <div class="ex-step">\[Wallis公式：\]</div>
+        <div class="ex-step">采用极坐标 \(x=r\cos\theta, y=r\sin\theta\)，区域 \(D: r^2\leq 2ar\cos\theta\)，即 \(0\leq r\leq 2a\cos\theta\)，\(-\frac{\pi}{2}\leq\theta\leq\frac{\pi}{2}\)。</div>
+        <div class="ex-step">分项计算。第一项：\(\sqrt{2}\iint_D xy\,\mathrm{d}x\mathrm{d}y=\sqrt{2}\int_{-\pi/2}^{\pi/2}\int_0^{2a\cos\theta}r^3\cos\theta\sin\theta\,\mathrm{d}r\mathrm{d}\theta\)，由于 \(\int_{-\pi/2}^{\pi/2}\cos\theta\sin\theta\,\mathrm{d}\theta=0\)（奇函数），此项为 \(0\)。</div>
+        <div class="ex-step">\[后两项合并：\]</div>
+        <div class="ex-step">由于 \(\sin\theta\cos^4\theta\) 为奇函数，其在 \([-\frac{\pi}{2},\frac{\pi}{2}]\) 积分为 \(0\)；只需计算：</div>
       <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(\frac{64\sqrt{2}}{15}a^4\)</span></div>
       </div>
     </div>
@@ -225,12 +208,12 @@ window.MathJax = {
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(1)</span><span class="ex-qmath">\(\displaystyle \iint\limits_{S}x\mathrm{d}y\mathrm{d}z+y\mathrm{d}z\mathrm{d}x+z\mathrm{d}x\mathrm{d}y, S为锥面x^{2}+y^{2}=z^{2}被z=0与z=h所截部分的外侧;\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">补全曲面 \(S_1: z=h, x^2+y^2\leq h^2\) 取上侧，与 \(S\) 围成区域 \(\Omega\)。</div>
-        <div class="ex-step">设 \(\vec{F}=(x,y,z)\)，则 \(\text{div}\vec{F}=\frac{\partial x}{\partial x}+\frac{\partial y}{\partial y}+\frac{\partial z}{\partial z}=3\)。</div>
-        <div class="ex-step">\[由高斯公式：\]</div>
-        <div class="ex-step">计算三重积分，用柱坐标 \(x=r\cos\theta, y=r\sin\theta, z=z\)，其中 \(r\leq z\leq h\), \(0\leq r\leq h\), \(0\leq\theta\leq 2\pi\)：</div>
-        <div class="ex-step">计算 \(S_1\) 上的积分：在 \(z=h\) 上，\(\mathrm{d}z=0\)，故：</div>
-        <div class="ex-step">\[因此：\]</div>
+        <div class="ex-step">识别题型：第二型曲面积分，\(S\)为锥面\(x^2+y^2=z^2\)在\(0\leq z\leq h\)部分的外侧，补面后用Gauss公式最简便。</div>
+        <div class="ex-step">补底面\(S_1: z=0, x^2+y^2\leq 0\)（退化，实际为点）不适用；改补顶面\(S_2: z=h, x^2+y^2\leq h^2\)取上侧，与\(S\)围成区域\(\Omega\)（锥体）。</div>
+        <div class="ex-step">设\(\vec{F}=(x,y,z)\)，则\(\mathrm{div}\vec{F}=\frac{\partial x}{\partial x}+\frac{\partial y}{\partial y}+\frac{\partial z}{\partial z}=3\)。</div>
+        <div class="ex-step">由Gauss公式，\(\iint\limits_{S\cup S_2}\vec{F}\cdot\mathrm{d}\vec{S}=\iiint\limits_{\Omega}3\,\mathrm{d}V=3\cdot\frac{1}{3}\pi h^3=\pi h^3\)（锥体体积\(V=\frac{1}{3}\pi h^3\)）。</div>
+        <div class="ex-step">计算顶面\(S_2\)上的积分：在\(z=h\)上，\(\mathrm{d}z=0\)，故\(\mathrm{d}y\mathrm{d}z=\mathrm{d}z\mathrm{d}x=0\)，仅余\(z\mathrm{d}x\mathrm{d}y=h\,\mathrm{d}x\mathrm{d}y\)，</div>
+        <div class="ex-step">因此\(\iint\limits_{S}=\iint\limits_{S\cup S_2}-\iint\limits_{S_2}=\pi h^3-\pi h^3=0\)。</div>
       <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(0\)</span></div>
       </div>
     </div>
@@ -261,13 +244,11 @@ window.MathJax = {
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(4)</span><span class="ex-qmath">\(\displaystyle \iint\limits_{S}\frac{\mathrm{e}^{z}\mathrm{d}x\mathrm{d}y}{\sqrt{x^{2}+y^{2}}}, S为锥面z=\sqrt{x^{2}+y^{2}}及平面z=1,z=2所围立体之表面外侧;\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \(S\) 由三部分组成：\(S_1: z=2, x^2+y^2\leq 4\) 上侧；\(S_2: z=1, x^2+y^2\leq 1\) 下侧；\(S_3: z=\sqrt{x^2+y^2}, 1\leq z\leq 2\) 即 \(1\leq x^2+y^2\leq 4\) 外侧。</div>
-        <div class="ex-step">在 \(S_1\) 上，\(z=2\)，法向量朝上，\(\mathrm{d}x\mathrm{d}y\) 为正：</div>
-        <div class="ex-step">在 \(S_2\) 上，\(z=1\)，法向量朝下，\(\mathrm{d}x\mathrm{d}y\) 为负：</div>
-        <div class="ex-step">在 \(S_3\) 上，锥面 \(z=\sqrt{x^2+y^2}\)，即 \(F=\sqrt{x^2+y^2}-z=0\)，外侧法向量满足 \(\frac{\partial z}{\partial x}=\frac{x}{\sqrt{x^2+y^2}}\)，\(\frac{\partial z}{\partial y}=\frac{y}{\sqrt{x^2+y^2}}\)。对于外侧（指向下方外部），\(\mathrm{d}x\mathrm{d}y = -\frac{\partial z}{\partial x}\mathrm{d}y\mathrm{d}z\) 或直接投影：锥面外侧与 \(z\) 轴正向夹角大于 \(\frac{\pi}{2}\)，故 \(\mathrm{d}x\mathrm{d}y\) 为负。</div>
-        <div class="ex-step">用投影法，\(S_3\) 投影到 \(xy\) 平面为环形区域 \(D: 1\leq x^2+y^2\leq 4\)，外侧（向下）：</div>
-        <div class="ex-step">\[总和：\]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(2\pi\mathrm{e}^{2}\)</span></div>
+        <div class="ex-step">识别曲面 \(S\) 为封闭曲面，由锥面 \(z=\sqrt{x^2+y^2}\) 及平面 \(z=1,z=2\) 围成，采用高斯公式转化。设 \(P=0, Q=0, R=\frac{e^z}{\sqrt{x^2+y^2}}\)，则</div>
+        <div class="ex-step">采用柱坐标 \(x=r\cos\theta, y=r\sin\theta, z=z\)，积分区域 \(\Omega\) 为 \(1\leq z\leq 2, 0\leq r\leq z, 0\leq\theta\leq 2\pi\)，体积元 \(dV=r\,dr\,d\theta\,dz\)，故</div>
+        <div class="ex-step">逐次计算积分，径向积分 \(\int_0^z dr = z\)，角度积分 \(\int_0^{2\pi}d\theta=2\pi\)，于是</div>
+        <div class="ex-step">对 \(\int z e^z\,dz\) 分部积分，\(\int_1^2 z e^z\,dz=\left[ze^z\right]_1^2-\int_1^2 e^z\,dz=2e^2-e-(e^2-e)=e^2\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(2\pi e^2\)</span></div>
       </div>
     </div>
     <div class="ex">

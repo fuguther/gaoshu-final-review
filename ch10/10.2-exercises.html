@@ -15,7 +15,7 @@ window.MathJax = {
 <link rel="preconnect" href="https://fonts.loli.net">
 <link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
 <link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/design-system.css?v=2">
+<link rel="stylesheet" href="../css/design-system.css">
 <style>
   .ex-intro{color:var(--ink-soft);font-size:15px;line-height:1.8;border-left:3px solid var(--red);
     padding:4px 16px 4px 18px;margin:0 0 46px;background:var(--red-soft);border-radius:0 8px 8px 0;}
@@ -132,13 +132,12 @@ window.MathJax = {
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(2)</span><span class="ex-qmath">\(\displaystyle x+x^{4}+x^{9}+x^{16}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">级数为 \( \sum_{n=1}^{\infty} x^{n^2} \)</div>
-        <div class="ex-step">设 \( a_n = x^{n^2} \)，使用根值判别法，计算 \( \lim_{n\to\infty} \sqrt[n]{|a_n|} = \lim_{n\to\infty} |x|^{n^2/n} = \lim_{n\to\infty} |x|^n \)</div>
-        <div class="ex-step">当 \( |x| &lt; 1 \) 时，\( \lim_{n\to\infty} |x|^n = 0 &lt; 1 \)，级数绝对收敛</div>
-        <div class="ex-step">当 \( |x| &gt; 1 \) 时，\( \lim_{n\to\infty} |x|^n = +\infty &gt; 1 \)，级数发散</div>
-        <div class="ex-step">当 \( |x| = 1 \) 即 \( x = 1 \) 时，级数为 \( \sum_{n=1}^{\infty} 1^{n^2} = \sum_{n=1}^{\infty} 1 \)，通项 \( \lim_{n\to\infty} 1 = 1 \neq 0 \)，发散</div>
-        <div class="ex-step">当 \( x = -1 \) 时，级数为 \( \sum_{n=1}^{\infty} (-1)^{n^2} \)，由于 \( n^2 \) 与 \( n \) 同奇偶，故 \( (-1)^{n^2} = (-1)^n \)，级数为 \( \sum_{n=1}^{\infty} (-1)^n \)，通项 \( \lim_{n\to\infty} (-1)^n \) 不存在且不为 0，发散</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>收敛区间为 \( (-1, 1) \)，端点 \( x = 1 \) 和 \( x = -1 \) 均发散</span></div>
+        <div class="ex-step">级数通项为 \(u_n = x^{n^2}\)，即 \(\sum_{n=1}^{\infty} x^{n^2}\)</div>
+        <div class="ex-step">用根值判别法，\(\lim_{n\to\infty} \sqrt[n]{|u_n|} = \lim_{n\to\infty} |x|^{n} = \begin{cases} 0, &amp; |x|&lt;1 \\ 1, &amp; |x|=1 \\ +\infty, &amp; |x|&gt;1 \end{cases}\)</div>
+        <div class="ex-step">由根值判别法，当 \(|x|&lt;1\) 时级数绝对收敛；当 \(|x|&gt;1\) 时通项 \(|x|^{n^2}\to+\infty\)，级数发散</div>
+        <div class="ex-step">端点 \(x=1\)：级数为 \(\sum_{n=1}^{\infty} 1\)，通项不趋于零，发散</div>
+        <div class="ex-step">端点 \(x=-1\)：级数为 \(\sum_{n=1}^{\infty} (-1)^{n^2} = \sum_{n=1}^{\infty} (-1)^n\)，通项不趋于零，发散</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>收敛区间为 \((-1,1)\)，端点 \(x=\pm 1\) 均发散</span></div>
       </div>
     </div>
     <div class="ex">
@@ -156,13 +155,11 @@ window.MathJax = {
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(4)</span><span class="ex-qmath">\(\displaystyle 1-\frac{\theta^{2}}{2!}+\frac{\theta^{4}}{4!}-\frac{\theta^{6}}{6!}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \(u_{n}=\frac{(-1)^{n}\theta^{2n}}{(2n)!}\)，则 \(u_{n+1}=\frac{(-1)^{n+1}\theta^{2n+2}}{(2n+2)!}\)</div>
-        <div class="ex-step">\[\left|\frac{u_{n+1}}{u_{n}}\right|=\frac{\theta^{2n+2}}{(2n+2)!}\cdot\frac{(2n)!}{\theta^{2n}}=\frac{\theta^{2}}{(2n+2)(2n+1)}\]</div>
-        <div class="ex-step">\[\lim_{n\to\infty}\left|\frac{u_{n+1}}{u_{n}}\right|=\lim_{n\to\infty}\frac{\theta^{2}}{(2n+2)(2n+1)}=0&lt;&lt;1\]</div>
-        <div class="ex-step">由比值判别法，对任意 \(\theta\in\mathbb{R}\)，级数均绝对收敛，收敛半径 \(R=+\infty\)</div>
-        <div class="ex-step">收敛区间为 \((-\infty,+\infty)\)</div>
-        <div class="ex-step">端点 \(\theta\to\pm\infty\) 不在有限点讨论，级数在全体实数上收敛，无端点需额外判断</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>收敛区间为 \((-\infty,+\infty)\)，无端点收敛问题，级数在 \(\mathbb{R}\) 上处处绝对收敛</span></div>
+        <div class="ex-step">级数为 \[ \sum_{n=0}^{\infty} (-1)^n \frac{\theta^{2n}}{(2n)!} \]</div>
+        <div class="ex-step">令 \( u_n = (-1)^n \frac{\theta^{2n}}{(2n)!} \)，用比值判别法求收敛半径：\[ \lim_{n\to\infty} \left| \frac{u_{n+1}}{u_n} \right| = \lim_{n\to\infty} \frac{\theta^2}{(2n+2)(2n+1)} = 0 &lt; 1 \]</div>
+        <div class="ex-step">极限为 0 对任意 \( \theta \in \mathbb{R} \) 均成立，故收敛半径 \( R = +\infty \)，收敛区间为 \( (-\infty, +\infty) \)</div>
+        <div class="ex-step">端点 \( \theta = \pm\infty \) 非实数点，无需讨论；对任意有限实数 \( \theta \)，级数绝对收敛</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>收敛区间为 \( (-\infty, +\infty) \)，无有限端点，级数在全体实数上绝对收敛；该级数为 \( \cos\theta \) 的麦克劳林展开。</span></div>
       </div>
     </div>
     <div class="ex">
@@ -199,29 +196,21 @@ window.MathJax = {
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(7)</span><span class="ex-qmath">\(\displaystyle x+\frac{2x^{2}}{2!}+\frac{3x^{3}}{3!}+\frac{4x^{4}}{4!}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \(u_n = \frac{nx^n}{n!}\)，则级数为 \(\sum_{n=1}^{\infty} u_n\)</div>
-        <div class="ex-step">计算比值 \(\left|\frac{u_{n+1}}{u_n}\right| = \left|\frac{(n+1)x^{n+1}}{(n+1)!} \cdot \frac{n!}{nx^n}\right| = \left|\frac{(n+1)x^{n+1} \cdot n!}{(n+1)! \cdot nx^n}\right| = \left|\frac{(n+1)x}{(n+1)n}\right| = \left|\frac{x}{n}\right|\)</div>
-        <div class="ex-step">求极限 \(\lim_{n\to\infty}\left|\frac{u_{n+1}}{u_n}\right| = \lim_{n\to\infty}\frac{|x|}{n} = 0\)</div>
-        <div class="ex-step">由比值判别法，对任意 \(x \in (-\infty, +\infty)\)，极限值 \(0 &lt; 1\)，级数收敛</div>
+        <div class="ex-step">级数通项为 \(a_n = \frac{nx^n}{n!} = \frac{x^n}{(n-1)!}\)，即 \(\sum_{n=1}^{\infty} \frac{x^n}{(n-1)!}\)</div>
+        <div class="ex-step">用比值判别法，\(\left|\frac{a_{n+1}}{a_n}\right| = \left|\frac{x^{n+1}}{n!} \cdot \frac{(n-1)!}{x^n}\right| = \frac{|x|}{n} \to 0\)（对任意 \(x\)）</div>
         <div class="ex-step">收敛半径 \(R = +\infty\)，收敛区间为 \((-\infty, +\infty)\)</div>
-        <div class="ex-step">\[端点讨论：收敛区间无端点，无需讨论端点收敛性\]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>收敛区间为 \((-\infty, +\infty)\)，无有限端点，级数在全体实数上收敛。</span></div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>收敛区间为 \((-\infty, +\infty)\)，无端点讨论之必要，级数在全体实数上收敛。</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(8)</span><span class="ex-qmath">\(\displaystyle 1+\frac{x^{2}}{2\cdot2^{2}}+\frac{1\cdot3\cdot x^{4}}{2\cdot4\cdot2^{4}}+\frac{1\cdot3\cdot5x^{6}}{2\cdot4\cdot6\cdot2^{6}}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">记通项为 \(a_n\)，观察级数结构。奇数项系数为0，偶数项：第 \(n\) 项（\(n=0,1,2,\ldots\)）对应 \(x^{2n}\)，系数为</div>
-        <div class="ex-step">\[更简洁地，系数可写为\]</div>
-        <div class="ex-step">对级数 \(\sum_{n=0}^{\infty} a_{2n} x^{2n}\) 用比值判别法。设 \(u_n = a_{2n} x^{2n} = \frac{(2n)!}{2^{4n}(n!)^2} x^{2n}\)，计算</div>
-        <div class="ex-step">\[化简\]</div>
-        <div class="ex-step">\[求极限\]</div>
-        <div class="ex-step">由比值判别法，收敛要求 \(\frac{x^2}{4} &lt; 1\)，即 \(|x| &lt; 2\)；发散要求 \(\frac{x^2}{4} &gt; 1\)，即 \(|x| &gt; 2\)。收敛半径 \(R = 2\)，收敛区间为 \((-2, 2)\)。</div>
-        <div class="ex-step">讨论端点 \(x = 2\)。此时 \(x^{2n} = 4^n\)，级数变为</div>
-        <div class="ex-step">利用中心二项式系数渐近公式 \(\binom{2n}{n} \sim \frac{4^n}{\sqrt{\pi n}}\)（\(n\to\infty\)），得</div>
-        <div class="ex-step">由于 \(\sum \frac{1}{\sqrt{\pi n}}\) 与 \(\sum \frac{1}{n^{1/2}}\) 同敛散，而 \(p = \frac{1}{2} &lt; 1\)，故 \(\sum \frac{1}{\sqrt{\pi n}}\) 发散。由比较判别法极限形式，\(\sum_{n=0}^{\infty} \frac{\binom{2n}{n}}{4^n}\) 发散。</div>
-        <div class="ex-step">讨论端点 \(x = -2\)。此时 \(x^{2n} = (-2)^{2n} = 4^n\)，与 \(x=2\) 时相同，级数同样为</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>收敛区间为 \((-2, 2)\)；端点 \(x = 2\) 和 \(x = -2\) 处级数均发散。</span></div>
+        <div class="ex-step">通项为 \( a_n = \frac{1\cdot3\cdot5\cdots(2n-1)}{2\cdot4\cdot6\cdots(2n)} \cdot \frac{x^{2n}}{2^{2n}} = \frac{(2n)!}{(2^n n!)^2} \cdot \frac{x^{2n}}{4^n} = \frac{(2n)!}{(n!)^2} \left(\frac{x^2}{16}\right)^n \)</div>
+        <div class="ex-step">用比值判别法，\(\frac{a_{n+1}}{a_n} = \frac{(2n+2)!}{((n+1)!)^2} \cdot \frac{(n!)^2}{(2n)!} \cdot \frac{x^2}{16} = \frac{(2n+2)(2n+1)}{(n+1)^2} \cdot \frac{x^2}{16} = \frac{2(2n+1)}{n+1} \cdot \frac{x^2}{16}\)</div>
+        <div class="ex-step">\(\lim_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right| = \lim_{n\to\infty} \frac{2(2n+1)}{n+1} \cdot \frac{|x|^2}{16} = \frac{|x|^2}{4}\)，收敛要求 \(\frac{|x|^2}{4} &lt; 1\)，即 \(|x| &lt; 2\)，收敛区间为 \((-2, 2)\)</div>
+        <div class="ex-step">端点 \(x = \pm 2\)：\(a_n = \frac{(2n)!}{(n!)^2 4^n} = \frac{1}{2^{2n}} \binom{2n}{n}\)，由 Stirling 公式或 Wallis 估计，\(\binom{2n}{n} \sim \frac{4^n}{\sqrt{\pi n}}\)，故 \(a_n \sim \frac{1}{\sqrt{\pi n}}\)</div>
+        <div class="ex-step">级数 \(\sum \frac{1}{\sqrt{\pi n}}\) 发散（\(p = \frac{1}{2} &lt; 1\) 的 \(p\)-级数），故 \(x = \pm 2\) 处均发散</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>收敛区间为 \((-2, 2)\)；端点 \(x = \pm 2\) 均发散</span></div>
       </div>
     </div>
     <div class="ex">
@@ -267,17 +256,12 @@ window.MathJax = {
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(12)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}(-1)^{n-1}\frac{(x-1)^{n}}{5n}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">令 \(t = x - 1\)，级数化为 \(\sum_{n=1}^{\infty}(-1)^{n-1}\frac{t^{n}}{5n}\)</div>
-        <div class="ex-step">求收敛半径：\(\rho = \lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right| = \lim_{n\to\infty}\frac{\frac{1}{5(n+1)}}{\frac{1}{5n}} = \lim_{n\to\infty}\frac{n}{n+1} = 1\)</div>
-        <div class="ex-step">收敛半径 \(R = \frac{1}{\rho} = 1\)</div>
-        <div class="ex-step">当 \(t = 1\) 时，级数为 \(\sum_{n=1}^{\infty}(-1)^{n-1}\frac{1}{5n} = \frac{1}{5}\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n}\)</div>
-        <div class="ex-step">由莱布尼茨判别法，\(\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n}\) 收敛，故 \(t = 1\) 时级数收敛</div>
-        <div class="ex-step">当 \(t = -1\) 时，级数为 \(\sum_{n=1}^{\infty}(-1)^{n-1}\frac{(-1)^{n}}{5n} = \sum_{n=1}^{\infty}(-1)^{2n-1}\frac{1}{5n} = -\frac{1}{5}\sum_{n=1}^{\infty}\frac{1}{n}\)</div>
-        <div class="ex-step">调和级数 \(\sum_{n=1}^{\infty}\frac{1}{n}\) 发散，故 \(t = -1\) 时级数发散</div>
-        <div class="ex-step">对 \(t\)：收敛区间为 \((-1, 1]\)</div>
-        <div class="ex-step">由 \(t = x - 1\)，即 \(-1 &lt; x - 1 \leq 1\)</div>
-        <div class="ex-step">得 \(0 &lt; x \leq 2\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>收敛区间为 \((0, 2]\)；端点 \(x = 0\) 处发散，端点 \(x = 2\) 处收敛</span></div>
+        <div class="ex-step">令 \( t = x-1 \)，级数化为 \[ \sum_{n=1}^{\infty}(-1)^{n-1}\frac{t^{n}}{5n} \]</div>
+        <div class="ex-step">求收敛半径，用比值法：\[ \lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right| = \lim_{n\to\infty}\frac{n}{n+1} = 1 \]，故 \( R = 1 \)</div>
+        <div class="ex-step">收敛区间（对 \( t \)）：\( |t| &lt; 1 \)，即 \( |x-1| &lt; 1 \)，得 \( 0 &lt; x &lt; 2 \)</div>
+        <div class="ex-step">端点 \( t = 1 \)（即 \( x = 2 \)）：级数为 \[ \sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{5n} \]，由莱布尼茨判别法，收敛</div>
+        <div class="ex-step">端点 \( t = -1 \)（即 \( x = 0 \)）：级数为 \[ \sum_{n=1}^{\infty}\frac{(-1)^{n-1}(-1)^n}{5n} = \sum_{n=1}^{\infty}\frac{-1}{5n} = -\frac{1}{5}\sum_{n=1}^{\infty}\frac{1}{n} \]，调和级数发散</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>收敛区间为 \( (0, 2) \)；端点 \( x = 2 \) 收敛，\( x = 0 \) 发散，故收敛域为 \( (0, 2] \)</span></div>
       </div>
     </div>
     <div class="ex">
@@ -312,75 +296,55 @@ window.MathJax = {
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(15)</span><span class="ex-qmath">\(\displaystyle \ln x+(\ln x)^{2}+(\ln x)^{3}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">令 \( t = \ln x \)，级数化为 \( \sum_{n=1}^{\infty} t^n \)</div>
-        <div class="ex-step">此为几何级数，公比为 \( t \)，收敛条件为 \( |t| &lt; 1 \)</div>
-        <div class="ex-step">即 \( |\ln x| &lt; 1 \)，得 \( -1 &lt; \ln x &lt; 1 \)</div>
-        <div class="ex-step">故 \( e^{-1} &lt; x &lt; e \)，收敛区间为 \( \left( \frac{1}{e}, e \right) \)</div>
-        <div class="ex-step">讨论端点 \( x = \frac{1}{e} \)：此时 \( t = \ln \frac{1}{e} = -1 \)，级数为 \( \sum_{n=1}^{\infty} (-1)^n \)</div>
-        <div class="ex-step">通项 \( (-1)^n \) 极限不存在，不满足级数收敛必要条件，故发散</div>
-        <div class="ex-step">讨论端点 \( x = e \)：此时 \( t = \ln e = 1 \)，级数为 \( \sum_{n=1}^{\infty} 1^n = \sum_{n=1}^{\infty} 1 \)</div>
-        <div class="ex-step">通项 \( 1 \nrightarrow 0 \)，不满足级数收敛必要条件，故发散</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>收敛区间为 \( \left( \frac{1}{e}, e \right) \)，端点 \( x = \frac{1}{e} \) 与 \( x = e \) 均发散</span></div>
+        <div class="ex-step">令 \(t = \ln x\)，级数化为 \(\sum_{n=1}^{\infty} t^n\)，此为几何级数</div>
+        <div class="ex-step">由几何级数收敛判别法，\(\sum_{n=1}^{\infty} t^n\) 收敛当且仅当 \(|t| &lt; 1\)，即 \(|\ln x| &lt; 1\)</div>
+        <div class="ex-step">由 \(|\ln x| &lt; 1\) 得 \(-1 &lt; \ln x &lt; 1\)，即 \(e^{-1} &lt; x &lt; e\)</div>
+        <div class="ex-step">端点 \(t = 1\)（即 \(x = e\)）：级数为 \(\sum_{n=1}^{\infty} 1^n = \sum_{n=1}^{\infty} 1\)，通项不趋于零，发散</div>
+        <div class="ex-step">端点 \(t = -1\)（即 \(x = e^{-1}\)）：级数为 \(\sum_{n=1}^{\infty} (-1)^n\)，通项不趋于零，发散</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>收敛区间为 \((e^{-1}, e)\)；两端点 \(x = e\) 与 \(x = e^{-1}\) 处级数均发散</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(16)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}\frac{n^{2}}{x^{n}}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">令 \( t = \frac{1}{x} \)，则原级数化为 \(\sum_{n=1}^{\infty} n^{2} t^{n}\)</div>
-        <div class="ex-step">求收敛半径，计算 \(\rho = \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_{n}} \right| = \lim_{n \to \infty} \frac{(n+1)^{2}}{n^{2}} = \lim_{n \to \infty} \left( \frac{n+1}{n} \right)^{2} = 1\)</div>
-        <div class="ex-step">收敛半径 \(R = \frac{1}{\rho} = 1\)，即 \(|t| &lt; 1\) 时级数收敛</div>
-        <div class="ex-step">由 \(|t| = \left| \frac{1}{x} \right| &lt; 1\)，得 \(|x| &gt; 1\)，即 \(x &lt; -1\) 或 \(x &gt; 1\)</div>
-        <div class="ex-step">讨论端点 \(t = 1\)（即 \(x = 1\)）：级数为 \(\sum_{n=1}^{\infty} n^{2}\)，由于 \(\lim_{n \to \infty} n^{2} = +\infty \neq 0\)，发散</div>
-        <div class="ex-step">讨论端点 \(t = -1\)（即 \(x = -1\)）：级数为 \(\sum_{n=1}^{\infty} n^{2} (-1)^{n}\)，由于 \(\lim_{n \to \infty} |n^{2} (-1)^{n}| = \lim_{n \to \infty} n^{2} = +\infty \neq 0\)，通项不趋于零，发散</div>
-        <div class="ex-step">当 \(|t| &gt; 1\) 即 \(|x| &lt; 1\) 且 \(x \neq 0\) 时，级数发散；当 \(x = 0\) 时级数无意义</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>收敛区间为 \((-\infty, -1) \cup (1, +\infty)\)，端点 \(x = \pm 1\) 均发散</span></div>
+        <div class="ex-step">令 \( t = \frac{1}{x} \)，级数化为幂级数 \(\sum_{n=1}^{\infty} n^{2} t^{n}\)</div>
+        <div class="ex-step">收敛半径 \( R = \lim_{n\to\infty} \left|\frac{a_n}{a_{n+1}}\right| = \lim_{n\to\infty} \frac{n^2}{(n+1)^2} = 1 \)</div>
+        <div class="ex-step">当 \( |t| = 1 \) 即 \( t = \pm 1 \) 时：\(\sum_{n=1}^{\infty} n^2 (\pm 1)^n\) 通项不趋于 0，发散</div>
+        <div class="ex-step">故幂级数收敛域为 \( |t| &lt; 1 \)，即 \( \left|\frac{1}{x}\right| &lt; 1 \)，得 \( |x| &gt; 1 \)</div>
+        <div class="ex-step">端点 \( x = 1 \)：\(\sum_{n=1}^{\infty} n^2\) 发散；端点 \( x = -1 \)：\(\sum_{n=1}^{\infty} n^2 (-1)^n\) 发散（通项 \( n^2 \not\to 0 \)）</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>收敛区间为 \( (-\infty, -1) \cup (1, +\infty) \)，两端点 \( x = \pm 1 \) 均发散</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(17)</span><span class="ex-qmath">\(\displaystyle \sum_{n=0}^{\infty}\frac{1}{2n+1}\left(\frac{1-x}{1+x}\right)^{n}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">令 \( t = \frac{1-x}{1+x} \)，级数化为 \[ \sum_{n=0}^{\infty}\frac{t^{n}}{2n+1} \]</div>
-        <div class="ex-step">求收敛半径：\[ \lim_{n\to\infty}\left|\frac{a_{n+1}}{a_{n}}\right| = \lim_{n\to\infty}\frac{2n+1}{2n+3} = 1 \]，故 \( R = 1 \)</div>
-        <div class="ex-step">当 \( t = 1 \) 时：\[ \sum_{n=0}^{\infty}\frac{1}{2n+1} \]，因 \( \frac{1}{2n+1} \sim \frac{1}{2n} \)，与调和级数比较知发散</div>
-        <div class="ex-step">当 \( t = -1 \) 时：\[ \sum_{n=0}^{\infty}\frac{(-1)^{n}}{2n+1} \]，由莱布尼茨判别法，\( \frac{1}{2n+1} \) 单调递减趋于0，故收敛</div>
-        <div class="ex-step">对 \( t \) 的收敛域为 \( [-1, 1) \)，即 \( -1 \leq \frac{1-x}{1+x} &lt; 1 \)</div>
-        <div class="ex-step">解 \( \frac{1-x}{1+x} &lt; 1 \)：\[ \frac{1-x}{1+x} - 1 = \frac{-2x}{1+x} &lt; 0 \]，即 \( \frac{2x}{1+x} &gt; 0 \)，得 \( x &gt; 0 \) 或 \( x &lt; -1 \)</div>
-        <div class="ex-step">解 \( \frac{1-x}{1+x} \geq -1 \)：\[ \frac{1-x}{1+x} + 1 = \frac{2}{1+x} \geq 0 \]，得 \( x &gt; -1 \)</div>
-        <div class="ex-step">联立得 \( x &gt; 0 \)</div>
-        <div class="ex-step">验证端点 \( x = 0 \)：此时 \( t = 1 \)，级数为 \[ \sum_{n=0}^{\infty}\frac{1}{2n+1} \]，发散</div>
-        <div class="ex-step">当 \( x \to +\infty \) 时 \( t \to -1 \)，不在收敛域内；当 \( x \to 0^{+} \) 时 \( t \to 1^{-} \)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>收敛区间为 \( (0, +\infty) \)；在端点 \( x = 0 \) 处级数发散，无穷远端点不存在，故收敛域为 \( (0, +\infty) \)</span></div>
+        <div class="ex-step">令 \(t=\frac{1-x}{1+x}\)，级数化为 \(\sum_{n=0}^{\infty}\frac{t^n}{2n+1}\)</div>
+        <div class="ex-step">由比值法，\(\lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right|=\lim_{n\to\infty}\frac{2n+1}{2n+3}|t|=|t|\)，收敛半径 \(R=1\)</div>
+        <div class="ex-step">当 \(|t|&lt;1\) 即 \(\left|\frac{1-x}{1+x}\right|&lt;1\) 时绝对收敛；解 \(|1-x|&lt;|1+x|\) 得 \(x&gt;0\)</div>
+        <div class="ex-step">当 \(t=1\)（即 \(x=0\)）：级数为 \(\sum_{n=0}^{\infty}\frac{1}{2n+1}\)，与调和级数比较知发散</div>
+        <div class="ex-step">当 \(t=-1\)（即 \(x\to+\infty\) 不存在有限对应）：边界 \(|t|=1\) 对应 \(x=0\) 或 \(x\to\infty\)；\(t=-1\) 时级数为 \(\sum_{n=0}^{\infty}\frac{(-1)^n}{2n+1}\)，由莱布尼茨判别法知收敛，但 \(t=-1=\frac{1-x}{1+x}\) 解得 \(x\to\infty\) 不在有限点达到</div>
+        <div class="ex-step">对端点 \(x=0\)：\(t=1\)，级数发散；当 \(x\to+\infty\) 时 \(t\to-1^+\)，为极限情形；对有限端点仅需检验 \(x=0\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>收敛区间为 \((0,+\infty)\)；端点 \(x=0\) 处级数发散，无穷远处为极限收敛情形，故收敛域为 \((0,+\infty)\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(18)</span><span class="ex-qmath">\(\displaystyle \frac{x-3}{1-3}+\frac{(x-3)^{2}}{2-3^{2}}+\cdots+\frac{(x-3)^{n}}{n-3^{n}}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \(u_n = \frac{(x-3)^n}{n-3^n}\)，求收敛半径</div>
-        <div class="ex-step">计算 \(\left|\frac{u_{n+1}}{u_n}\right| = \left|\frac{(x-3)^{n+1}}{(n+1)-3^{n+1}} \cdot \frac{n-3^n}{(x-3)^n}\right| = |x-3| \cdot \left|\frac{n-3^n}{(n+1)-3^{n+1}}\right|\)</div>
-        <div class="ex-step">求极限 \(\lim_{n\to\infty}\left|\frac{n-3^n}{(n+1)-3^{n+1}}\right| = \lim_{n\to\infty}\left|\frac{3^n(\frac{n}{3^n}-1)}{3^{n+1}(\frac{n+1}{3^{n+1}}-1)}\right| = \lim_{n\to\infty}\frac{1}{3}\left|\frac{\frac{n}{3^n}-1}{\frac{n+1}{3^{n+1}}-1}\right| = \frac{1}{3}\)</div>
-        <div class="ex-step">由比值判别法，\(\lim_{n\to\infty}\left|\frac{u_{n+1}}{u_n}\right| = \frac{|x-3|}{3}\)</div>
-        <div class="ex-step">当 \(\frac{|x-3|}{3} &lt; 1\) 即 \(|x-3| &lt; 3\) 时绝对收敛，收敛区间为 \((0, 6)\)</div>
-        <div class="ex-step">讨论端点 \(x = 0\)：级数为 \(\sum_{n=1}^{\infty}\frac{(-3)^n}{n-3^n} = \sum_{n=1}^{\infty}\frac{(-1)^n 3^n}{n-3^n}\)</div>
-        <div class="ex-step">通项 \(\frac{(-1)^n 3^n}{n-3^n} = \frac{(-1)^n 3^n}{-3^n(1-\frac{n}{3^n})} = \frac{(-1)^{n+1}}{1-\frac{n}{3^n}}\)</div>
-        <div class="ex-step">\(\lim_{n\to\infty}\frac{(-1)^{n+1}}{1-\frac{n}{3^n}} = (-1)^{n+1} \to\) 不存在（振荡于 \(\pm 1\)），故 \(x=0\) 发散</div>
-        <div class="ex-step">讨论端点 \(x = 6\)：级数为 \(\sum_{n=1}^{\infty}\frac{3^n}{n-3^n}\)</div>
-        <div class="ex-step">通项 \(\frac{3^n}{n-3^n} = \frac{3^n}{-3^n(1-\frac{n}{3^n})} = \frac{-1}{1-\frac{n}{3^n}}\)</div>
-        <div class="ex-step">\(\lim_{n\to\infty}\frac{-1}{1-\frac{n}{3^n}} = -1 \neq 0\)，故 \(x=6\) 发散</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>收敛区间为 \((0, 6)\)；端点 \(x=0\) 和 \(x=6\) 均发散。</span></div>
+        <div class="ex-step">设 \( a_n = \frac{1}{n-3^n} \)，求收敛半径用比值法，计算 \( \lim_{n\to\infty} \left| \frac{a_{n+1}}{a_n} \right| = \lim_{n\to\infty} \frac{n-3^n}{(n+1)-3^{n+1}} = \lim_{n\to\infty} \frac{3^n\left(\frac{n}{3^n}-1\right)}{3^{n+1}\left(\frac{n+1}{3^{n+1}}-1\right)} = \frac{1}{3} \)</div>
+        <div class="ex-step">收敛半径 \( R = 3 \)，收敛区间为 \( |x-3| &lt; 3 \)，即 \( (0, 6) \)</div>
+        <div class="ex-step">端点 \( x = 0 \)：级数为 \( \sum_{n=1}^{\infty} \frac{(-3)^n}{n-3^n} = \sum_{n=1}^{\infty} \frac{(-1)^n 3^n}{n-3^n} \)，由于 \( \frac{3^n}{3^n-n} = \frac{1}{1-\frac{n}{3^n}} \to 1 \neq 0 \)，故通项不趋于零，发散</div>
+        <div class="ex-step">端点 \( x = 6 \)：级数为 \( \sum_{n=1}^{\infty} \frac{3^n}{n-3^n} = \sum_{n=1}^{\infty} \frac{-3^n}{3^n-n} \)，由于 \( \frac{3^n}{3^n-n} \to 1 \neq 0 \)，故通项不趋于零，发散</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>收敛区间为 \( (0, 6) \)，两端点 \( x=0 \) 与 \( x=6 \) 均发散</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(19)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}2^{n}x^{2n-1}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">令 \(u_n = 2^n x^{2n-1}\)，用比值判别法</div>
-        <div class="ex-step">\[\lim_{n\to\infty}\left|\frac{u_{n+1}}{u_n}\right| = \lim_{n\to\infty}\left|\frac{2^{n+1}x^{2(n+1)-1}}{2^n x^{2n-1}}\right| = \lim_{n\to\infty}\left|2\cdot\frac{x^{2n+1}}{x^{2n-1}}\right| = 2|x|^2\]</div>
-        <div class="ex-step">由 \(2|x|^2 &lt; 1\) 得 \(|x| &lt; \frac{1}{\sqrt{2}}\)，即 \(|x| &lt; \frac{\sqrt{2}}{2}\)</div>
-        <div class="ex-step">收敛半径对应的收敛区间为 \(\left(-\frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2}\right)\)</div>
-        <div class="ex-step">当 \(x = \frac{\sqrt{2}}{2}\) 时，级数为 \(\sum_{n=1}^{\infty}2^n\left(\frac{\sqrt{2}}{2}\right)^{2n-1} = \sum_{n=1}^{\infty}2^n\cdot\frac{(\sqrt{2})^{2n-1}}{2^{2n-1}} = \sum_{n=1}^{\infty}2^n\cdot\frac{2^{n-\frac{1}{2}}}{2^{2n-1}} = \sum_{n=1}^{\infty}2^{n+n-\frac{1}{2}-2n+1} = \sum_{n=1}^{\infty}2^{\frac{1}{2}} = \sum_{n=1}^{\infty}\sqrt{2}\)</div>
-        <div class="ex-step">一般项 \(\sqrt{2} \nrightarrow 0\)，故 \(x = \frac{\sqrt{2}}{2}\) 时发散</div>
-        <div class="ex-step">当 \(x = -\frac{\sqrt{2}}{2}\) 时，级数为 \(\sum_{n=1}^{\infty}2^n\left(-\frac{\sqrt{2}}{2}\right)^{2n-1} = \sum_{n=1}^{\infty}2^n\cdot(-1)^{2n-1}\cdot\frac{2^{n-\frac{1}{2}}}{2^{2n-1}} = \sum_{n=1}^{\infty}(-1)^{2n-1}\sqrt{2} = \sum_{n=1}^{\infty}(-\sqrt{2})\)</div>
-        <div class="ex-step">一般项 \(-\sqrt{2} \nrightarrow 0\)，故 \(x = -\frac{\sqrt{2}}{2}\) 时发散</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>收敛区间为 \(\left(-\frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2}\right)\)，端点 \(x = \pm\frac{\sqrt{2}}{2}\) 均发散</span></div>
+        <div class="ex-step">令 \(u_n = 2^n x^{2n-1}\)，这是缺项幂级数（仅含奇次幂），用比值判别法求收敛半径</div>
+        <div class="ex-step">由比值判别法，当 \(2|x|^2 &lt; 1\) 即 \(|x| &lt; \frac{1}{\sqrt{2}}\) 时绝对收敛；当 \(2|x|^2 &gt; 1\) 即 \(|x| &gt; \frac{1}{\sqrt{2}}\) 时发散，收敛区间为 \(\left(-\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}\right)\)</div>
+        <div class="ex-step">端点 \(x = \frac{1}{\sqrt{2}}\)：级数化为 \(\sum_{n=1}^{\infty}2^n\left(\frac{1}{\sqrt{2}}\right)^{2n-1} = \sum_{n=1}^{\infty}2^n\cdot\frac{1}{2^{n-\frac{1}{2}}} = \sum_{n=1}^{\infty}\sqrt{2}\)，通项不趋于0，发散</div>
+        <div class="ex-step">端点 \(x = -\frac{1}{\sqrt{2}}\)：级数化为 \(\sum_{n=1}^{\infty}2^n\left(-\frac{1}{\sqrt{2}}\right)^{2n-1} = \sum_{n=1}^{\infty}2^n\cdot\frac{(-1)^{2n-1}}{2^{n-\frac{1}{2}}} = \sum_{n=1}^{\infty}(-1)^{2n-1}\sqrt{2} = \sum_{n=1}^{\infty}(-\sqrt{2})\)，通项不趋于0，发散</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>收敛区间为 \(\left(-\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}\right)\)，两端点 \(x = \pm\frac{1}{\sqrt{2}}\) 处级数均发散</span></div>
       </div>
     </div>
     <div class="ex">

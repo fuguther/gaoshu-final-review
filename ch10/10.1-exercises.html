@@ -15,7 +15,7 @@ window.MathJax = {
 <link rel="preconnect" href="https://fonts.loli.net">
 <link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
 <link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/design-system.css?v=2">
+<link rel="stylesheet" href="../css/design-system.css">
 <style>
   .ex-intro{color:var(--ink-soft);font-size:15px;line-height:1.8;border-left:3px solid var(--red);
     padding:4px 16px 4px 18px;margin:0 0 46px;background:var(--red-soft);border-radius:0 8px 8px 0;}
@@ -119,72 +119,57 @@ window.MathJax = {
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(1)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}(\sqrt{n+1}-\sqrt{n})\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">部分和 \(S_n = \sum_{k=1}^{n}(\sqrt{k+1}-\sqrt{k})\)</div>
-        <div class="ex-step">展开得 \(S_n = (\sqrt{2}-\sqrt{1})+(\sqrt{3}-\sqrt{2})+\cdots+(\sqrt{n+1}-\sqrt{n})\)</div>
-        <div class="ex-step">裂项相消，得 \(S_n = \sqrt{n+1}-\sqrt{1} = \sqrt{n+1}-1\)</div>
-        <div class="ex-step">求极限 \(\lim_{n\to\infty}S_n = \lim_{n\to\infty}(\sqrt{n+1}-1)\)</div>
-        <div class="ex-step">由于 \(\lim_{n\to\infty}\sqrt{n+1} = +\infty\)，故 \(\lim_{n\to\infty}S_n = +\infty\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数发散。\)</span></div>
+        <div class="ex-step">由定义，部分和 \(S_n = \sum_{k=1}^{n}(\sqrt{k+1}-\sqrt{k})\)</div>
+        <div class="ex-step">该级数为 telescoping 级数，裂项后 \[S_n = (\sqrt{2}-\sqrt{1})+(\sqrt{3}-\sqrt{2})+\cdots+(\sqrt{n+1}-\sqrt{n}) = \sqrt{n+1}-1\]</div>
+        <div class="ex-step">按定义判断收敛性，需考察 \[\lim_{n\to\infty}S_n = \lim_{n\to\infty}(\sqrt{n+1}-1) = +\infty\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(该级数发散。\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(2)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}(\sqrt{n+2}-2\sqrt{n+1}+\sqrt{n})\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">\(a_n = \sqrt{n+2}-2\sqrt{n+1}+\sqrt{n}\)</div>
-        <div class="ex-step">\[a_n = (\sqrt{n+2}-\sqrt{n+1})-(\sqrt{n+1}-\sqrt{n})\]</div>
-        <div class="ex-step">\[a_n = \frac{1}{\sqrt{n+2}+\sqrt{n+1}} - \frac{1}{\sqrt{n+1}+\sqrt{n}}\]</div>
-        <div class="ex-step">\[部分和\]</div>
-        <div class="ex-step">\[展开得\]</div>
-        <div class="ex-step">\[telescoping 后\]</div>
-        <div class="ex-step">\[\lim_{n\to\infty}S_n = \lim_{n\to\infty}\frac{1}{\sqrt{n+2}+\sqrt{n+1}}-\frac{1}{\sqrt{2}+1} = 0 - (\sqrt{2}-1) = 1-\sqrt{2}\]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>级数收敛，且\(\sum_{n=1}^{\infty}(\sqrt{n+2}-2\sqrt{n+1}+\sqrt{n}) = 1-\sqrt{2}\)</span></div>
+        <div class="ex-step">记 \(a_n = \sqrt{n+2}-2\sqrt{n+1}+\sqrt{n}\)，有理化变形：\(a_n = (\sqrt{n+2}-\sqrt{n+1})-(\sqrt{n+1}-\sqrt{n}) = \frac{1}{\sqrt{n+2}+\sqrt{n+1}} - \frac{1}{\sqrt{n+1}+\sqrt{n}}\)</div>
+        <div class="ex-step">求部分和 \(S_n = \sum_{k=1}^{n}a_k\)， telescoping 得：\(S_n = \frac{1}{\sqrt{n+2}+\sqrt{n+1}} - \frac{1}{\sqrt{2}+1}\)</div>
+        <div class="ex-step">由 \(\lim_{n\to\infty}\frac{1}{\sqrt{n+2}+\sqrt{n+1}} = 0\)，故 \(\lim_{n\to\infty}S_n = -\frac{1}{\sqrt{2}+1} = 1-\sqrt{2}\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>级数收敛，且 \(\sum_{n=1}^{\infty}(\sqrt{n+2}-2\sqrt{n+1}+\sqrt{n}) = 1-\sqrt{2}\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(3)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}\frac{1}{(5n-4)(5n+1)}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">\[a_n = \frac{1}{(5n-4)(5n+1)} = \frac{1}{5}\left(\frac{1}{5n-4} - \frac{1}{5n+1}\right)\]</div>
-        <div class="ex-step">\[S_n = \sum_{k=1}^{n} a_k = \frac{1}{5}\sum_{k=1}^{n}\left(\frac{1}{5k-4} - \frac{1}{5k+1}\right)\]</div>
-        <div class="ex-step">\[S_n = \frac{1}{5}\left[\left(1 - \frac{1}{6}\right) + \left(\frac{1}{6} - \frac{1}{11}\right) + \left(\frac{1}{11} - \frac{1}{16}\right) + \cdots + \left(\frac{1}{5n-4} - \frac{1}{5n+1}\right)\right]\]</div>
-        <div class="ex-step">\[S_n = \frac{1}{5}\left(1 - \frac{1}{5n+1}\right)\]</div>
-        <div class="ex-step">\[\lim_{n\to\infty} S_n = \lim_{n\to\infty} \frac{1}{5}\left(1 - \frac{1}{5n+1}\right) = \frac{1}{5}\]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>级数收敛，且\(\sum_{n=1}^{\infty}\frac{1}{(5n-4)(5n+1)} = \frac{1}{5}\)</span></div>
+        <div class="ex-step">裂项分解：\(\frac{1}{(5n-4)(5n+1)} = \frac{1}{5}\left(\frac{1}{5n-4} - \frac{1}{5n+1}\right)\)</div>
+        <div class="ex-step">部分和 \(S_n = \frac{1}{5}\sum_{k=1}^{n}\left(\frac{1}{5k-4} - \frac{1}{5k+1}\right) = \frac{1}{5}\left[\left(1-\frac{1}{6}\right)+\left(\frac{1}{6}-\frac{1}{11}\right)+\cdots+\left(\frac{1}{5n-4}-\frac{1}{5n+1}\right)\right]\)</div>
+        <div class="ex-step">telescoping 后得 \(S_n = \frac{1}{5}\left(1 - \frac{1}{5n+1}\right)\)</div>
+        <div class="ex-step">由定义，\(\lim_{n\to\infty} S_n = \lim_{n\to\infty} \frac{1}{5}\left(1-\frac{1}{5n+1}\right) = \frac{1}{5}\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>级数收敛，且 \(\sum_{n=1}^{\infty}\frac{1}{(5n-4)(5n+1)} = \frac{1}{5}\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(4)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}\frac{1}{(2n-1)(2n+1)}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">部分分式分解：\(\frac{1}{(2n-1)(2n+1)} = \frac{1}{2}\left(\frac{1}{2n-1} - \frac{1}{2n+1}\right)\)</div>
-        <div class="ex-step">部分和 \(S_n = \sum_{k=1}^{n}\frac{1}{(2k-1)(2k+1)} = \frac{1}{2}\sum_{k=1}^{n}\left(\frac{1}{2k-1} - \frac{1}{2k+1}\right)\)</div>
-        <div class="ex-step">\[展开得 telescoping 级数：\]</div>
-        <div class="ex-step">\[中间项相消：\]</div>
-        <div class="ex-step">\[求极限：\]</div>
+        <div class="ex-step">对通项进行部分分式分解：\(\frac{1}{(2n-1)(2n+1)} = \frac{1}{2}\left(\frac{1}{2n-1} - \frac{1}{2n+1}\right)\)</div>
+        <div class="ex-step">写出部分和 \(S_n = \frac{1}{2}\sum_{k=1}^{n}\left(\frac{1}{2k-1} - \frac{1}{2k+1}\right)\)，此为 telescoping 级数</div>
+        <div class="ex-step">展开求和得 \(S_n = \frac{1}{2}\left[\left(1-\frac{1}{3}\right)+\left(\frac{1}{3}-\frac{1}{5}\right)+\cdots+\left(\frac{1}{2n-1}-\frac{1}{2n+1}\right)\right] = \frac{1}{2}\left(1-\frac{1}{2n+1}\right)\)</div>
+        <div class="ex-step">由定义求极限：\(\lim_{n\to\infty}S_n = \lim_{n\to\infty}\frac{1}{2}\left(1-\frac{1}{2n+1}\right) = \frac{1}{2}\)</div>
       <div class="ex-ans"><span class="ex-ans-label">答案</span><span>级数收敛，且 \(\sum_{n=1}^{\infty}\frac{1}{(2n-1)(2n+1)} = \frac{1}{2}\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(5)</span><span class="ex-qmath">\(\displaystyle \frac{1}{2}+\frac{1}{3}+\frac{1}{2^2}+\frac{1}{3^2}+\cdots+\frac{1}{2^n}+\frac{1}{3^n}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">记级数部分和为 \( S_n \)</div>
-        <div class="ex-step">当 \( n = 2k \) 时，\[ S_{2k} = \sum_{i=1}^{k}\frac{1}{2^i} + \sum_{i=1}^{k}\frac{1}{3^i} \]</div>
-        <div class="ex-step">\[ \sum_{i=1}^{k}\frac{1}{2^i} = \frac{\frac{1}{2}\left(1-\frac{1}{2^k}\right)}{1-\frac{1}{2}} = 1-\frac{1}{2^k} \]</div>
-        <div class="ex-step">\[ \sum_{i=1}^{k}\frac{1}{3^i} = \frac{\frac{1}{3}\left(1-\frac{1}{3^k}\right)}{1-\frac{1}{3}} = \frac{1}{2}\left(1-\frac{1}{3^k}\right) \]</div>
-        <div class="ex-step">\[ S_{2k} = 1-\frac{1}{2^k} + \frac{1}{2}-\frac{1}{2\cdot 3^k} = \frac{3}{2}-\frac{1}{2^k}-\frac{1}{2\cdot 3^k} \]</div>
-        <div class="ex-step">\[ \lim_{k\to\infty}S_{2k} = \frac{3}{2} \]</div>
-        <div class="ex-step">当 \( n = 2k+1 \) 时，\[ S_{2k+1} = S_{2k} + \frac{1}{2^{k+1}} \]</div>
-        <div class="ex-step">\[ \lim_{k\to\infty}S_{2k+1} = \lim_{k\to\infty}\left(\frac{3}{2}-\frac{1}{2^k}-\frac{1}{2\cdot 3^k}+\frac{1}{2^{k+1}}\right) = \frac{3}{2} \]</div>
-        <div class="ex-step">由 \( \lim_{k\to\infty}S_{2k} = \lim_{k\to\infty}S_{2k+1} = \frac{3}{2} \)，得 \[ \lim_{n\to\infty}S_n = \frac{3}{2} \]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>该级数收敛，且其和为 \(\displaystyle\frac{3}{2}\)</span></div>
+        <div class="ex-step">级数可写为 \(\sum_{n=1}^{\infty}\left(\frac{1}{2^n}+\frac{1}{3^n}\right)\)，即两个等比级数之和</div>
+        <div class="ex-step">等比级数 \(\sum_{n=1}^{\infty}\frac{1}{2^n}\) 公比 \(q=\frac{1}{2}\)，和为 \(\frac{\frac{1}{2}}{1-\frac{1}{2}}=1\)</div>
+        <div class="ex-step">等比级数 \(\sum_{n=1}^{\infty}\frac{1}{3^n}\) 公比 \(q=\frac{1}{3}\)，和为 \(\frac{\frac{1}{3}}{1-\frac{1}{3}}=\frac{1}{2}\)</div>
+        <div class="ex-step">由定义，部分和 \(S_{2n}=\sum_{k=1}^{n}\frac{1}{2^k}+\sum_{k=1}^{n}\frac{1}{3^k}\to 1+\frac{1}{2}=\frac{3}{2}\)，且 \(S_{2n+1}=S_{2n}+\frac{1}{2^{n+1}}\to\frac{3}{2}\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>级数收敛，和为 \(\frac{3}{2}\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(6)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}\ln\left(1+\frac{1}{n}\right)\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设部分和 \(S_n = \sum_{k=1}^{n}\ln\left(1+\frac{1}{k}\right)\)</div>
-        <div class="ex-step">化简通项：\(\ln\left(1+\frac{1}{k}\right) = \ln\left(\frac{k+1}{k}\right) = \ln(k+1) - \ln k\)</div>
-        <div class="ex-step">\[求部分和：\]</div>
-        <div class="ex-step">\[裂项相消得：\]</div>
-        <div class="ex-step">\[求极限：\]</div>
+        <div class="ex-step">级数为 \(\sum_{n=1}^{\infty}\ln\left(1+\frac{1}{n}\right) = \sum_{n=1}^{\infty}\ln\frac{n+1}{n}\)，用定义判别，考察部分和 \(S_n = \sum_{k=1}^{n}\ln\frac{k+1}{k}\)</div>
+        <div class="ex-step">部分和 telescoping: \(S_n = \sum_{k=1}^{n}\left[\ln(k+1)-\ln k\right] = \ln(n+1)-\ln 1 = \ln(n+1)\)</div>
+        <div class="ex-step">\(\lim_{n\to\infty}S_n = \lim_{n\to\infty}\ln(n+1) = +\infty\)</div>
       <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数发散。\)</span></div>
       </div>
     </div>
@@ -194,122 +179,101 @@ window.MathJax = {
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(1)</span><span class="ex-qmath">\(\displaystyle -\frac{8}{9}+\frac{8^{2}}{9^{2}}-\frac{8^{3}}{9^{3}}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">该级数为 \[ \sum_{n=1}^{\infty} \left(-\frac{8}{9}\right)^n = -\frac{8}{9} + \frac{8^2}{9^2} - \frac{8^3}{9^3} + \cdots \]</div>
-        <div class="ex-step">此为等比级数，首项 \[ a = -\frac{8}{9} \]，公比 \[ r = -\frac{8}{9} \]</div>
-        <div class="ex-step">由 \[ |r| = \left|-\frac{8}{9}\right| = \frac{8}{9} &lt; 1 \]</div>
-        <div class="ex-step">根据等比级数收敛判别法，当 \[ |r| &lt; 1 \] 时级数收敛</div>
-        <div class="ex-step">级数收敛，其和为 \[ S = \frac{a}{1-r} = \frac{-\frac{8}{9}}{1-\left(-\frac{8}{9}\right)} = \frac{-\frac{8}{9}}{\frac{17}{9}} = -\frac{8}{17} \]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>级数收敛，且收敛于 \(-\frac{8}{17}\)</span></div>
+        <div class="ex-step">级数可写为 \[\sum_{n=1}^{\infty} (-1)^n \frac{8^n}{9^n} = \sum_{n=1}^{\infty} \left(-\frac{8}{9}\right)^n\]</div>
+        <div class="ex-step">这是公比 \(r = -\dfrac{8}{9}\) 的等比级数，且 \(|r| = \dfrac{8}{9} &lt; 1\)</div>
+        <div class="ex-step">由等比级数收敛判别法，\(|r| &lt; 1\) 时收敛，其和为 \[S = \frac{a_1}{1-r} = \frac{-\frac{8}{9}}{1-\left(-\frac{8}{9}\right)} = \frac{-\frac{8}{9}}{\frac{17}{9}} = -\frac{8}{17}\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>级数收敛，和为 \(-\dfrac{8}{17}\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(2)</span><span class="ex-qmath">\(\displaystyle \frac{1}{3}+\frac{1}{6}+\frac{1}{9}+\frac{1}{12}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">级数一般项为 \(a_n = \frac{1}{3n}\)，其中 \(n = 1, 2, 3, \ldots\)</div>
-        <div class="ex-step">原级数可写为 \[\sum_{n=1}^{\infty} \frac{1}{3n} = \frac{1}{3}\sum_{n=1}^{\infty} \frac{1}{n}\]</div>
-        <div class="ex-step">已知调和级数 \(\sum_{n=1}^{\infty} \frac{1}{n}\) 发散</div>
-        <div class="ex-step">由级数性质，非零常数乘以发散级数仍发散，故 \(\frac{1}{3}\sum_{n=1}^{\infty} \frac{1}{n}\) 发散</div>
+        <div class="ex-step">级数通项为 \( a_n = \frac{1}{3n} = \frac{1}{3} \cdot \frac{1}{n} \)，即 \( \sum_{n=1}^{\infty} \frac{1}{3n} = \frac{1}{3} \sum_{n=1}^{\infty} \frac{1}{n} \)</div>
+        <div class="ex-step">调和级数 \( \sum_{n=1}^{\infty} \frac{1}{n} \) 发散（\( p \)-级数，\( p=1 \leq 1 \)）</div>
+        <div class="ex-step">非零常数倍不改变敛散性，故 \( \frac{1}{3} \sum_{n=1}^{\infty} \frac{1}{n} \) 发散</div>
       <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数发散\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(3)</span><span class="ex-qmath">\(\displaystyle \frac{1}{3}+\frac{1}{\sqrt{3}}+\frac{1}{\sqrt[3]{3}}+\frac{1}{\sqrt[4]{3}}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">级数一般项为 \(a_n = \frac{1}{\sqrt[n]{3}} = \frac{1}{3^{1/n}} = 3^{-1/n}\)</div>
-        <div class="ex-step">考察 \(\lim_{n\to\infty} a_n = \lim_{n\to\infty} 3^{-1/n}\)</div>
-        <div class="ex-step">由于 \(\lim_{n\to\infty} \frac{1}{n} = 0\)，故 \(\lim_{n\to\infty} \left(-\frac{1}{n}\right) = 0\)</div>
-        <div class="ex-step">因此 \(\lim_{n\to\infty} 3^{-1/n} = 3^0 = 1\)</div>
-        <div class="ex-step">由级数收敛的必要条件：若 \(\sum_{n=1}^{\infty} a_n\) 收敛，则 \(\lim_{n\to\infty} a_n = 0\)</div>
-        <div class="ex-step">现 \(\lim_{n\to\infty} a_n = 1 \neq 0\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(该级数发散\)</span></div>
+        <div class="ex-step">级数通项为 \(a_n = \frac{1}{\sqrt[n]{3}} = \frac{1}{3^{1/n}} = 3^{-1/n}\)</div>
+        <div class="ex-step">由级数收敛的必要条件，考察 \(\lim_{n\to\infty} a_n = \lim_{n\to\infty} 3^{-1/n} = 3^0 = 1 \neq 0\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数发散（通项不趋于零）\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(4)</span><span class="ex-qmath">\(\displaystyle 1!+2!+3!+4!+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设级数通项为 \( u_n = n! \)</div>
-        <div class="ex-step">使用比值判别法，计算 \[ \lim_{n \to \infty} \frac{u_{n+1}}{u_n} = \lim_{n \to \infty} \frac{(n+1)!}{n!} \]</div>
-        <div class="ex-step">化简得 \[ \lim_{n \to \infty} \frac{(n+1)!}{n!} = \lim_{n \to \infty} (n+1) \]</div>
-        <div class="ex-step">计算极限 \[ \lim_{n \to \infty} (n+1) = +\infty \]</div>
-        <div class="ex-step">由比值判别法，因 \[ \lim_{n \to \infty} \frac{u_{n+1}}{u_n} = +\infty &gt; 1 \]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>级数 \( \sum_{n=1}^{\infty} n! \) 发散</span></div>
+        <div class="ex-step">级数为 \[ \sum_{n=1}^{\infty} n! \]</div>
+        <div class="ex-step">用比值判别法，计算 \[ \lim_{n\to\infty} \frac{(n+1)!}{n!} = \lim_{n\to\infty} (n+1) = +\infty \]</div>
+        <div class="ex-step">因 \[ \lim_{n\to\infty} \frac{u_{n+1}}{u_n} = +\infty &gt; 1 \]，由比值判别法，级数发散</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数发散\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(5)</span><span class="ex-qmath">\(\displaystyle \frac{2}{3}+\frac{3}{4}+\frac{4}{5}+\frac{5}{6}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">级数通项为 \( a_n = \frac{n+1}{n+2} \)，\( n = 1, 2, 3, \ldots \)</div>
-        <div class="ex-step">由级数收敛的必要条件，若 \( \sum_{n=1}^{\infty} a_n \) 收敛，则 \( \lim_{n \to \infty} a_n = 0 \)</div>
-        <div class="ex-step">\[计算极限：\]</div>
-        <div class="ex-step">因 \( \lim_{n \to \infty} a_n = 1 \neq 0 \)</div>
-        <div class="ex-step">\[由级数收敛的必要条件不满足，故级数发散\]</div>
+        <div class="ex-step">级数通项为 \(a_n = \frac{n+1}{n+2}\)，\(n=1,2,3,\cdots\)</div>
+        <div class="ex-step">由级数收敛的必要条件，考察 \(\lim_{n\to\infty} a_n = \lim_{n\to\infty} \frac{n+1}{n+2} = \lim_{n\to\infty} \frac{1+\frac{1}{n}}{1+\frac{2}{n}} = 1\)</div>
+        <div class="ex-step">因 \(\lim_{n\to\infty} a_n = 1 \neq 0\)，不满足级数收敛的必要条件</div>
       <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数发散\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(6)</span><span class="ex-qmath">\(\displaystyle \frac{\ln 2}{2}+\frac{\ln^{2} 2}{2^{2}}+\frac{\ln^{3} 2}{2^{3}}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">该级数为 \[ \sum_{n=1}^{\infty} \frac{\ln^{n} 2}{2^{n}} = \sum_{n=1}^{\infty} \left(\frac{\ln 2}{2}\right)^{n} \]</div>
-        <div class="ex-step">此为等比级数，公比 \[ r = \frac{\ln 2}{2} \]</div>
-        <div class="ex-step">由于 \[ \ln 2 \approx 0.693 \]，故 \[ |r| = \frac{\ln 2}{2} \approx 0.347 &lt; 1 \]</div>
-        <div class="ex-step">等比级数收敛的充要条件为 \[ |r| &lt; 1 \]，满足条件</div>
-        <div class="ex-step">级数收敛，其和为 \[ S = \frac{r}{1-r} = \frac{\frac{\ln 2}{2}}{1-\frac{\ln 2}{2}} = \frac{\ln 2}{2-\ln 2} \]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>收敛，和为 \(\displaystyle \frac{\ln 2}{2-\ln 2}\)</span></div>
+        <div class="ex-step">级数为 \(\sum_{n=1}^{\infty} \frac{\ln^n 2}{2^n} = \sum_{n=1}^{\infty} \left(\frac{\ln 2}{2}\right)^n\)，识别为等比级数，公比 \(r = \frac{\ln 2}{2}\)</div>
+        <div class="ex-step">由 \(\ln 2 \approx 0.693\)，得 \(|r| = \frac{\ln 2}{2} \approx 0.347 &lt; 1\)</div>
+        <div class="ex-step">等比级数收敛判别法：\(|r| &lt; 1\) 时收敛，故原级数收敛</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>收敛，且和为 \(S = \frac{\frac{\ln 2}{2}}{1-\frac{\ln 2}{2}} = \frac{\ln 2}{2-\ln 2}\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(7)</span><span class="ex-qmath">\(\displaystyle 1+\frac{2}{3}+\frac{3}{5}+\frac{4}{7}+\frac{5}{9}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">级数通项为 \(a_n = \frac{n}{2n-1}\)</div>
-        <div class="ex-step">考察 \(\lim_{n\to\infty} a_n = \lim_{n\to\infty} \frac{n}{2n-1} = \lim_{n\to\infty} \frac{1}{2-\frac{1}{n}} = \frac{1}{2}\)</div>
-        <div class="ex-step">由级数收敛的必要条件：若 \(\sum_{n=1}^{\infty} a_n\) 收敛，则 \(\lim_{n\to\infty} a_n = 0\)</div>
-        <div class="ex-step">因 \(\lim_{n\to\infty} a_n = \frac{1}{2} \neq 0\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数发散\)</span></div>
+        <div class="ex-step">通项为 \(a_n = \frac{n}{2n-1}\)</div>
+        <div class="ex-step">用级数收敛的必要条件判别：\[\lim_{n\to\infty} a_n = \lim_{n\to\infty} \frac{n}{2n-1} = \frac{1}{2} \neq 0\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数发散（通项不趋于零，违反收敛必要条件）\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(8)</span><span class="ex-qmath">\(\displaystyle \frac{1}{4}+\frac{1}{5}+\frac{1}{6}+\frac{1}{7}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">级数为 \(\sum_{n=4}^{\infty} \frac{1}{n}\)</div>
-        <div class="ex-step">这是调和级数 \(\sum_{n=1}^{\infty} \frac{1}{n}\) 去掉前 3 项</div>
-        <div class="ex-step">调和级数 \(\sum_{n=1}^{\infty} \frac{1}{n}\) 发散</div>
-        <div class="ex-step">\[级数去掉有限项不改变敛散性\]</div>
-        <div class="ex-step">故 \(\sum_{n=4}^{\infty} \frac{1}{n}\) 发散</div>
+        <div class="ex-step">级数通项为 \( a_n = \frac{1}{n+3} \)，即 \( \sum_{n=1}^{\infty} \frac{1}{n+3} \)</div>
+        <div class="ex-step">与调和级数比较：\( \frac{1}{n+3} \sim \frac{1}{n} \)（\( n \to \infty \)），且 \( \frac{1}{n+3} &gt; 0 \)</div>
+        <div class="ex-step">由极限比较判别法，\( \lim_{n\to\infty} \frac{\frac{1}{n+3}}{\frac{1}{n}} = \lim_{n\to\infty} \frac{n}{n+3} = 1 \in (0, +\infty) \)</div>
+        <div class="ex-step">因调和级数 \( \sum_{n=1}^{\infty} \frac{1}{n} \) 发散，故 \( \sum_{n=1}^{\infty} \frac{1}{n+3} \) 发散</div>
       <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数发散\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(9)</span><span class="ex-qmath">\(\displaystyle \left(\frac{1}{6}+\frac{8}{9}\right)+\left(\frac{1}{6^{2}}+\frac{8^{2}}{9^{2}}\right)+\left(\frac{1}{6^{3}}+\frac{8^{3}}{9^{3}}\right)+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">原级数可写为 \(\sum_{n=1}^{\infty}\left(\frac{1}{6^{n}}+\frac{8^{n}}{9^{n}}\right)\)</div>
-        <div class="ex-step">拆分为两个级数：\(\sum_{n=1}^{\infty}\frac{1}{6^{n}}+\sum_{n=1}^{\infty}\left(\frac{8}{9}\right)^{n}\)</div>
-        <div class="ex-step">第一个级数：\(\sum_{n=1}^{\infty}\frac{1}{6^{n}}\)，公比 \(q_1=\frac{1}{6}\)，\(|q_1|=\frac{1}{6}&lt;1\)，收敛</div>
-        <div class="ex-step">第二个级数：\(\sum_{n=1}^{\infty}\left(\frac{8}{9}\right)^{n}\)，公比 \(q_2=\frac{8}{9}\)，\(|q_2|=\frac{8}{9}&lt;1\)，收敛</div>
-        <div class="ex-step">\[两个收敛级数之和收敛，故原级数收敛\]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(收敛\)</span></div>
+        <div class="ex-step">原级数可拆为两个等比级数之和：\(\sum_{n=1}^{\infty}\left(\frac{1}{6^{n}}+\frac{8^{n}}{9^{n}}\right)=\sum_{n=1}^{\infty}\left(\frac{1}{6}\right)^{n}+\sum_{n=1}^{\infty}\left(\frac{8}{9}\right)^{n}\)</div>
+        <div class="ex-step">对第一个级数，公比 \(r_1=\frac{1}{6}\)，满足 \(|r_1|&lt;1\)，故 \(\sum_{n=1}^{\infty}\left(\frac{1}{6}\right)^{n}=\frac{\frac{1}{6}}{1-\frac{1}{6}}=\frac{1}{5}\)</div>
+        <div class="ex-step">对第二个级数，公比 \(r_2=\frac{8}{9}\)，满足 \(|r_2|&lt;1\)，故 \(\sum_{n=1}^{\infty}\left(\frac{8}{9}\right)^{n}=\frac{\frac{8}{9}}{1-\frac{8}{9}}=8\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>两级数均收敛，原级数收敛，和为 \(\frac{1}{5}+8=\frac{41}{5}\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(10)</span><span class="ex-qmath">\(\displaystyle \frac{1}{2}+\frac{1}{10}+\frac{1}{4}+\frac{1}{20}+\cdots+\frac{1}{2^{n}}+\frac{1}{10\cdot n}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">原级数为 \[ \sum_{n=1}^{\infty} \left( \frac{1}{2^n} + \frac{1}{10n} \right) \]</div>
-        <div class="ex-step">拆分为两个级数：\[ \sum_{n=1}^{\infty} \frac{1}{2^n} + \sum_{n=1}^{\infty} \frac{1}{10n} \]</div>
-        <div class="ex-step">第一个级数 \[ \sum_{n=1}^{\infty} \frac{1}{2^n} \] 是公比 \( q = \frac{1}{2} \) 的等比级数，由于 \( |q| = \frac{1}{2} &lt; 1 \)，故收敛</div>
-        <div class="ex-step">第二个级数 \[ \sum_{n=1}^{\infty} \frac{1}{10n} = \frac{1}{10} \sum_{n=1}^{\infty} \frac{1}{n} \]</div>
-        <div class="ex-step">\( \sum_{n=1}^{\infty} \frac{1}{n} \) 为调和级数，发散</div>
-        <div class="ex-step">故 \( \frac{1}{10} \sum_{n=1}^{\infty} \frac{1}{n} \) 发散</div>
-        <div class="ex-step">\[收敛级数与发散级数之和发散\]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(原级数发散\)</span></div>
+        <div class="ex-step">级数通项为交错排列的两子列：奇数项 \(a_{2k-1}=\frac{1}{2^k}\)，偶数项 \(a_{2k}=\frac{1}{10k}\)，即原级数 \(=\sum_{n=1}^{\infty}\left(\frac{1}{2^n}+\frac{1}{10n}\right)\) 的某种重排形式；但直接考察部分和或按原顺序分析。</div>
+        <div class="ex-step">将原级数按相邻两项分组：\(S=\sum_{k=1}^{\infty}\left(\frac{1}{2^k}+\frac{1}{10k}\right)\)，其中第 \(k\) 组为 \(\frac{1}{2^k}+\frac{1}{10k}\)。</div>
+        <div class="ex-step">分组后级数收敛的必要条件是通项趋于零：\(\frac{1}{2^k}+\frac{1}{10k}\to 0\)，满足；但需判断正项级数 \(\sum_{k=1}^{\infty}\left(\frac{1}{2^k}+\frac{1}{10k}\right)\) 的敛散性。</div>
+        <div class="ex-step">拆分为两个级数：\(\sum_{k=1}^{\infty}\frac{1}{2^k}\) 为公比 \(\frac{1}{2}\) 的等比级数，收敛；\(\sum_{k=1}^{\infty}\frac{1}{10k}=\frac{1}{10}\sum_{k=1}^{\infty}\frac{1}{k}\) 为调和级数的常数倍，发散。</div>
+        <div class="ex-step">收敛级数与发散级数之和必发散：\(\sum_{k=1}^{\infty}\left(\frac{1}{2^k}+\frac{1}{10k}\right)\) 发散。</div>
+        <div class="ex-step">由于原级数加括号后发散，且原级数通项 \(a_n\to 0\)，但加括号发散则原级数必发散（若原级数收敛则任意加括号仍收敛）。</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数发散。\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(11)</span><span class="ex-qmath">\(\displaystyle 0.001+\sqrt{0.001}+\sqrt[3]{0.001}+\cdots+\sqrt[n]{0.001}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">级数通项为 \(a_n = \sqrt[n]{0.001} = (0.001)^{\frac{1}{n}} = (10^{-3})^{\frac{1}{n}} = 10^{-\frac{3}{n}}\)</div>
-        <div class="ex-step">\[考察通项极限\]</div>
-        <div class="ex-step">由于 \(\lim_{n\to\infty} a_n = 1 \neq 0\)</div>
-        <div class="ex-step">\[由级数收敛的必要条件，通项不趋于零则级数发散\]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数发散\)</span></div>
+        <div class="ex-step">级数通项为 \( a_n = \sqrt[n]{0.001} = (0.001)^{1/n} = 10^{-3/n} \)</div>
+        <div class="ex-step">判别级数收敛性先考察必要条件：\(\displaystyle\lim_{n\to\infty} a_n = \lim_{n\to\infty} 10^{-3/n} = 10^0 = 1 \neq 0\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数发散（通项不趋于零，违反级数收敛的必要条件）\)</span></div>
       </div>
     </div>
   </section>
@@ -318,422 +282,350 @@ window.MathJax = {
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(1)</span><span class="ex-qmath">\(\displaystyle \frac{1}{1}+\frac{1}{\sqrt{2^{3}}}+\frac{1}{\sqrt{3^{3}}}+\cdots+\frac{1}{\sqrt{n^{3}}}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">级数通项为 \(u_n = \frac{1}{\sqrt{n^3}} = \frac{1}{n^{\frac{3}{2}}}\)</div>
-        <div class="ex-step">这是 \(p\)-级数 \(\sum_{n=1}^{\infty} \frac{1}{n^p}\) 的形式，其中 \(p = \frac{3}{2}\)</div>
-        <div class="ex-step">由于 \(p = \frac{3}{2} &gt; 1\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(该级数收敛\)</span></div>
+        <div class="ex-step">级数通项为 \( a_n = \frac{1}{\sqrt{n^3}} = \frac{1}{n^{3/2}} = n^{-3/2} \)，此为 \( p \)-级数形式 \( \sum_{n=1}^{\infty} \frac{1}{n^p} \)</div>
+        <div class="ex-step">\( p \)-级数判别法：当 \( p &gt; 1 \) 时收敛，\( p \leq 1 \) 时发散</div>
+        <div class="ex-step">此处 \( p = \frac{3}{2} &gt; 1 \)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数收敛\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(2)</span><span class="ex-qmath">\(\displaystyle \frac{1}{1}+\frac{1}{\sqrt[3]{2}}+\frac{1}{\sqrt[3]{3}}+\cdots+\frac{1}{\sqrt[3]{n}}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">级数为 \(\sum_{n=1}^{\infty} \frac{1}{\sqrt[3]{n}} = \sum_{n=1}^{\infty} \frac{1}{n^{1/3}}\)</div>
-        <div class="ex-step">此为 \(p\)-级数，其中 \(p = \frac{1}{3}\)</div>
-        <div class="ex-step">由 \(p\)-级数审敛法：当 \(p \leq 1\) 时发散，当 \(p &gt; 1\) 时收敛</div>
-        <div class="ex-step">因 \(p = \frac{1}{3} &lt; 1\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>级数 \(\sum_{n=1}^{\infty} \frac{1}{\sqrt[3]{n}}\) 发散</span></div>
+        <div class="ex-step">级数通项为 \( a_n = \frac{1}{\sqrt[3]{n}} = \frac{1}{n^{1/3}} \)，识别为 \( p \)-级数 \( \sum_{n=1}^{\infty} \frac{1}{n^p} \) 型</div>
+        <div class="ex-step">由 \( p \)-级数判别法：当 \( p &gt; 1 \) 收敛，\( p \leq 1 \) 发散</div>
+        <div class="ex-step">此处 \( p = \frac{1}{3} &lt; 1 \)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>级数 \( \sum_{n=1}^{\infty} \frac{1}{\sqrt[3]{n}} \) 发散</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(3)</span><span class="ex-qmath">\(\displaystyle \frac{2}{1}+\frac{2}{2^{2}}+\frac{2}{3^{3}}+\cdots+\frac{2}{n^{n}}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">级数通项为 \(a_n = \frac{2}{n^n}\)，\(n \geq 1\)。</div>
-        <div class="ex-step">采用根值判别法。计算 \(\sqrt[n]{a_n}\)：</div>
-        <div class="ex-step">\[求极限：\]</div>
-        <div class="ex-step">由于 \(\lim_{n\to\infty} \sqrt[n]{a_n} = 0 &lt; 1\)，由根值判别法，级数收敛。</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(收敛\)</span></div>
+        <div class="ex-step">级数通项为 \( u_n = \frac{2}{n^n} \)，采用根值判别法，计算 \( \lim_{n\to\infty} \sqrt[n]{u_n} \)</div>
+        <div class="ex-step">\[ \sqrt[n]{u_n} = \sqrt[n]{\frac{2}{n^n}} = \frac{2^{1/n}}{n} \]</div>
+        <div class="ex-step">由 \( \lim_{n\to\infty} 2^{1/n} = 1 \)，得 \[ \lim_{n\to\infty} \sqrt[n]{u_n} = \lim_{n\to\infty} \frac{1}{n} = 0 \]</div>
+        <div class="ex-step">根值判别法：\( \rho = 0 &lt; 1 \)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数收敛\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(4)</span><span class="ex-qmath">\(\displaystyle \frac{3}{1\cdot 2}+\frac{3}{2\cdot 3}+\frac{3}{3\cdot 4}+\cdots+\frac{3}{n(n+1)}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \( a_n = \frac{3}{n(n+1)} \)</div>
-        <div class="ex-step">由 \( \frac{1}{n(n+1)} = \frac{1}{n} - \frac{1}{n+1} \)，得</div>
-        <div class="ex-step">\[部分和\]</div>
-        <div class="ex-step">\[展开得\]</div>
-        <div class="ex-step">\[telescoping 后\]</div>
-        <div class="ex-step">\[求极限\]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>该级数收敛，且和为 \( 3 \)。</span></div>
+        <div class="ex-step">级数通项为 \(u_n = \frac{3}{n(n+1)}\)，识别为裂项相消型，分解得 \[u_n = 3\left(\frac{1}{n} - \frac{1}{n+1}\right)\]</div>
+        <div class="ex-step">部分和 \[S_n = 3\sum_{k=1}^{n}\left(\frac{1}{k} - \frac{1}{k+1}\right) = 3\left(1 - \frac{1}{n+1}\right)\]</div>
+        <div class="ex-step">求极限得 \[\lim_{n\to\infty} S_n = 3\lim_{n\to\infty}\left(1 - \frac{1}{n+1}\right) = 3\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>该正项级数收敛，且和为 \(3\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(5)</span><span class="ex-qmath">\(\displaystyle \frac{4}{2\cdot 3}+\frac{8}{3\cdot 4}+\frac{12}{4\cdot 5}+\cdots+\frac{4n}{(n+1)(n+2)}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \(a_n = \frac{4n}{(n+1)(n+2)}\)</div>
-        <div class="ex-step">取比较级数 \(b_n = \frac{1}{n}\)，计算极限：</div>
-        <div class="ex-step">因极限值 \(4 \in (0,+\infty)\)，且 \(\sum_{n=1}^{\infty}\frac{1}{n}\) 发散</div>
-        <div class="ex-step">由极限比较审敛法，\(\sum_{n=1}^{\infty}\frac{4n}{(n+1)(n+2)}\) 与 \(\sum_{n=1}^{\infty}\frac{1}{n}\) 同敛散</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(该级数发散\)</span></div>
+        <div class="ex-step">级数通项为 \(u_n = \frac{4n}{(n+1)(n+2)}\)</div>
+        <div class="ex-step">与 \(p\)-级数比较，取 \(v_n = \frac{1}{n}\)，计算极限：</div>
+        <div class="ex-step">极限值为有限正数 \(4\)（\(0 &lt; 4 &lt; +\infty\)），由比较判别法的极限形式，\(\sum u_n\) 与 \(\sum \frac{1}{n}\) 同敛散</div>
+        <div class="ex-step">\(\sum_{n=1}^{\infty} \frac{1}{n}\) 为调和级数，发散</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(原级数发散\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(6)</span><span class="ex-qmath">\(\displaystyle \frac{1}{\sqrt{2\cdot 3\cdot 4}}+\frac{1}{\sqrt{3\cdot 4\cdot 5}}+\cdots+\frac{1}{\sqrt{(n+1)(n+2)(n+3)}}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \( a_n = \frac{1}{\sqrt{(n+1)(n+2)(n+3)}} \)</div>
-        <div class="ex-step">当 \( n \to \infty \) 时，</div>
-        <div class="ex-step">\[即\]</div>
-        <div class="ex-step">由 \( p \)-级数判别法，\( \sum_{n=1}^{\infty} \frac{1}{n^{3/2}} \) 收敛（\( p = \frac{3}{2} &gt; 1 \)）</div>
-        <div class="ex-step">由极限比较判别法，原级数 \( \sum_{n=1}^{\infty} a_n \) 收敛</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(收敛\)</span></div>
+        <div class="ex-step">级数通项为 \( a_n = \frac{1}{\sqrt{(n+1)(n+2)(n+3)}} \)，\( n \geq 1 \)</div>
+        <div class="ex-step">对根号内乘积作阶估计：\( (n+1)(n+2)(n+3) = n^3 + 6n^2 + 11n + 6 \sim n^3 \)（\( n \to \infty \)）</div>
+        <div class="ex-step">故 \( a_n \sim \frac{1}{n^{3/2}} \)，取比较对象 \( b_n = \frac{1}{n^{3/2}} \)</div>
+        <div class="ex-step">由极限比较判别法：\[ \lim_{n\to\infty} \frac{a_n}{b_n} = \lim_{n\to\infty} \frac{n^{3/2}}{\sqrt{(n+1)(n+2)(n+3)}} = \lim_{n\to\infty} \sqrt{\frac{n^3}{(n+1)(n+2)(n+3)}} = 1 \]</div>
+        <div class="ex-step">\( p \)-级数 \( \sum \frac{1}{n^{3/2}} \) 中 \( p = \frac{3}{2} &gt; 1 \)，故 \( \sum b_n \) 收敛</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(原级数收敛\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(7)</span><span class="ex-qmath">\(\displaystyle \frac{1}{5}+\frac{1}{10}+\frac{1}{15}+\cdots+\frac{1}{5n}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设级数为 \(\sum_{n=1}^{\infty} a_n\)，其中 \(a_n = \frac{1}{5n}\)</div>
-        <div class="ex-step">\[即\]</div>
-        <div class="ex-step">已知调和级数 \(\sum_{n=1}^{\infty} \frac{1}{n}\) 发散</div>
-        <div class="ex-step">由正项级数的性质，若 \(\sum_{n=1}^{\infty} b_n\) 发散且 \(c &gt; 0\) 为常数，则 \(\sum_{n=1}^{\infty} cb_n\) 亦发散</div>
-        <div class="ex-step">取 \(b_n = \frac{1}{n}\)，\(c = \frac{1}{5}\)，故 \(\frac{1}{5}\sum_{n=1}^{\infty} \frac{1}{n}\) 发散</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(该级数<strong>发散</strong>\)</span></div>
+        <div class="ex-step">级数通项为 \( u_n = \frac{1}{5n} = \frac{1}{5} \cdot \frac{1}{n} \)</div>
+        <div class="ex-step">这是调和级数 \( \sum_{n=1}^{\infty} \frac{1}{n} \) 的常数倍，即 \( \sum_{n=1}^{\infty} u_n = \frac{1}{5} \sum_{n=1}^{\infty} \frac{1}{n} \)</div>
+        <div class="ex-step">调和级数 \( \sum_{n=1}^{\infty} \frac{1}{n} \) 发散（\( p \)-级数，\( p=1 \leq 1 \)）</div>
+        <div class="ex-step">非零常数因子不改变级数敛散性，故 \( \sum_{n=1}^{\infty} \frac{1}{5n} \) 与 \( \sum_{n=1}^{\infty} \frac{1}{n} \) 同敛散</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数发散\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(8)</span><span class="ex-qmath">\(\displaystyle \frac{1}{4}+\frac{1}{5}+\frac{1}{6}+\cdots+\frac{1}{n+3}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设级数通项为 \( a_n = \frac{1}{n+3} \)，其中 \( n = 1, 2, 3, \cdots \)</div>
-        <div class="ex-step">原级数可写为 \[ \sum_{n=1}^{\infty} \frac{1}{n+3} = \frac{1}{4} + \frac{1}{5} + \frac{1}{6} + \cdots \]</div>
-        <div class="ex-step">作指标替换，令 \( k = n + 3 \)，则当 \( n = 1 \) 时 \( k = 4 \)，当 \( n \to \infty \) 时 \( k \to \infty \)</div>
-        <div class="ex-step">故 \[ \sum_{n=1}^{\infty} \frac{1}{n+3} = \sum_{k=4}^{\infty} \frac{1}{k} \]</div>
-        <div class="ex-step">已知调和级数 \( \sum_{k=1}^{\infty} \frac{1}{k} \) 发散</div>
-        <div class="ex-step">而 \[ \sum_{k=4}^{\infty} \frac{1}{k} = \sum_{k=1}^{\infty} \frac{1}{k} - \left( 1 + \frac{1}{2} + \frac{1}{3} \right) \]</div>
-        <div class="ex-step">去掉有限项不改变级数的敛散性，故 \( \sum_{k=4}^{\infty} \frac{1}{k} \) 与 \( \sum_{k=1}^{\infty} \frac{1}{k} \) 同敛散</div>
-        <div class="ex-step">或用比较判别法：因 \( \frac{1}{n+3} &gt; \frac{1}{2n} \) 对 \( n \geq 3 \) 成立，且 \( \sum_{n=1}^{\infty} \frac{1}{2n} = \frac{1}{2} \sum_{n=1}^{\infty} \frac{1}{n} \) 发散</div>
-        <div class="ex-step">\[由比较判别法，原级数发散\]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>级数 \( \sum_{n=1}^{\infty} \frac{1}{n+3} \) <strong>发散</strong></span></div>
+        <div class="ex-step">级数通项为 \(a_n = \frac{1}{n+3}\)，即 \(\sum_{n=1}^{\infty} \frac{1}{n+3} = \frac{1}{4} + \frac{1}{5} + \frac{1}{6} + \cdots\)</div>
+        <div class="ex-step">与调和级数比较：\(\sum_{n=1}^{\infty} \frac{1}{n+3} = \sum_{k=4}^{\infty} \frac{1}{k}\)，其中 \(k = n+3\)</div>
+        <div class="ex-step">由 \(\sum_{k=4}^{\infty} \frac{1}{k} = \sum_{k=1}^{\infty} \frac{1}{k} - \left(1 + \frac{1}{2} + \frac{1}{3}\right)\)，而调和级数 \(\sum_{k=1}^{\infty} \frac{1}{k}\) 发散</div>
+        <div class="ex-step">发散级数去掉有限项仍发散，故 \(\sum_{n=1}^{\infty} \frac{1}{n+3}\) 发散</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数发散\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(9)</span><span class="ex-qmath">\(\displaystyle \frac{1}{4}+\frac{1}{10}+\frac{1}{28}+\cdots+\frac{1}{3^{n}+1}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">级数通项为 \(u_n = \frac{1}{3^n + 1}\)</div>
-        <div class="ex-step">\[采用比较判别法，与等比级数比较\]</div>
-        <div class="ex-step">由于 \(3^n + 1 &gt; 3^n\)，故 \(u_n = \frac{1}{3^n + 1} &lt; \frac{1}{3^n}\)</div>
-        <div class="ex-step">级数 \(\sum_{n=1}^{\infty} \frac{1}{3^n}\) 为等比级数，公比 \(q = \frac{1}{3} &lt; 1\)</div>
-        <div class="ex-step">等比级数 \(\sum_{n=1}^{\infty} \left(\frac{1}{3}\right)^n\) 收敛</div>
-        <div class="ex-step">由正项级数比较判别法，因 \(0 &lt; u_n &lt; \frac{1}{3^n}\) 且 \(\sum_{n=1}^{\infty} \frac{1}{3^n}\) 收敛</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>级数 \(\sum_{n=1}^{\infty} \frac{1}{3^n + 1}\) 收敛</span></div>
+        <div class="ex-step">级数通项为 \( u_n = \frac{1}{3^n + 1} \)，与等比级数比较</div>
+        <div class="ex-step">因 \( 3^n + 1 &gt; 3^n \)，故 \( u_n = \frac{1}{3^n + 1} &lt; \frac{1}{3^n} = \left(\frac{1}{3}\right)^n \)</div>
+        <div class="ex-step">几何级数 \( \sum_{n=1}^{\infty} \left(\frac{1}{3}\right)^n \) 公比 \( q = \frac{1}{3} &lt; 1 \)，收敛</div>
+        <div class="ex-step">由正项级数比较判别法，\( \sum_{n=1}^{\infty} \frac{1}{3^n + 1} \) 收敛</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(收敛\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(10)</span><span class="ex-qmath">\(\displaystyle \frac{1}{4}+\frac{1}{7}+\frac{1}{12}+\cdots+\frac{1}{n^{2}+3}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">级数通项为 \(a_n = \frac{1}{n^2+3}\)</div>
-        <div class="ex-step">当 \(n \geq 1\) 时，\(n^2 + 3 &gt; n^2\)，故 \(a_n = \frac{1}{n^2+3} &lt; \frac{1}{n^2}\)</div>
-        <div class="ex-step">考虑比较级数 \(\sum_{n=1}^{\infty} \frac{1}{n^2}\)，这是 \(p=2&gt;1\) 的 \(p\)-级数，收敛</div>
-        <div class="ex-step">由正项级数比较判别法，\(0 &lt; a_n &lt; \frac{1}{n^2}\) 且 \(\sum_{n=1}^{\infty} \frac{1}{n^2}\) 收敛</div>
-        <div class="ex-step">故 \(\sum_{n=1}^{\infty} \frac{1}{n^2+3}\) 收敛</div>
+        <div class="ex-step">级数通项为 \(a_n = \frac{1}{n^2+3}\)，与 \(p\) 级数比较</div>
+        <div class="ex-step">因 \(n^2+3 &gt; n^2\)，故 \(\frac{1}{n^2+3} &lt; \frac{1}{n^2}\)</div>
+        <div class="ex-step">已知 \(\sum_{n=1}^{\infty} \frac{1}{n^2}\) 收敛（\(p=2&gt;1\) 的 \(p\) 级数）</div>
+        <div class="ex-step">由正项级数比较判别法，\(\sum_{n=1}^{\infty} \frac{1}{n^2+3}\) 收敛</div>
       <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(收敛\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(11)</span><span class="ex-qmath">\(\displaystyle \frac{1}{2}+\frac{1}{8}+\frac{1}{26}+\cdots+\frac{1}{3^{n}-1}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \(u_n = \frac{1}{3^n - 1}\)</div>
-        <div class="ex-step">取 \(v_n = \frac{1}{3^n}\)，则 \(\sum_{n=1}^{\infty} v_n = \sum_{n=1}^{\infty} \frac{1}{3^n}\) 为等比级数，公比 \(q = \frac{1}{3} &lt; 1\)，故收敛</div>
-        <div class="ex-step">\[计算极限\]</div>
-        <div class="ex-step">由极限比较判别法，因 \(0 &lt; 1 &lt; +\infty\)，且 \(\sum_{n=1}^{\infty} v_n\) 收敛，故 \(\sum_{n=1}^{\infty} u_n\) 收敛</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(该级数收敛\)</span></div>
+        <div class="ex-step">级数通项为 \( a_n = \frac{1}{3^n - 1} \)，与几何级数比较</div>
+        <div class="ex-step">当 \( n \geq 1 \) 时，\( 3^n - 1 &gt; \frac{3^n}{2} \)，故 \( a_n = \frac{1}{3^n - 1} &lt; \frac{2}{3^n} \)</div>
+        <div class="ex-step">由比较判别法，因 \( \sum_{n=1}^{\infty} \frac{2}{3^n} = 2\sum_{n=1}^{\infty}\left(\frac{1}{3}\right)^n \) 是公比 \( q = \frac{1}{3} &lt; 1 \) 的收敛几何级数</div>
+        <div class="ex-step">\[ \sum_{n=1}^{\infty} \frac{1}{3^n - 1} &lt; 2\sum_{n=1}^{\infty}\frac{1}{3^n} = 2 \cdot \frac{\frac{1}{3}}{1-\frac{1}{3}} = 1 \]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数收敛\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(12)</span><span class="ex-qmath">\(\displaystyle 1+\frac{1}{2}+\frac{1}{6}+\frac{1}{12}+\frac{1}{20}+\frac{1}{30}+\frac{1}{42}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">观察级数通项：\(a_1=1=\frac{1}{1}\)，\(a_2=\frac{1}{2}\)，\(a_3=\frac{1}{6}\)，\(a_4=\frac{1}{12}\)，\(a_5=\frac{1}{20}\)，\(a_6=\frac{1}{30}\)，\(a_7=\frac{1}{42}\)</div>
-        <div class="ex-step">分析分母规律：\(1=1\)，\(2=1\times2\)，\(6=2\times3\)，\(12=3\times4\)，\(20=4\times5\)，\(30=5\times6\)，\(42=6\times7\)</div>
-        <div class="ex-step">对 \(n\geq 2\)，有 \(a_n=\frac{1}{n(n-1)}\)，且 \(a_1=1\)</div>
-        <div class="ex-step">对 \(n\geq 2\) 进行部分分式分解：</div>
-        <div class="ex-step">计算前 \(n\) 项部分和 \(S_n\)：</div>
-        <div class="ex-step">\[展开求和式（裂项相消）：\]</div>
-        <div class="ex-step">\[消去中间项：\]</div>
-        <div class="ex-step">\[求极限：\]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>该正项级数收敛，且其和为 \(2\)。</span></div>
+        <div class="ex-step">观察分母规律：\(1, 2, 6, 12, 20, 30, 42, \ldots\) 即 \(1, 1\cdot2, 2\cdot3, 3\cdot4, 4\cdot5, 5\cdot6, 6\cdot7, \ldots\)，故通项为 \(a_n = \frac{1}{n(n+1)}\)（\(n\geq 1\)，首项 \(a_1=1\) 单独对应）</div>
+        <div class="ex-step">级数化为 \(\sum_{n=1}^{\infty} \frac{1}{n(n+1)}\)，用裂项：\(\frac{1}{n(n+1)} = \frac{1}{n} - \frac{1}{n+1}\)</div>
+        <div class="ex-step">部分和 \(S_N = \sum_{n=1}^{N}\left(\frac{1}{n}-\frac{1}{n+1}\right) = 1 - \frac{1}{N+1}\)</div>
+        <div class="ex-step">\(\lim_{N\to\infty} S_N = \lim_{N\to\infty}\left(1-\frac{1}{N+1}\right) = 1\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>级数收敛，和为 \(1\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(13)</span><span class="ex-qmath">\(\displaystyle 1+\frac{1}{3}+\frac{1}{5}+\frac{1}{7}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">级数通项为 \( u_n = \frac{1}{2n-1} \)，\( n = 1, 2, 3, \ldots \)</div>
-        <div class="ex-step">\[采用比较判别法，与调和级数比较\]</div>
-        <div class="ex-step">\[</div>
-        <div class="ex-step">因 \( \frac{1}{2} \in (0, +\infty) \)，且 \( \sum_{n=1}^{\infty} \frac{1}{n} \) 发散</div>
-        <div class="ex-step">由比较判别法的极限形式，\( \sum_{n=1}^{\infty} \frac{1}{2n-1} \) 与 \( \sum_{n=1}^{\infty} \frac{1}{n} \) 同敛散</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>级数 \( \sum_{n=1}^{\infty} \frac{1}{2n-1} \) <strong>发散</strong></span></div>
+        <div class="ex-step">级数通项为 \( a_n = \frac{1}{2n-1} \)，即 \( \sum_{n=1}^{\infty} \frac{1}{2n-1} \)</div>
+        <div class="ex-step">与调和级数比较：\( \frac{1}{2n-1} &gt; \frac{1}{2n} \)，且 \( \sum_{n=1}^{\infty} \frac{1}{2n} = \frac{1}{2}\sum_{n=1}^{\infty} \frac{1}{n} \) 发散</div>
+        <div class="ex-step">由比较判别法，\( \frac{1}{2n-1} &gt; \frac{1}{2n} \)，大者发散则小者未必收敛；需用极限形式：\( \lim_{n\to\infty} \frac{\frac{1}{2n-1}}{\frac{1}{n}} = \lim_{n\to\infty} \frac{n}{2n-1} = \frac{1}{2} \in (0,+\infty) \)</div>
+        <div class="ex-step">因 \( \sum_{n=1}^{\infty} \frac{1}{n} \) 发散，由极限比较判别法，\( \sum_{n=1}^{\infty} \frac{1}{2n-1} \) 与 \( \sum_{n=1}^{\infty} \frac{1}{n} \) 同敛散</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数发散\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(14)</span><span class="ex-qmath">\(\displaystyle \sum_{n=2}^{\infty}\frac{1}{(\ln n)^{p}}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \(a_n = \frac{1}{(\ln n)^p}\)，其中 \(n \geq 2\)。</div>
-        <div class="ex-step">当 \(p \leq 0\) 时，\(\ln n \geq \ln 2 &gt; 0\)，故 \((\ln n)^p \leq 1\)，从而 \(a_n \geq 1\)，因此 \(\lim_{n\to\infty} a_n \neq 0\)。</div>
-        <div class="ex-step">由级数收敛的必要条件，当 \(p \leq 0\) 时，\(\sum_{n=2}^{\infty}\frac{1}{(\ln n)^p}\) 发散。</div>
-        <div class="ex-step">当 \(p &gt; 0\) 时，对任意 \(q &gt; 0\)，考虑极限</div>
-        <div class="ex-step">令 \(x = \ln n\)，则 \(n = e^x\)，当 \(n\to\infty\) 时 \(x\to\infty\)，有</div>
-        <div class="ex-step">因此 \(\frac{n^q}{(\ln n)^p} \to +\infty\)，即 \(\frac{1}{(\ln n)^p} &gt; \frac{1}{n^q}\) 对充分大的 \(n\) 成立。</div>
-        <div class="ex-step">取 \(q = 1\)，则存在 \(N\)，当 \(n &gt; N\) 时，\(\frac{1}{(\ln n)^p} &gt; \frac{1}{n}\)。</div>
-        <div class="ex-step">由于 \(\sum_{n=2}^{\infty}\frac{1}{n}\) 发散，由比较判别法，\(\sum_{n=2}^{\infty}\frac{1}{(\ln n)^p}\) 发散。</div>
-        <div class="ex-step">综上，对任意 \(p \in \mathbb{R}\)，级数均发散。</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>对任意实数 \(p\)，级数 \(\sum_{n=2}^{\infty}\frac{1}{(\ln n)^p}\) <strong>发散</strong>。</span></div>
+        <div class="ex-step">对正项级数 \(\sum_{n=2}^{\infty}\frac{1}{(\ln n)^{p}}\)，与 \(p\)-级数比较。对任意 \(p&gt;0\)，当 \(n\) 充分大时 \((\ln n)^{p} &lt; n\)，故 \(\frac{1}{(\ln n)^{p}} &gt; \frac{1}{n}\)</div>
+        <div class="ex-step">由 \(\sum_{n=2}^{\infty}\frac{1}{n}\) 发散及比较判别法，\(\frac{1}{(\ln n)^{p}} &gt; \frac{1}{n}\) 表明 \(\sum_{n=2}^{\infty}\frac{1}{(\ln n)^{p}}\) 对任意 \(p&gt;0\) 均发散</div>
+        <div class="ex-step">当 \(p \leq 0\) 时，\((\ln n)^{p} \leq 1\)，故 \(\frac{1}{(\ln n)^{p}} \geq 1\)，通项不趋于零，级数发散</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>对任意实数 \(p\)，级数 \(\sum_{n=2}^{\infty}\frac{1}{(\ln n)^{p}}\) 均发散。</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(15)</span><span class="ex-qmath">\(\displaystyle \sum_{n=2}^{\infty}\frac{1}{(\ln n)^{\ln n}}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \(a_n = \frac{1}{(\ln n)^{\ln n}}\)，\(n \geq 2\)</div>
-        <div class="ex-step">对 \(a_n\) 取对数分析：</div>
-        <div class="ex-step">改写 \(a_n\) 的表达式：</div>
-        <div class="ex-step">当 \(n \geq 2\) 时，\(\ln(\ln n)\) 的变化：\(n=2\) 时 \(\ln(\ln 2) = \ln(\ln 2) &lt; 0\)，但 \(n \geq 3\) 时 \(\ln n \geq \ln 3 &gt; 1\)，故 \(\ln(\ln n) &gt; 0\)</div>
-        <div class="ex-step">当 \(n \geq 3\) 时，\(\ln(\ln n) &gt; 0\)，且当 \(n \to \infty\) 时，\(\ln(\ln n) \to +\infty\)</div>
-        <div class="ex-step">因此存在 \(N\)（例如取 \(N = \lceil e^{e^2} \rceil\)，使得当 \(n \geq N\) 时，\(\ln(\ln n) \geq 2\)</div>
-        <div class="ex-step">当 \(n \geq N\) 时：</div>
-        <div class="ex-step">由 \(p\)-级数判别法，\(\sum_{n=N}^{\infty} \frac{1}{n^2}\) 收敛（\(p=2&gt;1\)）</div>
-        <div class="ex-step">由比较判别法，\(\sum_{n=N}^{\infty} a_n\) 收敛</div>
-        <div class="ex-step">有限项 \(\sum_{n=2}^{N-1} a_n\) 不影响敛散性，故原级数收敛</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>级数 \(\sum_{n=2}^{\infty}\frac{1}{(\ln n)^{\ln n}}\) <strong>收敛</strong></span></div>
+        <div class="ex-step">对通项 \(a_n = \frac{1}{(\ln n)^{\ln n}}\) 取对数分析：\(\ln a_n = -\ln n \cdot \ln(\ln n)\)</div>
+        <div class="ex-step">变形指数：\((\ln n)^{\ln n} = e^{\ln n \cdot \ln(\ln n)} = n^{\ln(\ln n)}\)，故 \(a_n = \frac{1}{n^{\ln(\ln n)}}\)</div>
+        <div class="ex-step">当 \(n \geq e^{e^2}\) 时，\(\ln(\ln n) \geq 2\)，此时 \(a_n = \frac{1}{n^{\ln(\ln n)}} \leq \frac{1}{n^2}\)</div>
+        <div class="ex-step">由 \(p\)-级数比较判别法，\(\sum_{n=2}^{\infty}\frac{1}{n^2}\) 收敛，故原级数收敛</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(收敛\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(16)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}\frac{2^{n-1}}{(2n^{2}+n+1)^{\frac{n+1}{2}}}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \(u_n = \frac{2^{n-1}}{(2n^2+n+1)^{\frac{n+1}{2}}}\)</div>
-        <div class="ex-step">用根值判别法，计算 \(\sqrt[n]{u_n}\)</div>
-        <div class="ex-step">\[\sqrt[n]{u_n} = \frac{2^{1-\frac{1}{n}}}{(2n^2+n+1)^{\frac{n+1}{2n}}}\]</div>
-        <div class="ex-step">分析分母指数：\(\frac{n+1}{2n} = \frac{1}{2} + \frac{1}{2n}\)</div>
-        <div class="ex-step">分析分母底数：\(2n^2+n+1 \sim 2n^2\)（当 \(n\to\infty\)）</div>
-        <div class="ex-step">\[(2n^2+n+1)^{\frac{n+1}{2n}} = (2n^2+n+1)^{\frac{1}{2}} \cdot (2n^2+n+1)^{\frac{1}{2n}}\]</div>
-        <div class="ex-step">\[(2n^2+n+1)^{\frac{1}{2}} = \sqrt{2n^2+n+1} \sim \sqrt{2}n\]</div>
-        <div class="ex-step">\[(2n^2+n+1)^{\frac{1}{2n}} = \exp\left(\frac{\ln(2n^2+n+1)}{2n}\right) \to \exp(0) = 1\]</div>
-        <div class="ex-step">因此 \((2n^2+n+1)^{\frac{n+1}{2n}} \sim \sqrt{2}n \cdot 1 = \sqrt{2}n\)</div>
-        <div class="ex-step">分子：\(2^{1-\frac{1}{n}} \to 2\)</div>
-        <div class="ex-step">\[\lim_{n\to\infty}\sqrt[n]{u_n} = \lim_{n\to\infty}\frac{2^{1-\frac{1}{n}}}{(2n^2+n+1)^{\frac{n+1}{2n}}} = \lim_{n\to\infty}\frac{2}{\sqrt{2}n} = 0\]</div>
-        <div class="ex-step">由根值判别法，\(\lim_{n\to\infty}\sqrt[n]{u_n} = 0 &lt; 1\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>级数 \(\sum_{n=1}^{\infty}\frac{2^{n-1}}{(2n^{2}+n+1)^{\frac{n+1}{2}}}\) 收敛</span></div>
+        <div class="ex-step">识别根值判别法适用，因通项含 \(n\) 次幂结构。记 \(a_n = \frac{2^{n-1}}{(2n^2+n+1)^{\frac{n+1}{2}}}\)</div>
+        <div class="ex-step">计算 \(\sqrt[n]{a_n} = \frac{2^{1-\frac{1}{n}}}{(2n^2+n+1)^{\frac{1}{2}+\frac{1}{2n}}}\)</div>
+        <div class="ex-step">分母渐近分析：\((2n^2+n+1)^{\frac{1}{2}+\frac{1}{2n}} \sim (2n^2)^{\frac{1}{2}} \cdot (2n^2)^{\frac{1}{2n}} = \sqrt{2}\, n \cdot e^{\frac{\ln(2n^2)}{2n}} \sim \sqrt{2}\, n\)（当 \(n\to\infty\)）</div>
+        <div class="ex-step">故 \(\lim_{n\to\infty} \sqrt[n]{a_n} = \lim_{n\to\infty} \frac{2}{\sqrt{2}\, n} = 0\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>收敛（根值判别法，极限为 \(0 &lt; 1\)）</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(17)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}\frac{1}{1+a^{n}}(a&gt;0)\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">当 \(a&gt;1\) 时，\(\frac{1}{1+a^{n}}&lt;\frac{1}{a^{n}}=\left(\frac{1}{a}\right)^{n}\)，而 \(\sum_{n=1}^{\infty}\left(\frac{1}{a}\right)^{n}\) 是公比 \(\frac{1}{a}&lt;1\) 的等比级数，收敛。</div>
-        <div class="ex-step">由比较判别法，当 \(a&gt;1\) 时，\(\sum_{n=1}^{\infty}\frac{1}{1+a^{n}}\) 收敛。</div>
-        <div class="ex-step">当 \(a=1\) 时，\(\frac{1}{1+a^{n}}=\frac{1}{2}\)，通项不趋于零，级数发散。</div>
-        <div class="ex-step">当 \(0&lt;a&lt;&lt;1\) 时，\(\lim_{n\to\infty}\frac{1}{1+a^{n}}=\frac{1}{1+0}=1\neq 0\)，通项不趋于零，级数发散。</div>
-        <div class="ex-step">当 \(0&lt;a\leq 1\) 时，\(\lim_{n\to\infty}\frac{1}{1+a^{n}}\neq 0\)，由级数收敛的必要条件，级数发散。</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>当 \(a&gt;1\) 时收敛；当 \(0&lt;a\leq 1\) 时发散。</span></div>
+        <div class="ex-step">识别题型：含参数 \(a&gt;0\) 的正项级数 \(\sum_{n=1}^{\infty}\frac{1}{1+a^{n}}\)，需对 \(a\) 分类讨论</div>
+        <div class="ex-step">当 \(0&lt;a&lt;&lt;1\) 时，\(\lim_{n\to\infty}a^{n}=0\)，故 \(\lim_{n\to\infty}\frac{1}{1+a^{n}}=1\neq 0\)，由级数收敛必要条件知级数发散</div>
+        <div class="ex-step">当 \(a=1\) 时，通项为 \(\frac{1}{1+1^{n}}=\frac{1}{2}\)，\(\lim_{n\to\infty}\frac{1}{2}=\frac{1}{2}\neq 0\)，级数发散</div>
+        <div class="ex-step">当 \(a&gt;1\) 时，\(\frac{1}{1+a^{n}}&lt;\frac{1}{a^{n}}=\left(\frac{1}{a}\right)^{n}\)，而 \(\sum_{n=1}^{\infty}\left(\frac{1}{a}\right)^{n}\) 是公比 \(\frac{1}{a}\in(0,1)\) 的等比级数，收敛</div>
+        <div class="ex-step">由比较判别法，当 \(a&gt;1\) 时原级数收敛</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>当 \(0&lt;a\leq 1\) 时级数发散；当 \(a&gt;1\) 时级数收敛</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(18)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}\frac{2^{n}n!}{n^{n}}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \( a_n = \frac{2^{n}n!}{n^{n}} \)</div>
-        <div class="ex-step">\[使用比值判别法，计算\]</div>
-        <div class="ex-step">\[化简得\]</div>
-        <div class="ex-step">\[计算极限\]</div>
-        <div class="ex-step">由于 \( e &gt; 2 \)，故 \( \frac{2}{e} &lt; 1 \)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>由比值判别法，因 \( \lim_{n \to \infty} \frac{a_{n+1}}{a_n} = \frac{2}{e} &lt; 1 \)，级数 \( \sum_{n=1}^{\infty}\frac{2^{n}n!}{n^{n}} \) 收敛</span></div>
+        <div class="ex-step">识别题型：正项级数含 \(n!\) 与 \(n^n\)，选用比值判别法。设 \(a_n = \frac{2^n n!}{n^n}\)</div>
+        <div class="ex-step">\[计算比值极限：\]</div>
+        <div class="ex-step">\[求极限：\]</div>
+        <div class="ex-step">由 \(e &gt; 2\)，得 \(\frac{2}{e} &lt; 1\)，根据比值判别法，\(\rho &lt; 1\) 时级数收敛。</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>级数 \(\sum_{n=1}^{\infty}\frac{2^{n}n!}{n^{n}}\) 收敛。</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(19)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}n\tan\frac{\pi}{2^{n+2}}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \(u_n = n\tan\frac{\pi}{2^{n+2}}\)</div>
-        <div class="ex-step">当 \(n\to\infty\) 时，\(\frac{\pi}{2^{n+2}}\to 0\)，故 \(\tan\frac{\pi}{2^{n+2}}\sim\frac{\pi}{2^{n+2}}\)</div>
-        <div class="ex-step">因此 \(u_n \sim n\cdot\frac{\pi}{2^{n+2}} = \frac{\pi n}{2^{n+2}}\)</div>
-        <div class="ex-step">取 \(v_n = \frac{n}{2^n}\)，则 \(\frac{u_n}{v_n}\to\frac{\pi}{4}\)，为非零有限常数</div>
-        <div class="ex-step">由比较判别法的极限形式，\(\sum u_n\) 与 \(\sum v_n\) 同敛散</div>
-        <div class="ex-step">对 \(\sum_{n=1}^{\infty}\frac{n}{2^n}\) 用比值判别法：</div>
-        <div class="ex-step">故 \(\sum v_n\) 收敛</div>
-        <div class="ex-step">因此 \(\sum_{n=1}^{\infty}n\tan\frac{\pi}{2^{n+2}}\) 收敛</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(收敛\)</span></div>
+        <div class="ex-step">对正项级数 \(\sum_{n=1}^{\infty}n\tan\frac{\pi}{2^{n+2}}\)，采用比值判别法，记 \(u_n = n\tan\frac{\pi}{2^{n+2}}\)</div>
+        <div class="ex-step">计算 \(\lim_{n\to\infty}\frac{u_{n+1}}{u_n} = \lim_{n\to\infty}\frac{(n+1)\tan\frac{\pi}{2^{n+3}}}{n\tan\frac{\pi}{2^{n+2}}}\)</div>
+        <div class="ex-step">当 \(n\to\infty\) 时，\(\frac{\pi}{2^{n+3}}\to 0\)，\(\frac{\pi}{2^{n+2}}\to 0\)，利用 \(\tan x \sim x\)（\(x\to 0\)）：</div>
+        <div class="ex-step">故 \(\lim_{n\to\infty}\frac{u_{n+1}}{u_n} = \frac{1}{2} &lt; 1\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>由比值判别法，级数 \(\sum_{n=1}^{\infty}n\tan\frac{\pi}{2^{n+2}}\) 收敛</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(20)</span><span class="ex-qmath">\(\displaystyle \frac{3}{4}+2\left(\frac{3}{4}\right)^{2}+3\left(\frac{3}{4}\right)^{3}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \( a_n = n\left(\frac{3}{4}\right)^n \)，需判断 \( \sum_{n=1}^{\infty} n\left(\frac{3}{4}\right)^n \) 的敛散性。</div>
-        <div class="ex-step">\[用比值判别法，计算\]</div>
-        <div class="ex-step">因 \( \frac{3}{4} &lt; 1 \)，由比值判别法，级数收敛。</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(该正项级数收敛。\)</span></div>
+        <div class="ex-step">级数通项为 \(u_n = n\left(\frac{3}{4}\right)^n\)，此为幂指混合型，选用比值判别法</div>
+        <div class="ex-step">\[\lim_{n\to\infty}\frac{u_{n+1}}{u_n} = \lim_{n\to\infty}\frac{(n+1)\left(\frac{3}{4}\right)^{n+1}}{n\left(\frac{3}{4}\right)^n} = \frac{3}{4}\lim_{n\to\infty}\frac{n+1}{n} = \frac{3}{4}\]</div>
+        <div class="ex-step">因 \(\frac{3}{4} &lt; 1\)，由比值判别法</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(该正项级数收敛\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(21)</span><span class="ex-qmath">\(\displaystyle \frac{1^{4}}{1!}+\frac{2^{4}}{2!}+\frac{3^{4}}{3!}+\frac{4^{4}}{4!}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \(a_n = \frac{n^4}{n!}\)</div>
-        <div class="ex-step">用比值判别法，计算 \(\frac{a_{n+1}}{a_n}\)</div>
-        <div class="ex-step">\[\frac{a_{n+1}}{a_n} = \frac{(n+1)^4}{(n+1)!} \cdot \frac{n!}{n^4} = \frac{(n+1)^4}{(n+1) \cdot n!} \cdot \frac{n!}{n^4} = \frac{(n+1)^4}{(n+1)n^4}\]</div>
-        <div class="ex-step">\[= \frac{(n+1)^3}{n^4} = \frac{n^3 + 3n^2 + 3n + 1}{n^4} = \frac{1}{n} + \frac{3}{n^2} + \frac{3}{n^3} + \frac{1}{n^4}\]</div>
-        <div class="ex-step">\[\lim_{n \to \infty} \frac{a_{n+1}}{a_n} = \lim_{n \to \infty}\left(\frac{1}{n} + \frac{3}{n^2} + \frac{3}{n^3} + \frac{1}{n^4}\right) = 0\]</div>
-        <div class="ex-step">因 \(\lim_{n \to \infty} \frac{a_{n+1}}{a_n} = 0 &lt; 1\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(由比值判别法，该级数收敛。\)</span></div>
+        <div class="ex-step">级数通项为 \(a_n = \frac{n^4}{n!}\)，正项级数，选用比值判别法</div>
+        <div class="ex-step">\[\frac{a_{n+1}}{a_n} = \frac{(n+1)^4}{(n+1)!} \cdot \frac{n!}{n^4} = \frac{(n+1)^4}{(n+1) \cdot n^4} = \frac{1}{n+1}\left(1+\frac{1}{n}\right)^4\]</div>
+        <div class="ex-step">\[\lim_{n\to\infty}\frac{a_{n+1}}{a_n} = \lim_{n\to\infty}\frac{1}{n+1}\left(1+\frac{1}{n}\right)^4 = 0 \cdot 1 = 0\]</div>
+        <div class="ex-step">比值极限 \(\rho = 0 &lt; 1\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(由比值判别法，级数收敛。\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(22)</span><span class="ex-qmath">\(\displaystyle \frac{1}{a+b}+\frac{1}{2a+b}+\frac{1}{3a+b}+\cdots(a&gt;0,b&gt;0)\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设级数通项为 \(u_n = \frac{1}{na+b}\)，其中 \(a&gt;0, b&gt;0\)</div>
-        <div class="ex-step">取比较级数 \(v_n = \frac{1}{n}\)，即调和级数</div>
-        <div class="ex-step">\[计算极限\]</div>
-        <div class="ex-step">由 \(a&gt;0\)，得 \(\frac{1}{a} &gt; 0\) 且为有限常数</div>
-        <div class="ex-step">由比较判别法的极限形式，\(\sum u_n\) 与 \(\sum v_n\) 同敛散</div>
-        <div class="ex-step">已知 \(\sum_{n=1}^{\infty}\frac{1}{n}\) 发散</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>级数 \(\sum_{n=1}^{\infty}\frac{1}{na+b}\) <strong>发散</strong></span></div>
+        <div class="ex-step">级数通项为 \(u_n = \frac{1}{na+b}\)，识别为与调和级数比较的类型</div>
+        <div class="ex-step">求极限 \(\lim_{n\to\infty} \frac{u_n}{\frac{1}{n}} = \lim_{n\to\infty} \frac{n}{na+b} = \lim_{n\to\infty} \frac{1}{a+\frac{b}{n}} = \frac{1}{a}\)</div>
+        <div class="ex-step">由 \(a&gt;0\)，得 \(\frac{1}{a} &gt; 0\) 且有限，根据比较判别法的极限形式，\(\sum u_n\) 与 \(\sum \frac{1}{n}\) 同敛散</div>
+        <div class="ex-step">调和级数 \(\sum_{n=1}^{\infty} \frac{1}{n}\) 发散</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数发散\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(23)</span><span class="ex-qmath">\(\displaystyle \frac{2}{3}+\frac{3}{6}+\frac{4}{11}+\cdots+\frac{n+1}{n^{2}+2}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">级数通项为 \( u_n = \frac{n+1}{n^2+2} \)</div>
-        <div class="ex-step">当 \( n \to \infty \) 时，\( u_n = \frac{n+1}{n^2+2} \sim \frac{n}{n^2} = \frac{1}{n} \)</div>
-        <div class="ex-step">取比较级数 \( v_n = \frac{1}{n} \)，计算极限</div>
-        <div class="ex-step">由于 \( \lim_{n \to \infty} \frac{u_n}{v_n} = 1 \in (0, +\infty) \)，且 \( \sum_{n=1}^{\infty} \frac{1}{n} \) 发散（调和级数）</div>
-        <div class="ex-step">由极限比较审敛法，级数 \( \sum_{n=1}^{\infty} \frac{n+1}{n^2+2} \) 与 \( \sum_{n=1}^{\infty} \frac{1}{n} \) 同敛散</div>
+        <div class="ex-step">通项为 \(a_n = \frac{n+1}{n^2+2}\)，与 \(p\) 级数比较</div>
+        <div class="ex-step">当 \(n \to \infty\) 时，\(a_n = \frac{n+1}{n^2+2} \sim \frac{n}{n^2} = \frac{1}{n}\)</div>
+        <div class="ex-step">用极限比较法，取 \(b_n = \frac{1}{n}\)，计算 \(\lim_{n\to\infty} \frac{a_n}{b_n} = \lim_{n\to\infty} \frac{n(n+1)}{n^2+2} = \lim_{n\to\infty} \frac{n^2+n}{n^2+2} = 1\)</div>
+        <div class="ex-step">极限为有限正数 \(1 \in (0, +\infty)\)，故 \(\sum a_n\) 与 \(\sum b_n = \sum \frac{1}{n}\) 同敛散</div>
+        <div class="ex-step">调和级数 \(\sum_{n=1}^{\infty} \frac{1}{n}\) 发散（\(p=1 \leq 1\)）</div>
       <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数发散\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(24)</span><span class="ex-qmath">\(\displaystyle \frac{1}{2}+\frac{1\cdot 2}{3\cdot 4}+\frac{1\cdot 2\cdot 3}{4\cdot 5\cdot 6}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设级数通项为 \(a_n\)，观察规律得</div>
-        <div class="ex-step">分子为 \(n!\)，分母为 \(\frac{(2n)!}{n!}\)，故</div>
-        <div class="ex-step">\[用比值判别法，计算\]</div>
-        <div class="ex-step">\[化简得\]</div>
-        <div class="ex-step">\[进一步化简\]</div>
-        <div class="ex-step">\[求极限\]</div>
-        <div class="ex-step">\[由于\]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(由比值判别法，该级数<strong>收敛</strong>。\)</span></div>
+        <div class="ex-step">级数通项为 \[a_n = \frac{1\cdot 2\cdot\,\cdots\,\cdot n}{(n+1)(n+2)\cdot\,\cdots\,\cdot(2n)} = \frac{n!}{\frac{(2n)!}{n!}} = \frac{(n!)^2}{(2n)!}\]</div>
+        <div class="ex-step">用比值判别法，计算 \[\frac{a_{n+1}}{a_n} = \frac{((n+1)!)^2}{(2n+2)!}\cdot\frac{(2n)!}{(n!)^2} = \frac{(n+1)^2}{(2n+1)(2n+2)} = \frac{(n+1)^2}{2(n+1)(2n+1)} = \frac{n+1}{2(2n+1)}\]</div>
+        <div class="ex-step">\[\lim_{n\to\infty}\frac{a_{n+1}}{a_n} = \lim_{n\to\infty}\frac{n+1}{4n+2} = \frac{1}{4} &lt; 1\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(由比值判别法，该正项级数收敛。\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(25)</span><span class="ex-qmath">\(\displaystyle \frac{1}{1\cdot 2}+\frac{1}{3\cdot 2^{3}}+\frac{1}{5\cdot 2^{5}}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">级数通项为 \(u_n = \frac{1}{(2n-1)\cdot 2^{2n-1}}\)，\(n=1,2,3,\cdots\)</div>
-        <div class="ex-step">\[用比值判别法，计算\]</div>
-        <div class="ex-step">\[求极限\]</div>
-        <div class="ex-step">由于 \(\frac{1}{4} &lt; 1\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(该级数收敛。\)</span></div>
+        <div class="ex-step">级数通项为 \[ a_n = \frac{1}{(2n-1) \cdot 2^{2n-1}}, \quad n=1,2,3,\cdots \]</div>
+        <div class="ex-step">用比值判别法，计算 \[ \frac{a_{n+1}}{a_n} = \frac{(2n-1) \cdot 2^{2n-1}}{(2n+1) \cdot 2^{2n+1}} = \frac{2n-1}{2n+1} \cdot \frac{1}{4} \]</div>
+        <div class="ex-step">\[ \lim_{n\to\infty} \frac{a_{n+1}}{a_n} = \frac{1}{4} \lim_{n\to\infty} \frac{2n-1}{2n+1} = \frac{1}{4} &lt; 1 \]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(由比值判别法，该正项级数收敛。\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(26)</span><span class="ex-qmath">\(\displaystyle \frac{1}{2\cdot 1^{2}}+\frac{(2!)^{2}}{2\cdot 2^{2}}+\frac{(3!)^{2}}{2\cdot 3^{2}}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设通项为 \[ a_n = \frac{(n!)^2}{2 \cdot n^2} \]</div>
-        <div class="ex-step">用比值判别法，计算 \[ \frac{a_{n+1}}{a_n} = \frac{((n+1)!)^2}{2(n+1)^2} \cdot \frac{2n^2}{(n!)^2} = \frac{(n+1)^2(n!)^2 \cdot n^2}{(n+1)^2 \cdot (n!)^2} = (n+1)^2 \cdot \frac{n^2}{(n+1)^2} \]</div>
-        <div class="ex-step">化简得 \[ \frac{a_{n+1}}{a_n} = \frac{(n+1)^2 \cdot n^2}{(n+1)^2} \cdot \frac{1}{(n+1)^2} \cdot (n+1)^2 = (n+1)^2 \cdot \frac{n^2}{(n+1)^2} \]</div>
-        <div class="ex-step">重新计算：\[ \frac{a_{n+1}}{a_n} = \frac{((n+1)!)^2}{(n!)^2} \cdot \frac{n^2}{(n+1)^2} = (n+1)^2 \cdot \frac{n^2}{(n+1)^2} = n^2 \]</div>
-        <div class="ex-step">因此 \[ \lim_{n \to \infty} \frac{a_{n+1}}{a_n} = \lim_{n \to \infty} n^2 = +\infty \]</div>
-        <div class="ex-step">由比值判别法，极限大于 \( 1 \)，故级数发散</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数发散\)</span></div>
+        <div class="ex-step">级数通项为 \(u_n = \frac{(n!)^2}{2 \cdot n^2}\)，判别正项级数收敛性，选用比值判别法</div>
+        <div class="ex-step">\[计算相邻项比值：\]</div>
+        <div class="ex-step">\[化简得：\]</div>
+        <div class="ex-step">\[正确化简：\]</div>
+        <div class="ex-step">\[求极限：\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>由比值判别法，极限 \(+\infty &gt; 1\)，级数发散。</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(27)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}\frac{3^{n}\cdot n!}{n^{n}}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \(u_n = \frac{3^n \cdot n!}{n^n}\)</div>
-        <div class="ex-step">用比值判别法，计算 \(\frac{u_{n+1}}{u_n}\)</div>
-        <div class="ex-step">\[\frac{u_{n+1}}{u_n} = \frac{3^{n+1} \cdot (n+1)!}{(n+1)^{n+1}} \cdot \frac{n^n}{3^n \cdot n!}\]</div>
-        <div class="ex-step">\[= \frac{3 \cdot (n+1) \cdot n^n}{(n+1)^{n+1}}\]</div>
-        <div class="ex-step">\[= \frac{3 \cdot n^n}{(n+1)^n}\]</div>
-        <div class="ex-step">\[= 3 \cdot \left(\frac{n}{n+1}\right)^n\]</div>
-        <div class="ex-step">\[= 3 \cdot \frac{1}{\left(1+\frac{1}{n}\right)^n}\]</div>
-        <div class="ex-step">\[\lim_{n\to\infty} \frac{u_{n+1}}{u_n} = \lim_{n\to\infty} \frac{3}{\left(1+\frac{1}{n}\right)^n} = \frac{3}{e}\]</div>
+        <div class="ex-step">对正项级数 \(\sum_{n=1}^{\infty}\frac{3^{n}\cdot n!}{n^{n}}\)，用比值判别法，考察 \(a_n = \frac{3^{n} n!}{n^{n}}\)</div>
+        <div class="ex-step">计算 \(\frac{a_{n+1}}{a_n} = \frac{3^{n+1}(n+1)!}{(n+1)^{n+1}} \cdot \frac{n^{n}}{3^{n}n!} = 3(n+1)\cdot\frac{n^{n}}{(n+1)^{n+1}} = \frac{3}{(1+\frac{1}{n})^{n}}\)</div>
+        <div class="ex-step">求极限 \(\lim_{n\to\infty}\frac{a_{n+1}}{a_n} = \frac{3}{\lim_{n\to\infty}(1+\frac{1}{n})^{n}} = \frac{3}{e}\)</div>
         <div class="ex-step">由于 \(e \approx 2.718\)，故 \(\frac{3}{e} &gt; 1\)</div>
-        <div class="ex-step">由比值判别法，当 \(\lim_{n\to\infty}\frac{u_{n+1}}{u_n} &gt; 1\) 时级数发散</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>级数 \(\sum_{n=1}^{\infty}\frac{3^{n}\cdot n!}{n^{n}}\) <strong>发散</strong></span></div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>由比值判别法，\(\frac{3}{e} &gt; 1\)，级数 \(\sum_{n=1}^{\infty}\frac{3^{n}\cdot n!}{n^{n}}\) 发散</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(28)</span><span class="ex-qmath">\(\displaystyle \frac{1000}{1}+\frac{1000\cdot 1001}{1\cdot 3}+\frac{1000\cdot 1001\cdot 1002}{1\cdot 3\cdot 5}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设级数通项 \(\displaystyle u_n=\frac{1000\cdot 1001\cdots(999+n)}{1\cdot 3\cdot 5\cdots(2n-1)}\)（分子为 \(n\) 个因子，分母为前 \(n\) 个奇数之积）</div>
-        <div class="ex-step">用比值判别法：\(\displaystyle \frac{u_{n+1}}{u_n}=\frac{1000+n}{2n+1}\)</div>
-        <div class="ex-step">求极限 \(\displaystyle \lim_{n\to\infty}\frac{u_{n+1}}{u_n}=\lim_{n\to\infty}\frac{1000+n}{2n+1}=\frac{1}{2}\)</div>
-        <div class="ex-step">因 \(\dfrac{1}{2}&lt;1\)，由比值判别法，原级数收敛</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(收敛\)</span></div>
+        <div class="ex-step">设级数通项为 \[ a_n = \frac{1000 \cdot 1001 \cdots (1000+n-1)}{1 \cdot 3 \cdot 5 \cdots (2n-1)} = \frac{\prod_{k=0}^{n-1}(1000+k)}{\prod_{k=1}^{n}(2k-1)} \]</div>
+        <div class="ex-step">用比值判别法，计算 \[ \frac{a_{n+1}}{a_n} = \frac{1000+n}{2n+1} \]</div>
+        <div class="ex-step">\[ \lim_{n\to\infty} \frac{a_{n+1}}{a_n} = \lim_{n\to\infty} \frac{1000+n}{2n+1} = \frac{1}{2} \]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(收敛（比值判别法，极限为 1/2 &lt; 1）\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(29)</span><span class="ex-qmath">\(\displaystyle \frac{3}{2}+\frac{4}{2^{2}}+\frac{5}{2^{3}}+\frac{6}{2^{4}}+\cdots\)</span></div>
       <div class="ex-sol">
         <div class="ex-step">通项为 \(a_n = \frac{n+2}{2^n}\)，\(n=1,2,3,\ldots\)</div>
-        <div class="ex-step">\[用比值判别法，计算\]</div>
-        <div class="ex-step">因 \(\frac{1}{2} &lt; 1\)，由比值判别法，级数收敛</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(收敛\)</span></div>
+        <div class="ex-step">用比值判别法，\(\frac{a_{n+1}}{a_n} = \frac{n+3}{2^{n+1}} \cdot \frac{2^n}{n+2} = \frac{n+3}{2(n+2)}\)</div>
+        <div class="ex-step">\(\lim_{n\to\infty} \frac{a_{n+1}}{a_n} = \lim_{n\to\infty} \frac{n+3}{2(n+2)} = \frac{1}{2} &lt; 1\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(由比值判别法，该正项级数收敛。\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(30)</span><span class="ex-qmath">\(\displaystyle \frac{3}{2}+\frac{3^{2}}{2\cdot 2^{2}}+\frac{3^{3}}{3\cdot 2^{3}}+\frac{3^{4}}{4\cdot 2^{4}}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">级数通项为 \(u_n = \frac{3^n}{n \cdot 2^n} = \frac{1}{n}\left(\frac{3}{2}\right)^n\)</div>
-        <div class="ex-step">\[用比值判别法，计算\]</div>
-        <div class="ex-step">因 \(\frac{3}{2} &gt; 1\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数发散\)</span></div>
+        <div class="ex-step">级数通项为 \(a_n = \frac{3^n}{n \cdot 2^n} = \frac{1}{n}\left(\frac{3}{2}\right)^n\)</div>
+        <div class="ex-step">用根值判别法，\(\lim_{n\to\infty} \sqrt[n]{a_n} = \lim_{n\to\infty} \frac{3}{2\sqrt[n]{n}} = \frac{3}{2} &gt; 1\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>级数发散（根值判别法，极限值为 \(\frac{3}{2} &gt; 1\)）</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(31)</span><span class="ex-qmath">\(\displaystyle \frac{1}{1}+\frac{1\cdot 3}{1\cdot 4}+\frac{1\cdot 3\cdot 5}{1\cdot 4\cdot 7}+\cdots+\frac{1\cdot 3\cdot 5\cdots(2n-1)}{1\cdot 4\cdot 7\cdots(3n-2)}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \(a_n = \frac{1\cdot 3\cdot 5\cdots(2n-1)}{1\cdot 4\cdot 7\cdots(3n-2)}\)</div>
-        <div class="ex-step">则 \(a_{n+1} = \frac{1\cdot 3\cdot 5\cdots(2n-1)\cdot(2n+1)}{1\cdot 4\cdot 7\cdots(3n-2)\cdot(3n+1)}\)</div>
-        <div class="ex-step">\[\frac{a_{n+1}}{a_n} = \frac{2n+1}{3n+1}\]</div>
-        <div class="ex-step">\[\lim_{n\to\infty}\frac{a_{n+1}}{a_n} = \lim_{n\to\infty}\frac{2n+1}{3n+1} = \lim_{n\to\infty}\frac{2+\frac{1}{n}}{3+\frac{1}{n}} = \frac{2}{3}\]</div>
-        <div class="ex-step">由比值判别法，因 \(\frac{2}{3} &lt; 1\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(该级数收敛。\)</span></div>
+        <div class="ex-step">设通项 \( a_n = \frac{1\cdot 3\cdot 5\cdots(2n-1)}{1\cdot 4\cdot 7\cdots(3n-2)} \)，用比值判别法，求 \( \frac{a_{n+1}}{a_n} \)</div>
+        <div class="ex-step">\[ \frac{a_{n+1}}{a_n} = \frac{2(n+1)-1}{3(n+1)-2} = \frac{2n+1}{3n+1} \]</div>
+        <div class="ex-step">\[ \lim_{n\to\infty} \frac{a_{n+1}}{a_n} = \lim_{n\to\infty} \frac{2n+1}{3n+1} = \frac{2}{3} \]</div>
+        <div class="ex-step">由比值判别法，因 \( \frac{2}{3} &lt; 1 \)，级数收敛</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(收敛\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(32)</span><span class="ex-qmath">\(\displaystyle \frac{5}{1}+\frac{5^{2}}{2!}+\frac{5^{3}}{3!}+\frac{5^{4}}{4!}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \(u_n=\frac{5^n}{n!}\)</div>
-        <div class="ex-step">由比值判别法，\[\lim_{n\to\infty}\frac{u_{n+1}}{u_n}=\lim_{n\to\infty}\frac{5^{n+1}}{(n+1)!}\cdot\frac{n!}{5^n}=\lim_{n\to\infty}\frac{5}{n+1}=0\]</div>
-        <div class="ex-step">因 \(\rho=0&lt;&lt;1\)</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(该级数收敛\)</span></div>
+        <div class="ex-step">级数通项为 \(a_n = \frac{5^n}{n!}\)，识别为含阶乘型，选用比值判别法</div>
+        <div class="ex-step">计算相邻项比值极限：\[\lim_{n\to\infty}\frac{a_{n+1}}{a_n} = \lim_{n\to\infty}\frac{5^{n+1}}{(n+1)!}\cdot\frac{n!}{5^n} = \lim_{n\to\infty}\frac{5}{n+1} = 0\]</div>
+        <div class="ex-step">由比值判别法，\[\rho = 0 &lt; 1\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(该正项级数收敛\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(33)</span><span class="ex-qmath">\(\displaystyle \frac{1}{9}+\frac{2!}{9^{2}}+\frac{3!}{9^{3}}+\frac{4!}{9^{4}}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \( a_n = \frac{n!}{9^n} \)</div>
-        <div class="ex-step">由比值判别法，计算 \[ \lim_{n\to\infty} \frac{a_{n+1}}{a_n} = \lim_{n\to\infty} \frac{(n+1)!}{9^{n+1}} \cdot \frac{9^n}{n!} \]</div>
-        <div class="ex-step">\[ = \lim_{n\to\infty} \frac{(n+1)!}{n!} \cdot \frac{9^n}{9^{n+1}} = \lim_{n\to\infty} (n+1) \cdot \frac{1}{9} \]</div>
-        <div class="ex-step">\[ = \frac{1}{9} \lim_{n\to\infty} (n+1) = +\infty \]</div>
-        <div class="ex-step">因 \[ \lim_{n\to\infty} \frac{a_{n+1}}{a_n} = +\infty &gt; 1 \]</div>
+        <div class="ex-step">识别级数通项：\[ a_n = \frac{n!}{9^n} \]，为正项级数，选用比值判别法。</div>
+        <div class="ex-step">计算比值极限：\[ \lim_{n\to\infty} \frac{a_{n+1}}{a_n} = \lim_{n\to\infty} \frac{(n+1)!}{9^{n+1}} \cdot \frac{9^n}{n!} = \lim_{n\to\infty} \frac{n+1}{9} = +\infty \]</div>
+        <div class="ex-step">由比值判别法，\[ \lim_{n\to\infty} \frac{a_{n+1}}{a_n} = +\infty &gt; 1 \]</div>
       <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(该级数发散。\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(34)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}\frac{(n!)^{2}}{2^{n^{2}}}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \(a_n = \frac{(n!)^2}{2^{n^2}}\)，使用比值判别法。</div>
-        <div class="ex-step">计算 \(\frac{a_{n+1}}{a_n}\)：</div>
-        <div class="ex-step">\[化简：\]</div>
-        <div class="ex-step">\[求极限：\]</div>
-        <div class="ex-step">\[由于指数增长快于多项式增长：\]</div>
-        <div class="ex-step">\[即\]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>由比值判别法，级数 \(\sum_{n=1}^{\infty}\frac{(n!)^{2}}{2^{n^{2}}}\) <strong>收敛</strong>。</span></div>
+        <div class="ex-step">对正项级数 \(\sum_{n=1}^{\infty}\frac{(n!)^{2}}{2^{n^{2}}}\)，采用比值判别法，计算</div>
+        <div class="ex-step">\[化简得\]</div>
+        <div class="ex-step">\[求极限\]</div>
+        <div class="ex-step">由比值判别法，\(\lim_{n\to\infty}\frac{a_{n+1}}{a_n} = 0 &lt; 1\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>级数 \(\sum_{n=1}^{\infty}\frac{(n!)^{2}}{2^{n^{2}}}\) 收敛。</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(35)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}2^{n}\sin\frac{\pi}{3^{n}}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">对正项级数 \(\sum_{n=1}^{\infty}2^{n}\sin\frac{\pi}{3^{n}}\)，当 \(n \to \infty\) 时，\(\frac{\pi}{3^{n}} \to 0\)</div>
-        <div class="ex-step">由等价无穷小，\(\sin\frac{\pi}{3^{n}} \sim \frac{\pi}{3^{n}}\)（当 \(n \to \infty\)）</div>
-        <div class="ex-step">\[因此\]</div>
-        <div class="ex-step">考虑比较级数 \(\sum_{n=1}^{\infty}\pi\left(\frac{2}{3}\right)^{n}\)，此为等比级数，公比 \(q = \frac{2}{3} &lt; 1\)</div>
-        <div class="ex-step">故 \(\sum_{n=1}^{\infty}\pi\left(\frac{2}{3}\right)^{n}\) 收敛</div>
-        <div class="ex-step">\[由正项级数比较判别法的极限形式，因\]</div>
-        <div class="ex-step">且极限值为 \(1\)（有限正数），两级数同敛散</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>级数 \(\sum_{n=1}^{\infty}2^{n}\sin\frac{\pi}{3^{n}}\) <strong>收敛</strong></span></div>
+        <div class="ex-step">对正项级数 \(\sum_{n=1}^{\infty}2^{n}\sin\frac{\pi}{3^{n}}\)，当 \(n\to\infty\) 时 \(\frac{\pi}{3^{n}}\to 0\)，故 \(\sin\frac{\pi}{3^{n}}\sim\frac{\pi}{3^{n}}\)</div>
+        <div class="ex-step">因此 \(2^{n}\sin\frac{\pi}{3^{n}}\sim 2^{n}\cdot\frac{\pi}{3^{n}}=\pi\left(\frac{2}{3}\right)^{n}\)（\(n\to\infty\)）</div>
+        <div class="ex-step">由比较判别法的极限形式，原级数与 \(\sum_{n=1}^{\infty}\pi\left(\frac{2}{3}\right)^{n}\) 同敛散</div>
+        <div class="ex-step">而 \(\sum_{n=1}^{\infty}\pi\left(\frac{2}{3}\right)^{n}=\pi\sum_{n=1}^{\infty}\left(\frac{2}{3}\right)^{n}\) 为公比 \(q=\frac{2}{3}&lt;1\) 的等比级数，收敛</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(原级数收敛\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(36)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}\frac{n\cos^{2}\frac{n\pi}{3}}{2^{n}}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \(a_n = \frac{n\cos^{2}\frac{n\pi}{3}}{2^{n}}\)</div>
-        <div class="ex-step">由于 \(0 \leq \cos^{2}\frac{n\pi}{3} \leq 1\)，故 \(0 \leq a_n \leq \frac{n}{2^{n}}\)</div>
-        <div class="ex-step">令 \(b_n = \frac{n}{2^{n}}\)，对 \(\sum_{n=1}^{\infty} b_n\) 用比值判别法</div>
-        <div class="ex-step">\[\lim_{n\to\infty}\frac{b_{n+1}}{b_n} = \lim_{n\to\infty}\frac{\frac{n+1}{2^{n+1}}}{\frac{n}{2^{n}}} = \lim_{n\to\infty}\frac{n+1}{2n} = \frac{1}{2} &lt; 1\]</div>
-        <div class="ex-step">故 \(\sum_{n=1}^{\infty}\frac{n}{2^{n}}\) 收敛</div>
-        <div class="ex-step">由比较判别法，\(\sum_{n=1}^{\infty}\frac{n\cos^{2}\frac{n\pi}{3}}{2^{n}}\) 收敛</div>
+        <div class="ex-step">正项级数判别，注意到 \(0 \leq \cos^{2}\frac{n\pi}{3} \leq 1\)，故 \(\frac{n\cos^{2}\frac{n\pi}{3}}{2^{n}} \leq \frac{n}{2^{n}}\)</div>
+        <div class="ex-step">对 \(\sum_{n=1}^{\infty}\frac{n}{2^{n}}\) 用比值判别法：\(\lim_{n\to\infty}\frac{(n+1)/2^{n+1}}{n/2^{n}} = \lim_{n\to\infty}\frac{n+1}{2n} = \frac{1}{2} &lt; 1\)</div>
+        <div class="ex-step">故 \(\sum_{n=1}^{\infty}\frac{n}{2^{n}}\) 收敛，由比较判别法，原级数 \(\sum_{n=1}^{\infty}\frac{n\cos^{2}\frac{n\pi}{3}}{2^{n}}\) 收敛</div>
       <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(收敛\)</span></div>
       </div>
     </div>
@@ -743,67 +635,48 @@ window.MathJax = {
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(1)</span><span class="ex-qmath">\(\displaystyle 1-\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{3}}-\frac{1}{\sqrt{4}}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">该级数为 \[ \sum_{n=1}^{\infty} (-1)^{n-1} \frac{1}{\sqrt{n}} \]</div>
-        <div class="ex-step">先判断绝对收敛性。考虑绝对值级数 \[ \sum_{n=1}^{\infty} \left| (-1)^{n-1} \frac{1}{\sqrt{n}} \right| = \sum_{n=1}^{\infty} \frac{1}{\sqrt{n}} = \sum_{n=1}^{\infty} \frac{1}{n^{1/2}} \]</div>
-        <div class="ex-step">这是 \( p \)-级数，\( p = \frac{1}{2} &lt; 1 \)，故绝对值级数发散。</div>
-        <div class="ex-step">再判断原级数收敛性。这是交错级数，设 \( a_n = \frac{1}{\sqrt{n}} \)。</div>
-        <div class="ex-step">(i) \( a_n = \frac{1}{\sqrt{n}} &gt; 0 \)</div>
-        <div class="ex-step">(ii) \( a_{n+1} = \frac{1}{\sqrt{n+1}} &lt; \frac{1}{\sqrt{n}} = a_n \)，即 \( \{a_n\} \) 单调递减</div>
-        <div class="ex-step">(iii) \( \lim_{n \to \infty} a_n = \lim_{n \to \infty} \frac{1}{\sqrt{n}} = 0 \)</div>
-        <div class="ex-step">\[由莱布尼茨判别法，原交错级数收敛。\]</div>
-        <div class="ex-step">\[综上，原级数收敛但非绝对收敛。\]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(该级数<strong>条件收敛</strong>。\)</span></div>
+        <div class="ex-step">级数为 \(\sum_{n=1}^{\infty} (-1)^{n-1} \frac{1}{\sqrt{n}}\)，交错级数</div>
+        <div class="ex-step">莱布尼茨判别法：\(a_n = \frac{1}{\sqrt{n}}\) 单调递减且 \(\lim_{n\to\infty} \frac{1}{\sqrt{n}} = 0\)，故原级数收敛</div>
+        <div class="ex-step">绝对值级数 \(\sum_{n=1}^{\infty} \frac{1}{\sqrt{n}} = \sum_{n=1}^{\infty} \frac{1}{n^{1/2}}\)，\(p = \frac{1}{2} &lt; 1\) 的 \(p\)-级数，发散</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(原级数条件收敛\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(2)</span><span class="ex-qmath">\(\displaystyle 1-\frac{1}{3^{2}}+\frac{1}{5^{2}}-\frac{1}{7^{2}}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \( u_n = \frac{(-1)^{n+1}}{(2n-1)^2} \)，则级数为 \( \sum_{n=1}^{\infty} u_n \)</div>
-        <div class="ex-step">考虑绝对值级数 \( \sum_{n=1}^{\infty} |u_n| = \sum_{n=1}^{\infty} \frac{1}{(2n-1)^2} \)</div>
-        <div class="ex-step">由于 \( \frac{1}{(2n-1)^2} \leq \frac{1}{n^2} \) 对 \( n \geq 1 \) 成立，且 \( \sum_{n=1}^{\infty} \frac{1}{n^2} \) 收敛（\(p=2&gt;1\) 的 \(p\)-级数）</div>
-        <div class="ex-step">由比较判别法，\( \sum_{n=1}^{\infty} |u_n| \) 收敛</div>
-        <div class="ex-step">因此 \( \sum_{n=1}^{\infty} u_n \) 绝对收敛</div>
+        <div class="ex-step">级数为 \[ \sum_{n=1}^{\infty} (-1)^{n-1} \frac{1}{(2n-1)^2} \]</div>
+        <div class="ex-step">先判绝对收敛性：\[ \sum_{n=1}^{\infty} \left| (-1)^{n-1} \frac{1}{(2n-1)^2} \right| = \sum_{n=1}^{\infty} \frac{1}{(2n-1)^2} \]</div>
+        <div class="ex-step">因 \[ \frac{1}{(2n-1)^2} &lt; \frac{1}{n^2} \]，且 \[ \sum_{n=1}^{\infty} \frac{1}{n^2} \] 收敛（p-级数，p=2&gt;1），由比较判别法，\[ \sum_{n=1}^{\infty} \frac{1}{(2n-1)^2} \] 收敛</div>
+        <div class="ex-step">\[故原级数绝对收敛\]</div>
       <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(绝对收敛\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(3)</span><span class="ex-qmath">\(\displaystyle 1-\frac{1}{3}+\cdots+(-1)^{n+1}\frac{1}{2n-1}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \(u_n = (-1)^{n+1}\frac{1}{2n-1}\)，则级数为 \(\sum_{n=1}^{\infty} u_n = \sum_{n=1}^{\infty} (-1)^{n+1}\frac{1}{2n-1}\)</div>
-        <div class="ex-step">先判断绝对收敛性：考虑 \(\sum_{n=1}^{\infty} |u_n| = \sum_{n=1}^{\infty} \frac{1}{2n-1}\)</div>
-        <div class="ex-step">由于 \(\frac{1}{2n-1} &gt; \frac{1}{2n}\)，且 \(\sum_{n=1}^{\infty} \frac{1}{2n} = \frac{1}{2}\sum_{n=1}^{\infty} \frac{1}{n}\) 发散</div>
-        <div class="ex-step">由比较判别法，\(\sum_{n=1}^{\infty} \frac{1}{2n-1}\) 发散，故原级数非绝对收敛</div>
-        <div class="ex-step">再判断条件收敛性：对交错级数 \(\sum_{n=1}^{\infty} (-1)^{n+1}\frac{1}{2n-1}\) 用莱布尼茨判别法</div>
-        <div class="ex-step">设 \(a_n = \frac{1}{2n-1}\)，验证：(i) \(a_n &gt; 0\)；(ii) \(a_{n+1} = \frac{1}{2n+1} &lt; \frac{1}{2n-1} = a_n\)，即单调递减；(iii) \(\lim_{n\to\infty} a_n = \lim_{n\to\infty} \frac{1}{2n-1} = 0\)</div>
-        <div class="ex-step">莱布尼茨判别法条件均满足，故 \(\sum_{n=1}^{\infty} (-1)^{n+1}\frac{1}{2n-1}\) 收敛</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(原级数收敛，且为条件收敛\)</span></div>
+        <div class="ex-step">级数为 \(\sum_{n=1}^{\infty} (-1)^{n+1} \frac{1}{2n-1}\)，属交错级数，先判绝对收敛性：\(\sum_{n=1}^{\infty} \left|(-1)^{n+1}\frac{1}{2n-1}\right| = \sum_{n=1}^{\infty} \frac{1}{2n-1}\)</div>
+        <div class="ex-step">由 \(\frac{1}{2n-1} &gt; \frac{1}{2n}\)，且 \(\sum_{n=1}^{\infty}\frac{1}{2n} = \frac{1}{2}\sum_{n=1}^{\infty}\frac{1}{n}\) 发散，故 \(\sum_{n=1}^{\infty}\frac{1}{2n-1}\) 发散，原级数非绝对收敛</div>
+        <div class="ex-step">用莱布尼茨判别法：\(a_n = \frac{1}{2n-1}\)，有 \(a_n &gt; 0\)，\(a_{n+1} = \frac{1}{2n+1} &lt; \frac{1}{2n-1} = a_n\)，且 \(\lim_{n\to\infty} a_n = \lim_{n\to\infty}\frac{1}{2n-1} = 0\)</div>
+        <div class="ex-step">莱布尼茨条件满足，故 \(\sum_{n=1}^{\infty} (-1)^{n+1}\frac{1}{2n-1}\) 收敛</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(收敛，且为条件收敛\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(4)</span><span class="ex-qmath">\(\displaystyle \frac{1}{\ln 2}-\frac{1}{\ln 3}+\frac{1}{\ln 4}-\frac{1}{\ln 5}+\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">该级数为 \(\sum_{n=2}^{\infty} (-1)^n \frac{1}{\ln n}\)</div>
-        <div class="ex-step">先判断绝对收敛性：考虑 \(\sum_{n=2}^{\infty} \frac{1}{\ln n}\)</div>
-        <div class="ex-step">当 \(n \geq 2\) 时，\(\ln n &lt; n\)，故 \(\frac{1}{\ln n} &gt; \frac{1}{n}\)</div>
-        <div class="ex-step">因 \(\sum_{n=2}^{\infty} \frac{1}{n}\) 发散，由比较判别法，\(\sum_{n=2}^{\infty} \frac{1}{\ln n}\) 发散</div>
-        <div class="ex-step">\[故原级数不绝对收敛\]</div>
-        <div class="ex-step">再判断条件收敛性：原级数为交错级数 \(\sum_{n=2}^{\infty} (-1)^n a_n\)，其中 \(a_n = \frac{1}{\ln n}\)</div>
-        <div class="ex-step">\[验证莱布尼茨判别法条件：\]</div>
-        <div class="ex-step">故 \(\{a_n\}\) 单调递减趋于零</div>
-        <div class="ex-step">由莱布尼茨判别法，\(\sum_{n=2}^{\infty} (-1)^n \frac{1}{\ln n}\) 收敛</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(原级数<strong>条件收敛</strong>\)</span></div>
+        <div class="ex-step">级数为 \(\sum_{n=2}^{\infty} (-1)^n \frac{1}{\ln n}\)，是交错级数</div>
+        <div class="ex-step">莱布尼茨判别法：\(a_n = \frac{1}{\ln n}\) 满足 \(a_n &gt; 0\)，且 \(\lim_{n\to\infty} a_n = 0\)，\(a_{n+1} = \frac{1}{\ln(n+1)} &lt; \frac{1}{\ln n} = a_n\)，故原级数收敛</div>
+        <div class="ex-step">判断绝对收敛：\(\sum_{n=2}^{\infty} \frac{1}{\ln n}\)，由 \(\ln n &lt; n\) 得 \(\frac{1}{\ln n} &gt; \frac{1}{n}\)</div>
+        <div class="ex-step">因 \(\sum \frac{1}{n}\) 发散，由比较判别法 \(\sum \frac{1}{\ln n}\) 发散</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(原级数条件收敛\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(5)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}(-1)^{n-1}\frac{n}{3^{n-1}}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">记 \(u_n = (-1)^{n-1}\frac{n}{3^{n-1}}\)，先判断绝对收敛性。</div>
-        <div class="ex-step">考虑 \(\sum_{n=1}^{\infty}|u_n| = \sum_{n=1}^{\infty}\frac{n}{3^{n-1}}\)</div>
-        <div class="ex-step">用比值判别法，\(\lim_{n\to\infty}\frac{|u_{n+1}|}{|u_n|} = \lim_{n\to\infty}\frac{\frac{n+1}{3^n}}{\frac{n}{3^{n-1}}}\)</div>
-        <div class="ex-step">\[= \lim_{n\to\infty}\frac{n+1}{3^n} \cdot \frac{3^{n-1}}{n} = \lim_{n\to\infty}\frac{n+1}{3n} = \frac{1}{3} &lt; 1\]</div>
-        <div class="ex-step">故 \(\sum_{n=1}^{\infty}|u_n|\) 收敛，即原级数绝对收敛。</div>
-        <div class="ex-step">\[绝对收敛的级数必收敛，无需再判断条件收敛性。\]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(级数绝对收敛。\)</span></div>
+        <div class="ex-step">设 \(u_n = \frac{n}{3^{n-1}}\)，对正项级数 \(\sum_{n=1}^{\infty} u_n\) 用比值判别法</div>
+        <div class="ex-step">故 \(\sum_{n=1}^{\infty}\frac{n}{3^{n-1}}\) 收敛，原级数 \(\sum_{n=1}^{\infty}(-1)^{n-1}\frac{n}{3^{n-1}}\) 绝对收敛</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(绝对收敛\)</span></div>
       </div>
     </div>
     <div class="ex">
@@ -821,41 +694,31 @@ window.MathJax = {
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(7)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}(-1)^{\frac{n(n-1)}{2}}\frac{n^{10}}{2^{n}}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \(u_n = (-1)^{\frac{n(n-1)}{2}}\frac{n^{10}}{2^n}\)，考虑 \(\sum_{n=1}^{\infty}|u_n| = \sum_{n=1}^{\infty}\frac{n^{10}}{2^n}\)</div>
-        <div class="ex-step">对正项级数 \(\sum_{n=1}^{\infty}\frac{n^{10}}{2^n}\) 用比值判别法，计算</div>
-        <div class="ex-step">由于 \(\frac{1}{2} &lt; 1\)，故 \(\sum_{n=1}^{\infty}\frac{n^{10}}{2^n}\) 收敛</div>
-        <div class="ex-step">因此 \(\sum_{n=1}^{\infty}|u_n|\) 收敛，即原级数绝对收敛</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(绝对收敛\)</span></div>
+        <div class="ex-step">记 \(a_n = (-1)^{\frac{n(n-1)}{2}}\frac{n^{10}}{2^n}\)，先判绝对收敛性，考察 \(\sum_{n=1}^{\infty}|a_n| = \sum_{n=1}^{\infty}\frac{n^{10}}{2^n}\)</div>
+        <div class="ex-step">对正项级数 \(\sum_{n=1}^{\infty}\frac{n^{10}}{2^n}\) 用比值判别法，\(\lim_{n\to\infty}\frac{|a_{n+1}|}{|a_n|} = \lim_{n\to\infty}\frac{(n+1)^{10}}{2^{n+1}}\cdot\frac{2^n}{n^{10}} = \frac{1}{2}\lim_{n\to\infty}\left(1+\frac{1}{n}\right)^{10} = \frac{1}{2} &lt; 1\)</div>
+        <div class="ex-step">比值判别法极限值 \(\frac{1}{2} &lt; 1\)，故 \(\sum_{n=1}^{\infty}|a_n|\) 收敛</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(原级数绝对收敛\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(8)</span><span class="ex-qmath">\(\displaystyle \frac{1}{\pi^{2}}\sin\frac{\pi}{2}-\frac{1}{\pi^{3}}\sin\frac{\pi}{3}+\frac{1}{\pi^{4}}\sin\frac{\pi}{4}-\cdots\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设通项为 \(a_n = (-1)^{n-1} \frac{1}{\pi^{n+1}} \sin\frac{\pi}{n+1}\)，其中 \(n = 1, 2, 3, \ldots\)</div>
-        <div class="ex-step">原级数为 \(\sum_{n=1}^{\infty} (-1)^{n-1} \frac{1}{\pi^{n+1}} \sin\frac{\pi}{n+1}\)</div>
-        <div class="ex-step">先判断绝对收敛性，考虑 \(\sum_{n=1}^{\infty} |a_n| = \sum_{n=1}^{\infty} \frac{1}{\pi^{n+1}} \sin\frac{\pi}{n+1}\)</div>
-        <div class="ex-step">当 \(n \to \infty\) 时，\(\sin\frac{\pi}{n+1} \sim \frac{\pi}{n+1}\)</div>
-        <div class="ex-step">故 \(|a_n| = \frac{1}{\pi^{n+1}} \sin\frac{\pi}{n+1} \sim \frac{1}{\pi^{n+1}} \cdot \frac{\pi}{n+1} = \frac{1}{\pi^n (n+1)}\)</div>
-        <div class="ex-step">即 \(|a_n| \sim \frac{1}{(n+1)\pi^n}\)</div>
-        <div class="ex-step">用比值判别法：\(\lim_{n\to\infty} \frac{|a_{n+1}|}{|a_n|} = \lim_{n\to\infty} \frac{\frac{1}{\pi^{n+2}} \sin\frac{\pi}{n+2}}{\frac{1}{\pi^{n+1}} \sin\frac{\pi}{n+1}}\)</div>
-        <div class="ex-step">\(= \lim_{n\to\infty} \frac{1}{\pi} \cdot \frac{\sin\frac{\pi}{n+2}}{\sin\frac{\pi}{n+1}} = \frac{1}{\pi} \cdot \lim_{n\to\infty} \frac{\frac{\pi}{n+2}}{\frac{\pi}{n+1}} = \frac{1}{\pi} \cdot \lim_{n\to\infty} \frac{n+1}{n+2} = \frac{1}{\pi} &lt; 1\)</div>
-        <div class="ex-step">由比值判别法，\(\sum_{n=1}^{\infty} |a_n|\) 收敛</div>
-        <div class="ex-step">\[故原级数绝对收敛\]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(绝对收敛\)</span></div>
+        <div class="ex-step">级数通项为 \(u_n = (-1)^{n-1}\frac{1}{\pi^{n+1}}\sin\frac{\pi}{n+1}\)，即 \(\sum_{n=1}^{\infty}(-1)^{n-1}\frac{\sin\frac{\pi}{n+1}}{\pi^{n+1}}\)</div>
+        <div class="ex-step">先判绝对收敛：\(\left|u_n\right| = \frac{\sin\frac{\pi}{n+1}}{\pi^{n+1}}\)，当 \(n\to\infty\) 时 \(\sin\frac{\pi}{n+1}\sim\frac{\pi}{n+1}\)，故 \(\left|u_n\right|\sim\frac{1}{(n+1)\pi^n}\)</div>
+        <div class="ex-step">由 \(\left|u_n\right| &lt; \frac{1}{\pi^{n+1}}\)（因 \(\sin x &lt; 1\)），而 \(\sum\frac{1}{\pi^{n+1}}\) 是公比 \(\frac{1}{\pi}&lt;1\) 的等比级数，收敛</div>
+        <div class="ex-step">由比较判别法，\(\sum\left|u_n\right|\) 收敛</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(原级数绝对收敛\)</span></div>
       </div>
     </div>
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(9)</span><span class="ex-qmath">\(\displaystyle \sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n^{p}}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \(u_n = \frac{1}{n^p}\)，则级数为 \(\sum_{n=1}^{\infty}(-1)^{n-1}u_n\)</div>
-        <div class="ex-step">当 \(p \leq 0\) 时，\(\lim_{n\to\infty}\frac{1}{n^p} \neq 0\)，故 \(\lim_{n\to\infty}\frac{(-1)^{n-1}}{n^p} \neq 0\)，级数发散</div>
-        <div class="ex-step">当 \(p &gt; 0\) 时，\(u_n = \frac{1}{n^p} &gt; 0\)，\(u_{n+1} = \frac{1}{(n+1)^p} &lt; \frac{1}{n^p} = u_n\)，且 \(\lim_{n\to\infty}u_n = 0\)</div>
-        <div class="ex-step">由莱布尼茨判别法，当 \(p &gt; 0\) 时级数收敛</div>
-        <div class="ex-step">考虑绝对收敛性：\(\sum_{n=1}^{\infty}\left|\frac{(-1)^{n-1}}{n^p}\right| = \sum_{n=1}^{\infty}\frac{1}{n^p}\)</div>
-        <div class="ex-step">这是 \(p\) 级数，当 \(p &gt; 1\) 时收敛，当 \(0 &lt; p \leq 1\) 时发散</div>
-        <div class="ex-step">当 \(p &gt; 1\) 时，绝对收敛</div>
-        <div class="ex-step">当 \(0 &lt; p \leq 1\) 时，级数收敛但非绝对收敛，故条件收敛</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>当 \(p \leq 0\) 时发散；当 \(0 &lt; p \leq 1\) 时条件收敛；当 \(p &gt; 1\) 时绝对收敛</span></div>
+        <div class="ex-step">级数为 \(\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n^{p}}\)，属交错级数，先判绝对收敛性：考察 \(\sum_{n=1}^{\infty}\left|\frac{(-1)^{n-1}}{n^{p}}\right| = \sum_{n=1}^{\infty}\frac{1}{n^{p}}\)</div>
+        <div class="ex-step">由 \(p\)-级数判别法：\(\sum_{n=1}^{\infty}\frac{1}{n^{p}}\) 当 \(p&gt;1\) 时收敛，\(p\leq 1\) 时发散</div>
+        <div class="ex-step">当 \(p&gt;1\) 时，原级数绝对收敛</div>
+        <div class="ex-step">当 \(0&lt;p\leq 1\) 时，绝对值级数发散，但原级数满足 Leibniz 判别法条件：\(a_n=\frac{1}{n^{p}}\) 单调递减且 \(\lim_{n\to\infty}\frac{1}{n^{p}}=0\)，故原级数收敛，为条件收敛</div>
+        <div class="ex-step">当 \(p\leq 0\) 时，\(\lim_{n\to\infty}\frac{(-1)^{n-1}}{n^{p}}\neq 0\)（通项不趋于零），级数发散</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(p&gt;1\) 时绝对收敛；\(0&lt;p\leq 1\) 时条件收敛；\(p\leq 0\) 时发散</span></div>
       </div>
     </div>
     <div class="ex">
@@ -878,20 +741,11 @@ window.MathJax = {
     <div class="ex">
       <div class="ex-q"><span class="ex-no">(11)</span><span class="ex-qmath">\(\displaystyle \sum_{n=2}^{\infty}\frac{(-1)^{n}\sqrt{n}}{n-1}\)</span></div>
       <div class="ex-sol">
-        <div class="ex-step">设 \(a_n = \frac{\sqrt{n}}{n-1}\)，判断 \(\sum_{n=2}^{\infty}(-1)^n a_n\) 的收敛性。</div>
-        <div class="ex-step">先判断绝对收敛性。考虑 \(\sum_{n=2}^{\infty}\frac{\sqrt{n}}{n-1}\)。</div>
-        <div class="ex-step">当 \(n \geq 2\) 时，</div>
-        <div class="ex-step">由于 \(\sum_{n=2}^{\infty}\frac{1}{\sqrt{n}}\) 是 \(p=\frac{1}{2}&lt;1\) 的 \(p\)-级数，发散。</div>
-        <div class="ex-step">由比较判别法，\(\sum_{n=2}^{\infty}\frac{\sqrt{n}}{n-1}\) 发散，故原级数不绝对收敛。</div>
-        <div class="ex-step">\[再判断条件收敛性。验证莱布尼茨判别法条件。\]</div>
-        <div class="ex-step">\[求极限：\]</div>
-        <div class="ex-step">验证单调性。设 \(f(x) = \frac{\sqrt{x}}{x-1}\)，\(x \geq 2\)。</div>
-        <div class="ex-step">\[求导：\]</div>
-        <div class="ex-step">当 \(x \geq 2\) 时，\(f'(x) = \frac{-x-1}{2\sqrt{x}(x-1)^2} &lt; 0\)。</div>
-        <div class="ex-step">故 \(f(x)\) 单调递减，即 \(a_n\) 单调递减。</div>
-        <div class="ex-step">由莱布尼茨判别法，\(\sum_{n=2}^{\infty}(-1)^n\frac{\sqrt{n}}{n-1}\) 收敛。</div>
-        <div class="ex-step">\[综上，级数收敛但不绝对收敛。\]</div>
-      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(条件收敛\)</span></div>
+        <div class="ex-step">记 \(a_n = \frac{\sqrt{n}}{n-1}\)，先判断绝对收敛性：\(\left|\frac{(-1)^n\sqrt{n}}{n-1}\right| = \frac{\sqrt{n}}{n-1} \sim \frac{1}{\sqrt{n}}\)（\(n\to\infty\)），而 \(\sum\frac{1}{\sqrt{n}}\) 发散，故非绝对收敛。</div>
+        <div class="ex-step">验证莱布尼茨判别法条件：\(a_n = \frac{\sqrt{n}}{n-1} = \frac{1}{\sqrt{n}-\frac{1}{\sqrt{n}}}\)，令 \(f(x)=\frac{\sqrt{x}}{x-1}\)（\(x\geq 2\)），则 \(f'(x)=\frac{\frac{1}{2\sqrt{x}}(x-1)-\sqrt{x}}{(x-1)^2}=\frac{-(x+1)}{2\sqrt{x}(x-1)^2}&lt;0\)，故 \(a_n\) 单调递减。</div>
+        <div class="ex-step">\(\lim_{n\to\infty}a_n=\lim_{n\to\infty}\frac{\sqrt{n}}{n-1}=\lim_{n\to\infty}\frac{1}{\sqrt{n}-\frac{1}{\sqrt{n}}}=0\)</div>
+        <div class="ex-step">由莱布尼茨判别法，\(\sum_{n=2}^{\infty}(-1)^n a_n\) 收敛。</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(原级数条件收敛。\)</span></div>
       </div>
     </div>
   </section>
