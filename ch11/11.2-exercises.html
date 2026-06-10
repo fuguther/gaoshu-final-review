@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>11.2 二阶线性微分方程 · 习题详解</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']], macros: { oiint: '\\unicode{x222F}', oiiint: '\\unicode{x2230}' } },
+  svg: { fontCache: 'global' },
+  options: { enableMenu: false }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdmirror.com/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="preconnect" href="https://fonts.loli.net">
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+<link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/design-system.css">
+<style>
+  .ex-intro{color:var(--ink-soft);font-size:15px;line-height:1.8;border-left:3px solid var(--red);
+    padding:4px 16px 4px 18px;margin:0 0 46px;background:var(--red-soft);border-radius:0 8px 8px 0;}
+  .ex-group{margin:0 0 56px;}
+  .ex-req{font-family:var(--serif);font-size:21px;font-weight:700;color:var(--ink);
+    padding-bottom:14px;border-bottom:1px solid var(--divider);margin:0 0 30px;
+    display:flex;align-items:baseline;gap:14px;}
+  .ex-bignum{color:var(--red);font-weight:900;font-size:24px;}
+  .ex{padding:0 0 30px;margin:0 0 30px;border-bottom:1px dashed var(--divider-light);}
+  .ex-group .ex:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+  .ex-q{display:flex;gap:14px;align-items:baseline;margin-bottom:16px;}
+  .ex-no{color:var(--red);font-weight:700;font-family:var(--mono);font-size:15px;flex-shrink:0;
+    min-width:42px;padding-top:2px;}
+  .ex-qmath{color:var(--ink);font-size:18px;}
+  .ex-sol{padding-left:56px;}
+  .ex-step{color:var(--ink-soft);margin:7px 0;line-height:1.95;}
+  .ex-sol mjx-container[display="true"]{text-align:left!important;margin:.45em 0!important;}
+  .ex-ans{margin-top:18px;padding:11px 18px;background:var(--paper);border:1px solid var(--divider);
+    border-radius:var(--radius-sm);box-shadow:var(--shadow-sm);display:flex;gap:12px;align-items:baseline;}
+  .ex-ans-label{color:var(--red);font-weight:700;font-size:13px;flex-shrink:0;letter-spacing:.04em;}
+  .ex-flag{margin-top:10px;font-size:13.5px;color:var(--gold);background:var(--gold-soft);
+    padding:8px 14px;border-radius:8px;line-height:1.7;}
+  @media(max-width:600px){.ex-sol{padding-left:0;}.ex-qmath{font-size:16px;}}
+</style>
+</head>
+<body>
+
+<div class="reading-progress"></div>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="logo">高数期末复习站</a>
+    <span class="sep">|</span>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第9章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch9/9.0-overview.html">章节导学</a>
+        <a href="../ch9/9.2-greens-formula.html">9.2 格林公式 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.2-greens-problems.html">9.2 格林公式 <span class="sub">题型</span></a>
+        <a href="../ch9/9.3-surface-integrals.html">9.3 曲面积分 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.3-surface-problems.html">9.3 曲面积分 <span class="sub">题型</span></a>
+        <a href="../ch9/9.3-exercises.html">9.3 曲面积分 <span class="sub">习题</span></a>
+        <a href="../ch9/9.4-big-three.html">9.4 三大公式 <span class="sub">讲解</span></a>
+        <a href="../ch9/9.4-big-three-problems.html">9.4 三大公式 <span class="sub">题型</span></a>
+        <a href="../ch9/9.4-exercises.html">9.4 三大公式 <span class="sub">习题</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第10章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="../ch10/10.0-overview.html">章节导学</a>
+        <a href="../ch10/10.1-series-concepts.html">10.1 数项级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.1-series-problems.html">10.1 数项级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.1-exercises.html">10.1 数项级数 <span class="sub">习题</span></a>
+        <a href="../ch10/10.2-power-series.html">10.2 幂级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.2-power-problems.html">10.2 幂级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.2-exercises.html">10.2 幂级数 <span class="sub">习题</span></a>
+        <a href="../ch10/10.3-fourier.html">10.3 傅里叶级数 <span class="sub">讲解</span></a>
+        <a href="../ch10/10.3-fourier-problems.html">10.3 傅里叶级数 <span class="sub">题型</span></a>
+        <a href="../ch10/10.3-exercises.html">10.3 傅里叶级数 <span class="sub">习题</span></a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle">第11章 ▾</button>
+      <div class="dropdown-menu">
+        <a href="11.0-overview.html">章节导学</a>
+        <a href="11.1-first-order.html">11.1 一阶方程 <span class="sub">讲解</span></a>
+        <a href="11.1-first-order-problems.html">11.1 一阶方程 <span class="sub">题型</span></a>
+        <a href="11.1-exercises.html">11.1 一阶方程 <span class="sub">习题</span></a>
+        <a href="11.2-second-order.html">11.2 二阶线性 <span class="sub">讲解</span></a>
+        <a href="11.2-second-order-problems.html">11.2 二阶线性 <span class="sub">题型</span></a>
+        <a href="11.2-exercises.html">11.2 二阶线性 <span class="sub">习题</span></a>
+      </div>
+    </div>
+    <a href="../exams/index.html" class="item">往年题</a>
+    <a href="../tips/index.html" class="item">技巧锦囊</a>
+    <button class="theme-toggle" aria-label="切换主题">🌙</button>
+  </div>
+</nav>
+
+<main class="main">
+
+  <div class="breadcrumb">
+    <a href="../index.html">首页</a>
+    <span class="sep">›</span>
+    <a href="11.0-overview.html">第11章</a>
+    <span class="sep">›</span>
+    <span>11.2 二阶线性 · 习题</span>
+  </div>
+
+  <div class="hero">
+    <span class="tag">11.2 · 二阶 ODE（高数C必考 Q3）</span>
+    <h1>二阶线性微分方程 <span class="em">习题全解</span></h1>
+    <p class="subtitle">《高等数学（生化医农类）下册》习题 11.2 二阶常系数齐次 / 非齐次方程求解 · 考场标准步骤</p>
+  </div>
+
+  <p class="ex-intro">高数C 期末 Q3（30 分）的核心——二阶常系数线性方程。本页收齐习题 11.2：齐次/高阶求通解（问题1）、齐次特解（问题2）、非齐次待定系数求通解含共振（问题3）、非齐次特解（问题4）共 40 小题，A 路双解（此类为标准特征根法，答案规范可循）。</p>
+
+  <section class="ex-group">
+    <h2 class="ex-req"><span class="ex-bignum">1.</span>求通解</h2>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(1)</span><span class="ex-qmath">\(\displaystyle \frac{d^{2}x}{dt^{2}}-\frac{dx}{dt}-2x=0\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程为 \[ r^2 - r - 2 = 0 \]</div>
+        <div class="ex-step">因式分解得 \[ (r-2)(r+1) = 0 \]</div>
+        <div class="ex-step">解得特征根 \[ r_1 = 2, \quad r_2 = -1 \]</div>
+        <div class="ex-step">通解为 \[ x = C_1 e^{2t} + C_2 e^{-t} \]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\( x = C_1 e^{2t} + C_2 e^{-t} \)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(2)</span><span class="ex-qmath">\(\displaystyle \frac{d^{2}y}{dx^{2}}-4\frac{dy}{dx}+3y=0\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程为 \[r^{2}-4r+3=0\]</div>
+        <div class="ex-step">因式分解得 \[(r-1)(r-3)=0\]</div>
+        <div class="ex-step">解得特征根 \[r_{1}=1,\quad r_{2}=3\]</div>
+        <div class="ex-step">由于特征根为两个不相等的实根，通解为 \[y=C_{1}e^{r_{1}x}+C_{2}e^{r_{2}x}\]</div>
+        <div class="ex-step">代入特征根得 \[y=C_{1}e^{x}+C_{2}e^{3x}\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[y=C_{1}e^{x}+C_{2}e^{3x}\]</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(3)</span><span class="ex-qmath">\(\displaystyle \frac{d^{2}s}{dt^{2}}-2\frac{ds}{dt}+s=0\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程为 \[ r^2 - 2r + 1 = 0 \]</div>
+        <div class="ex-step">因式分解得 \[ (r-1)^2 = 0 \]</div>
+        <div class="ex-step">解得二重特征根 \[ r_1 = r_2 = 1 \]</div>
+        <div class="ex-step">对于二重实根，通解形式为 \[ s = (C_1 + C_2 t)e^{rt} \]</div>
+        <div class="ex-step">代入 \( r = 1 \)，得通解 \[ s = (C_1 + C_2 t)e^{t} \]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\( s = (C_1 + C_2 t)e^{t} \)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(4)</span><span class="ex-qmath">\(\displaystyle \frac{d^{2}s}{dt^{2}}+2\frac{ds}{dt}+2s=0\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程为 \(r^{2}+2r+2=0\)</div>
+        <div class="ex-step">解得 \(r=\frac{-2\pm\sqrt{4-8}}{2}=\frac{-2\pm\sqrt{-4}}{2}=\frac{-2\pm 2i}{2}=-1\pm i\)</div>
+        <div class="ex-step">即 \(r_{1}=-1+i\), \(r_{2}=-1-i\)</div>
+        <div class="ex-step">通解为 \(s=e^{-t}(C_{1}\cos t+C_{2}\sin t)\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(s=e^{-t}(C_{1}\cos t+C_{2}\sin t)\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(5)</span><span class="ex-qmath">\(\displaystyle \frac{d^{2}s}{dt^{2}}-2\frac{ds}{dt}+5s=0\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程为 \[r^{2}-2r+5=0\]</div>
+        <div class="ex-step">解得 \[r=\frac{2\pm\sqrt{4-20}}{2}=\frac{2\pm\sqrt{-16}}{2}=\frac{2\pm 4i}{2}=1\pm 2i\]</div>
+        <div class="ex-step">即 \(\alpha=1\), \(\beta=2\)</div>
+        <div class="ex-step">通解为 \[s=e^{t}(C_{1}\cos 2t+C_{2}\sin 2t)\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[s=e^{t}(C_{1}\cos 2t+C_{2}\sin 2t)\]</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(6)</span><span class="ex-qmath">\(\displaystyle y''-4y'=0\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程为 \[r^2 - 4r = 0\]</div>
+        <div class="ex-step">因式分解得 \[r(r-4) = 0\]</div>
+        <div class="ex-step">解得特征根 \[r_1 = 0, \quad r_2 = 4\]</div>
+        <div class="ex-step">通解为 \[y = C_1 e^{0 \cdot x} + C_2 e^{4x}\]</div>
+        <div class="ex-step">即 \[y = C_1 + C_2 e^{4x}\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[y = C_1 + C_2 e^{4x}\]</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(7)</span><span class="ex-qmath">\(\displaystyle y''-2y'+(1-a^{2})y=0\ (a&gt;0)\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">\[特征方程为\]</div>
+        <div class="ex-step">\[求根\]</div>
+        <div class="ex-step">由于 \( a&gt;0 \)，故 \( r_{1}=1+a \)，\( r_{2}=1-a \) 为两个不等实根</div>
+        <div class="ex-step">\[通解为\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\( y=C_{1}e^{(1+a)x}+C_{2}e^{(1-a)x} \)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(8)</span><span class="ex-qmath">\(\displaystyle y''-10y'+34y=0\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程为 \(r^2 - 10r + 34 = 0\)</div>
+        <div class="ex-step">求根：\(r = \frac{10 \pm \sqrt{100 - 136}}{2} = \frac{10 \pm \sqrt{-36}}{2} = \frac{10 \pm 6i}{2} = 5 \pm 3i\)</div>
+        <div class="ex-step">通解为 \(y = e^{5x}(C_1 \cos 3x + C_2 \sin 3x)\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y = e^{5x}(C_1 \cos 3x + C_2 \sin 3x)\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(9)</span><span class="ex-qmath">\(\displaystyle y''-4y'+5y=0\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程为 \( r^2 - 4r + 5 = 0 \)</div>
+        <div class="ex-step">解得 \( r = \frac{4 \pm \sqrt{16-20}}{2} = \frac{4 \pm \sqrt{-4}}{2} = \frac{4 \pm 2i}{2} = 2 \pm i \)</div>
+        <div class="ex-step">即 \( \alpha = 2 \), \( \beta = 1 \)</div>
+        <div class="ex-step">通解为 \( y = e^{2x}(C_1 \cos x + C_2 \sin x) \)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\( y = e^{2x}(C_1 \cos x + C_2 \sin x) \)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(10)</span><span class="ex-qmath">\(\displaystyle y''-6y'+11y=0\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程为 \[r^2 - 6r + 11 = 0\]</div>
+        <div class="ex-step">求根公式得 \[r = \frac{6 \pm \sqrt{36 - 44}}{2} = \frac{6 \pm \sqrt{-8}}{2} = \frac{6 \pm 2\sqrt{2}i}{2} = 3 \pm \sqrt{2}i\]</div>
+        <div class="ex-step">即 \(\alpha = 3\), \(\beta = \sqrt{2}\)</div>
+        <div class="ex-step">通解为 \[y = e^{3x}\left(C_1 \cos \sqrt{2}x + C_2 \sin \sqrt{2}x\right)\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[y = e^{3x}\left(C_1 \cos \sqrt{2}x + C_2 \sin \sqrt{2}x\right)\]</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(11)</span><span class="ex-qmath">\(\displaystyle y''-y=0\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程为 \(r^2 - 1 = 0\)</div>
+        <div class="ex-step">解得 \(r^2 = 1\)，即 \(r_1 = 1\)，\(r_2 = -1\)</div>
+        <div class="ex-step">两个不相等的实根，通解为 \(y = C_1 e^{r_1 x} + C_2 e^{r_2 x}\)</div>
+        <div class="ex-step">代入得 \(y = C_1 e^{x} + C_2 e^{-x}\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y = C_1 e^{x} + C_2 e^{-x}\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(12)</span><span class="ex-qmath">\(\displaystyle y^{(4)}+8y''+16y=0\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程为 \( r^4 + 8r^2 + 16 = 0 \)</div>
+        <div class="ex-step">令 \( u = r^2 \)，得 \( u^2 + 8u + 16 = 0 \)，即 \( (u+4)^2 = 0 \)</div>
+        <div class="ex-step">解得 \( u = -4 \)（二重根），故 \( r^2 = -4 \)</div>
+        <div class="ex-step">由 \( r^2 = -4 \)，得 \( r = \pm 2i \)，其中 \( r = 2i \) 为二重根，\( r = -2i \) 为二重根</div>
+        <div class="ex-step">对于二重共轭复根 \( \alpha \pm \beta i \)（此处 \( \alpha = 0, \beta = 2 \)），通解形式为</div>
+        <div class="ex-step">代入 \( \alpha = 0, \beta = 2 \)，得</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[ y = (C_1 + C_2 x)\cos 2x + (C_3 + C_4 x)\sin 2x \]</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(13)</span><span class="ex-qmath">\(\displaystyle y'''-3y''+9y'+13y=0\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程为 \[r^3 - 3r^2 + 9r + 13 = 0\]</div>
+        <div class="ex-step">试根，当 \(r = -1\) 时：\[(-1)^3 - 3(-1)^2 + 9(-1) + 13 = -1 - 3 - 9 + 13 = 0\]，故 \(r = -1\) 是根</div>
+        <div class="ex-step">多项式除法：\[(r^3 - 3r^2 + 9r + 13) \div (r + 1) = r^2 - 4r + 13\]</div>
+        <div class="ex-step">验证：\((r+1)(r^2-4r+13) = r^3 - 4r^2 + 13r + r^2 - 4r + 13 = r^3 - 3r^2 + 9r + 13\)</div>
+        <div class="ex-step">对 \(r^2 - 4r + 13 = 0\) 用求根公式：\[r = \frac{4 \pm \sqrt{16-52}}{2} = \frac{4 \pm \sqrt{-36}}{2} = \frac{4 \pm 6i}{2} = 2 \pm 3i\]</div>
+        <div class="ex-step">三个特征根为 \(r_1 = -1\)，\(r_2 = 2 + 3i\)，\(r_3 = 2 - 3i\)</div>
+        <div class="ex-step">对应基本解：\(e^{-x}\)，\(e^{2x}\cos 3x\)，\(e^{2x}\sin 3x\)</div>
+        <div class="ex-step">通解为 \[y = C_1 e^{-x} + e^{2x}(C_2 \cos 3x + C_3 \sin 3x)\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y = C_1 e^{-x} + e^{2x}(C_2 \cos 3x + C_3 \sin 3x)\)，其中 \(C_1, C_2, C_3\) 为任意常数</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(14)</span><span class="ex-qmath">\(\displaystyle y^{(4)}-8y'=0\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程为 \( r^4 - 8r = 0 \)</div>
+        <div class="ex-step">因式分解得 \( r(r^3 - 8) = 0 \)</div>
+        <div class="ex-step">即 \( r(r-2)(r^2+2r+4) = 0 \)</div>
+        <div class="ex-step">由 \( r = 0 \) 得 \( r_1 = 0 \)</div>
+        <div class="ex-step">由 \( r - 2 = 0 \) 得 \( r_2 = 2 \)</div>
+        <div class="ex-step">由 \( r^2 + 2r + 4 = 0 \) 得 \( r = \frac{-2 \pm \sqrt{4-16}}{2} = \frac{-2 \pm \sqrt{-12}}{2} = \frac{-2 \pm 2\sqrt{3}i}{2} = -1 \pm \sqrt{3}i \)</div>
+        <div class="ex-step">即 \( r_3 = -1 + \sqrt{3}i \)，\( r_4 = -1 - \sqrt{3}i \)</div>
+        <div class="ex-step">对应实根 \( r_1 = 0 \) 的解为 \( y_1 = e^{0 \cdot x} = 1 \)</div>
+        <div class="ex-step">对应实根 \( r_2 = 2 \) 的解为 \( y_2 = e^{2x} \)</div>
+        <div class="ex-step">对应共轭复根 \( r_{3,4} = -1 \pm \sqrt{3}i \) 的解为 \( y_3 = e^{-x}\cos(\sqrt{3}x) \)，\( y_4 = e^{-x}\sin(\sqrt{3}x) \)</div>
+        <div class="ex-step">通解为 \( y = C_1 \cdot 1 + C_2 e^{2x} + C_3 e^{-x}\cos(\sqrt{3}x) + C_4 e^{-x}\sin(\sqrt{3}x) \)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\( y = C_1 + C_2 e^{2x} + e^{-x}\left(C_3\cos\sqrt{3}x + C_4\sin\sqrt{3}x\right) \)</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="ex-group">
+    <h2 class="ex-req"><span class="ex-bignum">2.</span>求特解</h2>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(1)</span><span class="ex-qmath">\(\displaystyle \frac{d^{2}s}{dt^{2}}+3\frac{ds}{dt}+2s=0, 当 t=0 时, s=0, \frac{ds}{dt}=1\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程为 \(r^2 + 3r + 2 = 0\)</div>
+        <div class="ex-step">因式分解得 \((r+1)(r+2) = 0\)</div>
+        <div class="ex-step">解得特征根 \(r_1 = -1\), \(r_2 = -2\)</div>
+        <div class="ex-step">通解为 \(s = C_1 e^{-t} + C_2 e^{-2t}\)</div>
+        <div class="ex-step">求导得 \(\frac{ds}{dt} = -C_1 e^{-t} - 2C_2 e^{-2t}\)</div>
+        <div class="ex-step">代入初始条件 \(s(0) = 0\): \(C_1 + C_2 = 0\)</div>
+        <div class="ex-step">代入初始条件 \(\frac{ds}{dt}\big|_{t=0} = 1\): \(-C_1 - 2C_2 = 1\)</div>
+        <div class="ex-step">由 \(C_1 + C_2 = 0\) 得 \(C_1 = -C_2\)</div>
+        <div class="ex-step">代入 \(-C_1 - 2C_2 = 1\): \(-(-C_2) - 2C_2 = 1\), 即 \(C_2 - 2C_2 = 1\)</div>
+        <div class="ex-step">解得 \(-C_2 = 1\), 故 \(C_2 = -1\), \(C_1 = 1\)</div>
+        <div class="ex-step">特解为 \(s = e^{-t} - e^{-2t}\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(s = e^{-t} - e^{-2t}\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(2)</span><span class="ex-qmath">\(\displaystyle \frac{d^{2}x}{dt^{2}}+n^{2}x=0, 当 t=0 时, x=a, \frac{dx}{dt}=0\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程为 \(r^2 + n^2 = 0\)</div>
+        <div class="ex-step">解得 \(r = \pm ni\)</div>
+        <div class="ex-step">通解为 \(x = C_1 \cos nt + C_2 \sin nt\)</div>
+        <div class="ex-step">求导得 \(\frac{dx}{dt} = -nC_1 \sin nt + nC_2 \cos nt\)</div>
+        <div class="ex-step">代入 \(t = 0\), \(x = a\): \(C_1 \cos 0 + C_2 \sin 0 = a\), 即 \(C_1 = a\)</div>
+        <div class="ex-step">代入 \(t = 0\), \(\frac{dx}{dt} = 0\): \(-nC_1 \sin 0 + nC_2 \cos 0 = 0\), 即 \(nC_2 = 0\), 故 \(C_2 = 0\)</div>
+        <div class="ex-step">特解为 \(x = a \cos nt\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(x = a \cos nt\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(3)</span><span class="ex-qmath">\(\displaystyle \frac{d^{2}x}{dt^{2}}-n^{2}x=0, 当 t=0 时, x=2, \frac{dx}{dt}=0\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程为 \[r^{2}-n^{2}=0\]</div>
+        <div class="ex-step">解得 \[r_{1}=n,\quad r_{2}=-n\]</div>
+        <div class="ex-step">通解为 \[x(t)=C_{1}e^{nt}+C_{2}e^{-nt}\]</div>
+        <div class="ex-step">求导得 \[\frac{dx}{dt}=nC_{1}e^{nt}-nC_{2}e^{-nt}\]</div>
+        <div class="ex-step">代入初始条件 \(t=0\), \(x=2\): \[C_{1}+C_{2}=2\]</div>
+        <div class="ex-step">代入初始条件 \(t=0\), \(\frac{dx}{dt}=0\): \[nC_{1}-nC_{2}=0\] 即 \[C_{1}-C_{2}=0\]</div>
+        <div class="ex-step">联立解得 \[C_{1}=1,\quad C_{2}=1\]</div>
+        <div class="ex-step">特解为 \[x(t)=e^{nt}+e^{-nt}=2\cosh(nt)\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[x(t)=e^{nt}+e^{-nt}\] 或等价地 \[x(t)=2\cosh(nt)\]</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(4)</span><span class="ex-qmath">\(\displaystyle \frac{d^{2}x}{dt^{2}}-a\frac{dx}{dt}=0, 当 t=0 时, x=0, \frac{dx}{dt}=a\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程为 \[r^{2}-ar=0\]</div>
+        <div class="ex-step">解得 \[r(r-a)=0,\quad r_{1}=0,\quad r_{2}=a\]</div>
+        <div class="ex-step">通解为 \[x=C_{1}+C_{2}e^{at}\]</div>
+        <div class="ex-step">求导得 \[\frac{dx}{dt}=C_{2}ae^{at}\]</div>
+        <div class="ex-step">代入初始条件 \(t=0,\ x=0\)： \[C_{1}+C_{2}=0\]</div>
+        <div class="ex-step">代入初始条件 \(t=0,\ \frac{dx}{dt}=a\)： \[C_{2}a=a,\quad C_{2}=1\]</div>
+        <div class="ex-step">由 \(C_{1}+C_{2}=0\) 得 \[C_{1}=-1\]</div>
+        <div class="ex-step">特解为 \[x=-1+e^{at}\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[x=e^{at}-1\]</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(5)</span><span class="ex-qmath">\(\displaystyle \frac{d^{2}s}{dt^{2}}+8\frac{ds}{dt}+25s=0, 当 t=0 时, s=4, \frac{ds}{dt}=-16\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程为 \[r^{2}+8r+25=0\]</div>
+        <div class="ex-step">解得 \[r=\frac{-8\pm\sqrt{64-100}}{2}=\frac{-8\pm\sqrt{-36}}{2}=\frac{-8\pm 6i}{2}=-4\pm 3i\]</div>
+        <div class="ex-step">通解为 \[s=e^{-4t}\left(C_{1}\cos 3t+C_{2}\sin 3t\right)\]</div>
+        <div class="ex-step">求导得 \[\frac{ds}{dt}=-4e^{-4t}\left(C_{1}\cos 3t+C_{2}\sin 3t\right)+e^{-4t}\left(-3C_{1}\sin 3t+3C_{2}\cos 3t\right)\] \[=e^{-4t}\left[\left(-4C_{1}+3C_{2}\right)\cos 3t+\left(-4C_{2}-3C_{1}\right)\sin 3t\right]\]</div>
+        <div class="ex-step">代入 \(t=0\), \(s=4\): \[e^{0}\left(C_{1}\cos 0+C_{2}\sin 0\right)=C_{1}=4\]</div>
+        <div class="ex-step">代入 \(t=0\), \(\frac{ds}{dt}=-16\): \[e^{0}\left[\left(-4C_{1}+3C_{2}\right)\cos 0+\left(-4C_{2}-3C_{1}\right)\sin 0\right]=-4C_{1}+3C_{2}=-16\]</div>
+        <div class="ex-step">将 \(C_{1}=4\) 代入 \(-4\times 4+3C_{2}=-16\), 得 \[-16+3C_{2}=-16\], \[3C_{2}=0\], \[C_{2}=0\]</div>
+        <div class="ex-step">特解为 \[s=4e^{-4t}\cos 3t\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\[s=4e^{-4t}\cos 3t\]</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(6)</span><span class="ex-qmath">\(\displaystyle \frac{d^{2}x}{dt^{2}}-6\frac{dx}{dt}+10x=0, 当 t=0 时, x=1, \frac{dx}{dt}=4\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程为 \(r^2 - 6r + 10 = 0\)</div>
+        <div class="ex-step">解得 \(r = \frac{6 \pm \sqrt{36-40}}{2} = \frac{6 \pm \sqrt{-4}}{2} = \frac{6 \pm 2i}{2} = 3 \pm i\)</div>
+        <div class="ex-step">通解为 \(x = e^{3t}(C_1 \cos t + C_2 \sin t)\)</div>
+        <div class="ex-step">求导得 \(\frac{dx}{dt} = 3e^{3t}(C_1 \cos t + C_2 \sin t) + e^{3t}(-C_1 \sin t + C_2 \cos t) = e^{3t}[(3C_1+C_2)\cos t + (3C_2-C_1)\sin t]\)</div>
+        <div class="ex-step">代入初值 \(t=0, x=1\): \(e^{0}(C_1 \cos 0 + C_2 \sin 0) = C_1 = 1\)</div>
+        <div class="ex-step">代入初值 \(t=0, \frac{dx}{dt}=4\): \(e^{0}[(3C_1+C_2)\cos 0 + (3C_2-C_1)\sin 0] = 3C_1 + C_2 = 4\)</div>
+        <div class="ex-step">由 \(C_1 = 1\) 得 \(3 \times 1 + C_2 = 4\), 故 \(C_2 = 1\)</div>
+        <div class="ex-step">特解为 \(x = e^{3t}(\cos t + \sin t)\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(x = e^{3t}(\cos t + \sin t)\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(7)</span><span class="ex-qmath">\(\displaystyle 2y''+3y=2\sqrt{6}\ y', y\big|_{x=0}=0, y'\big|_{x=0}=1\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">方程化为标准形式：\(2y'' - 2\sqrt{6}y' + 3y = 0\)</div>
+        <div class="ex-step">特征方程：\(2r^2 - 2\sqrt{6}r + 3 = 0\)</div>
+        <div class="ex-step">求根：\[r = \frac{2\sqrt{6} \pm \sqrt{24 - 24}}{4} = \frac{2\sqrt{6}}{4} = \frac{\sqrt{6}}{2}\]</div>
+        <div class="ex-step">重根 \(r = \frac{\sqrt{6}}{2}\)，通解为：\[y = (C_1 + C_2 x)e^{\frac{\sqrt{6}}{2}x}\]</div>
+        <div class="ex-step">求导：\[y' = C_2 e^{\frac{\sqrt{6}}{2}x} + (C_1 + C_2 x)\frac{\sqrt{6}}{2}e^{\frac{\sqrt{6}}{2}x} = \left(C_2 + \frac{\sqrt{6}}{2}C_1 + \frac{\sqrt{6}}{2}C_2 x\right)e^{\frac{\sqrt{6}}{2}x}\]</div>
+        <div class="ex-step">代入 \(y(0) = 0\)：\(C_1 = 0\)</div>
+        <div class="ex-step">代入 \(y'(0) = 1\)：\(C_2 + \frac{\sqrt{6}}{2} \cdot 0 = 1\)，即 \(C_2 = 1\)</div>
+        <div class="ex-step">特解为：\[y = xe^{\frac{\sqrt{6}}{2}x}\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y = xe^{\frac{\sqrt{6}}{2}x}\)</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="ex-group">
+    <h2 class="ex-req"><span class="ex-bignum">3.</span>求通解</h2>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(1)</span><span class="ex-qmath">\(\displaystyle y''+y=ae^{2x}\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程为 \(r^2+1=0\)，解得 \(r=\pm i\)</div>
+        <div class="ex-step">齐次通解为 \(y_h=C_1\cos x+C_2\sin x\)</div>
+        <div class="ex-step">设特解形式为 \(y_p=be^{2x}\)</div>
+        <div class="ex-step">代入方程：\(y_p'=2be^{2x}\)，\(y_p''=4be^{2x}\)</div>
+        <div class="ex-step">\(4be^{2x}+be^{2x}=ae^{2x}\)</div>
+        <div class="ex-step">\(5b=a\)，得 \(b=\frac{a}{5}\)</div>
+        <div class="ex-step">特解为 \(y_p=\frac{a}{5}e^{2x}\)</div>
+        <div class="ex-step">通解为 \(y=y_h+y_p=C_1\cos x+C_2\sin x+\frac{a}{5}e^{2x}\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y=C_1\cos x+C_2\sin x+\frac{a}{5}e^{2x}\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(2)</span><span class="ex-qmath">\(\displaystyle y''+y=4\cos x\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">求齐次方程 \(y''+y=0\) 的通解。特征方程为 \(r^2+1=0\)，解得 \(r=\pm i\)。齐次通解为 \(y_h=C_1\cos x+C_2\sin x\)。</div>
+        <div class="ex-step">求非齐次方程的特解。由于右端 \(4\cos x\) 与齐次解中的 \(\cos x\) 共振，设特解形式为 \(y_p=Ax\cos x+Bx\sin x\)。</div>
+        <div class="ex-step">计算 \(y_p'\)：</div>
+        <div class="ex-step">计算 \(y_p''\)：</div>
+        <div class="ex-step">代入方程 \(y_p''+y_p=4\cos x\)：</div>
+        <div class="ex-step">\[整理得：\]</div>
+        <div class="ex-step">比较系数：\(2B=4\)，\(-2A=0\)，解得 \(A=0\)，\(B=2\)。</div>
+        <div class="ex-step">特解为 \(y_p=2x\sin x\)。</div>
+        <div class="ex-step">通解为 \(y=y_h+y_p=C_1\cos x+C_2\sin x+2x\sin x\)。</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y=C_1\cos x+C_2\sin x+2x\sin x\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(3)</span><span class="ex-qmath">\(\displaystyle y''+y=4\sin 2x\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">求齐次方程 \( y''+y=0 \) 的通解。特征方程为 \( r^2+1=0 \)，解得 \( r=\pm i \)。齐次通解为 \( y_h=C_1\cos x+C_2\sin x \)。</div>
+        <div class="ex-step">设非齐次方程特解。由于右端为 \( 4\sin 2x \)，而 \( 2i \) 不是特征根，设 \( y_p=A\cos 2x+B\sin 2x \)。</div>
+        <div class="ex-step">计算导数：\( y_p'=-2A\sin 2x+2B\cos 2x \)，\( y_p''=-4A\cos 2x-4B\sin 2x \)。</div>
+        <div class="ex-step">代入方程 \( y_p''+y_p=4\sin 2x \)：</div>
+        <div class="ex-step">比较系数：\( -3A=0 \)，\( -3B=4 \)。解得 \( A=0 \)，\( B=-\frac{4}{3} \)。</div>
+        <div class="ex-step">特解为 \( y_p=-\frac{4}{3}\sin 2x \)。</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>通解为 \( y=C_1\cos x+C_2\sin x-\frac{4}{3}\sin 2x \)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(4)</span><span class="ex-qmath">\(\displaystyle y''+9y=5x^{2}\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">齐次方程 \(y''+9y=0\) 的特征方程为 \[r^2+9=0\]</div>
+        <div class="ex-step">解得 \[r=\pm 3i\]</div>
+        <div class="ex-step">齐次通解为 \[Y=C_1\cos 3x+C_2\sin 3x\]</div>
+        <div class="ex-step">设特解形式为 \[y^*=ax^2+bx+c\]</div>
+        <div class="ex-step">求导得 \[y^{*'}=2ax+b,\quad y^{*''}=2a\]</div>
+        <div class="ex-step">代入原方程：\[2a+9(ax^2+bx+c)=5x^2\]</div>
+        <div class="ex-step">整理得 \[9ax^2+9bx+(2a+9c)=5x^2\]</div>
+        <div class="ex-step">比较系数：\[9a=5,\quad 9b=0,\quad 2a+9c=0\]</div>
+        <div class="ex-step">解得 \[a=\frac{5}{9},\quad b=0,\quad c=-\frac{10}{81}\]</div>
+        <div class="ex-step">特解为 \[y^*=\frac{5}{9}x^2-\frac{10}{81}\]</div>
+        <div class="ex-step">通解为 \[y=C_1\cos 3x+C_2\sin 3x+\frac{5}{9}x^2-\frac{10}{81}\]</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y=C_1\cos 3x+C_2\sin 3x+\frac{5}{9}x^2-\frac{10}{81}\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(5)</span><span class="ex-qmath">\(\displaystyle y''-7y'+6y=\sin x\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程为 \(r^2-7r+6=0\)，即 \((r-1)(r-6)=0\)，得 \(r_1=1, r_2=6\)</div>
+        <div class="ex-step">齐次通解为 \(Y=C_1e^x+C_2e^{6x}\)</div>
+        <div class="ex-step">设特解 \(y^*=A\cos x+B\sin x\)</div>
+        <div class="ex-step">则 \(y^{*'}=-A\sin x+B\cos x\)，\(y^{*''}=-A\cos x-B\sin x\)</div>
+        <div class="ex-step">代入原方程：\((-A\cos x-B\sin x)-7(-A\sin x+B\cos x)+6(A\cos x+B\sin x)=\sin x\)</div>
+        <div class="ex-step">整理：\((-A-7B+6A)\cos x+(-B+7A+6B)\sin x=\sin x\)</div>
+        <div class="ex-step">即 \((5A-7B)\cos x+(7A+5B)\sin x=\sin x\)</div>
+        <div class="ex-step">比较系数：\(\begin{cases}5A-7B=0\\7A+5B=1\end{cases}\)</div>
+        <div class="ex-step">由第一式 \(A=\frac{7B}{5}\)，代入第二式：\(7\cdot\frac{7B}{5}+5B=1\)，即 \(\frac{49B+25B}{5}=1\)，\(\frac{74B}{5}=1\)</div>
+        <div class="ex-step">得 \(B=\frac{5}{74}\)，\(A=\frac{7}{5}\cdot\frac{5}{74}=\frac{7}{74}\)</div>
+        <div class="ex-step">特解为 \(y^*=\frac{7}{74}\cos x+\frac{5}{74}\sin x\)</div>
+        <div class="ex-step">通解为 \(y=C_1e^x+C_2e^{6x}+\frac{7}{74}\cos x+\frac{5}{74}\sin x\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y=C_1e^x+C_2e^{6x}+\frac{7}{74}\cos x+\frac{5}{74}\sin x\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(6)</span><span class="ex-qmath">\(\displaystyle 2y''+5y'=5x^{2}-2x-1\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">对应齐次方程为 \(2y''+5y'=0\)，特征方程为 \(2r^2+5r=0\)</div>
+        <div class="ex-step">解得 \(r(2r+5)=0\)，即 \(r_1=0\)，\(r_2=-\frac{5}{2}\)</div>
+        <div class="ex-step">齐次通解为 \(Y=C_1+C_2e^{-\frac{5}{2}x}\)</div>
+        <div class="ex-step">设特解形式为 \(y^*=x(Ax^2+Bx+C)=Ax^3+Bx^2+Cx\)（因 \(r=0\) 为单根，需乘 \(x\)）</div>
+        <div class="ex-step">计算导数：\(y^{*'}=3Ax^2+2Bx+C\)，\(y^{*''}=6Ax+2B\)</div>
+        <div class="ex-step">代入原方程：\(2(6Ax+2B)+5(3Ax^2+2Bx+C)=5x^2-2x-1\)</div>
+        <div class="ex-step">展开得 \(15Ax^2+(12A+10B)x+(4B+5C)=5x^2-2x-1\)</div>
+        <div class="ex-step">比较系数：\(15A=5\)，得 \(A=\frac{1}{3}\)</div>
+        <div class="ex-step">\(12A+10B=-2\)，即 \(12\cdot\frac{1}{3}+10B=-2\)，\(4+10B=-2\)，得 \(B=-\frac{3}{5}\)</div>
+        <div class="ex-step">\(4B+5C=-1\)，即 \(4\cdot(-\frac{3}{5})+5C=-1\)，\(-\frac{12}{5}+5C=-1\)，\(5C=\frac{7}{5}\)，得 \(C=\frac{7}{25}\)</div>
+        <div class="ex-step">特解为 \(y^*=\frac{1}{3}x^3-\frac{3}{5}x^2+\frac{7}{25}x\)</div>
+        <div class="ex-step">通解为 \(y=Y+y^*=C_1+C_2e^{-\frac{5}{2}x}+\frac{1}{3}x^3-\frac{3}{5}x^2+\frac{7}{25}x\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y=C_1+C_2e^{-\frac{5}{2}x}+\frac{1}{3}x^3-\frac{3}{5}x^2+\frac{7}{25}x\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(7)</span><span class="ex-qmath">\(\displaystyle y''+3y'+2y=e^{-x}\cos x\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程 \(r^2+3r+2=0\)，解得 \((r+1)(r+2)=0\)，\(r_1=-1\)，\(r_2=-2\)</div>
+        <div class="ex-step">齐次通解 \(y_h=C_1e^{-x}+C_2e^{-2x}\)</div>
+        <div class="ex-step">设特解形式 \(y^*=e^{-x}(A\cos x+B\sin x)\)</div>
+        <div class="ex-step">求导得 \(y^{*'}=e^{-x}[-A\cos x-B\sin x-A\sin x+B\cos x]=e^{-x}[(B-A)\cos x+(-A-B)\sin x]\)</div>
+        <div class="ex-step">求导得 \(y^{*''}=e^{-x}[-(B-A)\cos x-(-A-B)\sin x-(B-A)\sin x+(-A-B)\cos x]=e^{-x}[(-B+A-A-B)\cos x+(A+B-B+A)\sin x]=e^{-x}[(-2B)\cos x+(2A)\sin x]\)</div>
+        <div class="ex-step">代入方程：\(y^{*''}+3y^{*'}+2y^*=e^{-x}\cos x\)</div>
+        <div class="ex-step">左边 \(=e^{-x}[(-2B)\cos x+2A\sin x+3(B-A)\cos x+3(-A-B)\sin x+2A\cos x+2B\sin x]\)</div>
+        <div class="ex-step">合并 \(\cos x\) 系数：\(-2B+3B-3A+2A=B-A\)</div>
+        <div class="ex-step">合并 \(\sin x\) 系数：\(2A-3A-3B+2B=-A-B\)</div>
+        <div class="ex-step">得方程组 \(\begin{cases} B-A=1 \\ -A-B=0 \end{cases}\)</div>
+        <div class="ex-step">由第二式 \(B=-A\)，代入第一式：\(-A-A=1\)，\(-2A=1\)，\(A=-\frac{1}{2}\)</div>
+        <div class="ex-step">\(B=-A=\frac{1}{2}\)</div>
+        <div class="ex-step">特解 \(y^*=e^{-x}\left(-\frac{1}{2}\cos x+\frac{1}{2}\sin x\right)=\frac{1}{2}e^{-x}(\sin x-\cos x)\)</div>
+        <div class="ex-step">通解 \(y=C_1e^{-x}+C_2e^{-2x}+\frac{1}{2}e^{-x}(\sin x-\cos x)\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y=C_1e^{-x}+C_2e^{-2x}+\frac{1}{2}e^{-x}(\sin x-\cos x)\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(8)</span><span class="ex-qmath">\(\displaystyle y''-6y'+9y=e^{3x}\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程为 \(r^2-6r+9=0\)，即 \((r-3)^2=0\)，得 \(r_1=r_2=3\)</div>
+        <div class="ex-step">齐次通解为 \(Y=(C_1+C_2x)e^{3x}\)</div>
+        <div class="ex-step">设特解 \(y^*=Ax^2e^{3x}\)（因 \(\lambda=3\) 是二重特征根）</div>
+        <div class="ex-step">计算 \(y^{*'}=2Axe^{3x}+3Ax^2e^{3x}=Ae^{3x}(2x+3x^2)\)</div>
+        <div class="ex-step">计算 \(y^{*''}=Ae^{3x}(2+6x)+3Ae^{3x}(2x+3x^2)=Ae^{3x}(2+12x+9x^2)\)</div>
+        <div class="ex-step">代入方程：\(Ae^{3x}(2+12x+9x^2)-6Ae^{3x}(2x+3x^2)+9Ax^2e^{3x}=e^{3x}\)</div>
+        <div class="ex-step">整理左边：\(Ae^{3x}[2+12x+9x^2-12x-18x^2+9x^2]=2Ae^{3x}\)</div>
+        <div class="ex-step">比较得 \(2A=1\)，即 \(A=\frac{1}{2}\)</div>
+        <div class="ex-step">特解为 \(y^*=\frac{1}{2}x^2e^{3x}\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y=(C_1+C_2x)e^{3x}+\frac{1}{2}x^2e^{3x}\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(9)</span><span class="ex-qmath">\(\displaystyle y''-8y'+16y=x+e^{4x}\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程为 \(r^2-8r+16=0\)，即 \((r-4)^2=0\)，得 \(r_1=r_2=4\)</div>
+        <div class="ex-step">齐次通解为 \(Y=(C_1+C_2x)e^{4x}\)</div>
+        <div class="ex-step">设特解 \(y^*=y_1^*+y_2^*\)，其中 \(y_1^*\) 对应 \(f_1(x)=x\)，\(y_2^*\) 对应 \(f_2(x)=e^{4x}\)</div>
+        <div class="ex-step">对 \(y_1^*\)：设 \(y_1^*=ax+b\)，则 \(y_1^{*'}=a\)，\(y_1^{*''}=0\)</div>
+        <div class="ex-step">代入方程：\(0-8a+16(ax+b)=x\)，即 \(16ax+(16b-8a)=x\)</div>
+        <div class="ex-step">比较系数：\(16a=1\)，\(16b-8a=0\)，解得 \(a=\frac{1}{16}\)，\(b=\frac{1}{32}\)</div>
+        <div class="ex-step">故 \(y_1^*=\frac{1}{16}x+\frac{1}{32}\)</div>
+        <div class="ex-step">对 \(y_2^*\)：因 \(\lambda=4\) 是二重特征根，设 \(y_2^*=Ax^2e^{4x}\)</div>
+        <div class="ex-step">求导：\(y_2^{*'}=A(2x+4x^2)e^{4x}=2Ax(1+2x)e^{4x}\)，即 \(y_2^{*'}=(2Ax+4Ax^2)e^{4x}\)</div>
+        <div class="ex-step">\(y_2^{*''}=(2A+8Ax)e^{4x}+(2Ax+4Ax^2)\cdot 4e^{4x}=(2A+16Ax+16Ax^2)e^{4x}\)</div>
+        <div class="ex-step">代入方程：\((2A+16Ax+16Ax^2)e^{4x}-8(2Ax+4Ax^2)e^{4x}+16Ax^2e^{4x}=e^{4x}\)</div>
+        <div class="ex-step">整理：\([2A+16Ax+16Ax^2-16Ax-32Ax^2+16Ax^2]e^{4x}=e^{4x}\)</div>
+        <div class="ex-step">即 \(2Ae^{4x}=e^{4x}\)，故 \(2A=1\)，\(A=\frac{1}{2}\)</div>
+        <div class="ex-step">故 \(y_2^*=\frac{1}{2}x^2e^{4x}\)</div>
+        <div class="ex-step">通解为 \(y=Y+y_1^*+y_2^*=(C_1+C_2x)e^{4x}+\frac{1}{16}x+\frac{1}{32}+\frac{1}{2}x^2e^{4x}\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y=(C_1+C_2x+\frac{1}{2}x^2)e^{4x}+\frac{1}{16}x+\frac{1}{32}\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(10)</span><span class="ex-qmath">\(\displaystyle y''+y=x^{2}+\cos x\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">求齐次方程 \(y''+y=0\) 的通解。特征方程为 \(r^2+1=0\)，解得 \(r=\pm i\)。齐次通解为 \(y_h=C_1\cos x+C_2\sin x\)。</div>
+        <div class="ex-step">求非齐次方程 \(y''+y=x^2\) 的特解。设 \(y_{p1}=ax^2+bx+c\)，则 \(y_{p1}'=2ax+b\)，\(y_{p1}''=2a\)。代入得 \(2a+ax^2+bx+c=x^2\)，即 \(ax^2+bx+(2a+c)=x^2\)。比较系数：\(a=1\)，\(b=0\)，\(2a+c=0\) 得 \(c=-2\)。故 \(y_{p1}=x^2-2\)。</div>
+        <div class="ex-step">求非齐次方程 \(y''+y=\cos x\) 的特解。由于 \(\cos x\) 对应特征根，设 \(y_{p2}=x(A\cos x+B\sin x)\)。则</div>
+        <div class="ex-step">代入 \(y_{p2}''+y_{p2}=\cos x\)：</div>
+        <div class="ex-step">由叠加原理，原方程特解为 \(y_p=y_{p1}+y_{p2}=x^2-2+\frac{x}{2}\sin x\)。</div>
+        <div class="ex-step">通解为 \(y=y_h+y_p=C_1\cos x+C_2\sin x+x^2-2+\frac{x}{2}\sin x\)。</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y=C_1\cos x+C_2\sin x+x^2-2+\frac{x}{2}\sin x\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(11)</span><span class="ex-qmath">\(\displaystyle y''+2y=x^{2}+\cos 3x\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程 \(r^{2}+2=0\)，解得 \(r=\pm\sqrt{2}\mathrm{i}\)</div>
+        <div class="ex-step">齐次通解 \(y_{h}=C_{1}\cos\sqrt{2}x+C_{2}\sin\sqrt{2}x\)</div>
+        <div class="ex-step">设特解 \(y_{p}=ax^{2}+bx+c+d\cos 3x+e\sin 3x\)</div>
+        <div class="ex-step">代入 \(y''+2y=x^{2}+\cos 3x\)</div>
+        <div class="ex-step">\(y_{p}'=2ax+b-3d\sin 3x+3e\cos 3x\)</div>
+        <div class="ex-step">\(y_{p}''=2a-9d\cos 3x-9e\sin 3x\)</div>
+        <div class="ex-step">\(y_{p}''+2y_{p}=2a+2ax^{2}+2bx+2c-9d\cos 3x-9e\sin 3x+2d\cos 3x+2e\sin 3x\)</div>
+        <div class="ex-step">\(=2ax^{2}+2bx+(2a+2c)+(2d-9d)\cos 3x+(2e-9e)\sin 3x\)</div>
+        <div class="ex-step">\(=2ax^{2}+2bx+(2a+2c)-7d\cos 3x-7e\sin 3x=x^{2}+\cos 3x\)</div>
+        <div class="ex-step">比较系数：\(2a=1\)，\(a=\frac{1}{2}\)</div>
+        <div class="ex-step">\(2b=0\)，\(b=0\)</div>
+        <div class="ex-step">\(2a+2c=0\)，\(2\cdot\frac{1}{2}+2c=0\)，\(1+2c=0\)，\(c=-\frac{1}{2}\)</div>
+        <div class="ex-step">\(-7d=1\)，\(d=-\frac{1}{7}\)</div>
+        <div class="ex-step">\(-7e=0\)，\(e=0\)</div>
+        <div class="ex-step">特解 \(y_{p}=\frac{1}{2}x^{2}-\frac{1}{2}-\frac{1}{7}\cos 3x\)</div>
+        <div class="ex-step">通解 \(y=C_{1}\cos\sqrt{2}x+C_{2}\sin\sqrt{2}x+\frac{1}{2}x^{2}-\frac{1}{2}-\frac{1}{7}\cos 3x\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y=C_{1}\cos\sqrt{2}x+C_{2}\sin\sqrt{2}x+\frac{1}{2}x^{2}-\frac{1}{7}\cos 3x-\frac{1}{2}\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(12)</span><span class="ex-qmath">\(\displaystyle y''+3y'+2y=3xe^{-x}\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程为 \(r^2+3r+2=0\)，即 \((r+1)(r+2)=0\)，得 \(r_1=-1\)，\(r_2=-2\)</div>
+        <div class="ex-step">齐次通解为 \(Y=C_1e^{-x}+C_2e^{-2x}\)</div>
+        <div class="ex-step">非齐次项 \(f(x)=3xe^{-x}\)，\(\lambda=-1\) 是单特征根，设特解 \(y^*=x(ax+b)e^{-x}=(ax^2+bx)e^{-x}\)</div>
+        <div class="ex-step">求导得 \(y^{*'}=(2ax+b)e^{-x}-(ax^2+bx)e^{-x}=[-ax^2+(2a-b)x+b]e^{-x}\)</div>
+        <div class="ex-step">求导得 \(y^{*''}=[-2ax+(2a-b)]e^{-x}-[-ax^2+(2a-b)x+b]e^{-x}=[ax^2+(-4a+b)x+(2a-2b)]e^{-x}\)</div>
+        <div class="ex-step">代入方程 \(y^{*''}+3y^{*'}+2y^*=3xe^{-x}\)，左边为</div>
+        <div class="ex-step">比较系数：\(2a=3\)，\(2a+b=0\)，解得 \(a=\frac{3}{2}\)，\(b=-3\)</div>
+        <div class="ex-step">特解为 \(y^*=\left(\frac{3}{2}x^2-3x\right)e^{-x}\)</div>
+        <div class="ex-step">通解为 \(y=C_1e^{-x}+C_2e^{-2x}+\left(\frac{3}{2}x^2-3x\right)e^{-x}\)，即 \(y=\left(C_1+\frac{3}{2}x^2-3x\right)e^{-x}+C_2e^{-2x}\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y=\left(\frac{3}{2}x^2-3x+C_1\right)e^{-x}+C_2e^{-2x}\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(13)</span><span class="ex-qmath">\(\displaystyle y''+4y=2x\cos^{2}x\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">齐次方程 \(y''+4y=0\)，特征方程 \(r^2+4=0\)，得 \(r=\pm 2i\)</div>
+        <div class="ex-step">齐次通解 \(y_h=C_1\cos 2x+C_2\sin 2x\)</div>
+        <div class="ex-step">化简非齐次项：\(2x\cos^2 x = 2x\cdot\frac{1+\cos 2x}{2}=x+x\cos 2x\)</div>
+        <div class="ex-step">方程分解为 \(y''+4y=x\) 与 \(y''+4y=x\cos 2x\)</div>
+        <div class="ex-step">对 \(y''+4y=x\)，设特解 \(y_{p1}=ax+b\)，代入得 \(4(ax+b)=x\)，即 \(4a=1, 4b=0\)</div>
+        <div class="ex-step">解得 \(a=\frac{1}{4}, b=0\)，故 \(y_{p1}=\frac{x}{4}\)</div>
+        <div class="ex-step">对 \(y''+4y=x\cos 2x\)，因 \(\pm 2i\) 是特征根，设特解 \(y_{p2}=x[(Ax+B)\cos 2x+(Cx+D)\sin 2x]\)</div>
+        <div class="ex-step">计算 \(y_{p2}'=(Ax+B)\cos 2x+(Cx+D)\sin 2x+x[(2Cx+2D+A)\cos 2x+(-2Ax-2B+C)\sin 2x]\)</div>
+        <div class="ex-step">整理 \(y_{p2}'=[Ax+B+x(2Cx+2D+A)]\cos 2x+[Cx+D+x(-2Ax-2B+C)]\sin 2x\)</div>
+        <div class="ex-step">即 \(y_{p2}'=[(2C)x^2+(A+2D)x+B]\cos 2x+[(-2A)x^2+(C-2B)x+D]\sin 2x\)</div>
+        <div class="ex-step">计算 \(y_{p2}''\)，对 \(\cos 2x\) 系数求导：\((4Cx+A+2D)\cos 2x-2[(2C)x^2+(A+2D)x+B]\sin 2x\)</div>
+        <div class="ex-step">对 \(\sin 2x\) 系数求导：\((-4Ax+C-2B)\sin 2x+2[(-2A)x^2+(C-2B)x+D]\cos 2x\)</div>
+        <div class="ex-step">合并 \(\cos 2x\) 系数：\(4Cx+A+2D+2(-2A)x^2+2(C-2B)x+2D=-4Ax^2+(4C+2C-4B)x+A+2D+2D\)</div>
+        <div class="ex-step">即 \(-4Ax^2+(6C-4B)x+A+4D\)</div>
+        <div class="ex-step">合并 \(\sin 2x\) 系数：\(-4Cx-2A-4D-4Cx^2+(2C-4B)x+2D=-4Cx^2+(-4C+2C-4B)x-2A-2D\)</div>
+        <div class="ex-step">即 \(-4Cx^2+(-2C-4B)x-2A-2D\)</div>
+        <div class="ex-step">代入 \(y_{p2}''+4y_{p2}=x\cos 2x\)</div>
+        <div class="ex-step">\(y_{p2}''+4y_{p2}\) 中 \(\cos 2x\) 部分：\(-4Ax^2+(6C-4B)x+A+4D+4x(Ax+B)=-4Ax^2+(6C-4B)x+A+4D+4Ax^2+4Bx=(6C)x+A+4D\)</div>
+        <div class="ex-step">\(\sin 2x\) 部分：\(-4Cx^2+(-2C-4B)x-2A-2D+4x(Cx+D)=-4Cx^2+(-2C-4B)x-2A-2D+4Cx^2+4Dx=(-2C-4B+4D)x-2A-2D\)</div>
+        <div class="ex-step">需要 \(6C=1, A+4D=0, -2C-4B+4D=0, -2A-2D=0\)</div>
+        <div class="ex-step">由 \(-2A-2D=0\) 得 \(D=-A\)，代入 \(A+4D=0\)：\(A-4A=0\)，即 \(A=0\)，则 \(D=0\)</div>
+        <div class="ex-step">由 \(6C=1\) 得 \(C=\frac{1}{6}\)</div>
+        <div class="ex-step">由 \(-2C-4B+4D=0\)：\(-\frac{1}{3}-4B=0\)，得 \(B=-\frac{1}{12}\)</div>
+        <div class="ex-step">故 \(y_{p2}=x\left[\left(-\frac{1}{12}\right)\cos 2x+\frac{x}{6}\sin 2x\right]=-\frac{x}{12}\cos 2x+\frac{x^2}{6}\sin 2x\)</div>
+        <div class="ex-step">通解 \(y=y_h+y_{p1}+y_{p2}=C_1\cos 2x+C_2\sin 2x+\frac{x}{4}-\frac{x}{12}\cos 2x+\frac{x^2}{6}\sin 2x\)</div>
+        <div class="ex-step">整理得 \(y=\left(C_1-\frac{x}{12}\right)\cos 2x+\left(C_2+\frac{x^2}{6}\right)\sin 2x+\frac{x}{4}\)</div>
+        <div class="ex-step">或写为 \(y=C_1\cos 2x+C_2\sin 2x+\frac{x}{4}+\frac{x^2}{6}\sin 2x-\frac{x}{12}\cos 2x\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y=C_1\cos 2x+C_2\sin 2x+\frac{x}{4}+\frac{x^2}{6}\sin 2x-\frac{x}{12}\cos 2x\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(14)</span><span class="ex-qmath">\(\displaystyle y'''-3y''+4y=12x^{2}+48\cos x+14\sin x\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程为 \(r^3-3r^2+4=0\)</div>
+        <div class="ex-step">因式分解：\(r^3-3r^2+4=(r+1)(r^2-4r+4)=(r+1)(r-2)^2=0\)</div>
+        <div class="ex-step">特征根为 \(r_1=-1\), \(r_2=r_3=2\)</div>
+        <div class="ex-step">齐次通解为 \(y_h=C_1e^{-x}+(C_2+C_3x)e^{2x}\)</div>
+        <div class="ex-step">对 \(f_1(x)=12x^2\)，设特解 \(y_{p1}=ax^2+bx+c\)</div>
+        <div class="ex-step">\(y_{p1}'=2ax+b\), \(y_{p1}''=2a\), \(y_{p1}'''=0\)</div>
+        <div class="ex-step">代入方程：\(0-3(2a)+4(ax^2+bx+c)=12x^2\)</div>
+        <div class="ex-step">\(4ax^2+4bx+(4c-6a)=12x^2\)</div>
+        <div class="ex-step">\(4a=12\), \(4b=0\), \(4c-6a=0\)</div>
+        <div class="ex-step">\(a=3\), \(b=0\), \(c=\frac{9}{2}\)</div>
+        <div class="ex-step">\(y_{p1}=3x^2+\frac{9}{2}\)</div>
+        <div class="ex-step">对 \(f_2(x)=48\cos x+14\sin x\)，设特解 \(y_{p2}=A\cos x+B\sin x\)</div>
+        <div class="ex-step">\(y_{p2}'=-A\sin x+B\cos x\), \(y_{p2}''=-A\cos x-B\sin x\), \(y_{p2}'''=A\sin x-B\cos x\)</div>
+        <div class="ex-step">代入方程：\((A\sin x-B\cos x)-3(-A\cos x-B\sin x)+4(A\cos x+B\sin x)=48\cos x+14\sin x\)</div>
+        <div class="ex-step">\((A+3B+4B)\sin x+(-B+3A+4A)\cos x=48\cos x+14\sin x\)</div>
+        <div class="ex-step">\((A+7B)\sin x+(7A-B)\cos x=48\cos x+14\sin x\)</div>
+        <div class="ex-step">\(A+7B=14\), \(7A-B=48\)</div>
+        <div class="ex-step">由第二式：\(B=7A-48\)，代入第一式：\(A+7(7A-48)=14\)</div>
+        <div class="ex-step">\(A+49A-336=14\), \(50A=350\), \(A=7\)</div>
+        <div class="ex-step">\(B=7(7)-48=49-48=1\)</div>
+        <div class="ex-step">\(y_{p2}=7\cos x+\sin x\)</div>
+        <div class="ex-step">通解为 \(y=y_h+y_{p1}+y_{p2}\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y=C_1e^{-x}+(C_2+C_3x)e^{2x}+3x^2+\frac{9}{2}+7\cos x+\sin x\)</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="ex-group">
+    <h2 class="ex-req"><span class="ex-bignum">4.</span>求特解</h2>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(1)</span><span class="ex-qmath">\(\displaystyle \frac{d^{2}s}{dt^{2}}+9s=9e^{3t}, 当 t=0 时, s=1, \frac{ds}{dt}=\frac{3}{2}\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">解特征方程 \(r^2+9=0\)，得 \(r=\pm 3i\)</div>
+        <div class="ex-step">齐次通解为 \(s_h=C_1\cos 3t+C_2\sin 3t\)</div>
+        <div class="ex-step">设特解 \(s^*=Ae^{3t}\)，代入方程：\(9Ae^{3t}+9Ae^{3t}=9e^{3t}\)</div>
+        <div class="ex-step">由 \(18A=9\)，得 \(A=\frac{1}{2}\)</div>
+        <div class="ex-step">通解为 \(s=C_1\cos 3t+C_2\sin 3t+\frac{1}{2}e^{3t}\)</div>
+        <div class="ex-step">求导得 \(\frac{ds}{dt}=-3C_1\sin 3t+3C_2\cos 3t+\frac{3}{2}e^{3t}\)</div>
+        <div class="ex-step">代入初值 \(s(0)=1\)：\(C_1+\frac{1}{2}=1\)，得 \(C_1=\frac{1}{2}\)</div>
+        <div class="ex-step">代入初值 \(\frac{ds}{dt}\big|_{t=0}=\frac{3}{2}\)：\(3C_2+\frac{3}{2}=\frac{3}{2}\)，得 \(C_2=0\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(s=\frac{1}{2}\cos 3t+\frac{1}{2}e^{3t}\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(2)</span><span class="ex-qmath">\(\displaystyle \frac{d^{2}s}{dt^{2}}+9s=5\cos 2t, 当 t=0 时, s=1, \frac{ds}{dt}=3\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程为 \(r^2+9=0\)，解得 \(r=\pm 3i\)</div>
+        <div class="ex-step">齐次通解为 \(s_h=C_1\cos 3t+C_2\sin 3t\)</div>
+        <div class="ex-step">设特解 \(s_p=A\cos 2t+B\sin 2t\)，代入方程</div>
+        <div class="ex-step">\(s_p'=-2A\sin 2t+2B\cos 2t\)，\(s_p''=-4A\cos 2t-4B\sin 2t\)</div>
+        <div class="ex-step">\(-4A\cos 2t-4B\sin 2t+9A\cos 2t+9B\sin 2t=5\cos 2t\)</div>
+        <div class="ex-step">\(5A\cos 2t+5B\sin 2t=5\cos 2t\)，比较得 \(A=1\)，\(B=0\)</div>
+        <div class="ex-step">特解 \(s_p=\cos 2t\)，通解 \(s=C_1\cos 3t+C_2\sin 3t+\cos 2t\)</div>
+        <div class="ex-step">\(s'=-3C_1\sin 3t+3C_2\cos 3t-2\sin 2t\)</div>
+        <div class="ex-step">\(t=0\) 时 \(s=1\)：\(C_1\cos 0+C_2\sin 0+\cos 0=1\)，即 \(C_1+1=1\)，得 \(C_1=0\)</div>
+        <div class="ex-step">\(t=0\) 时 \(s'=3\)：\(-3C_1\sin 0+3C_2\cos 0-2\sin 0=3\)，即 \(3C_2=3\)，得 \(C_2=1\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(s=\sin 3t+\cos 2t\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(3)</span><span class="ex-qmath">\(\displaystyle \frac{d^{2}x}{dt^{2}}-2\frac{dx}{dt}-3x=2t+1, 当 t=0 时, x=\frac{1}{3}, \frac{dx}{dt}=-\frac{4}{9}\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程 \(r^2-2r-3=0\)，即 \((r-3)(r+1)=0\)，得 \(r_1=3, r_2=-1\)</div>
+        <div class="ex-step">齐次通解 \(x_h=C_1e^{3t}+C_2e^{-t}\)</div>
+        <div class="ex-step">设特解 \(x_p=at+b\)，则 \(\frac{dx_p}{dt}=a\)，\(\frac{d^2x_p}{dt^2}=0\)</div>
+        <div class="ex-step">代入方程：\(0-2a-3(at+b)=2t+1\)，即 \(-3at+(-2a-3b)=2t+1\)</div>
+        <div class="ex-step">比较系数：\(-3a=2\)，\(-2a-3b=1\)，解得 \(a=-\frac{2}{3}\)，\(b=\frac{1}{9}\)</div>
+        <div class="ex-step">特解 \(x_p=-\frac{2}{3}t+\frac{1}{9}\)</div>
+        <div class="ex-step">通解 \(x=C_1e^{3t}+C_2e^{-t}-\frac{2}{3}t+\frac{1}{9}\)</div>
+        <div class="ex-step">\(\frac{dx}{dt}=3C_1e^{3t}-C_2e^{-t}-\frac{2}{3}\)</div>
+        <div class="ex-step">代入初值 \(t=0, x=\frac{1}{3}\)：\(C_1+C_2+\frac{1}{9}=\frac{1}{3}\)，即 \(C_1+C_2=\frac{2}{9}\)</div>
+        <div class="ex-step">代入初值 \(t=0, \frac{dx}{dt}=-\frac{4}{9}\)：\(3C_1-C_2-\frac{2}{3}=-\frac{4}{9}\)，即 \(3C_1-C_2=\frac{2}{9}\)</div>
+        <div class="ex-step">联立：\(4C_1=\frac{4}{9}\)，\(C_1=\frac{1}{9}\)，\(C_2=\frac{2}{9}-\frac{1}{9}=\frac{1}{9}\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(x=\frac{1}{9}e^{3t}+\frac{1}{9}e^{-t}-\frac{2}{3}t+\frac{1}{9}\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(4)</span><span class="ex-qmath">\(\displaystyle \frac{d^{2}x}{dt^{2}}-6\frac{dx}{dt}+13x=39, 当 t=0 时, x=4, \frac{dx}{dt}=3\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程为 \(r^2 - 6r + 13 = 0\)</div>
+        <div class="ex-step">求根得 \(r = \frac{6 \pm \sqrt{36-52}}{2} = \frac{6 \pm \sqrt{-16}}{2} = 3 \pm 2i\)</div>
+        <div class="ex-step">齐次通解为 \(x_h = e^{3t}(C_1 \cos 2t + C_2 \sin 2t)\)</div>
+        <div class="ex-step">设特解 \(x_p = A\)，代入方程得 \(13A = 39\)，故 \(A = 3\)</div>
+        <div class="ex-step">通解为 \(x = e^{3t}(C_1 \cos 2t + C_2 \sin 2t) + 3\)</div>
+        <div class="ex-step">求导得 \(\frac{dx}{dt} = 3e^{3t}(C_1 \cos 2t + C_2 \sin 2t) + e^{3t}(-2C_1 \sin 2t + 2C_2 \cos 2t)\)</div>
+        <div class="ex-step">由 \(x(0) = 4\)：\(C_1 + 3 = 4\)，得 \(C_1 = 1\)</div>
+        <div class="ex-step">由 \(\frac{dx}{dt}\big|_{t=0} = 3\)：\(3C_1 + 2C_2 = 3\)，即 \(3 + 2C_2 = 3\)，得 \(C_2 = 0\)</div>
+        <div class="ex-step">特解为 \(x = e^{3t}\cos 2t + 3\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(x = e^{3t}\cos 2t + 3\)</span></div>
+      </div>
+    </div>
+    <div class="ex">
+      <div class="ex-q"><span class="ex-no">(5)</span><span class="ex-qmath">\(\displaystyle y''+8y=8\sin 2x, y(0)=y\left(\frac{\pi}{2}\right)=0\)</span></div>
+      <div class="ex-sol">
+        <div class="ex-step">特征方程 \(r^2+8=0\)，得 \(r=\pm 2\sqrt{2}i\)</div>
+        <div class="ex-step">齐次通解 \(y_h=C_1\cos 2\sqrt{2}x+C_2\sin 2\sqrt{2}x\)</div>
+        <div class="ex-step">设特解 \(y_p=A\sin 2x+B\cos 2x\)</div>
+        <div class="ex-step">代入 \(y_p''=-4A\sin 2x-4B\cos 2x\)，得 \(-4A\sin 2x-4B\cos 2x+8A\sin 2x+8B\cos 2x=8\sin 2x\)</div>
+        <div class="ex-step">即 \(4A\sin 2x+4B\cos 2x=8\sin 2x\)，比较系数得 \(A=2, B=0\)</div>
+        <div class="ex-step">特解 \(y_p=2\sin 2x\)</div>
+        <div class="ex-step">通解 \(y=C_1\cos 2\sqrt{2}x+C_2\sin 2\sqrt{2}x+2\sin 2x\)</div>
+        <div class="ex-step">由 \(y(0)=0\)：\(C_1+0+0=0\)，得 \(C_1=0\)</div>
+        <div class="ex-step">由 \(y\left(\frac{\pi}{2}\right)=0\)：\(C_2\sin \sqrt{2}\pi+2\sin \pi=0\)，即 \(C_2\sin \sqrt{2}\pi=0\)</div>
+        <div class="ex-step">因 \(\sin \sqrt{2}\pi\neq 0\)（\(\sqrt{2}\) 为无理数），故 \(C_2=0\)</div>
+        <div class="ex-step">特解为 \(y=2\sin 2x\)</div>
+      <div class="ex-ans"><span class="ex-ans-label">答案</span><span>\(y=2\sin 2x\)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-jump">
+    <a href="11.2-second-order-problems.html">← 11.2 题型</a>
+    <a href="../ch10/10.1-exercises.html" class="primary">10.1 判敛散习题 →</a>
+  </div>
+
+</main>
+
+<button class="back-to-top" aria-label="回到顶部">↑</button>
+<footer class="site-footer">
+  高数期末复习站 · 教材习题考场标准步骤详解<a href="../index.html">🏠 回首页</a>
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>
